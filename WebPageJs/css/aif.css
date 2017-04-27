@@ -1,16 +1,107 @@
-background-red {
+.background-red {
   background-color: #d50046; }
 
-background-yellow {
+.background-red-dark {
+  background-color: #8e002f; }
+
+.bottom-dark-border-red {
+  border-bottom: 4px solid #8e002f; }
+
+.background-yellow {
   background-color: #ff9a31; }
 
-background-green {
+.background-yellow-dark {
+  background-color: #e97700; }
+
+.bottom-dark-border-yellow {
+  border-bottom: 4px solid #e97700; }
+
+.background-green {
   background-color: #00c394; }
 
-background-light_blue {
+.background-green-dark {
+  background-color: #007c5e; }
+
+.bottom-dark-border-green {
+  border-bottom: 4px solid #007c5e; }
+
+.background-light_blue {
   background-color: #0090ff; }
 
-background-dark_blue {
+.background-light_blue-dark {
+  background-color: #0068b8; }
+
+.bottom-dark-border-light_blue {
+  border-bottom: 4px solid #0068b8; }
+
+.background-dark_blue {
   background-color: #0072af; }
+
+.background-dark_blue-dark {
+  background-color: #004368; }
+
+.bottom-dark-border-dark_blue {
+  border-bottom: 4px solid #004368; }
+
+.background-purple {
+  background-color: #8a00b6; }
+
+.background-purple-dark {
+  background-color: #54006f; }
+
+.bottom-dark-border-purple {
+  border-bottom: 4px solid #54006f; }
+
+.background-black {
+  background-color: black; }
+
+.background-black-dark {
+  background-color: black; }
+
+.bottom-dark-border-black {
+  border-bottom: 4px solid black; }
+
+h2 {
+  font-size: 35px;
+  font-family: lato, sans-serif;
+  font-weight: 300;
+  color: #fff; }
+
+.low-pad-cell {
+  padding-right: 5px;
+  padding-left: 5px; }
+
+.main {
+  padding: 50px 60px; }
+
+.aif-tile {
+  margin-top: 10px;
+  height: 200px; }
+  .aif-tile h2 {
+    padding: 8px 0 0 15px; }
+
+.anchor-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%; }
+
+.circle-border {
+  position: absolute;
+  margin: 0px;
+  opacity: 1;
+  width: 51px;
+  height: 51px;
+  right: 20px;
+  bottom: auto;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 44px;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center; }
 
 /*# sourceMappingURL=aif.css.map */

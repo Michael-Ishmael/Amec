@@ -3,29 +3,84 @@ $yellow: rgb(255, 154, 49);
 $green: rgb(0, 195, 148);
 $light_blue: rgb(0, 144, 255);
 $dark_blue: rgb(0, 114, 175);
+$purple: rgb(138, 0, 182);
+$black: rgb(0, 0, 0);
 
 $color-list: (
         red $red,
         yellow $yellow,
         green $green,
         light_blue  $light_blue,
-        dark_blue $dark_blue
+        dark_blue $dark_blue,
+        purple $purple,
+        black $black
 );
 
 
 @each $value in $color-list {
 
-  background-#{nth($value, 1)} {
+  .background-#{nth($value, 1)} {
     background-color: nth($value, 2);
   }
 
+  .background-#{nth($value, 1)}-dark {
+    background-color: darken(nth($value, 2), 14%);
+  }
+
+  .bottom-dark-border-#{nth($value, 1)} {
+    border-bottom: 4px solid darken(nth($value, 2), 14%);
+  }
 }
 
+h2 {
+  font-size: 35px;
+  font-family: lato, sans-serif;
+  font-weight: 300;
+  color: #fff;
+}
+
+.low-pad-cell {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.main {
+  padding: 50px 60px;
+}
 
 .aif-tile {
+  margin-top: 10px;
+  height: 200px;
 
+  h2 {
+    padding: 8px 0 0 15px;
+  }
+}
 
+.anchor-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
 
+.circle-border {
 
+  position: absolute;
+  margin: 0px;
+  opacity: 1;
+  width: 51px;
+  height: 51px;
+  right: 20px;
+  bottom: auto;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 44px;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
 
 }
