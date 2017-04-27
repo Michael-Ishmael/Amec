@@ -1,0 +1,31 @@
+$red: rgb(213, 0, 70);
+$yellow: rgb(255, 154, 49);
+$green: rgb(0, 195, 148);
+$light_blue: rgb(0, 144, 255);
+$dark_blue: rgb(0, 114, 175);
+
+$color-list: (
+        red $red,
+        yellow $yellow,
+        green $green,
+        light_blue  $light_blue,
+        dark_blue $dark_blue
+);
+
+
+@each $value in $color-list {
+
+  background-#{nth($value, 1)} {
+    background-color: nth($value, 2);
+  }
+
+}
+
+
+.aif-tile {
+
+
+
+
+
+}
