@@ -1,0 +1,32 @@
+/*-- blz STYLE
+-----------------------------------------------------------------*/
+.blzicon{background:url('../images/plugin_icon.png') no-repeat;}
+.blztitle {background: url('../images/plugin_icon.png') no-repeat;padding-left: 40px !important;line-height: 17px !important;padding-bottom: 10px !important;margin: 15px 0 5px !important;}
+#blzblock-side{float: right;background-color: #fff;border-radius:2px;padding: 20px 40px; max-width: 700px;}
+#blzblock{width:50%;float: left;}
+#blzblock .blz-meta-box {min-width:600px;}
+#blzblock .blz_button{ font-size: 20px !important;font-weight: normal;height: 40px; width: 250px;float:right; margin-top: -8px;background: none repeat scroll 0 0 #21759B;} 
+#blzblock .blz_left{float:left;}
+#blzblock .blz_clear{clear:both;}
+#blzblock .blz_error{background: none repeat scroll 0 0 #9B0707;border-radius: 2px 2px 2px 2px; color: #FFFFFF; margin-top: 10px; padding: 5px;} #blzblock .postbox{margin-bottom:10px;padding-bottom: 5px;}
+#blz-expand,#blz-collapse{outline:none;}
+p.found {background: url("../images/found.png") no-repeat scroll 0 0 transparent;color: #278412; font-size: 12px; height: 24px; padding-left: 30px; padding-top: 3px;}
+p.not-found {background: url("../images/not-found.png") no-repeat scroll 0 0 transparent;color: #ab1515; font-size: 12px; height: 24px; padding-left: 30px; padding-top: 3px;}
+#blzblock #icon-blazeinstaller{display:none;}
+#blzblock .blz_h3{border-bottom: 1px solid; color: #845E06; font-size: 18px; margin-bottom: 20px; margin-top: 50px; padding-bottom: 5px; text-transform: capitalize;}
+#blzblock .blz_act{color: #278412;}
+#blzblock h3.hndle span{color: #604A05;}
+#blzblock table.blz_files {text-align:center;font-family: verdana,arial,sans-serif; font-size:11px; color:#333333; border-width: 1px; border-color: #666666; border-collapse: collapse; width: 100%; }
+#blzblock table.blz_files th {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #dedede; }
+#blzblock table.blz_files td {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #ffffff; }
+#blzblock a.blz_filedwn{background: url("../images/download.png") no-repeat scroll 0 0 transparent;}
+#blzblock a.blz_trashdwn{background: url("../images/trash.png") no-repeat scroll 0 0 transparent;position: relative;top: -1px;}
+#blzblock a.expfile{display: block; height: 23px; margin: 0 auto; outline: medium none; width: 24px;}
+#blzblock a.blz_plugbkup{background: url("../images/backup.png") no-repeat scroll 0 0 transparent;color: #677F11; display: block; font-size: 13px; font-weight: bold; height: 32px; line-height: 34px; margin-bottom: 20px; outline: medium none; padding-left: 35px; text-decoration: none;}
+#blzblock .blz_iframe{left: 790px; line-height: 0; position: fixed; top: 113px;}
+
+#blzblock .form-table {}
+#blzblock .form-table tr th {width:100px; padding-bottom:10px;}
+#blzblock .form-table tr td {padding:10px;}
+#blzblock .form-table tr td input {width:300px;height:30px;}
+#blzblock .form-table tr td.blz-save-button {padding: 15px 0 20px;}

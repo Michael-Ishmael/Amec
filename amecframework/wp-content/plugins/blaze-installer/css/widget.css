@@ -1,0 +1,18 @@
+#blaze_widget h2 {
+	color:#fff;
+	background:orange;
+	    padding: 15px 12px;
+}
+
+#blaze_widget button.handlediv {
+	display: none !important;
+}
+
+#blaze_widget iframe {
+	width:100%;
+	min-height: 50px;
+}
+
+#blaze_widget iframe body {
+	margin:0 !important;
+}
