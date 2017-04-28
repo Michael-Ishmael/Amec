@@ -24,7 +24,7 @@ $color-list: (
     background-color: nth($value, 2);
   }
 
-  .background-#{nth($value, 1)}-dark {
+  .background-dark-#{nth($value, 1)} {
     background-color: darken(nth($value, 2), 14%);
   }
 
@@ -33,12 +33,17 @@ $color-list: (
   }
 }
 
+
+
+
 h2 {
   font-size: 35px;
   font-family: lato, sans-serif;
   font-weight: 300;
   color: #fff;
 }
+
+
 
 .low-pad-cell {
   padding-right: 5px;

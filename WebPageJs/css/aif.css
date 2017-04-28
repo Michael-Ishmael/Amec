@@ -1,7 +1,7 @@
 .background-red {
   background-color: #d50046; }
 
-.background-red-dark {
+.background-dark-red {
   background-color: #8e002f; }
 
 .bottom-dark-border-red {
@@ -10,7 +10,7 @@
 .background-yellow {
   background-color: #ff9a31; }
 
-.background-yellow-dark {
+.background-dark-yellow {
   background-color: #e97700; }
 
 .bottom-dark-border-yellow {
@@ -19,7 +19,7 @@
 .background-green {
   background-color: #00c394; }
 
-.background-green-dark {
+.background-dark-green {
   background-color: #007c5e; }
 
 .bottom-dark-border-green {
@@ -28,7 +28,7 @@
 .background-light_blue {
   background-color: #0090ff; }
 
-.background-light_blue-dark {
+.background-dark-light_blue {
   background-color: #0068b8; }
 
 .bottom-dark-border-light_blue {
@@ -37,7 +37,7 @@
 .background-dark_blue {
   background-color: #0072af; }
 
-.background-dark_blue-dark {
+.background-dark-dark_blue {
   background-color: #004368; }
 
 .bottom-dark-border-dark_blue {
@@ -46,7 +46,7 @@
 .background-purple {
   background-color: #8a00b6; }
 
-.background-purple-dark {
+.background-dark-purple {
   background-color: #54006f; }
 
 .bottom-dark-border-purple {
@@ -55,7 +55,7 @@
 .background-black {
   background-color: #1f1f1f; }
 
-.background-black-dark {
+.background-dark-black {
   background-color: black; }
 
 .bottom-dark-border-black {
@@ -64,7 +64,7 @@
 .background-bright_green {
   background-color: #2da41a; }
 
-.background-bright_green-dark {
+.background-dark-bright_green {
   background-color: #1c6610; }
 
 .bottom-dark-border-bright_green {

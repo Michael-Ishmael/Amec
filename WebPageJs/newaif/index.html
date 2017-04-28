@@ -13,112 +13,55 @@
         href="https://use.edgefonts.net/c/37311d/1w;lato,1,c0m:W:i1,c0q:W:i3,c0s:W:i4,c0y:W:i7,c12:W:i9,c0l:W:n1,c0p:W:n3,c0r:W:n4,c0x:W:n7,c11:W:n9/l"
         media="all">
   <script src="//use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.js" type="text/javascript"></script>
+  <script src="../js/knockout-3.2.0.debug.js"></script>
+
+
+
+
 </head>
 <body>
 
-<div class="main container">
-
-  <div class="row">
-
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-red">
-        <h2>Objectives</h2>
-        <div class="anchor-bottom bottom-dark-border-red">
-          <div class="circle-border background-red-dark">
-            1
-          </div>
-        </div>
-      </div>
+<template id="standard">
+  <h2 data-bind="text: title">
+  </h2>
+  <div class="anchor-bottom" data-bind="css: getColorClass('bottom-dark-border')">
+    <div class="circle-border" data-bind="text: index, css: getColorClass('background-dark')">
 
     </div>
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-yellow">
-        <h2>Inputs</h2>
-        <div class="anchor-bottom bottom-dark-border-yellow">
-          <div class="circle-border background-yellow-dark">
-            2
-          </div>
-        </div>
+  </div>
+</template>
+
+<template id="submit">
+
+  <p>
+    Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
+  </p>
+
+  <div data-bind="if: isSubmit" class="anchor-bottom background-bright_green bottom-dark-border-bright_green">
+    <span class="button-label" data-bind="text: title">SUBMIT</span>
+  </div>
+
+</template>
+
+<div class="main container" >
+<div class="base-framework" data-bind="foreach: rows">
+
+  <div class="row" data-bind="foreach: $data">
+    <div class="low-pad-cell" data-bind="css: columnClass">
+      <div class="aif-tile" data-bind="css: getColorClass('background'), template: template">
+
       </div>
-    </div>
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-green">
-        <h2>Activity</h2>
-        <div class="anchor-bottom bottom-dark-border-green">
-          <div class="circle-border background-green-dark">
-            3
-          </div>
-        </div>
-      </div>
+
     </div>
 
   </div>
+</div>
+  <h1 data-bind="visible: showEdit">
+    Test text
+  </h1>
 
-  <div class="row">
-
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-light_blue">
-        <h2>Outputs</h2>
-        <div class="anchor-bottom bottom-dark-border-light_blue">
-          <div class="circle-border background-light_blue-dark">
-            4
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-dark_blue">
-        <h2>Out-takes</h2>
-        <div class="anchor-bottom bottom-dark-border-dark_blue">
-          <div class="circle-border background-dark_blue-dark">
-            5
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-dark_blue">
-        <h2>Outcomes</h2>
-        <div class="anchor-bottom bottom-dark-border-dark_blue">
-          <div class="circle-border background-dark_blue-dark">
-            6
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-md-8 low-pad-cell">
-      <div class="aif-tile background-purple">
-        <h2>Outputs</h2>
-        <div class="anchor-bottom bottom-dark-border-purple">
-          <div class="circle-border background-purple-dark">
-            7
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col-md-4 low-pad-cell">
-      <div class="aif-tile background-black">
-        <p>
-          Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
-        </p>
-        <div class="anchor-bottom background-bright_green bottom-dark-border-bright_green">
-          <span class="button-label">SUBMIT</span>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-  <div class="entries">
+<!--  <div class="entries" data-bind="visible: showEdit">
 
     <div class="row">
       <div class="col-md-8 low-pad-cell">
@@ -154,9 +97,10 @@
 
     </div>
 
-  </div>
+  </div>-->
 
-
-  <script src="../js/bootstrap.js" type="text/javascript"></script>
+</div>
+  <script src="../js/aif_data.js"></script>
+  <script src="../js/aif.js"></script>
 </body>
 </html>
