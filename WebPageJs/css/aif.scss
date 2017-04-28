@@ -4,18 +4,19 @@ $green: rgb(0, 195, 148);
 $light_blue: rgb(0, 144, 255);
 $dark_blue: rgb(0, 114, 175);
 $purple: rgb(138, 0, 182);
-$black: rgb(0, 0, 0);
+$black: rgb(31, 31, 31);
+$bright_green: rgb(45, 164, 26);
 
 $color-list: (
         red $red,
         yellow $yellow,
         green $green,
-        light_blue  $light_blue,
+        light_blue $light_blue,
         dark_blue $dark_blue,
         purple $purple,
-        black $black
+        black $black,
+        bright_green $bright_green
 );
-
 
 @each $value in $color-list {
 
@@ -48,38 +49,70 @@ h2 {
   padding: 50px 60px;
 }
 
+.outy {
+  background-color: #636c72;
+}
+
+.entries {
+  position: absolute;
+  padding: 50px 60px;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .aif-tile {
   margin-top: 10px;
   height: 200px;
+  position: relative;
+  cursor: pointer;
+  font-family: lato, sans-serif;
 
   h2 {
     padding: 8px 0 0 15px;
   }
+
+  p {
+    color: #fff;
+    padding: 26px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: lato, sans-serif;
+  }
+
 }
 
 .anchor-bottom {
   position: absolute;
   bottom: 0;
-  height: 60px;
+  height: 80px;
   width: 100%;
+
+  .button-label {
+    font-size: 25px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
 }
 
 .circle-border {
 
   position: absolute;
-  margin: 0px;
   opacity: 1;
   width: 51px;
   height: 51px;
-  right: 20px;
-  bottom: auto;
-  background-size: 100% 100%;
+  right: 12px;
+  bottom: 10px;
   border-radius: 50%;
   border: 3px solid white;
   font-size: 28px;
   font-weight: 700;
   line-height: 44px;
-  vertical-align: middle;
   color: #fff;
   text-align: center;
 

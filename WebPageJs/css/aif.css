@@ -53,13 +53,22 @@
   border-bottom: 4px solid #54006f; }
 
 .background-black {
-  background-color: black; }
+  background-color: #1f1f1f; }
 
 .background-black-dark {
   background-color: black; }
 
 .bottom-dark-border-black {
   border-bottom: 4px solid black; }
+
+.background-bright_green {
+  background-color: #2da41a; }
+
+.background-bright_green-dark {
+  background-color: #1c6610; }
+
+.bottom-dark-border-bright_green {
+  border-bottom: 4px solid #1c6610; }
 
 h2 {
   font-size: 35px;
@@ -74,33 +83,57 @@ h2 {
 .main {
   padding: 50px 60px; }
 
+.outy {
+  background-color: #636c72; }
+
+.entries {
+  position: absolute;
+  padding: 50px 60px;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
 .aif-tile {
   margin-top: 10px;
-  height: 200px; }
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  font-family: lato, sans-serif; }
   .aif-tile h2 {
     padding: 8px 0 0 15px; }
+  .aif-tile p {
+    color: #fff;
+    padding: 26px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: lato, sans-serif; }
 
 .anchor-bottom {
   position: absolute;
   bottom: 0;
-  height: 60px;
+  height: 80px;
   width: 100%; }
+  .anchor-bottom .button-label {
+    font-size: 25px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px; }
 
 .circle-border {
   position: absolute;
-  margin: 0px;
   opacity: 1;
   width: 51px;
   height: 51px;
-  right: 20px;
-  bottom: auto;
-  background-size: 100% 100%;
+  right: 12px;
+  bottom: 10px;
   border-radius: 50%;
   border: 3px solid white;
   font-size: 28px;
   font-weight: 700;
   line-height: 44px;
-  vertical-align: middle;
   color: #fff;
   text-align: center; }
 
