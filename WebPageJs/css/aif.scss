@@ -28,6 +28,10 @@ $color-list: (
     background-color: darken(nth($value, 2), 14%);
   }
 
+  .background-light-#{nth($value, 1)} {
+    background-color: lighten(nth($value, 2), 14%);
+  }
+
   .bottom-dark-border-#{nth($value, 1)} {
     border-bottom: 4px solid darken(nth($value, 2), 14%);
   }
@@ -54,8 +58,50 @@ h2 {
   padding: 50px 60px;
 }
 
-.outy {
-  background-color: #636c72;
+.bg-cloak {
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  z-index: 4;
+}
+
+.input {
+
+  color: #fff;
+  font-family: lato, sans-serif;
+
+  .header {
+    height: 40px;
+
+    h3 {
+      font-size: 25px;
+      font-weight: 300;
+      color: #fff;
+
+    }
+  }
+
+  .section {
+
+    h4 {
+      font-size: 23px;
+      font-weight: 300;
+      color: #fff;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+  }
+}
+
+.info {
+
 }
 
 .entries {
@@ -80,7 +126,8 @@ h2 {
 
   p {
     color: #fff;
-    padding: 26px;
+    padding: 18PX 22px;
+
     font-size: 18px;
     font-weight: 300;
     font-family: lato, sans-serif;
@@ -120,5 +167,32 @@ h2 {
   line-height: 44px;
   color: #fff;
   text-align: center;
+
+}
+
+.border-caret {
+  position: relative;
+  top: 11px;
+  width: 30px;
+  height: 18px;
+  right: 0;
+
+  .caret-left {
+    position: relative;
+    left: -2px;
+    top: 7px;
+    width: 21px;
+    height: 3px;
+    border: 0 solid rgb(255, 255, 255);
+  }
+
+  .caret-right {
+    position: relative;
+    left: 12px;
+    top: 7px;
+    width: 21px;
+    height: 3px;
+    border: 0px solid rgb(255, 255, 255);
+  }
 
 }

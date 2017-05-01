@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "compile": "tsc --sourcemap --out js/Application.js js/_all.ts"
+  }
+}

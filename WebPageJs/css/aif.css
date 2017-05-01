@@ -4,6 +4,9 @@
 .background-dark-red {
   background-color: #8e002f; }
 
+.background-light-red {
+  background-color: #ff1d68; }
+
 .bottom-dark-border-red {
   border-bottom: 4px solid #8e002f; }
 
@@ -12,6 +15,9 @@
 
 .background-dark-yellow {
   background-color: #e97700; }
+
+.background-light-yellow {
+  background-color: #ffbd78; }
 
 .bottom-dark-border-yellow {
   border-bottom: 4px solid #e97700; }
@@ -22,6 +28,9 @@
 .background-dark-green {
   background-color: #007c5e; }
 
+.background-light-green {
+  background-color: #0bffc4; }
+
 .bottom-dark-border-green {
   border-bottom: 4px solid #007c5e; }
 
@@ -30,6 +39,9 @@
 
 .background-dark-light_blue {
   background-color: #0068b8; }
+
+.background-light-light_blue {
+  background-color: #47afff; }
 
 .bottom-dark-border-light_blue {
   border-bottom: 4px solid #0068b8; }
@@ -40,6 +52,9 @@
 .background-dark-dark_blue {
   background-color: #004368; }
 
+.background-light-dark_blue {
+  background-color: #00a1f6; }
+
 .bottom-dark-border-dark_blue {
   border-bottom: 4px solid #004368; }
 
@@ -48,6 +63,9 @@
 
 .background-dark-purple {
   background-color: #54006f; }
+
+.background-light-purple {
+  background-color: #c000fd; }
 
 .bottom-dark-border-purple {
   border-bottom: 4px solid #54006f; }
@@ -58,6 +76,9 @@
 .background-dark-black {
   background-color: black; }
 
+.background-light-black {
+  background-color: #434343; }
+
 .bottom-dark-border-black {
   border-bottom: 4px solid black; }
 
@@ -66,6 +87,9 @@
 
 .background-dark-bright_green {
   background-color: #1c6610; }
+
+.background-light-bright_green {
+  background-color: #41dd28; }
 
 .bottom-dark-border-bright_green {
   border-bottom: 4px solid #1c6610; }
@@ -83,8 +107,31 @@ h2 {
 .main {
   padding: 50px 60px; }
 
-.outy {
-  background-color: #636c72; }
+.bg-cloak {
+  position: absolute;
+  margin: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  z-index: 4; }
+
+.input {
+  color: #fff;
+  font-family: lato, sans-serif; }
+  .input .header {
+    height: 40px; }
+    .input .header h3 {
+      font-size: 25px;
+      font-weight: 300;
+      color: #fff; }
+  .input .section h4 {
+    font-size: 23px;
+    font-weight: 300;
+    color: #fff; }
+  .input .section p {
+    font-size: 20px; }
 
 .entries {
   position: absolute;
@@ -104,7 +151,7 @@ h2 {
     padding: 8px 0 0 15px; }
   .aif-tile p {
     color: #fff;
-    padding: 26px;
+    padding: 18PX 22px;
     font-size: 18px;
     font-weight: 300;
     font-family: lato, sans-serif; }
@@ -136,5 +183,26 @@ h2 {
   line-height: 44px;
   color: #fff;
   text-align: center; }
+
+.border-caret {
+  position: relative;
+  top: 11px;
+  width: 30px;
+  height: 18px;
+  right: 0; }
+  .border-caret .caret-left {
+    position: relative;
+    left: -2px;
+    top: 7px;
+    width: 21px;
+    height: 3px;
+    border: 0 solid white; }
+  .border-caret .caret-right {
+    position: relative;
+    left: 12px;
+    top: 7px;
+    width: 21px;
+    height: 3px;
+    border: 0px solid white; }
 
 /*# sourceMappingURL=aif.css.map */
