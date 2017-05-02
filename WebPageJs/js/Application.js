@@ -422,8 +422,8 @@ var aif;
                 return true;
             return false;
         };
-        FrameworkCtrl.prototype.showInfoCell = function (e, inputItem, infoCell) {
-            e.stopPropagation();
+        FrameworkCtrl.prototype.showInfoCell = function (inputItem, infoCell) {
+            //e.stopPropagation();
             if (inputItem && infoCell) {
                 infoCell.leadText = inputItem.leadText;
                 infoCell.remainText = inputItem.remainText;

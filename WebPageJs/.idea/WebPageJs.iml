@@ -11,5 +11,7 @@
     <orderEntry type="library" name="angular" level="application" />
     <orderEntry type="library" name="angular-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="jquery-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all" level="application" />
+    <orderEntry type="library" name="angular" level="application" />
   </component>
 </module>

@@ -65,7 +65,7 @@ module aif {
       return false;
     }
 
-    public showInfoCell(e:Event, inputItem: IWorkflowInputItem, infoCell: WorkflowInfoCell):void{
+    public showInfoCell(inputItem: IWorkflowInputItem, infoCell: WorkflowInfoCell):void{
       //e.stopPropagation();
       if(inputItem && infoCell){
         infoCell.leadText = inputItem.leadText;
