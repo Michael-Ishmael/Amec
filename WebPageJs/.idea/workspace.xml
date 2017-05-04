@@ -2,20 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82c5ea1c-1f2f-433a-8055-1f67839aec74" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/WebPageJs.iml" afterPath="$PROJECT_DIR$/.idea/WebPageJs.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/tether.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/loop-page.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/vendor/angular.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/vendor/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/vendor/jquery-3.2.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/vendor/tether.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css" afterPath="$PROJECT_DIR$/css/aif.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css.map" afterPath="$PROJECT_DIR$/css/aif.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.scss" afterPath="$PROJECT_DIR$/css/aif.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js" afterPath="$PROJECT_DIR$/js/Application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js.map" afterPath="$PROJECT_DIR$/js/Application.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.ts" afterPath="$PROJECT_DIR$/js/Application.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/FrameworkRepository.js" afterPath="$PROJECT_DIR$/js/services/FrameworkRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/FrameworkRepository.ts" afterPath="$PROJECT_DIR$/js/services/FrameworkRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../amecframework/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" afterPath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-registration.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-registration.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/style.css" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/template-framework-page.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/template-framework-page.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,15 +38,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.56589144">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+                <state relative-caret-position="540">
+                  <caret line="36" column="10" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="36" selection-end-column="10" />
                   <folding>
                     <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="aif.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/css/aif.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-374">
+                  <caret line="18" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -85,7 +98,7 @@
           <file leaf-file-name="aif.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/aif.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="350">
+                <state relative-caret-position="825">
                   <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
                   <folding />
                 </state>
@@ -173,9 +186,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -218,7 +230,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -232,26 +244,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="angular-click-outside" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebPageJs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebPageJs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="aif.scss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -388,25 +386,25 @@
       <workItem from="1493641492046" duration="1703000" />
       <workItem from="1493644027348" duration="26720000" />
       <workItem from="1493680266740" duration="4910000" />
-      <workItem from="1493752632947" duration="4505000" />
+      <workItem from="1493752632947" duration="5425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57914000" />
+    <option name="totallyTimeSpent" value="58834000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20718816" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2769556" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29937997" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12215909" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16361788" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20024876" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -708,14 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/aif.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -821,7 +811,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/aif.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="825">
           <caret line="55" column="1" lean-forward="true" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
           <folding />
         </state>
@@ -829,12 +819,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="36" selection-end-column="10" />
           <folding>
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/aif.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

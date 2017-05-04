@@ -20,7 +20,7 @@
  	 do_action( 'ava_after_main_title' );
 	 ?>
 
-		<div class='container_wrap container_wrap_first main_color framework-page <?php avia_layout_class( 'main' ); ?>'>
+		<div class='container_wrap container_wrap_first framework-page <?php avia_layout_class( 'main' ); ?>'>
 
 			<div class='container'>
 
@@ -33,7 +33,7 @@
                     * If you want to overload this in a child theme then include a file
                     * called loop-page.php and that will be used instead.
                     */
-                    get_template_part("includes/amec", "registration");
+
 
                     $avia_config['size'] = avia_layout_class( 'main' , false) == 'fullsize' ? 'entry_without_sidebar' : 'entry_with_sidebar';
                     get_template_part( 'includes/loop', 'page' );

@@ -102,7 +102,7 @@ register_activation_hook ( __FILE__, 'aif_create_framework_page' );
 
 function load_framework_for_user_filter( $content ) {
 
-    $content = "Arnold's " . $content;
+    //$content = "Arnold's " . $content;
 
     return $content;
 }

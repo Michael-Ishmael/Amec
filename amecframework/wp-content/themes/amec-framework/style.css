@@ -14,6 +14,10 @@
 
 /* HTML Resets */
 
+
+
+
+
 body#top{
 	font-family: 'Roboto',  Arial, sans-serif;
 	font-weight: 300;
@@ -366,7 +370,7 @@ footer.socket_color{
 }
 
 #top .av_inherit_color .framework-button, #top .framework-button{
-	background-color:; 
+	background-color: #00a000;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -387,8 +391,8 @@ footer.socket_color{
 }
 
 #top .framework-page .container {
-	max-width : 1400px;
-	padding : 0;
+	/*max-width : 1400px;*/
+	/*padding : 0;*/
 }
 
 body .column-top-margin {
