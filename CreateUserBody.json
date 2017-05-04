@@ -1,0 +1,11 @@
+{
+	"username" : "michaeli",
+	"name" : "Michael",
+	"first_name" : "Michael",
+	"last_name" : "Ishmael",
+	"email" : "mail@michaelishmael.com",
+	"description" : "Test user 3",
+	"locale" : "en_US",
+	"password" : "Crumpet1",
+	"roles" : "roles"
+}

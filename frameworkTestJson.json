@@ -1,0 +1,110 @@
+{
+	"frameworkId" : 1,
+	"userId": 2,
+	"name": "Boots Spring Campaign 2017",
+	"framework": {
+		"objectives": {
+			"organizational" : [
+				"Boots organizational objective 1",
+				"Boots organizational objective 2",
+				"Boots organizational objective 3",
+			],
+			"communications" : [
+				"Boots communications objective 1",
+				"Boots communications objective 2",
+				"Boots communications objective 3",
+			]
+		},
+		"inputs": {
+			"audience" : [
+				"Boots audience 1",
+				"Boots audience 2",
+				"Boots audience 3",
+				"Boots audience 4",
+				"Boots audience 5",
+			],
+			"strategicInputs" : [
+				"Boots input 1",
+				"Boots input 2",
+				"Boots input 3",
+				"Boots input 4",
+				"Boots input 5",
+			],
+		},
+		"activities" : [
+				{
+					"mediaType" : "paid",
+					"activityDesc" : "Boots Campaign activity 1"
+				},
+				{
+					"mediaType" : "shared",
+					"activityDesc" : "Boots Campaign activity 2"
+				},
+				{
+					"mediaType" : "earned",
+					"activityDesc" : "Boots Campaign activity 3"
+				},
+				{
+					"mediaType" : "owned",
+					"activityDesc" : "Boots Campaign activity 4"
+				},
+				{
+					"mediaType" : "owned",
+					"activityDesc" : "Boots Campaign activity 5"
+				},
+				{
+					"mediaType" : "paid",
+					"activityDesc" : "Boots Campaign activity 6"
+				}
+			],
+			"outputs" : [
+				{
+					"mediaType" : "paid",
+					"outputDesc" : "Boots Campaign activity 1"
+				},
+				{
+					"mediaType" : "shared",
+					"outputDesc" : "Boots Campaign activity 2"
+				},
+				{
+					"mediaType" : "earned",
+					"outputDesc" : "Boots Campaign activity 3"
+				},
+				{
+					"mediaType" : "owned",
+					"outputDesc" : "Boots Campaign activity 4"
+				},
+				{
+					"mediaType" : "owned",
+					"outputDesc" : "Boots Campaign activity 5"
+				},
+				{
+					"mediaType" : "paid",
+					"outputDesc" : "Boots Campaign activity 6"
+				}
+			],
+			"outtakes" : [
+				"Boots out-take 1",
+				"Boots out-take 2",
+				"Boots out-take 3",
+				"Boots out-take 4",
+				"Boots out-take 5",
+			],
+			"outcomes" : [
+				"Boots outcome 1",
+				"Boots outcome 2",
+				"Boots outcome 3",
+				"Boots outcome 4",
+				"Boots outcome 5",
+			],
+			"impact" : [
+				"Boots impact 1",
+				"Boots impact 2",
+				"Boots impact 3",
+				"Boots impact 4",
+				"Boots impact 5",
+			]
+		}
+
+	}
+}
