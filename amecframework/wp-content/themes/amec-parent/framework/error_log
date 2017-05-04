@@ -6,3 +6,6 @@
 [15-Feb-2017 01:17:53 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28
 [10-Mar-2017 08:08:16 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28
 [14-Mar-2017 03:54:13 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28
+[31-Mar-2017 16:02:30 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28
+[14-Apr-2017 07:03:44 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28
+[28-Apr-2017 03:26:58 Europe/London] PHP Fatal error:  Call to undefined function do_action() in /home/amecorg/public_html/amecframework/wp-content/themes/amec-parent/framework/avia_framework.php on line 28

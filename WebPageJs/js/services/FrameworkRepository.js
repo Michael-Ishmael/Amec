@@ -194,7 +194,7 @@ var aif;
                             heading: "Communications Objectives",
                             subHeading: "What are your communication objectives for this program?",
                             leadText: "Communications Objectives",
-                            remainText: "fdfdfd",
+                            remainText: "are the specific objectives that your communication program, campaign, or project is designed to achieve. Your communication objectives must support one or more organizational objectives; identify which one\'s.</p><p>​Make sure your communications are SMART – Specific, Measurable, Achievable, Relevant and Time bound. Clearly define them and set targets for what you are looking to achieve",
                             inputStyle: aif.InputStyle.TextArea,
                             inputSize: 500
                         }

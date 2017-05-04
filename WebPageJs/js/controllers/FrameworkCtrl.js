@@ -3,7 +3,8 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkCtrl = (function () {
-        function FrameworkCtrl(frameworkRepository) {
+        function FrameworkCtrl($window, frameworkRepository) {
+            this.$window = $window;
             this.frameworkRepository = frameworkRepository;
             this.editMode = false;
             this.editStep = null;
@@ -27,9 +28,19 @@ var aif;
             step.showInput = true;
             this.editStep = step;
         };
+        FrameworkCtrl.prototype.isInSameStep = function (scp, arg2) {
+            console.log(arg2);
+            return false;
+        };
         FrameworkCtrl.prototype.clearEditMode = function () {
             this.editMode = false;
             this.editStep.showInput = false;
+            this.editStep.inputRow.forEach(function (c) {
+                if (c.cellType === aif.WorkflowCellType.Info) {
+                    var i = c;
+                    i.visible = false;
+                }
+            });
             this.editStep = null;
         };
         FrameworkCtrl.prototype.isInfo = function (cell) {
@@ -77,7 +88,7 @@ var aif;
         };
         return FrameworkCtrl;
     }());
-    FrameworkCtrl.$inject = [
+    FrameworkCtrl.$inject = ["$window",
         "frameworkRepository"
     ];
     aif.FrameworkCtrl = FrameworkCtrl;

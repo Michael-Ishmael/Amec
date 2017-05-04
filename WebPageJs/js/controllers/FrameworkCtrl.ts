@@ -11,11 +11,11 @@ module aif {
     public editStep: WorkflowStep = null;
     public infoCell: WorkflowInfoCell = null;
 
-    public static $inject = [
+    public static $inject = ["$window",
       "frameworkRepository"
     ];
 
-    constructor(private frameworkRepository: IFrameworkRepository) {
+    constructor(private $window:ng.IWindowService, private frameworkRepository: IFrameworkRepository) {
 
       this.steps = frameworkRepository.get();
       this.rows = aif.FrameworkCtrl.setRowsFromSteps(this.steps);
@@ -41,9 +41,19 @@ module aif {
       this.editStep = step;
     }
 
+    public isInSameStep(scp, arg2): boolean {
+      console.log(arg2);
+      return false;
+    }
+
     public clearEditMode():void {
       this.editMode = false;
       this.editStep.showInput = false;
+      this.editStep.inputRow.forEach(c => {
+        if(c.cellType === WorkflowCellType.Info) {
+          let i = c as WorkflowInfoCell;
+          i.visible =false;
+        }});
       this.editStep = null;
     }
 

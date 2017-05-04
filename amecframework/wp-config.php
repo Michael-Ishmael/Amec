@@ -23,10 +23,11 @@
 define('DB_NAME', 'amecorg_framework16');
 
 /** MySQL database username */
-define('DB_USER', 'amecorg_framewk');
+//define('DB_USER', 'amecorg_framewk');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'DLokwKU]*.[q');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -54,6 +55,7 @@ define('AUTH_SALT',        'r-=kSEhe7Ds+V{8m 5FYk{MZ,F*^-m%vBYHyC.:j_Jd~V)XSrNQ]
 define('SECURE_AUTH_SALT', '.fD]|Kw^Df9Zx&]HK*a>HW%c0XV&B NdH/W#[cy(1?2|nvsQD|B~,LrD}qK-,E5&');
 define('LOGGED_IN_SALT',   'lqy?O+7JG=Ou@zbm@<g5oD9dT$,rBAh}o,j9bHQOWhTB<Ix.6,}j &5_?=cKW7((');
 define('NONCE_SALT',       '>l@zCnkX?Yj6-J:(Tqj+@qHmL)wQ6j])c.Qh(=@ GveWkA4:yOmjB45A:CfC~PLo');
+define('JWT_AUTH_SECRET_KEY', 'DaveAllen');
 
 /**#@-*/
 
@@ -86,6 +88,9 @@ define( 'WP_DEBUG_LOG', true );
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
+
+
+define('JWT_AUTH_CORS_ENABLE', true);
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');

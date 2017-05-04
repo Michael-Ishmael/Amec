@@ -8,7 +8,7 @@
 module aif {
   'use strict';
 
-  let aif = angular.module('aif', [])
+  let aif = angular.module('aif', ['tw.directives.clickOutside'])
     .service('frameworkRepository', FrameworkRepository)
     .controller('frameworkCtrl', FrameworkCtrl);
     //.directive('todoBlur', todoBlur)

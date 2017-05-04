@@ -340,7 +340,7 @@ var aif;
                             heading: "Communications Objectives",
                             subHeading: "What are your communication objectives for this program?",
                             leadText: "Communications Objectives",
-                            remainText: "fdfdfd",
+                            remainText: "are the specific objectives that your communication program, campaign, or project is designed to achieve. Your communication objectives must support one or more organizational objectives; identify which one\'s.</p><p>​Make sure your communications are SMART – Specific, Measurable, Achievable, Relevant and Time bound. Clearly define them and set targets for what you are looking to achieve",
                             inputStyle: aif.InputStyle.TextArea,
                             inputSize: 500
                         }
@@ -378,7 +378,8 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkCtrl = (function () {
-        function FrameworkCtrl(frameworkRepository) {
+        function FrameworkCtrl($window, frameworkRepository) {
+            this.$window = $window;
             this.frameworkRepository = frameworkRepository;
             this.editMode = false;
             this.editStep = null;
@@ -402,9 +403,19 @@ var aif;
             step.showInput = true;
             this.editStep = step;
         };
+        FrameworkCtrl.prototype.isInSameStep = function (scp, arg2) {
+            console.log(arg2);
+            return false;
+        };
         FrameworkCtrl.prototype.clearEditMode = function () {
             this.editMode = false;
             this.editStep.showInput = false;
+            this.editStep.inputRow.forEach(function (c) {
+                if (c.cellType === aif.WorkflowCellType.Info) {
+                    var i = c;
+                    i.visible = false;
+                }
+            });
             this.editStep = null;
         };
         FrameworkCtrl.prototype.isInfo = function (cell) {
@@ -450,7 +461,7 @@ var aif;
             }
             return rows;
         };
-        FrameworkCtrl.$inject = [
+        FrameworkCtrl.$inject = ["$window",
             "frameworkRepository"
         ];
         return FrameworkCtrl;
@@ -466,7 +477,7 @@ var aif;
 var aif;
 (function (aif_1) {
     'use strict';
-    var aif = angular.module('aif', [])
+    var aif = angular.module('aif', ['tw.directives.clickOutside'])
         .service('frameworkRepository', aif_1.FrameworkRepository)
         .controller('frameworkCtrl', aif_1.FrameworkCtrl);
 })(aif || (aif = {}));
