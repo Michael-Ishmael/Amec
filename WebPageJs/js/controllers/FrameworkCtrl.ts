@@ -35,6 +35,7 @@ module aif {
       return
     }
 
+
     private switchToEditMode(step:WorkflowStep):void{
       this.editMode = true;
       step.showInput = true;

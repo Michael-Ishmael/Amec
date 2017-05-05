@@ -14,11 +14,14 @@ if (have_posts()) :
 
         <article class='post-entry post-entry-type-page <?php echo $post_class; ?>' <?php avia_markup_helper(array('context' => 'entry')); ?>>
 
-            <div class="entry-content-wrapper clearfix container aif-container">
+            <div id="aif-container" class="clearfix container aif-container">
                 <?php
                 echo '<header class="entry-content-header">';
+
                 $thumb = get_the_post_thumbnail(get_the_ID(), $avia_config['size']);
-                get_template_part("includes/amec", "registration");
+                get_template_part("includes/amec", "controls");
+
+
                 if($thumb) echo "<div class='page-thumb'>{$thumb}</div>";
                 echo '</header>';
 

@@ -1,33 +1,49 @@
 jQuery(document).ready(function ($) {
     // Display form from link inside a popup
 	$('#pop_login, #pop_signup').live('click', function (e) {
+
+
+        if ($(this).attr('id') == 'pop_login'){
+            $('#login_row').css('display', 'flex');
+            $('#register_row').css('display', 'none');
+        } else if ($(this).attr('id') == 'pop_signup') {
+            $('#login_row').css('display', 'none');
+            $('#register_row').css('display', 'flex');
+        }
+/*
         formToFadeOut = $('form#register');
         formtoFadeIn = $('form#login');
-        if ($(this).attr('id') == 'pop_signup') {
+        if ($(this).attr('id') === 'pop_signup') {
             formToFadeOut = $('form#login');
             formtoFadeIn = $('form#register');
         }
         formToFadeOut.fadeOut(500, function () {
             formtoFadeIn.fadeIn();
-        })
+        });*/
         return false;
     });
 	// Close popup
-    $(document).on('click', '.login_overlay, .close', function () {
-		$('form#login, form#register').fadeOut(500, function () {
-            $('.login_overlay').remove();
-        });
+    $(document).on('click', '.login_overlay, .close', function (e) {
+        $('#login_row').css('display', 'none');
         return false;
+        e.preventDefault();
     });
 
     // Show the login/signup popup on click
     $('#show_login, #show_signup').on('click', function (e) {
         //$('body').prepend('<div class="login_overlay"></div>');
-        $('#login_row').css('display', 'flex');
-/*        if ($(this).attr('id') == 'show_login')
+        if ($(this).attr('id') == 'show_login'){
+            $('#login_row').css('display', 'flex');
+            $('#register_row').css('display', 'none');
+        } else if ($(this).attr('id') == 'show_signup') {
+            $('#login_row').css('display', 'none');
+            $('#register_row').css('display', 'flex');
+        }
+
+/*
 			$('form#login').fadeIn(500);
         else 
-			$('form#register').fadeIn(500);*/
+			$('form#register').fadeIn(500); */
         e.preventDefault();
     });
 
@@ -42,8 +58,8 @@ jQuery(document).ready(function ($) {
             },
             success: function(r){
                 // When the response comes back
-                $( document.body ).trigger( 'post-load' );
-                //window.location = ajax_auth_object.redirecturl;
+                //$( document.body ).trigger( 'post-load' );
+                window.location = ajax_auth_object.redirecturl;
             }
         });
     });

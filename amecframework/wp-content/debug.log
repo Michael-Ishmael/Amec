@@ -1686,3 +1686,916 @@
 [04-May-2017 22:16:31 UTC] PHP   6. locate_template($template_names = *uninitialized*, $load = *uninitialized*, $require_once = *uninitialized*) /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
 [04-May-2017 22:16:31 UTC] PHP   7. load_template($_template_file = *uninitialized*, $require_once = *uninitialized*) /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
 [04-May-2017 22:16:31 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[04-May-2017 22:38:25 UTC] PHP Notice:  Undefined offset: 1 in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php on line 1227
+[04-May-2017 22:38:25 UTC] PHP Stack trace:
+[04-May-2017 22:38:25 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:0
+[04-May-2017 22:38:25 UTC] PHP   2. do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:91
+[04-May-2017 22:38:25 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:453
+[04-May-2017 22:38:25 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[04-May-2017 22:38:25 UTC] PHP   5. wp_ajax_dashboard_widgets() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[04-May-2017 22:38:25 UTC] PHP   6. wp_dashboard_primary() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/ajax-actions.php:314
+[04-May-2017 22:38:25 UTC] PHP   7. wp_dashboard_cached_rss_widget() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1169
+[04-May-2017 22:38:25 UTC] PHP   8. wp_dashboard_primary_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:999
+[04-May-2017 22:38:25 UTC] PHP   9. wp_dashboard_plugins_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1185
+[04-May-2017 22:38:25 UTC] PHP Notice:  Undefined offset: 1 in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php on line 1227
+[04-May-2017 22:38:25 UTC] PHP Stack trace:
+[04-May-2017 22:38:25 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:0
+[04-May-2017 22:38:25 UTC] PHP   2. do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:91
+[04-May-2017 22:38:25 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:453
+[04-May-2017 22:38:25 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[04-May-2017 22:38:25 UTC] PHP   5. wp_ajax_dashboard_widgets() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[04-May-2017 22:38:25 UTC] PHP   6. wp_dashboard_primary() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/ajax-actions.php:314
+[04-May-2017 22:38:25 UTC] PHP   7. wp_dashboard_cached_rss_widget() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1169
+[04-May-2017 22:38:25 UTC] PHP   8. wp_dashboard_primary_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:999
+[04-May-2017 22:38:25 UTC] PHP   9. wp_dashboard_plugins_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1185
+[05-May-2017 07:26:21 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php on line 129
+[05-May-2017 07:26:21 UTC] PHP Stack trace:
+[05-May-2017 07:26:21 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:0
+[05-May-2017 07:26:21 UTC] PHP   2. do_action_ref_array() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:117
+[05-May-2017 07:26:21 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[05-May-2017 07:26:21 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 07:26:21 UTC] PHP   5. wp_version_check() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 07:26:21 UTC] PHP   6. trigger_error() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php:129
+[05-May-2017 07:26:22 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php on line 319
+[05-May-2017 07:26:22 UTC] PHP Stack trace:
+[05-May-2017 07:26:22 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:0
+[05-May-2017 07:26:22 UTC] PHP   2. do_action_ref_array() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:117
+[05-May-2017 07:26:22 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[05-May-2017 07:26:22 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 07:26:22 UTC] PHP   5. wp_update_plugins() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 07:26:22 UTC] PHP   6. trigger_error() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php:319
+[05-May-2017 07:26:22 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php on line 499
+[05-May-2017 07:26:22 UTC] PHP Stack trace:
+[05-May-2017 07:26:22 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:0
+[05-May-2017 07:26:22 UTC] PHP   2. do_action_ref_array() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-cron.php:117
+[05-May-2017 07:26:22 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[05-May-2017 07:26:22 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 07:26:22 UTC] PHP   5. wp_update_themes() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 07:26:22 UTC] PHP   6. trigger_error() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/update.php:499
+[05-May-2017 07:26:33 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:26:33 UTC] PHP Stack trace:
+[05-May-2017 07:26:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:26:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:26:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:26:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:26:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:26:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:26:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:26:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:26:33 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 20
+[05-May-2017 07:26:33 UTC] PHP Stack trace:
+[05-May-2017 07:26:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:26:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:26:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:26:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:26:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:26:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:26:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:26:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:26:33 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 45
+[05-May-2017 07:26:33 UTC] PHP Stack trace:
+[05-May-2017 07:26:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:26:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:26:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:26:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:26:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:26:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:26:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:26:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:37:24 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:37:24 UTC] PHP Stack trace:
+[05-May-2017 07:37:24 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:37:24 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:37:24 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:37:24 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:37:24 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:37:24 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:37:24 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:37:24 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:37:24 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:37:24 UTC] PHP Stack trace:
+[05-May-2017 07:37:24 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:37:24 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:37:24 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:37:24 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:37:24 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:37:24 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:37:24 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:37:24 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:37:24 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:37:24 UTC] PHP Stack trace:
+[05-May-2017 07:37:24 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:37:24 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:37:24 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:37:24 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:37:24 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:37:24 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:37:24 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:37:24 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:33 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:39:33 UTC] PHP Stack trace:
+[05-May-2017 07:39:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:33 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:39:33 UTC] PHP Stack trace:
+[05-May-2017 07:39:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:33 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:39:33 UTC] PHP Stack trace:
+[05-May-2017 07:39:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:47 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:39:47 UTC] PHP Stack trace:
+[05-May-2017 07:39:47 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:47 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:47 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:47 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:47 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:47 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:47 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:47 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:47 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:39:47 UTC] PHP Stack trace:
+[05-May-2017 07:39:47 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:47 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:47 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:47 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:47 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:47 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:47 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:47 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:47 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:39:47 UTC] PHP Stack trace:
+[05-May-2017 07:39:47 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:47 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:47 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:47 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:47 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:47 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:47 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:47 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:53 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:39:53 UTC] PHP Stack trace:
+[05-May-2017 07:39:53 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:53 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:53 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:53 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:53 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:53 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:53 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:53 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:53 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:39:53 UTC] PHP Stack trace:
+[05-May-2017 07:39:53 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:53 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:53 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:53 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:53 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:53 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:53 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:53 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:39:53 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:39:53 UTC] PHP Stack trace:
+[05-May-2017 07:39:53 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:39:53 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:39:53 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:39:53 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:39:53 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:39:53 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:39:53 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:39:53 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:40:45 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:40:45 UTC] PHP Stack trace:
+[05-May-2017 07:40:45 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:40:45 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:40:45 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:40:45 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:40:45 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:40:45 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:40:45 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:40:45 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:40:45 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:40:45 UTC] PHP Stack trace:
+[05-May-2017 07:40:45 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:40:45 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:40:45 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:40:45 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:40:45 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:40:45 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:40:45 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:40:45 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:40:45 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:40:45 UTC] PHP Stack trace:
+[05-May-2017 07:40:45 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:40:45 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:40:45 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:40:45 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:40:45 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:40:45 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:40:45 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:40:45 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:50:03 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:50:03 UTC] PHP Stack trace:
+[05-May-2017 07:50:03 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:50:03 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:50:03 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:50:03 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:50:03 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:50:03 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:50:03 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:50:03 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:50:03 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:50:03 UTC] PHP Stack trace:
+[05-May-2017 07:50:03 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:50:03 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:50:03 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:50:03 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:50:03 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:50:03 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:50:03 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:50:03 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:50:03 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:50:03 UTC] PHP Stack trace:
+[05-May-2017 07:50:03 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:50:03 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:50:03 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:50:03 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:50:03 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:50:03 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:50:03 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:50:03 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:51:36 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:51:36 UTC] PHP Stack trace:
+[05-May-2017 07:51:36 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:51:36 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:51:36 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:51:36 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:51:36 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:51:36 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:51:36 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:51:36 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:51:36 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:51:36 UTC] PHP Stack trace:
+[05-May-2017 07:51:36 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:51:36 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:51:36 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:51:36 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:51:36 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:51:36 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:51:36 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:51:36 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:51:36 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:51:36 UTC] PHP Stack trace:
+[05-May-2017 07:51:36 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:51:36 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:51:36 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:51:36 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:51:36 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:51:36 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:51:36 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:51:36 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:52:52 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:52:52 UTC] PHP Stack trace:
+[05-May-2017 07:52:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:52:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:52:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:52:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:52:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:52:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:52:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:52:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:52:52 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:52:52 UTC] PHP Stack trace:
+[05-May-2017 07:52:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:52:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:52:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:52:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:52:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:52:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:52:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:52:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:52:52 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:52:52 UTC] PHP Stack trace:
+[05-May-2017 07:52:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:52:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:52:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:52:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:52:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:52:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:52:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:52:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:57:16 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 07:57:16 UTC] PHP Stack trace:
+[05-May-2017 07:57:16 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:57:16 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:57:16 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:57:16 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:57:16 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:57:16 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:57:16 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:57:16 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:57:16 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 07:57:16 UTC] PHP Stack trace:
+[05-May-2017 07:57:16 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:57:16 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:57:16 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:57:16 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:57:16 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:57:16 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:57:16 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:57:16 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 07:57:16 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 07:57:16 UTC] PHP Stack trace:
+[05-May-2017 07:57:16 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 07:57:16 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 07:57:16 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 07:57:16 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 07:57:16 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 07:57:16 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 07:57:16 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 07:57:16 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:03:23 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 08:03:23 UTC] PHP Stack trace:
+[05-May-2017 08:03:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:03:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:03:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:03:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:03:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:03:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:03:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:03:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:03:23 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 08:03:23 UTC] PHP Stack trace:
+[05-May-2017 08:03:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:03:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:03:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:03:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:03:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:03:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:03:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:03:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:03:23 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 08:03:23 UTC] PHP Stack trace:
+[05-May-2017 08:03:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:03:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:03:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:03:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:03:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:03:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:03:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:03:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:04:42 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 08:04:42 UTC] PHP Stack trace:
+[05-May-2017 08:04:42 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:04:42 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:04:42 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:04:42 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:04:42 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:04:42 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:04:42 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:04:42 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:04:42 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 08:04:42 UTC] PHP Stack trace:
+[05-May-2017 08:04:42 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:04:42 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:04:42 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:04:42 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:04:42 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:04:42 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:04:42 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:04:42 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:04:42 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 08:04:42 UTC] PHP Stack trace:
+[05-May-2017 08:04:42 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:04:42 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:04:42 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:04:42 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:04:42 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:04:42 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:04:42 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:04:42 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:04:50 UTC] PHP Notice:  ob_clean(): failed to delete buffer. No buffer to delete in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/libs/custom-ajax-auth.php on line 52
+[05-May-2017 08:04:50 UTC] PHP Stack trace:
+[05-May-2017 08:04:50 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:0
+[05-May-2017 08:04:50 UTC] PHP   2. do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:91
+[05-May-2017 08:04:50 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:453
+[05-May-2017 08:04:50 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 08:04:50 UTC] PHP   5. ajax_logout() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 08:04:50 UTC] PHP   6. ob_clean() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/libs/custom-ajax-auth.php:52
+[05-May-2017 08:06:06 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 08:06:06 UTC] PHP Stack trace:
+[05-May-2017 08:06:06 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:06:06 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:06:06 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:06:06 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:06:06 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:06:06 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:06:06 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:06:06 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:06:06 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 08:06:06 UTC] PHP Stack trace:
+[05-May-2017 08:06:06 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:06:06 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:06:06 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:06:06 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:06:06 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:06:06 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:06:06 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:06:06 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 08:06:06 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 08:06:06 UTC] PHP Stack trace:
+[05-May-2017 08:06:06 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 08:06:06 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 08:06:06 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 08:06:06 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 08:06:06 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 08:06:06 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 08:06:06 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 08:06:06 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:49:27 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 11:49:27 UTC] PHP Stack trace:
+[05-May-2017 11:49:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:49:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:49:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:49:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:49:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:49:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:49:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:49:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:49:27 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 11:49:27 UTC] PHP Stack trace:
+[05-May-2017 11:49:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:49:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:49:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:49:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:49:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:49:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:49:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:49:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:49:27 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 11:49:27 UTC] PHP Stack trace:
+[05-May-2017 11:49:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:49:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:49:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:49:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:49:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:49:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:49:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:49:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:50:18 UTC] PHP Notice:  Undefined offset: 1 in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php on line 1227
+[05-May-2017 11:50:18 UTC] PHP Stack trace:
+[05-May-2017 11:50:18 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:0
+[05-May-2017 11:50:18 UTC] PHP   2. do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:91
+[05-May-2017 11:50:18 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:453
+[05-May-2017 11:50:18 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 11:50:18 UTC] PHP   5. wp_ajax_dashboard_widgets() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 11:50:18 UTC] PHP   6. wp_dashboard_primary() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/ajax-actions.php:314
+[05-May-2017 11:50:18 UTC] PHP   7. wp_dashboard_cached_rss_widget() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1169
+[05-May-2017 11:50:18 UTC] PHP   8. wp_dashboard_primary_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:999
+[05-May-2017 11:50:18 UTC] PHP   9. wp_dashboard_plugins_output() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/includes/dashboard.php:1185
+[05-May-2017 11:55:27 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 11:55:27 UTC] PHP Stack trace:
+[05-May-2017 11:55:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:55:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:55:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:55:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:55:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:55:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:55:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:55:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:55:27 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 11:55:27 UTC] PHP Stack trace:
+[05-May-2017 11:55:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:55:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:55:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:55:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:55:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:55:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:55:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:55:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:55:27 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 11:55:27 UTC] PHP Stack trace:
+[05-May-2017 11:55:27 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:55:27 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:55:27 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:55:27 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:55:27 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:55:27 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:55:27 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:55:27 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:23 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 11:56:23 UTC] PHP Stack trace:
+[05-May-2017 11:56:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:23 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 11:56:23 UTC] PHP Stack trace:
+[05-May-2017 11:56:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:23 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 11:56:23 UTC] PHP Stack trace:
+[05-May-2017 11:56:23 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:23 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:23 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:23 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:23 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:23 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:23 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:23 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:52 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 11:56:52 UTC] PHP Stack trace:
+[05-May-2017 11:56:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:52 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 11:56:52 UTC] PHP Stack trace:
+[05-May-2017 11:56:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:56:52 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 11:56:52 UTC] PHP Stack trace:
+[05-May-2017 11:56:52 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:56:52 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:56:52 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:56:52 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:56:52 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:56:52 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:56:52 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:56:52 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:58:11 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 11:58:11 UTC] PHP Stack trace:
+[05-May-2017 11:58:11 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:58:11 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:58:11 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:58:11 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:58:11 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:58:11 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:58:11 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:58:11 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:58:11 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 11:58:11 UTC] PHP Stack trace:
+[05-May-2017 11:58:11 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:58:11 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:58:11 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:58:11 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:58:11 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:58:11 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:58:11 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:58:11 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 11:58:11 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 11:58:11 UTC] PHP Stack trace:
+[05-May-2017 11:58:11 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 11:58:11 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 11:58:11 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 11:58:11 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 11:58:11 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 11:58:11 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 11:58:11 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 11:58:11 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:14:49 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:14:49 UTC] PHP Stack trace:
+[05-May-2017 12:14:49 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:14:49 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:14:49 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:14:49 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:14:49 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:14:49 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:14:49 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:14:49 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:14:49 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:14:49 UTC] PHP Stack trace:
+[05-May-2017 12:14:49 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:14:49 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:14:49 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:14:49 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:14:49 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:14:49 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:14:49 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:14:49 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:14:49 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:14:49 UTC] PHP Stack trace:
+[05-May-2017 12:14:49 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:14:49 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:14:49 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:14:49 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:14:49 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:14:49 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:14:49 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:14:49 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:13 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:17:13 UTC] PHP Stack trace:
+[05-May-2017 12:17:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:13 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:17:13 UTC] PHP Stack trace:
+[05-May-2017 12:17:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:13 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:17:13 UTC] PHP Stack trace:
+[05-May-2017 12:17:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:42 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:17:42 UTC] PHP Stack trace:
+[05-May-2017 12:17:42 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:42 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:42 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:42 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:42 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:42 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:42 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:42 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:42 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:17:42 UTC] PHP Stack trace:
+[05-May-2017 12:17:42 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:42 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:42 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:42 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:42 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:42 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:42 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:42 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:17:43 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:17:43 UTC] PHP Stack trace:
+[05-May-2017 12:17:43 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:17:43 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:17:43 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:17:43 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:17:43 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:17:43 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:17:43 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:17:43 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:19:13 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:19:13 UTC] PHP Stack trace:
+[05-May-2017 12:19:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:19:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:19:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:19:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:19:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:19:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:19:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:19:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:19:13 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:19:13 UTC] PHP Stack trace:
+[05-May-2017 12:19:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:19:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:19:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:19:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:19:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:19:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:19:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:19:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:19:13 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:19:13 UTC] PHP Stack trace:
+[05-May-2017 12:19:13 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:19:13 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:19:13 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:19:13 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:19:13 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:19:13 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:19:13 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:19:13 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:22:50 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:22:50 UTC] PHP Stack trace:
+[05-May-2017 12:22:50 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:22:50 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:22:50 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:22:50 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:22:50 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:22:50 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:22:50 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:22:50 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:22:50 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:22:50 UTC] PHP Stack trace:
+[05-May-2017 12:22:50 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:22:50 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:22:50 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:22:50 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:22:50 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:22:50 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:22:50 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:22:50 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:22:50 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:22:50 UTC] PHP Stack trace:
+[05-May-2017 12:22:50 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:22:50 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:22:50 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:22:50 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:22:50 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:22:50 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:22:50 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:22:50 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:25:54 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:25:54 UTC] PHP Stack trace:
+[05-May-2017 12:25:54 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:25:54 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:25:54 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:25:54 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:25:54 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:25:54 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:25:54 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:25:54 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:25:54 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:25:54 UTC] PHP Stack trace:
+[05-May-2017 12:25:54 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:25:54 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:25:54 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:25:54 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:25:54 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:25:54 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:25:54 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:25:54 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:25:55 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:25:55 UTC] PHP Stack trace:
+[05-May-2017 12:25:55 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:25:55 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:25:55 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:25:55 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:25:55 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:25:55 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:25:55 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:25:55 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:25:59 UTC] PHP Notice:  ob_clean(): failed to delete buffer. No buffer to delete in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/libs/custom-ajax-auth.php on line 52
+[05-May-2017 12:25:59 UTC] PHP Stack trace:
+[05-May-2017 12:25:59 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:0
+[05-May-2017 12:25:59 UTC] PHP   2. do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-admin/admin-ajax.php:91
+[05-May-2017 12:25:59 UTC] PHP   3. WP_Hook->do_action() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/plugin.php:453
+[05-May-2017 12:25:59 UTC] PHP   4. WP_Hook->apply_filters() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[05-May-2017 12:25:59 UTC] PHP   5. ajax_logout() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[05-May-2017 12:25:59 UTC] PHP   6. ob_clean() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/libs/custom-ajax-auth.php:52
+[05-May-2017 12:26:01 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:26:01 UTC] PHP Stack trace:
+[05-May-2017 12:26:01 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:01 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:01 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:01 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:01 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:01 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:01 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:01 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:26:01 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:26:01 UTC] PHP Stack trace:
+[05-May-2017 12:26:01 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:01 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:01 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:01 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:01 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:01 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:01 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:01 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:26:01 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:26:01 UTC] PHP Stack trace:
+[05-May-2017 12:26:01 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:01 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:01 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:01 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:01 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:01 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:01 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:01 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:26:39 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:26:39 UTC] PHP Stack trace:
+[05-May-2017 12:26:39 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:39 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:39 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:39 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:39 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:39 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:39 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:39 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:26:39 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:26:39 UTC] PHP Stack trace:
+[05-May-2017 12:26:39 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:39 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:39 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:39 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:39 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:39 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:39 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:39 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:26:39 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:26:39 UTC] PHP Stack trace:
+[05-May-2017 12:26:39 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:26:39 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:26:39 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:26:39 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:26:39 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:26:39 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:26:39 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:26:39 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:33:33 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:33:33 UTC] PHP Stack trace:
+[05-May-2017 12:33:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:33:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:33:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:33:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:33:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:33:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:33:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:33:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:33:33 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:33:33 UTC] PHP Stack trace:
+[05-May-2017 12:33:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:33:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:33:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:33:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:33:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:33:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:33:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:33:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:33:33 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:33:33 UTC] PHP Stack trace:
+[05-May-2017 12:33:33 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:33:33 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:33:33 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:33:33 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:33:33 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:33:33 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:33:33 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:33:33 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:34:40 UTC] PHP Notice:  Undefined variable: post_class in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 15
+[05-May-2017 12:34:40 UTC] PHP Stack trace:
+[05-May-2017 12:34:40 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:34:40 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:34:40 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:34:40 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:34:40 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:34:40 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:34:40 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:34:40 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:34:40 UTC] PHP Notice:  Undefined variable: avia_config in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 21
+[05-May-2017 12:34:40 UTC] PHP Stack trace:
+[05-May-2017 12:34:40 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:34:40 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:34:40 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:34:40 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:34:40 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:34:40 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:34:40 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:34:40 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[05-May-2017 12:34:40 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 48
+[05-May-2017 12:34:40 UTC] PHP Stack trace:
+[05-May-2017 12:34:40 UTC] PHP   1. {main}() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:0
+[05-May-2017 12:34:40 UTC] PHP   2. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/index.php:17
+[05-May-2017 12:34:40 UTC] PHP   3. require_once() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[05-May-2017 12:34:40 UTC] PHP   4. include() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[05-May-2017 12:34:40 UTC] PHP   5. get_template_part() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[05-May-2017 12:34:40 UTC] PHP   6. locate_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[05-May-2017 12:34:40 UTC] PHP   7. load_template() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[05-May-2017 12:34:40 UTC] PHP   8. require() /Users/michaelishmael/Dev/Work/Amec/amecframework/wp-includes/template.php:686
