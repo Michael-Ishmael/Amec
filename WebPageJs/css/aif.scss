@@ -39,9 +39,22 @@ $color-list: (
 
 body {
   font-family: lato, sans-serif;
+  background-color: #4c4c4c;
 }
 
-.login-row {
+.login-box {
+
+  background-color: #292b2c;
+
+
+}
+
+#frameworkGridWrapper {
+  position: relative;
+}
+
+
+.control-row {
 
   .button {
     padding: 2px 4px;
@@ -51,10 +64,33 @@ body {
     color: #fff;
     text-align: center;
     cursor: pointer;
+    text-transform: uppercase;
+    max-width: 135px;
+    line-height: 22px;
   }
 
 }
 
+.pull-right{
+  float: right;
+}
+
+
+.login-row-container {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0§;
+  height: 50px;
+  color: #fff;
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+}
 
 h2 {
   font-size: 35px;
@@ -184,7 +220,7 @@ h2 {
 
 .entries {
   position: absolute;
-  padding: 50px 60px;
+  //padding: 50px 60px;
   z-index: 5;
   top: 0;
   left: 0;
@@ -197,6 +233,10 @@ h2 {
   position: relative;
   cursor: pointer;
   font-family: lato, sans-serif;
+
+  &.login-box{
+    height: 410px;
+  }
 
   h2 {
     padding: 8px 0 0 15px;

@@ -4,8 +4,9 @@ module aif {
 
   export interface IUserRepository {
 
-    get (): AifUser;
-
+    get (): ng.IPromise<AifUser>;
+    logout (): ng.IPromise<boolean>;
+    login ( userName:string,  password:string): ng.IPromise<LoginResult>;
 
   }
 

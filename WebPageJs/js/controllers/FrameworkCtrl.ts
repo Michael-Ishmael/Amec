@@ -29,7 +29,6 @@ module aif {
     public handleStepClick(step:WorkflowStep):void{
       if(!step.isSubmit){
         this.switchToEditMode(step);
-        return;
       }
       //submit
       return

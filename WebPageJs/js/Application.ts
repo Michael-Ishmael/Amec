@@ -9,7 +9,10 @@ module aif {
   'use strict';
 
   let aif = angular.module('aif', ['tw.directives.clickOutside'])
+    .service('userRepository', UserRepository)
     .service('frameworkRepository', FrameworkRepository)
+    .service('aifService', AifService)
+    .controller('accountCtrl', AccountCtrl)
     .controller('frameworkCtrl', FrameworkCtrl);
     //.directive('todoBlur', todoBlur)
     //.directive('todoFocus', todoFocus)

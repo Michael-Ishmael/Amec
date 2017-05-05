@@ -87,7 +87,7 @@ module aif {
 
     public user: AifUser = null;
 
-    get loggedIn(): boolean {
+    public loggedIn(): boolean {
         return this.user !== null;
 
     }
@@ -107,7 +107,11 @@ module aif {
   export interface IAifUser {
 
     userName:string;
-
+    firstName:string,
+    lastName:string,
+    organisation:string,
+    jobTitle:string,
+    country:string
   }
 
   export class AifUser implements IAifUser {
@@ -120,11 +124,37 @@ module aif {
         public lastName:string,
         public organisation:string,
         public jobTitle:string,
-        public country:string,
+        public country:string
     ){}
 
-    get hasFrameworks():boolean{
+    hasFrameworks():boolean{
           return this.firstName.length >0;
+    }
+
+    public static createFromData(data: IAifUser):AifUser{
+
+          return new AifUser(
+            data.userName,
+            data.firstName,
+            data.lastName,
+            data.organisation,
+            data.jobTitle,
+            data.country
+          );
+
+
+    }
+
+  }
+
+  export class LoginResult {
+
+    constructor(
+      public success:boolean,
+      public user:AifUser,
+      public message:string
+    ){
+
     }
 
   }

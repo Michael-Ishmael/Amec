@@ -18,7 +18,6 @@ var aif;
         FrameworkCtrl.prototype.handleStepClick = function (step) {
             if (!step.isSubmit) {
                 this.switchToEditMode(step);
-                return;
             }
             //submit
             return;

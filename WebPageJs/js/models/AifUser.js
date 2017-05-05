@@ -83,13 +83,9 @@ var aif;
             this.maxFrameworks = 3;
             this.user = null;
         }
-        Object.defineProperty(AifApp.prototype, "loggedIn", {
-            get: function () {
-                return this.user !== null;
-            },
-            enumerable: true,
-            configurable: true
-        });
+        AifApp.prototype.loggedIn = function () {
+            return this.user !== null;
+        };
         return AifApp;
     }());
     aif.AifApp = AifApp;
@@ -111,14 +107,22 @@ var aif;
             this.country = country;
             this.frameworks = [];
         }
-        Object.defineProperty(AifUser.prototype, "hasFrameworks", {
-            get: function () {
-                return this.firstName.length > 0;
-            },
-            enumerable: true,
-            configurable: true
-        });
+        AifUser.prototype.hasFrameworks = function () {
+            return this.firstName.length > 0;
+        };
+        AifUser.createFromData = function (data) {
+            return new AifUser(data.userName, data.firstName, data.lastName, data.organisation, data.jobTitle, data.country);
+        };
         return AifUser;
     }());
     aif.AifUser = AifUser;
+    var LoginResult = (function () {
+        function LoginResult(success, user, message) {
+            this.success = success;
+            this.user = user;
+            this.message = message;
+        }
+        return LoginResult;
+    }());
+    aif.LoginResult = LoginResult;
 })(aif || (aif = {}));

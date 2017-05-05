@@ -22,124 +22,181 @@
 <body>
 
 
-<div class="main container" ng-controller="frameworkCtrl as ctrl">
-    <div class="login-row row">
+
+<div class="main container" ng-controller="accountCtrl as ac">
+    <div class="control-row row">
         <div class="col-md-1 low-pad-cell">
-            <div class="button background-dark_blue bottom-dark-border-dark_blue">Login</div>
+
+            <div class="button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.logout()" ng-if="ac.isLoggedIn()">
+                 Logout
+            </div>
+
+            <div class="button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.showLogin()" ng-if="!ac.isLoggedIn()">
+                Login
+            </div>
+
         </div>
-        <div class="col-md-8 low-pad-cell"></div>
+
+        <div class="col-md-1 low-pad-cell" ng-if="!ac.isLoggedIn()">
+            <div class="button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.showLogin()">
+                Register
+            </div>
+        </div>
+
+        <div class="col-md-8 low-pad-cell" ng-if="ac.isLoggedIn()"></div>
+        <div class="col-md-7 low-pad-cell" ng-if="!ac.isLoggedIn()"></div>
+
         <div class="col-md-2 low-pad-cell">
-            <div class="button background-yellow bottom-dark-border-yellow">Save Progress</div>
+            <div class="button background-yellow bottom-dark-border-bright_green pull-right">Save Progress</div>
         </div>
         <div class="col-md-1 low-pad-cell">
             <div class="button background-bright_green bottom-dark-border-bright_green">Submit</div>
         </div>
     </div>
-  <div class="base-framework">
 
-    <div class="row" ng-repeat="row in ctrl.rows">
-      <div class="low-pad-cell" ng-repeat="step in row.cells"
-           ng-class="{'col-md-4': step.colSpan === 1, 'col-md-8': step.colSpan === 2}">
-        <div class="aif-tile" ng-class="ctrl.getColorClass('background', step)"
-             ng-click="ctrl.handleStepClick(step)">
-          <h2 ng-if="!step.isSubmit">{{ step.title }}</h2>
-          <div ng-if="!step.isSubmit" class="anchor-bottom"
-               ng-class="ctrl.getColorClass('bottom-dark-border', step)">
-            <div class="circle-border" ng-class="ctrl.getColorClass('bottom-dark-border', step)">
-              {{step.index}}
+    <div id="frameworkGridWrapper" ng-controller="frameworkCtrl as ctrl">
+        <div class="base-framework">
+
+            <div class="row" ng-repeat="row in ctrl.rows">
+                <div class="low-pad-cell" ng-repeat="step in row.cells"
+                     ng-class="{'col-md-4': step.colSpan === 1, 'col-md-8': step.colSpan === 2}">
+                    <div class="aif-tile" ng-class="ctrl.getColorClass('background', step)"
+                         ng-click="ctrl.handleStepClick(step)">
+                        <h2 ng-if="!step.isSubmit">{{ step.title }}</h2>
+                        <div ng-if="!step.isSubmit" class="anchor-bottom"
+                             ng-class="ctrl.getColorClass('bottom-dark-border', step)">
+                            <div class="circle-border" ng-class="ctrl.getColorClass('bottom-dark-border', step)">
+                                {{step.index}}
+                            </div>
+                        </div>
+
+                        <p ng-if="step.isSubmit">
+                            Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
+                        </p>
+
+                        <div ng-if="step.isSubmit" data-bind="if: isSubmit"
+                             class="anchor-bottom background-bright_green bottom-dark-border-bright_green">
+                            <span class="button-label" data-bind="text: title">SUBMIT</span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
+        </div>
 
-          <p ng-if="step.isSubmit">
-            Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
-          </p>
+        <div id="loginRow" class="login-row-container">
 
-          <div ng-if="step.isSubmit" data-bind="if: isSubmit"
-               class="anchor-bottom background-bright_green bottom-dark-border-bright_green">
-            <span class="button-label" data-bind="text: title">SUBMIT</span>
-          </div>
+            <div class="row " ng-if="ac.displayLogin">
+
+                <div class="col-md-8 low-pad-cell">
+
+                    <div class="aif-tile login-box">
+
+                        <form id="login" class="ajax-auth-2" action="login" method="post">
+                            <h3>New to site? <a id="pop_signup" href="">Create an Account</a></h3>
+                            <hr />
+                            <h1>Login</h1>
+                            <p class="status"></p>
+                            <?php wp_nonce_field('ajax-login-nonce', 'security'); ?>
+                            <label for="username">Username</label>
+                            <input id="username" type="text" class="required" name="username">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="required" name="password">
+                            <a class="text-link" href="<?php
+            echo wp_lostpassword_url(); ?>">Lost password?</a>
+                            <input class="submit_button" type="submit" value="LOGIN">
+                            <a class="close" href="">(close)</a>
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
 
 
         </div>
 
-      </div>
 
-    </div>
-  </div>
-  <div class="bg-cloak" ng-if="ctrl.editMode" ng-click="ctrl.clearEditMode()"></div>
+        <div class="bg-cloak" ng-if="ctrl.editMode" ng-click="ctrl.clearEditMode()"></div>
 
 
-  <div ng-cloak ng-if="ctrl.editMode" class="entries" data-bind="visible: showEdit">
-    <div ng-repeat="row in ctrl.rows">
-      <div class="row" ng-if="ctrl.editStep.row > $index + 1">
-        <div class="col-md-12 low-pad-cell">
-          <div class="aif-tile"></div>
-        </div>
-      </div>
-
-      <div class="row" ng-repeat="step in row.cells" ng-if="step.showInput">
-        <div class="low-pad-cell" ng-repeat="cell in step.inputRow"
-             ng-class="{'col-md-4': cell.colSpan === 1, 'col-md-8': cell.colSpan === 2}">
-          <div class="aif-tile">
-            <div class="empty" ng-if="ctrl.isEmpty(cell)"></div>
-
-
-            <div class="aif-input" ng-if="ctrl.isInput(cell)" ng-class="ctrl.getColorClass('background', step)"
-
-            >
-              <div class="header" ng-class="ctrl.getColorClass('background-light', step)">
-                <h3>{{ step.title }}</h3>
-                <div class="border-caret" ng-click="ctrl.clearEditMode()">
-                  <div class="caret-left"></div>
-                  <div class="caret-right"></div>
-                </div>
-              </div>
-              <div class="section" ng-repeat="item in cell.items">
-                <h4>{{ item.heading }} </h4>
-                <p class="sub-heading">
-                  {{ item.subHeading }}
-                </p>
-                <div class="inputs-container">
-                  <div class="info-button" ng-click="ctrl.showInfoCell(item, cell.infoCell)">
-                    <span>i</span>
-                  </div>
-
-                  <textarea></textarea>
-
+        <div ng-cloak ng-if="ctrl.editMode" class="entries">
+            <div ng-repeat="row in ctrl.rows">
+                <div class="row" ng-if="ctrl.editStep.row > $index + 1">
+                    <div class="col-md-12 low-pad-cell">
+                        <div class="aif-tile"></div>
+                    </div>
                 </div>
 
+                <div class="row" ng-repeat="step in row.cells" ng-if="step.showInput">
+                    <div class="low-pad-cell" ng-repeat="cell in step.inputRow"
+                         ng-class="{'col-md-4': cell.colSpan === 1, 'col-md-8': cell.colSpan === 2}">
+                        <div class="aif-tile">
+                            <div class="empty" ng-if="ctrl.isEmpty(cell)"></div>
 
-              </div>
+
+                            <div class="aif-input" ng-if="ctrl.isInput(cell)" ng-class="ctrl.getColorClass('background', step)"
+
+                            >
+                                <div class="header" ng-class="ctrl.getColorClass('background-light', step)">
+                                    <h3>{{ step.title }}</h3>
+                                    <div class="border-caret" ng-click="ctrl.clearEditMode()">
+                                        <div class="caret-left"></div>
+                                        <div class="caret-right"></div>
+                                    </div>
+                                </div>
+                                <div class="section" ng-repeat="item in cell.items">
+                                    <h4>{{ item.heading }} </h4>
+                                    <p class="sub-heading">
+                                        {{ item.subHeading }}
+                                    </p>
+                                    <div class="inputs-container">
+                                        <div class="info-button" ng-click="ctrl.showInfoCell(item, cell.infoCell)">
+                                            <span>i</span>
+                                        </div>
+
+                                        <textarea></textarea>
+
+                                    </div>
 
 
-              {{ cell.subHeading }}
+                                </div>
 
-            </div>
-            <div class="info" ng-if="ctrl.isInfo(cell) && cell.visible"
-                 ng-class="ctrl.getColorClass('background-light', step)">
-              <p>
+
+                                {{ cell.subHeading }}
+
+                            </div>
+                            <div class="info" ng-if="ctrl.isInfo(cell) && cell.visible"
+                                 ng-class="ctrl.getColorClass('background-light', step)">
+                                <p>
                               <span class="lead-in">
                 {{ cell.leadText }}
               </span>
-                {{ cell.remainText }}
-              </p>
-              <p>
-                For further information <a class="further-info-link">click here</a>
+                                    {{ cell.remainText }}
+                                </p>
+                                <p>
+                                    For further information <a class="further-info-link">click here</a>
 
-              </p>
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
 
             </div>
-          </div>
+
+
         </div>
-
-      </div>
-
-
     </div>
 
-
-  </div>
 
 
 

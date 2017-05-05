@@ -5,7 +5,9 @@ module aif {
   export interface IAifService
   {
 
-      buildApp(): AifApp
+      getApp(): ng.IPromise<AifApp>;
+      login(userName: string, password: string): ng.IPromise<LoginResult>;
+      logout():ng.IPromise<boolean>;
 
   }
 
