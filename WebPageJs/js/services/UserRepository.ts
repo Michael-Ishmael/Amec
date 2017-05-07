@@ -5,10 +5,10 @@ module aif {
   'use strict';
 
   export class UserRepository implements IUserRepository {
-
+//wp_lostpassword_url()
     static $inject = ["$timeout"];
 
-    private startLoggedIn:boolean = true;
+    private startLoggedIn:boolean = false;
 
     constructor(private $timeout:ng.ITimeoutService){
 
@@ -33,12 +33,16 @@ module aif {
       });
     }
 
-    login(userName: string, password: string): ng.IPromise<LoginResult> {
+    login(email: string, password: string): ng.IPromise<LoginResult> {
 
       return this.$timeout(function()  {
-        let matches = users.filter(u => u.userName == userName);
+        let matches = users.filter(u => u.email == email);
         if(matches.length){
-          return new LoginResult(true, AifUser.createFromData(matches[0]), null);
+          let user = AifUser.createFromData(matches[0]);
+          if(user.email === "mail@michaelishmael.com"){
+            user.frameworks = userFrameworks;
+          }
+          return new LoginResult(true, user, null);
         } else {
           return new LoginResult(false, null, "Login failed")
         }
@@ -54,13 +58,35 @@ module aif {
 
   let users: Array<IAifUser> = [
     {
-      userName: "michaeli",
+      email: "michaelishmael1976@gmail.com",
+      firstName: "Michael",
+      lastName: "Ishmael",
+      organisation: "Michael Ishmael Ltd",
+      jobTitle: "Director",
+      language: "en"
+    },
+    {
+      email: "mail@michaelishmael.com",
       firstName: "Michael",
       lastName: "Ishmael",
       organisation: "66 Bytes",
-      jobTitle: "Directors",
-      country: "en"
+      jobTitle: "Director",
+      language: "en"
     }
+  ];
+
+  let userFrameworks: Array<AifFramework> = [
+    {
+      id: 1,
+      name: "Coca-cola summer campaign",
+      description: "New music promotion"
+    },
+    {
+      id :2,
+      name: "Sprite summer campaign",
+      description: "New basketball promotion"
+    }
+
   ];
 
 

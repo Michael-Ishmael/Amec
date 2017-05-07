@@ -42,32 +42,85 @@ body {
   background-color: #4c4c4c;
 }
 
-.login-box {
-
-  background-color: #292b2c;
-
-
-}
-
 #frameworkGridWrapper {
   position: relative;
+  color: #fff;
 }
+
+.base-framework{
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.css-form input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
+.css-form select.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.css-form select.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
+
+
+.form-validation-error{
+  color: #af0000;
+  font-size: 0.9rem;
+}
+
+h4 {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.aif-button {
+  max-height: 40px;
+  font-size: 15px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  max-width: 135px;
+  line-height: 22px;
+  border-radius: 0;
+
+  &.aif-button-wide{
+    max-width: 168px;
+  }
+
+}
+
 
 
 .control-row {
 
-  .button {
-    padding: 2px 4px;
-    width: 100%;
-    height: 30px;
-    font-size: 13px;
-    color: #fff;
-    text-align: center;
-    cursor: pointer;
-    text-transform: uppercase;
+  .aif-button {
     max-width: 135px;
     line-height: 22px;
+    height: 30px;
+    font-size: 13px;
+
+    &.aif-button-inline{
+      width: auto;
+      max-width: unset;
+      display: inline-block;
+
+    }
   }
+
+
 
 }
 
@@ -75,22 +128,6 @@ body {
   float: right;
 }
 
-
-.login-row-container {
-
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0§;
-  height: 50px;
-  color: #fff;
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-}
 
 h2 {
   font-size: 35px;
@@ -125,6 +162,9 @@ h2 {
 
   color: #fff;
   font-family: lato, sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
 
   .info-button{
     width: 24px;
@@ -202,6 +242,9 @@ h2 {
   padding: 14px 16px;
   font-size: 14px;
   color: rgb(138, 138, 138);
+  position: absolute;
+  left: 0;
+  top: 0;
 
   .lead-in {
     text-transform: capitalize;
@@ -227,24 +270,89 @@ h2 {
   width: 100%;
 }
 
+
+.login-row-container {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  color: #fff;
+
+
+  h3 {
+    font-size: 1.2rem;
+
+    &.login-message {
+      padding-right: 20px;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
 .aif-tile {
   margin-top: 10px;
   height: 200px;
   position: relative;
   cursor: pointer;
   font-family: lato, sans-serif;
+  padding: 8px 0 0 15px;
 
-  &.login-box{
-    height: 410px;
+  &.save-box {
+    background-color: #00c394;
   }
 
-  h2 {
-    padding: 8px 0 0 15px;
+  &.login-box {
+    background-color: #292b2c;
   }
+
+  &.login-box, &.save-box {
+
+    cursor: default;
+    min-height: 410px;
+    height: auto;
+
+    &.long {
+      min-height: 620px;
+    }
+
+    padding: 8px 15px;
+
+    a {
+      cursor: pointer;
+    }
+
+    .heading-link {
+      font-style: italic;
+      color: #0072af;
+    }
+
+    .text-link {
+      margin-left: 15px;
+      font-style: italic;
+    }
+
+    .login-box-group {
+      display: inline-block;
+      float: left;
+      width: 45%;
+      margin-right: 30px;
+
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+
+  }
+
 
   p.submit-text {
     color: #fff;
-    padding: 18PX 22px;
+    padding: 8px 16px;
 
     font-size: 18px;
     font-weight: 300;
@@ -256,6 +364,7 @@ h2 {
 .anchor-bottom {
   position: absolute;
   bottom: 0;
+  left: 0;
   height: 80px;
   width: 100%;
 

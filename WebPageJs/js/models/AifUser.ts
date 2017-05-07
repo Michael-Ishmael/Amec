@@ -97,6 +97,7 @@ module aif {
   export class AifFramework {
 
     constructor(
+      public id:number,
         public name:string,
         public description:string
     ){
@@ -106,40 +107,72 @@ module aif {
 
   export interface IAifUser {
 
-    userName:string;
+    email:string;
     firstName:string,
     lastName:string,
     organisation:string,
     jobTitle:string,
-    country:string
+    language:string
+  }
+  
+  export class AppUser implements IAifUser {
+
+    constructor(
+      public email:string,
+      public firstName:string,
+      public lastName:string,
+      public organisation:string,
+      public jobTitle:string,
+      public language:string
+    ){}
+
+    public password: string = null;
+    public passwordConfirmation: string = null;
   }
 
   export class AifUser implements IAifUser {
 
     public frameworks : Array<AifFramework> = [];
 
+    public hasExistingFrameworks():boolean {
+      return this.frameworks != null && this.frameworks.length > 0;
+    }
+
     constructor(
-        public userName:string,
+        public email:string,
         public firstName:string,
         public lastName:string,
         public organisation:string,
         public jobTitle:string,
-        public country:string
+        public language:string
     ){}
+
 
     hasFrameworks():boolean{
           return this.firstName.length >0;
     }
 
+    asAppUser():AppUser {
+          return new AppUser(
+            this.email,
+            this.firstName,
+            this.lastName,
+            this.organisation,
+            this.jobTitle,
+            this.language
+          )
+            ;
+    }
+
     public static createFromData(data: IAifUser):AifUser{
 
           return new AifUser(
-            data.userName,
+            data.email,
             data.firstName,
             data.lastName,
             data.organisation,
             data.jobTitle,
-            data.country
+            data.language
           );
 
 

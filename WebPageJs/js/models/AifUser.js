@@ -90,28 +90,49 @@ var aif;
     }());
     aif.AifApp = AifApp;
     var AifFramework = (function () {
-        function AifFramework(name, description) {
+        function AifFramework(id, name, description) {
+            this.id = id;
             this.name = name;
             this.description = description;
         }
         return AifFramework;
     }());
     aif.AifFramework = AifFramework;
-    var AifUser = (function () {
-        function AifUser(userName, firstName, lastName, organisation, jobTitle, country) {
-            this.userName = userName;
+    var AppUser = (function () {
+        function AppUser(email, firstName, lastName, organisation, jobTitle, language) {
+            this.email = email;
             this.firstName = firstName;
             this.lastName = lastName;
             this.organisation = organisation;
             this.jobTitle = jobTitle;
-            this.country = country;
+            this.language = language;
+            this.password = null;
+            this.passwordConfirmation = null;
+        }
+        return AppUser;
+    }());
+    aif.AppUser = AppUser;
+    var AifUser = (function () {
+        function AifUser(email, firstName, lastName, organisation, jobTitle, language) {
+            this.email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.organisation = organisation;
+            this.jobTitle = jobTitle;
+            this.language = language;
             this.frameworks = [];
         }
+        AifUser.prototype.hasExistingFrameworks = function () {
+            return this.frameworks != null && this.frameworks.length > 0;
+        };
         AifUser.prototype.hasFrameworks = function () {
             return this.firstName.length > 0;
         };
+        AifUser.prototype.asAppUser = function () {
+            return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language);
+        };
         AifUser.createFromData = function (data) {
-            return new AifUser(data.userName, data.firstName, data.lastName, data.organisation, data.jobTitle, data.country);
+            return new AifUser(data.email, data.firstName, data.lastName, data.organisation, data.jobTitle, data.language);
         };
         return AifUser;
     }());

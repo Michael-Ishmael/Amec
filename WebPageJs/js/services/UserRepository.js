@@ -5,7 +5,7 @@ var aif;
     var UserRepository = (function () {
         function UserRepository($timeout) {
             this.$timeout = $timeout;
-            this.startLoggedIn = true;
+            this.startLoggedIn = false;
         }
         UserRepository.prototype.get = function () {
             var self = this;
@@ -23,11 +23,15 @@ var aif;
                 return true;
             });
         };
-        UserRepository.prototype.login = function (userName, password) {
+        UserRepository.prototype.login = function (email, password) {
             return this.$timeout(function () {
-                var matches = users.filter(function (u) { return u.userName == userName; });
+                var matches = users.filter(function (u) { return u.email == email; });
                 if (matches.length) {
-                    return new aif.LoginResult(true, aif.AifUser.createFromData(matches[0]), null);
+                    var user = aif.AifUser.createFromData(matches[0]);
+                    if (user.email === "mail@michaelishmael.com") {
+                        user.frameworks = userFrameworks;
+                    }
+                    return new aif.LoginResult(true, user, null);
                 }
                 else {
                     return new aif.LoginResult(false, null, "Login failed");
@@ -36,16 +40,37 @@ var aif;
         };
         return UserRepository;
     }());
+    //wp_lostpassword_url()
     UserRepository.$inject = ["$timeout"];
     aif.UserRepository = UserRepository;
     var users = [
         {
-            userName: "michaeli",
+            email: "michaelishmael1976@gmail.com",
+            firstName: "Michael",
+            lastName: "Ishmael",
+            organisation: "Michael Ishmael Ltd",
+            jobTitle: "Director",
+            language: "en"
+        },
+        {
+            email: "mail@michaelishmael.com",
             firstName: "Michael",
             lastName: "Ishmael",
             organisation: "66 Bytes",
-            jobTitle: "Directors",
-            country: "en"
+            jobTitle: "Director",
+            language: "en"
+        }
+    ];
+    var userFrameworks = [
+        {
+            id: 1,
+            name: "Coca-cola summer campaign",
+            description: "New music promotion"
+        },
+        {
+            id: 2,
+            name: "Sprite summer campaign",
+            description: "New basketball promotion"
         }
     ];
 })(aif || (aif = {}));

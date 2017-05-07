@@ -10,6 +10,7 @@
 /// <reference path="services/UserRepository.ts" />
 /// <reference path="services/FrameworkRepository.ts" />
 /// <reference path="services/AifService.ts" />
+/// <reference path="directives/PasswordMatchDir.ts" />
 /// <reference path="controllers/FrameworkCtrl.ts" />
 /// <reference path="controllers/AccountCtrl.ts" />
 /// <reference path='Application.ts' /> 

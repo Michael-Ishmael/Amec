@@ -12,6 +12,7 @@ module aif {
     .service('userRepository', UserRepository)
     .service('frameworkRepository', FrameworkRepository)
     .service('aifService', AifService)
+    .directive('passwordMatchDir', PasswordMatchDir.factory())
     .controller('accountCtrl', AccountCtrl)
     .controller('frameworkCtrl', FrameworkCtrl);
     //.directive('todoBlur', todoBlur)
