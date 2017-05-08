@@ -110,5 +110,19 @@ var aif;
     }());
     AifResetPassword.$inject = [''];
     aif.AifResetPassword = AifResetPassword;
+    var AifFrameworkSummary = (function () {
+        function AifFrameworkSummary() {
+            this.templateUrl = 'js/views/frameworkSummary.html';
+            this.restrict = 'E';
+        }
+        AifFrameworkSummary.factory = function () {
+            var directive = function () { return new AifFrameworkSummary(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        return AifFrameworkSummary;
+    }());
+    AifFrameworkSummary.$inject = [''];
+    aif.AifFrameworkSummary = AifFrameworkSummary;
     //
 })(aif || (aif = {}));

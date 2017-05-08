@@ -18,6 +18,7 @@
 /// <reference path="controllers/RegisterCtrl.ts" />
 /// <reference path="controllers/ResetPasswordCtrl.ts" />
 /// <reference path="controllers/CreateFrameworkCtrl.ts" />
+/// <reference path="controllers/FrameworkSummaryCtrl.ts" />
 /// <reference path="controllers/SaveAsCtrl.ts" />
 /// <reference path="controllers/AppCtrl.ts" />
 /// <reference path="controllers/AccountViewCtrl.ts" />

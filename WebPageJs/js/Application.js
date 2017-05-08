@@ -341,12 +341,6 @@ var aif;
     var ViewService = (function () {
         function ViewService($sce) {
             this.$sce = $sce;
-            this.MESSAGES = {
-                DEFAULT_LOGIN_Q: "New here?",
-                DEFAULT_LOGIN_A: "Create an account",
-                OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
-                JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
-            };
             this.fadeBg = false;
             this.displayEdit = false;
             this.displayLogin = false;
@@ -355,12 +349,19 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
+            this.displayGrid = true;
+            this.displaySummary = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
             this.displaySave = false;
             this.reset();
         }
+        ViewService.prototype.showSummary = function () {
+            this.reset();
+            this.displaySummary = true;
+            this.displayGrid = false;
+        };
         ViewService.prototype.showLogin = function (fromSave) {
             if (fromSave === void 0) { fromSave = false; }
             this.reset();
@@ -1064,6 +1065,20 @@ var aif;
         return AifResetPassword;
     }());
     aif.AifResetPassword = AifResetPassword;
+    var AifFrameworkSummary = (function () {
+        function AifFrameworkSummary() {
+            this.templateUrl = 'js/views/frameworkSummary.html';
+            this.restrict = 'E';
+        }
+        AifFrameworkSummary.factory = function () {
+            var directive = function () { return new AifFrameworkSummary(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifFrameworkSummary.$inject = [''];
+        return AifFrameworkSummary;
+    }());
+    aif.AifFrameworkSummary = AifFrameworkSummary;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
 var aif;
@@ -1288,6 +1303,47 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
+    var FrameworkSummaryCtrl = (function () {
+        function FrameworkSummaryCtrl($window, frameworkRepository, vs) {
+            this.$window = $window;
+            this.frameworkRepository = frameworkRepository;
+            this.vs = vs;
+            this.editMode = false;
+            this.editStep = null;
+            this.infoCell = null;
+            this.message = "Hoi hoi";
+            this.init();
+        }
+        FrameworkSummaryCtrl.prototype.init = function () {
+            this.steps = this.frameworkRepository.get();
+            this.rows = this.setRowsFromSteps(this.steps);
+        };
+        FrameworkSummaryCtrl.prototype.setRowsFromSteps = function (steps) {
+            var rowObj = steps.reduce(function (grps, s) {
+                (grps[s["row"]] = grps[s["row"]] || []).push(s);
+                return grps;
+            }, {});
+            var rowCount = Math.max.apply(Math, steps.map(function (s) { return s.row; }));
+            var rows = [];
+            for (var i = 0; i < rowCount; i++) {
+                var rowArray = rowObj[i + 1];
+                var row = new aif.WorkflowRow(rowArray);
+                rows.push(row);
+            }
+            return rows;
+        };
+        FrameworkSummaryCtrl.$inject = ["$window",
+            "frameworkRepository",
+            "viewService"
+        ];
+        return FrameworkSummaryCtrl;
+    }());
+    aif.FrameworkSummaryCtrl = FrameworkSummaryCtrl;
+})(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
     var SaveAsCtrl = (function () {
         function SaveAsCtrl($scope, userRepository, vs) {
             this.$scope = $scope;
@@ -1409,6 +1465,10 @@ var aif;
         };
         AppCtrl.prototype.isLoggedIn = function () {
             return !!this.currentUser;
+        };
+        AppCtrl.prototype.submitFramework = function () {
+            //TODO: saving etc
+            this.vs.showSummary();
         };
         AppCtrl.prototype.showLogin = function () {
             this.vs.showLogin();
@@ -1722,12 +1782,14 @@ var aif;
         .controller('saveAsCtrl', aif_1.SaveAsCtrl)
         .controller('registerCtrl', aif_1.RegisterCtrl)
         .controller('resetPasswordCtrl', aif_1.ResetPasswordCtrl)
+        .controller('frameworkSummaryCtrl', aif_1.FrameworkSummaryCtrl)
         .directive('aifLoginScreen', aif_1.AifLoginScreen.factory())
         .directive('aifAccountScreen', aif_1.AifAccountScreen.factory())
         .directive('aifCreateFwScreen', aif_1.AifCreateFwScreen.factory())
         .directive('aifSaveAsScreen', aif_1.AifSaveAsScreen.factory())
         .directive('aifRegisterScreen', aif_1.AifRegisterScreen.factory())
-        .directive('aifResetPassword', aif_1.AifResetPassword.factory());
+        .directive('aifResetPassword', aif_1.AifResetPassword.factory())
+        .directive('aifFrameworkSummary', aif_1.AifFrameworkSummary.factory());
 })(aif || (aif = {}));
 /// <reference path='libs/jquery/jquery.d.ts' />
 /// <reference path='libs/angular/angular.d.ts' />
@@ -1749,6 +1811,7 @@ var aif;
 /// <reference path="controllers/RegisterCtrl.ts" />
 /// <reference path="controllers/ResetPasswordCtrl.ts" />
 /// <reference path="controllers/CreateFrameworkCtrl.ts" />
+/// <reference path="controllers/FrameworkSummaryCtrl.ts" />
 /// <reference path="controllers/SaveAsCtrl.ts" />
 /// <reference path="controllers/AppCtrl.ts" />
 /// <reference path="controllers/AccountViewCtrl.ts" />

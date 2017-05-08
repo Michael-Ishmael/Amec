@@ -165,6 +165,23 @@ module aif {
 
   }
 
+  export class AifFrameworkSummary implements ng.IDirective {
+
+    static $inject: Array<string> = [''];
+    templateUrl: string = 'js/views/frameworkSummary.html';
+    restrict: string = 'E';
+
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new AifFrameworkSummary();
+      //directive.$inject = ['$location', 'toaster'];
+      return directive;
+    }
+
+
+  }
+
+
 
   //
 

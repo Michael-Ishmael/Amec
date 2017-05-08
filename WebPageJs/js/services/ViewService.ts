@@ -13,13 +13,6 @@ module aif {
 
     public static $inject = ["$sce"];
 
-    private MESSAGES = {
-      DEFAULT_LOGIN_Q : "New here?",
-      DEFAULT_LOGIN_A : "Create an account",
-      OR_CREATE_NEW_FRAMEWORK : "...or create a new framework",
-      JUST_CREATE_NEW_FRAMEWORK : "Use the fields below create a new framework"
-    };
-
     constructor(private $sce:ng.ISCEService){
       this.reset();
     }
@@ -33,21 +26,31 @@ module aif {
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
     public displayFtnDetails:boolean = false;
 
+    public displayGrid = true;
+    public displaySummary:boolean =false;
 
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;
     public displayRegister:boolean = false;
     public displaySave:boolean = false;
 
+    public showSummary():void {
 
-    public showLogin(fromSave:boolean = false){
+      this.reset();
+      this.displaySummary = true;
+      this.displayGrid = false;
+
+    }
+
+
+    public showLogin(fromSave:boolean = false):void{
       this.reset();
       this.fadeBg = true;
       if(fromSave) this.accountDisplayRoute = AccountDisplayRoute.FromSave;
       this.displayLogin = true;
     }
 
-    public showAccount(route:AccountDisplayRoute){
+    public showAccount(route:AccountDisplayRoute):void{
       this.reset();
       this.fadeBg = true;
       this.displayAccount = true;

@@ -69,6 +69,12 @@ module aif {
 
     }
 
+    public submitFramework(){
+      //TODO: saving etc
+
+      this.vs.showSummary();
+    }
+
     public showLogin(): void {
       this.vs.showLogin();
     }

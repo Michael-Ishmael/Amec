@@ -11,12 +11,6 @@ var aif;
     var ViewService = (function () {
         function ViewService($sce) {
             this.$sce = $sce;
-            this.MESSAGES = {
-                DEFAULT_LOGIN_Q: "New here?",
-                DEFAULT_LOGIN_A: "Create an account",
-                OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
-                JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
-            };
             this.fadeBg = false;
             this.displayEdit = false;
             this.displayLogin = false;
@@ -25,12 +19,19 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
+            this.displayGrid = true;
+            this.displaySummary = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
             this.displaySave = false;
             this.reset();
         }
+        ViewService.prototype.showSummary = function () {
+            this.reset();
+            this.displaySummary = true;
+            this.displayGrid = false;
+        };
         ViewService.prototype.showLogin = function (fromSave) {
             if (fromSave === void 0) { fromSave = false; }
             this.reset();

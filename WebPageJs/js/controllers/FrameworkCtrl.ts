@@ -94,6 +94,8 @@ module aif {
       }
     }
 
+
+
     private static setRowsFromSteps(steps: IWorkflowStep[]):WorkflowRow[] {
       let rowObj = steps.reduce(function(grps, s){
         (grps[s["row"]] = grps[s["row"]] || []).push(s);

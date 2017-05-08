@@ -52,11 +52,12 @@
             </div>
         </div>
         <div class="col-md-1 low-pad-cell">
-            <div class="aif-button background-bright_green bottom-dark-border-bright_green">Submit</div>
+            <div ng-click="ac.submitFramework()"
+                    class="aif-button background-bright_green bottom-dark-border-bright_green">Submit</div>
         </div>
     </div>
 
-    <div id="frameworkGridWrapper" ng-controller="frameworkCtrl as ctrl">
+    <div id="frameworkGridWrapper" ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
         <div class="base-framework">
 
             <div class="row" ng-repeat="row in ctrl.rows">
@@ -116,7 +117,7 @@
             </aif-register-screen>
 
             <aif-reset-password ng-controller="resetPasswordCtrl as rp"
-                                 ng-if="ac.vs.displayFtnDetails">
+                                 >
             </aif-reset-password>
 
         </div>
@@ -198,7 +199,12 @@
         </div>
 
 
+
     </div>
+
+    <aif-framework-summary ng-if="ac.vs.displaySummary">
+
+    </aif-framework-summary>
 </div>
 
 

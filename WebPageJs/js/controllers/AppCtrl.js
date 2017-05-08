@@ -50,6 +50,10 @@ var aif;
         AppCtrl.prototype.isLoggedIn = function () {
             return !!this.currentUser;
         };
+        AppCtrl.prototype.submitFramework = function () {
+            //TODO: saving etc
+            this.vs.showSummary();
+        };
         AppCtrl.prototype.showLogin = function () {
             this.vs.showLogin();
         };
