@@ -90,13 +90,14 @@ var aif;
     }());
     aif.AifApp = AifApp;
     var AppUser = (function () {
-        function AppUser(email, firstName, lastName, organisation, jobTitle, language) {
+        function AppUser(email, firstName, lastName, organisation, jobTitle, language, contactNumber) {
             this.email = email;
             this.firstName = firstName;
             this.lastName = lastName;
             this.organisation = organisation;
             this.jobTitle = jobTitle;
             this.language = language;
+            this.contactNumber = contactNumber;
             this.password = null;
             this.passwordConfirmation = null;
         }
@@ -104,13 +105,14 @@ var aif;
     }());
     aif.AppUser = AppUser;
     var AifUser = (function () {
-        function AifUser(email, firstName, lastName, organisation, jobTitle, language) {
+        function AifUser(email, firstName, lastName, organisation, jobTitle, language, contactNumber) {
             this.email = email;
             this.firstName = firstName;
             this.lastName = lastName;
             this.organisation = organisation;
             this.jobTitle = jobTitle;
             this.language = language;
+            this.contactNumber = contactNumber;
             this.frameworks = [];
             this.currentFramework = null;
         }
@@ -134,10 +136,10 @@ var aif;
             return this.firstName.length > 0;
         };
         AifUser.prototype.asAppUser = function () {
-            return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language);
+            return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language, this.contactNumber);
         };
         AifUser.createFromData = function (data) {
-            return new AifUser(data.email, data.firstName, data.lastName, data.organisation, data.jobTitle, data.language);
+            return new AifUser(data.email, data.firstName, data.lastName, data.organisation, data.jobTitle, data.language, data.contactNumber);
         };
         return AifUser;
     }());

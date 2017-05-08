@@ -235,13 +235,14 @@ var aif;
     }());
     aif.AifApp = AifApp;
     var AppUser = (function () {
-        function AppUser(email, firstName, lastName, organisation, jobTitle, language) {
+        function AppUser(email, firstName, lastName, organisation, jobTitle, language, contactNumber) {
             this.email = email;
             this.firstName = firstName;
             this.lastName = lastName;
             this.organisation = organisation;
             this.jobTitle = jobTitle;
             this.language = language;
+            this.contactNumber = contactNumber;
             this.password = null;
             this.passwordConfirmation = null;
         }
@@ -249,13 +250,14 @@ var aif;
     }());
     aif.AppUser = AppUser;
     var AifUser = (function () {
-        function AifUser(email, firstName, lastName, organisation, jobTitle, language) {
+        function AifUser(email, firstName, lastName, organisation, jobTitle, language, contactNumber) {
             this.email = email;
             this.firstName = firstName;
             this.lastName = lastName;
             this.organisation = organisation;
             this.jobTitle = jobTitle;
             this.language = language;
+            this.contactNumber = contactNumber;
             this.frameworks = [];
             this.currentFramework = null;
         }
@@ -279,10 +281,10 @@ var aif;
             return this.firstName.length > 0;
         };
         AifUser.prototype.asAppUser = function () {
-            return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language);
+            return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language, this.contactNumber);
         };
         AifUser.createFromData = function (data) {
-            return new AifUser(data.email, data.firstName, data.lastName, data.organisation, data.jobTitle, data.language);
+            return new AifUser(data.email, data.firstName, data.lastName, data.organisation, data.jobTitle, data.language, data.contactNumber);
         };
         return AifUser;
     }());
@@ -342,24 +344,21 @@ var aif;
             this.MESSAGES = {
                 DEFAULT_LOGIN_Q: "New here?",
                 DEFAULT_LOGIN_A: "Create an account",
-                SAVE_ATTEMPT_LOGIN_Q: "You need to be logged in to save progress.<br>Log in below or",
-                SAVE_ATTEMPT_LOGIN_A: "click here to create an account",
                 OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
                 JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
             };
             this.fadeBg = false;
+            this.displayEdit = false;
             this.displayLogin = false;
             this.displayAccount = false;
             this.displayCreate = false;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
+            this.displayFtnDetails = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
-            this.displayFtnDetails = false;
             this.displayRegister = false;
             this.displaySave = false;
-            this.loginMessageQ = this.MESSAGES.DEFAULT_LOGIN_Q;
-            this.loginMessageA = this.MESSAGES.DEFAULT_LOGIN_A;
             this.reset();
         }
         ViewService.prototype.showLogin = function (fromSave) {
@@ -400,14 +399,12 @@ var aif;
             if (hasExisting === void 0) { hasExisting = false; }
             this.reset();
             this.fadeBg = true;
+            this.accountDisplayRoute = AccountDisplayRoute.FromSave;
             if (!loggedIn) {
-                this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.SAVE_ATTEMPT_LOGIN_Q);
-                this.loginMessageA = this.MESSAGES.SAVE_ATTEMPT_LOGIN_A;
                 this.displayLogin = true;
                 return;
             }
             else {
-                this.accountDisplayRoute = AccountDisplayRoute.FromSave;
                 if (hasExisting) {
                     this.displaySaveAs = true;
                 }
@@ -415,6 +412,11 @@ var aif;
                     this.displayCreate = true;
                 }
             }
+        };
+        ViewService.prototype.showEdit = function () {
+            this.reset();
+            this.displayEdit = true;
+            this.fadeBg = true;
         };
         ViewService.prototype.showCreate = function (hasExisting) {
             if (hasExisting === void 0) { hasExisting = false; }
@@ -424,6 +426,7 @@ var aif;
         };
         ViewService.prototype.reset = function () {
             this.fadeBg = false;
+            this.displayEdit = false;
             this.displayLogin = false;
             this.displayAccount = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
@@ -434,8 +437,6 @@ var aif;
             this.displayFtnDetails = false;
             this.displayRegister = false;
             this.displaySave = false;
-            this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_Q);
-            this.loginMessageA = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_A);
         };
         ViewService.$inject = ["$sce"];
         return ViewService;
@@ -488,12 +489,28 @@ var aif;
                 return new aif.SaveFrameworkResult(true, _this.currentUser.currentFramework, null);
             }, 200);
         };
+        UserRepository.prototype.registerNewUser = function (user) {
+            var _this = this;
+            return this.$timeout(function () {
+                var newUser = new aif.AifUser(user.email, user.firstName, user.lastName, user.organisation, user.jobTitle, user.language, user.contactNumber);
+                _this.currentUser = newUser;
+                _this.$rootScope.$broadcast("user:loggedIn", newUser);
+                _this.storeUser();
+                return new aif.LoginResult(true, newUser, null);
+            });
+        };
         UserRepository.prototype.logout = function () {
             var _this = this;
             return this.$timeout(function () {
                 _this.currentUser = null;
                 _this.$cookies.remove("aifUser");
                 _this.$rootScope.$broadcast("user:loggedOut");
+                return true;
+            });
+        };
+        UserRepository.prototype.sendPasswordLink = function (email) {
+            return this.$timeout(function () {
+                //TODO: password link
                 return true;
             });
         };
@@ -604,7 +621,8 @@ var aif;
             lastName: "Ishmael",
             organisation: "Michael Ishmael Ltd",
             jobTitle: "Director",
-            language: "en"
+            language: "en",
+            contactNumber: "07866 627 323"
         },
         {
             email: "mail@michaelishmael.com",
@@ -612,7 +630,8 @@ var aif;
             lastName: "Ishmael",
             organisation: "66 Bytes",
             jobTitle: "Director",
-            language: "en"
+            language: "en",
+            contactNumber: "07866 627 323"
         }
     ];
     var userFrameworks = [
@@ -1009,15 +1028,52 @@ var aif;
         return AifSaveAsScreen;
     }());
     aif.AifSaveAsScreen = AifSaveAsScreen;
+    var AifRegisterScreen = (function () {
+        function AifRegisterScreen() {
+            this.templateUrl = 'js/views/register.html';
+            this.restrict = 'E';
+            this.contollerAs = 'rc';
+            this.bindToContoller = true;
+        }
+        AifRegisterScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifRegisterScreen.factory = function () {
+            var directive = function () { return new AifRegisterScreen(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifRegisterScreen.$inject = [''];
+        return AifRegisterScreen;
+    }());
+    aif.AifRegisterScreen = AifRegisterScreen;
+    var AifResetPassword = (function () {
+        function AifResetPassword() {
+            this.templateUrl = 'js/views/resetPassword.html';
+            this.restrict = 'E';
+            this.contollerAs = 'rc';
+            this.bindToContoller = true;
+        }
+        AifResetPassword.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifResetPassword.factory = function () {
+            var directive = function () { return new AifResetPassword(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifResetPassword.$inject = [''];
+        return AifResetPassword;
+    }());
+    aif.AifResetPassword = AifResetPassword;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
 var aif;
 (function (aif) {
     'use strict';
     var FrameworkCtrl = (function () {
-        function FrameworkCtrl($window, frameworkRepository) {
+        function FrameworkCtrl($window, frameworkRepository, vs) {
             this.$window = $window;
             this.frameworkRepository = frameworkRepository;
+            this.vs = vs;
             this.editMode = false;
             this.editStep = null;
             this.infoCell = null;
@@ -1035,6 +1091,7 @@ var aif;
             return;
         };
         FrameworkCtrl.prototype.switchToEditMode = function (step) {
+            this.vs.showEdit();
             this.editMode = true;
             step.showInput = true;
             this.editStep = step;
@@ -1044,6 +1101,7 @@ var aif;
             return false;
         };
         FrameworkCtrl.prototype.clearEditMode = function () {
+            this.vs.resetView();
             this.editMode = false;
             this.editStep.showInput = false;
             this.editStep.inputRow.forEach(function (c) {
@@ -1098,11 +1156,76 @@ var aif;
             return rows;
         };
         FrameworkCtrl.$inject = ["$window",
-            "frameworkRepository"
+            "frameworkRepository",
+            "viewService"
         ];
         return FrameworkCtrl;
     }());
     aif.FrameworkCtrl = FrameworkCtrl;
+})(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var RegisterCtrl = (function () {
+        function RegisterCtrl(vs, userRepository) {
+            this.vs = vs;
+            this.userRepository = userRepository;
+            this.loginFailure = false;
+            this.loginMessage = null;
+            this.showNeedMessage = false;
+            this.userModel = null;
+            this.init();
+        }
+        RegisterCtrl.prototype.init = function () {
+            this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
+        };
+        RegisterCtrl.prototype.registerNewUser = function (form) {
+            var _this = this;
+            if (!form.$valid)
+                return;
+            this.userRepository.registerNewUser(this.userModel).then(function (r) {
+                if (r.success) {
+                    _this.vs.resetView();
+                }
+                else {
+                }
+            });
+        };
+        RegisterCtrl.$inject = ["viewService", "userRepository"];
+        return RegisterCtrl;
+    }());
+    aif.RegisterCtrl = RegisterCtrl;
+})(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var ResetPasswordCtrl = (function () {
+        function ResetPasswordCtrl(vs, userRepository) {
+            this.vs = vs;
+            this.userRepository = userRepository;
+            this.init();
+        }
+        ResetPasswordCtrl.prototype.init = function () {
+        };
+        ResetPasswordCtrl.prototype.resend = function () {
+            this.linkSent = false;
+        };
+        ResetPasswordCtrl.prototype.sendReset = function (form) {
+            var _this = this;
+            if (!form.$valid)
+                return;
+            this.userRepository.sendPasswordLink(this.email).then(function (s) {
+                if (s) {
+                    _this.linkSent = true;
+                }
+            });
+        };
+        ResetPasswordCtrl.$inject = ["viewService", "userRepository"];
+        return ResetPasswordCtrl;
+    }());
+    aif.ResetPasswordCtrl = ResetPasswordCtrl;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
 var aif;
@@ -1533,9 +1656,13 @@ var aif;
             this.userRepository = userRepository;
             this.loginFailure = false;
             this.loginMessage = null;
+            this.showNeedMessage = false;
             this.init();
         }
         LoginCtrl.prototype.init = function () {
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
+                this.showNeedMessage = true;
+            }
         };
         LoginCtrl.prototype.login = function (form) {
             var _this = this;
@@ -1565,6 +1692,9 @@ var aif;
                 _this.loginMessage = r.message;
             });
         };
+        LoginCtrl.prototype.showForgottenDetails = function () {
+            this.vs.showForgottenDetails();
+        };
         LoginCtrl.$inject = ["viewService", "userRepository"];
         return LoginCtrl;
     }());
@@ -1590,10 +1720,14 @@ var aif;
         .controller('createFrameworkCtrl', aif_1.CreateFrameworkCtrl)
         .controller('loginCtrl', aif_1.LoginCtrl)
         .controller('saveAsCtrl', aif_1.SaveAsCtrl)
+        .controller('registerCtrl', aif_1.RegisterCtrl)
+        .controller('resetPasswordCtrl', aif_1.ResetPasswordCtrl)
         .directive('aifLoginScreen', aif_1.AifLoginScreen.factory())
         .directive('aifAccountScreen', aif_1.AifAccountScreen.factory())
         .directive('aifCreateFwScreen', aif_1.AifCreateFwScreen.factory())
-        .directive('aifSaveAsScreen', aif_1.AifSaveAsScreen.factory());
+        .directive('aifSaveAsScreen', aif_1.AifSaveAsScreen.factory())
+        .directive('aifRegisterScreen', aif_1.AifRegisterScreen.factory())
+        .directive('aifResetPassword', aif_1.AifResetPassword.factory());
 })(aif || (aif = {}));
 /// <reference path='libs/jquery/jquery.d.ts' />
 /// <reference path='libs/angular/angular.d.ts' />
@@ -1612,6 +1746,8 @@ var aif;
 /// <reference path="services/AifService.ts" />
 /// <reference path="directives/AccountDirectives.ts" />
 /// <reference path="controllers/FrameworkCtrl.ts" />
+/// <reference path="controllers/RegisterCtrl.ts" />
+/// <reference path="controllers/ResetPasswordCtrl.ts" />
 /// <reference path="controllers/CreateFrameworkCtrl.ts" />
 /// <reference path="controllers/SaveAsCtrl.ts" />
 /// <reference path="controllers/AppCtrl.ts" />

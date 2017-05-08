@@ -111,5 +111,61 @@ module aif {
 
   }
 
+  export class AifRegisterScreen implements ng.IDirective {
+
+    static $inject: Array<string> = [''];
+
+    templateUrl: string = 'js/views/register.html';
+    restrict: string = 'E';
+    controller:RegisterCtrl;
+    contollerAs:string = 'rc';
+    bindToContoller: boolean = true;
+
+    link(scope,element,attributes,ctrl:RegisterCtrl):void {
+
+    }
+
+    constructor() {
+
+    }
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new AifRegisterScreen();
+      //directive.$inject = ['$location', 'toaster'];
+      return directive;
+    }
+
+
+  }
+
+  export class AifResetPassword implements ng.IDirective {
+
+    static $inject: Array<string> = [''];
+
+    templateUrl: string = 'js/views/resetPassword.html';
+    restrict: string = 'E';
+    controller:ResetPasswordCtrl;
+    contollerAs:string = 'rc';
+    bindToContoller: boolean = true;
+
+    link(scope,element,attributes,ctrl:ResetPasswordCtrl):void {
+
+    }
+
+    constructor() {
+
+    }
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new AifResetPassword();
+      //directive.$inject = ['$location', 'toaster'];
+      return directive;
+    }
+
+
+  }
+
+
+  //
 
 }

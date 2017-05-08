@@ -14,24 +14,21 @@ var aif;
             this.MESSAGES = {
                 DEFAULT_LOGIN_Q: "New here?",
                 DEFAULT_LOGIN_A: "Create an account",
-                SAVE_ATTEMPT_LOGIN_Q: "You need to be logged in to save progress.<br>Log in below or",
-                SAVE_ATTEMPT_LOGIN_A: "click here to create an account",
                 OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
                 JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
             };
             this.fadeBg = false;
+            this.displayEdit = false;
             this.displayLogin = false;
             this.displayAccount = false;
             this.displayCreate = false;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
+            this.displayFtnDetails = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
-            this.displayFtnDetails = false;
             this.displayRegister = false;
             this.displaySave = false;
-            this.loginMessageQ = this.MESSAGES.DEFAULT_LOGIN_Q;
-            this.loginMessageA = this.MESSAGES.DEFAULT_LOGIN_A;
             this.reset();
         }
         ViewService.prototype.showLogin = function (fromSave) {
@@ -72,14 +69,12 @@ var aif;
             if (hasExisting === void 0) { hasExisting = false; }
             this.reset();
             this.fadeBg = true;
+            this.accountDisplayRoute = AccountDisplayRoute.FromSave;
             if (!loggedIn) {
-                this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.SAVE_ATTEMPT_LOGIN_Q);
-                this.loginMessageA = this.MESSAGES.SAVE_ATTEMPT_LOGIN_A;
                 this.displayLogin = true;
                 return;
             }
             else {
-                this.accountDisplayRoute = AccountDisplayRoute.FromSave;
                 if (hasExisting) {
                     this.displaySaveAs = true;
                 }
@@ -87,6 +82,11 @@ var aif;
                     this.displayCreate = true;
                 }
             }
+        };
+        ViewService.prototype.showEdit = function () {
+            this.reset();
+            this.displayEdit = true;
+            this.fadeBg = true;
         };
         ViewService.prototype.showCreate = function (hasExisting) {
             if (hasExisting === void 0) { hasExisting = false; }
@@ -96,6 +96,7 @@ var aif;
         };
         ViewService.prototype.reset = function () {
             this.fadeBg = false;
+            this.displayEdit = false;
             this.displayLogin = false;
             this.displayAccount = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
@@ -106,8 +107,6 @@ var aif;
             this.displayFtnDetails = false;
             this.displayRegister = false;
             this.displaySave = false;
-            this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_Q);
-            this.loginMessageA = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_A);
         };
         return ViewService;
     }());

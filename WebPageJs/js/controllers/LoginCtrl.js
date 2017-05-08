@@ -43,6 +43,9 @@ var aif;
                 _this.loginMessage = r.message;
             });
         };
+        LoginCtrl.prototype.showForgottenDetails = function () {
+            this.vs.showForgottenDetails();
+        };
         return LoginCtrl;
     }());
     LoginCtrl.$inject = ["viewService", "userRepository"];

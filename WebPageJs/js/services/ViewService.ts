@@ -16,8 +16,6 @@ module aif {
     private MESSAGES = {
       DEFAULT_LOGIN_Q : "New here?",
       DEFAULT_LOGIN_A : "Create an account",
-      SAVE_ATTEMPT_LOGIN_Q : "You need to be logged in to save progress.<br>Log in below or",
-      SAVE_ATTEMPT_LOGIN_A : "click here to create an account",
       OR_CREATE_NEW_FRAMEWORK : "...or create a new framework",
       JUST_CREATE_NEW_FRAMEWORK : "Use the fields below create a new framework"
     };
@@ -27,23 +25,19 @@ module aif {
     }
 
     public fadeBg:boolean = false;
+    public displayEdit:boolean = false;
     public displayLogin:boolean = false;
     public displayAccount:boolean = false;
     public displayCreate:boolean = false;
     public displaySaveAs:boolean = false;
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
+    public displayFtnDetails:boolean = false;
 
 
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;
-    public displayFtnDetails:boolean = false;
     public displayRegister:boolean = false;
     public displaySave:boolean = false;
-
-
-    public loginMessageQ:string = this.MESSAGES.DEFAULT_LOGIN_Q;
-    public loginMessageA:string = this.MESSAGES.DEFAULT_LOGIN_A;
-
 
 
     public showLogin(fromSave:boolean = false){
@@ -87,19 +81,23 @@ module aif {
     public attemptSave(loggedIn:boolean, hasExisting:boolean = false){
       this.reset();
       this.fadeBg = true;
+      this.accountDisplayRoute = AccountDisplayRoute.FromSave;
       if(!loggedIn) {
-        this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.SAVE_ATTEMPT_LOGIN_Q);
-        this.loginMessageA = this.MESSAGES.SAVE_ATTEMPT_LOGIN_A;
         this.displayLogin = true;
         return;
       } else {
-        this.accountDisplayRoute = AccountDisplayRoute.FromSave;
         if(hasExisting){
           this.displaySaveAs = true;
         } else {
           this.displayCreate = true;
         }
       }
+    }
+
+    public showEdit(){
+      this.reset();
+      this.displayEdit = true;
+      this.fadeBg =true;
     }
 
     public showCreate(hasExisting:boolean = false){
@@ -110,21 +108,19 @@ module aif {
 
     private reset():void{
       this.fadeBg = false;
+      this.displayEdit = false;
       this.displayLogin = false;
       this.displayAccount = false;
       this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
       this.displayCreate = false;
       this.displaySaveAs = false;
 
-
       this.displaySelectFramework = false;
       this.hasExistingFrameworks = false;
       this.displayFtnDetails = false;
       this.displayRegister = false;
       this.displaySave = false;
-      this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_Q);
-      this.loginMessageA = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_A);
-    }
+  }
 
   }
 

@@ -6,12 +6,17 @@
             <a class="btn btn-link close-button pull-right" ng-click="lc.vs.resetView()">X</a>
             <h2>Login</h2>
 
-            <h4 class="login-message">
-                <span ng-bind-html="lc.vs.loginMessageQ"></span>
-                <a class="heading-link" id="pop_signup" ng-click="lc.vs.showRegister()">
-                    {{ lc.vs.loginMessageA }}
-                </a>
+            <h4 class="login-message" ng-if="lc.showNeedMessage">
+                You need to be logged in to save progress.
             </h4>
+            <p class="account-layout" ng-if="lc.showNeedMessage">
+                Log in below or <a ng-click="lc.vs.showRegister()">click here to create an account</a>
+            </p>
+
+            <h3 ng-if="!lc.showNeedMessage" class="login-message">New here? <a class="heading-link" id="pop_register"
+                                                                  ng-click="lc.vs.showRegister()">Create an account</a>
+            </h3>
+
             <br>
             <div class="login-box-group">
                 <form name="form" novalidate class="css-form" ng-submit="lc.login(form)">

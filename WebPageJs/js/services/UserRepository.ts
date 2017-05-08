@@ -4,6 +4,7 @@ module aif {
   'use strict';
 
   export class UserRepository implements IUserRepository {
+
 //wp_lostpassword_url()
     static $inject = ["$timeout", "$rootScope", '$cookies'];
 
@@ -58,12 +59,41 @@ module aif {
       }, 200);
     }
 
+    registerNewUser(user: AppUser): ng.IPromise<LoginResult> {
+      return this.$timeout(() => {
+
+        let newUser = new AifUser(
+          user.email,
+          user.firstName,
+          user.lastName,
+          user.organisation,
+          user.jobTitle,
+          user.language,
+          user.contactNumber
+        );
+
+        this.currentUser = newUser;
+        this.$rootScope.$broadcast("user:loggedIn", newUser);
+        this.storeUser();
+        return new LoginResult(true, newUser, null);
+
+      });
+    }
+
     logout(): ng.IPromise<boolean> {
       return this.$timeout(() => {
 
         this.currentUser = null;
         this.$cookies.remove("aifUser");
         this.$rootScope.$broadcast("user:loggedOut");
+        return true;
+      });
+    }
+
+    sendPasswordLink(email:string): ng.IPromise<boolean> {
+      return this.$timeout(() => {
+
+        //TODO: password link
         return true;
       });
     }
@@ -177,7 +207,8 @@ module aif {
       lastName: "Ishmael",
       organisation: "Michael Ishmael Ltd",
       jobTitle: "Director",
-      language: "en"
+      language: "en",
+      contactNumber: "07866 627 323"
     },
     {
       email: "mail@michaelishmael.com",
@@ -185,7 +216,8 @@ module aif {
       lastName: "Ishmael",
       organisation: "66 Bytes",
       jobTitle: "Director",
-      language: "en"
+      language: "en",
+      contactNumber: "07866 627 323"
     }
   ];
 

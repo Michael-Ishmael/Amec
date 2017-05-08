@@ -45,12 +45,28 @@ var aif;
                 return new aif.SaveFrameworkResult(true, _this.currentUser.currentFramework, null);
             }, 200);
         };
+        UserRepository.prototype.registerNewUser = function (user) {
+            var _this = this;
+            return this.$timeout(function () {
+                var newUser = new aif.AifUser(user.email, user.firstName, user.lastName, user.organisation, user.jobTitle, user.language, user.contactNumber);
+                _this.currentUser = newUser;
+                _this.$rootScope.$broadcast("user:loggedIn", newUser);
+                _this.storeUser();
+                return new aif.LoginResult(true, newUser, null);
+            });
+        };
         UserRepository.prototype.logout = function () {
             var _this = this;
             return this.$timeout(function () {
                 _this.currentUser = null;
                 _this.$cookies.remove("aifUser");
                 _this.$rootScope.$broadcast("user:loggedOut");
+                return true;
+            });
+        };
+        UserRepository.prototype.sendPasswordLink = function (email) {
+            return this.$timeout(function () {
+                //TODO: password link
                 return true;
             });
         };
@@ -161,7 +177,8 @@ var aif;
             lastName: "Ishmael",
             organisation: "Michael Ishmael Ltd",
             jobTitle: "Director",
-            language: "en"
+            language: "en",
+            contactNumber: "07866 627 323"
         },
         {
             email: "mail@michaelishmael.com",
@@ -169,7 +186,8 @@ var aif;
             lastName: "Ishmael",
             organisation: "66 Bytes",
             jobTitle: "Director",
-            language: "en"
+            language: "en",
+            contactNumber: "07866 627 323"
         }
     ];
     var userFrameworks = [

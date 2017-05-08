@@ -3,9 +3,10 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkCtrl = (function () {
-        function FrameworkCtrl($window, frameworkRepository) {
+        function FrameworkCtrl($window, frameworkRepository, vs) {
             this.$window = $window;
             this.frameworkRepository = frameworkRepository;
+            this.vs = vs;
             this.editMode = false;
             this.editStep = null;
             this.infoCell = null;
@@ -23,6 +24,7 @@ var aif;
             return;
         };
         FrameworkCtrl.prototype.switchToEditMode = function (step) {
+            this.vs.showEdit();
             this.editMode = true;
             step.showInput = true;
             this.editStep = step;
@@ -32,6 +34,7 @@ var aif;
             return false;
         };
         FrameworkCtrl.prototype.clearEditMode = function () {
+            this.vs.resetView();
             this.editMode = false;
             this.editStep.showInput = false;
             this.editStep.inputRow.forEach(function (c) {
@@ -88,7 +91,8 @@ var aif;
         return FrameworkCtrl;
     }());
     FrameworkCtrl.$inject = ["$window",
-        "frameworkRepository"
+        "frameworkRepository",
+        "viewService"
     ];
     aif.FrameworkCtrl = FrameworkCtrl;
 })(aif || (aif = {}));

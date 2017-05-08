@@ -12,10 +12,11 @@ module aif {
     public infoCell: WorkflowInfoCell = null;
 
     public static $inject = ["$window",
-      "frameworkRepository"
+      "frameworkRepository",
+      "viewService"
     ];
 
-    constructor(private $window:ng.IWindowService, private frameworkRepository: IFrameworkRepository) {
+    constructor(private $window:ng.IWindowService, private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
 
       this.steps = frameworkRepository.get();
       this.rows = aif.FrameworkCtrl.setRowsFromSteps(this.steps);
@@ -36,6 +37,7 @@ module aif {
 
 
     private switchToEditMode(step:WorkflowStep):void{
+      this.vs.showEdit();
       this.editMode = true;
       step.showInput = true;
       this.editStep = step;
@@ -47,6 +49,7 @@ module aif {
     }
 
     public clearEditMode():void {
+      this.vs.resetView();
       this.editMode = false;
       this.editStep.showInput = false;
       this.editStep.inputRow.forEach(c => {

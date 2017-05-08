@@ -103,7 +103,8 @@ module aif {
     lastName:string,
     organisation:string,
     jobTitle:string,
-    language:string
+    language:string,
+    contactNumber:string
   }
   
   export class AppUser implements IAifUser {
@@ -114,7 +115,8 @@ module aif {
       public lastName:string,
       public organisation:string,
       public jobTitle:string,
-      public language:string
+      public language:string,
+      public contactNumber:string
     ){}
 
     public password: string = null;
@@ -136,8 +138,12 @@ module aif {
         public lastName:string,
         public organisation:string,
         public jobTitle:string,
-        public language:string
-    ){}
+        public language:string,
+        public contactNumber:string
+    ){
+
+
+    }
 
 
     setExistingFramework(id:number):void {
@@ -166,7 +172,8 @@ module aif {
             this.lastName,
             this.organisation,
             this.jobTitle,
-            this.language
+            this.language,
+            this.contactNumber
           )
             ;
     }
@@ -179,7 +186,8 @@ module aif {
             data.lastName,
             data.organisation,
             data.jobTitle,
-            data.language
+            data.language,
+            data.contactNumber
           );
 
 

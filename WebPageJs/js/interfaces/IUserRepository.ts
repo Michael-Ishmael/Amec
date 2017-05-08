@@ -7,6 +7,7 @@ module aif {
     get (): ng.IPromise<AifUser>;
     logout (): ng.IPromise<boolean>;
     login ( userName:string,  password:string): ng.IPromise<LoginResult>;
+    registerNewUser ( user:AppUser ): ng.IPromise<LoginResult>;
 
   }
 

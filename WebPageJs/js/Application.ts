@@ -19,10 +19,14 @@ module aif {
     .controller('createFrameworkCtrl', CreateFrameworkCtrl)
     .controller('loginCtrl', LoginCtrl)
     .controller('saveAsCtrl', SaveAsCtrl)
+    .controller('registerCtrl', RegisterCtrl)
+    .controller('resetPasswordCtrl', ResetPasswordCtrl)
     .directive('aifLoginScreen', AifLoginScreen.factory())
     .directive('aifAccountScreen', AifAccountScreen.factory())
     .directive('aifCreateFwScreen', AifCreateFwScreen.factory())
     .directive('aifSaveAsScreen', AifSaveAsScreen.factory())
+    .directive('aifRegisterScreen', AifRegisterScreen.factory())
+    .directive('aifResetPassword', AifResetPassword.factory())
   ;
 
     //.directive('todoBlur', todoBlur)

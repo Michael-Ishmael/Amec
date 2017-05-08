@@ -74,4 +74,41 @@ var aif;
     }());
     AifSaveAsScreen.$inject = [''];
     aif.AifSaveAsScreen = AifSaveAsScreen;
+    var AifRegisterScreen = (function () {
+        function AifRegisterScreen() {
+            this.templateUrl = 'js/views/register.html';
+            this.restrict = 'E';
+            this.contollerAs = 'rc';
+            this.bindToContoller = true;
+        }
+        AifRegisterScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifRegisterScreen.factory = function () {
+            var directive = function () { return new AifRegisterScreen(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        return AifRegisterScreen;
+    }());
+    AifRegisterScreen.$inject = [''];
+    aif.AifRegisterScreen = AifRegisterScreen;
+    var AifResetPassword = (function () {
+        function AifResetPassword() {
+            this.templateUrl = 'js/views/resetPassword.html';
+            this.restrict = 'E';
+            this.contollerAs = 'rc';
+            this.bindToContoller = true;
+        }
+        AifResetPassword.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifResetPassword.factory = function () {
+            var directive = function () { return new AifResetPassword(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        return AifResetPassword;
+    }());
+    AifResetPassword.$inject = [''];
+    aif.AifResetPassword = AifResetPassword;
+    //
 })(aif || (aif = {}));

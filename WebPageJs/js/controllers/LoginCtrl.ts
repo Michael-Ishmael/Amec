@@ -49,6 +49,12 @@ module aif {
       });
 
     }
+
+    public showForgottenDetails(){
+
+      this.vs.showForgottenDetails();
+
+    }
   }
 
 }
