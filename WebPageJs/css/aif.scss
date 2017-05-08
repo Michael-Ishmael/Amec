@@ -459,7 +459,7 @@ h2 {
   }
 
   .account-layout {
-    max-width: 450px;
+    max-width: 470px;
 
     .em{
 
@@ -470,6 +470,8 @@ h2 {
 
       font-style: italic;
       color: lighten($dark_blue, 10%);
+      font-size: 1.2rem;
+      display: inline-block;
 
       &:hover {
         color: $dark_blue;

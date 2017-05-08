@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82c5ea1c-1f2f-433a-8055-1f67839aec74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/RegisterCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/ResetPasswordCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/views/old.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/views/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/views/resetPassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css" afterPath="$PROJECT_DIR$/css/aif.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css.map" afterPath="$PROJECT_DIR$/css/aif.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.scss" afterPath="$PROJECT_DIR$/css/aif.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js" afterPath="$PROJECT_DIR$/js/Application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js.map" afterPath="$PROJECT_DIR$/js/Application.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.ts" afterPath="$PROJECT_DIR$/js/Application.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/_all.js" afterPath="$PROJECT_DIR$/js/_all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/_all.ts" afterPath="$PROJECT_DIR$/js/_all.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/LoginCtrl.js" afterPath="$PROJECT_DIR$/js/controllers/LoginCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/LoginCtrl.ts" afterPath="$PROJECT_DIR$/js/controllers/LoginCtrl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/directives/AccountDirectives.js" afterPath="$PROJECT_DIR$/js/directives/AccountDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/directives/AccountDirectives.ts" afterPath="$PROJECT_DIR$/js/directives/AccountDirectives.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/interfaces/IUserRepository.ts" afterPath="$PROJECT_DIR$/js/interfaces/IUserRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/AifUser.js" afterPath="$PROJECT_DIR$/js/models/AifUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/AifUser.ts" afterPath="$PROJECT_DIR$/js/models/AifUser.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/UserRepository.js" afterPath="$PROJECT_DIR$/js/services/UserRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/UserRepository.ts" afterPath="$PROJECT_DIR$/js/services/UserRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/ViewService.js" afterPath="$PROJECT_DIR$/js/services/ViewService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/ViewService.ts" afterPath="$PROJECT_DIR$/js/services/ViewService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/login.html" afterPath="$PROJECT_DIR$/js/views/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,11 +48,34 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="resetPassword.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="resetPassword.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/views/resetPassword.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+                <state relative-caret-position="239">
+                  <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="aif.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/aif.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="434">
+                  <caret line="473" column="28" lean-forward="false" selection-start-line="473" selection-start-column="28" selection-end-line="473" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#540#917#0" expanded="false" />
+                    <element signature="e#6160#6259#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="saveAs.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/views/saveAs.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="504">
+                  <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -133,9 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>issubmi</find>
-      <find>aif-ti</find>
-      <find>bac</find>
       <find>ing,</find>
       <find>login-bo</find>
       <find>optional</find>
@@ -163,6 +157,9 @@
       <find>welcom</find>
       <find>registerNewUser</find>
       <find>forgot</find>
+      <find>account0</find>
+      <find>account</find>
+      <find>account-l</find>
     </findStrings>
     <replaceStrings>
       <replace>self.</replace>
@@ -223,7 +220,6 @@
         <option value="$PROJECT_DIR$/js/controllers/AppCtrl.ts" />
         <option value="$PROJECT_DIR$/js/controllers/SaveAsCtrl.ts" />
         <option value="$PROJECT_DIR$/js/views/saveAs.html" />
-        <option value="$PROJECT_DIR$/css/aif.scss" />
         <option value="$PROJECT_DIR$/js/views/login.html" />
         <option value="$PROJECT_DIR$/js/views/register.html" />
         <option value="$PROJECT_DIR$/js/models/AifUser.ts" />
@@ -240,6 +236,7 @@
         <option value="$PROJECT_DIR$/js/controllers/ResetPasswordCtrl.ts" />
         <option value="$PROJECT_DIR$/js/controllers/LoginCtrl.ts" />
         <option value="$PROJECT_DIR$/js/views/resetPassword.html" />
+        <option value="$PROJECT_DIR$/css/aif.scss" />
       </list>
     </option>
   </component>
@@ -438,6 +435,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebPageJs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebPageJs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -595,12 +606,12 @@
       <workItem from="1493752632947" duration="62541000" />
       <workItem from="1494254098721" duration="7534000" />
       <workItem from="1494264221786" duration="68000" />
-      <workItem from="1494264308443" duration="17120000" />
+      <workItem from="1494264308443" duration="17367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143727000" />
+    <option name="totallyTimeSpent" value="143974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -884,27 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/aif.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="454" column="3" lean-forward="false" selection-start-line="454" selection-start-column="3" selection-end-line="454" selection-end-column="3" />
-          <folding>
-            <element signature="e#540#917#0" expanded="false" />
-            <element signature="e#6160#6259#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/views/saveAs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="e#301#307#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/views/account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1079,8 +1069,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/views/resetPassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="239">
+          <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/aif.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="473" column="28" lean-forward="false" selection-start-line="473" selection-start-column="28" selection-end-line="473" selection-end-column="28" />
+          <folding>
+            <element signature="e#540#917#0" expanded="false" />
+            <element signature="e#6160#6259#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/saveAs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>

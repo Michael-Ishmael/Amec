@@ -386,12 +386,14 @@ h2 {
   .aif-tile.save-box {
     background-color: #00c394; }
   .aif-tile .account-layout {
-    max-width: 450px; }
+    max-width: 470px; }
     .aif-tile .account-layout .em {
       font-style: italic; }
     .aif-tile .account-layout a {
       font-style: italic;
-      color: #0093e2; }
+      color: #0093e2;
+      font-size: 1.2rem;
+      display: inline-block; }
       .aif-tile .account-layout a:hover {
         color: #0072af;
         text-decoration: underline; }
