@@ -4,95 +4,97 @@ module aif {
   'use strict';
   import IFormController = angular.IFormController;
 
-  export class AccountCtrl {
+  export class AppCtrl {
 
     public app: AifApp;
-    public static $inject = ["$window", "$sce", "aifService"];
+    public static $inject = ["$scope" ,"$window", "$sce", "userRepository", "viewService"];
 
     public loginFailure:boolean = false;
     public message:string = null;
-    public displayLogic:LoginDisplayLogic = null;
-    public userModel:AppUser = null;
     public initialised:boolean = false;
-    public currentFramework:AifFramework = null;
     public savedFrameworkModel:SavedFrameworkModel = null;
 
-    constructor(private $window: ng.IWindowService, private $sce: ng.ISCEService , private aifService: IAifService) {
+    public currentFramework:AifFramework  = null;
+    public currentUser:AifUser  = null;
+
+    constructor(private $scope: ng.IScope ,private $window: ng.IWindowService, private $sce: ng.ISCEService,
+                private userRepository: UserRepository, public vs:ViewService) {
       this.init();
     }
 
     private init():void{
+
+      this.$scope.$on("user:loggedIn", (event:ng.IAngularEvent, data:any) => { this.userLoggedChanged(data) } );
+      this.$scope.$on("user:loggedOut", (event:ng.IAngularEvent) => { this.userLoggedChanged(null) } );
+      this.$scope.$on("framework:frameworkUpdated", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
+
+
       let self = this;
-      this.aifService.getApp().then(
+      this.userRepository.get().then(
+        user => {
 
-        a => {
-          self.app = a;
-          if(a && a.user){
-            this.userModel = a.user.asAppUser();
+          if(user){
+            this.currentUser = user;
 
-          } else {
-            this.userModel = new AppUser(null, null, null, null, null, null);
+            if(user.currentFramework) this.currentFramework = user.currentFramework;
           }
           this.initialised = true;
         }
 
       );
+    }
 
-      this.displayLogic = new LoginDisplayLogic(this.$sce);
+    private userLoggedChanged(user:AifUser):void{
+      if(user){
+        this.currentUser = user;
+        if(this.currentUser.currentFramework){
+          this.setCurrentFramework(this.currentUser.currentFramework);
+        }
+      } else {
+        this.currentUser = null;
+        this.currentFramework = null;
+      }
+
+    }
+
+    private setCurrentFramework(framework:AifFramework):void{
+
+      this.currentFramework = framework;
+
     }
 
     public isLoggedIn(): boolean{
 
-      return !!(this.app && this.app.user);
+      return !!this.currentUser;
 
     }
 
     public showLogin(): void {
-      this.displayLogic.showLogin();
+      this.vs.showLogin();
     }
 
     public showForgottenDetails(): void {
-      this.displayLogic.showForgottenDetails();
+      this.vs.showForgottenDetails();
     }
 
     public hideLoginBox(): void {
-      this.displayLogic.hideLoginDisplay();
+      this.vs.resetView();
     }
 
     public showRegister(): void {
-      this.displayLogic.showRegister();
+      this.vs.showRegister();
+    }
+
+    public viewAccount(): void {
+      this.vs.showAccount(AccountDisplayRoute.FromViewAccount);
     }
 
     public saveProgress(){
-      this.displayLogic.attemptSave(this.isLoggedIn())
+      let loggedIn = this.isLoggedIn();
+      let hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
+      this.vs.attemptSave(loggedIn, hasExisting);
     }
 
-    public login(form:ng.IFormController):void {
-      if (form) {
-        if(!form.$valid) return;
-        form.$setPristine();
-        form.$setUntouched();
-      } else {
-        return;
-      }
-
-      let self = this;
-      this.aifService.login(this.userModel.email, this.userModel.password).then((r) => {
-          if(!r.success){
-            self.loginFailure = true;
-            self.message = r.message;
-          } else {
-            self.userModel = r.user.asAppUser();
-            self.savedFrameworkModel = new SavedFrameworkModel();
-            self.displayLogic.showSelectFramework(self.app.user.hasExistingFrameworks());
-
-          }
-        }
-      ).catch(r => {
-        self.loginFailure = true;
-        self.message = r.message;
-      });
-    }
 
     public registerNewUser(form:ng.IFormController){
       if(!form.$valid) return;
@@ -116,21 +118,6 @@ module aif {
       }
 
       this.hideLoginBox();
-
-    }
-
-    public logout():void {
-      let self = this;
-      this.displayLogic.hideLoginDisplay();
-      this.aifService.logout().then(
-        (b) => {
-
-            if(b){
-              //this.$window.location.href = "";
-              window.location.href = window.location.href;
-            }
-
-      });
 
     }
 
@@ -164,7 +151,6 @@ module aif {
 
     public fadeBg:boolean = false;
     public displayLogin:boolean = false;
-    public loginGrayed:boolean = false;
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;
     public displayFtnDetails:boolean = false;
@@ -187,7 +173,6 @@ module aif {
       this.reset();
       this.fadeBg = true;
       this.displayLogin = true;
-      this.loginGrayed = true;
       this.displaySelectFramework = true;
       this.hasExistingFrameworks = hasExisting;
       if(hasExisting) this.createMessage = this.MESSAGES.OR_CREATE_NEW_FRAMEWORK;
@@ -224,7 +209,6 @@ module aif {
     private reset():void{
       this.fadeBg = false;
       this.displayLogin = false;
-      this.loginGrayed = false;
       this.displaySelectFramework = false;
       this.hasExistingFrameworks = false;
       this.displayFtnDetails = false;

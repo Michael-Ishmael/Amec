@@ -89,15 +89,6 @@ var aif;
         return AifApp;
     }());
     aif.AifApp = AifApp;
-    var AifFramework = (function () {
-        function AifFramework(id, name, description) {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-        }
-        return AifFramework;
-    }());
-    aif.AifFramework = AifFramework;
     var AppUser = (function () {
         function AppUser(email, firstName, lastName, organisation, jobTitle, language) {
             this.email = email;
@@ -121,9 +112,23 @@ var aif;
             this.jobTitle = jobTitle;
             this.language = language;
             this.frameworks = [];
+            this.currentFramework = null;
         }
         AifUser.prototype.hasExistingFrameworks = function () {
             return this.frameworks != null && this.frameworks.length > 0;
+        };
+        AifUser.prototype.setExistingFramework = function (id) {
+            var matches = this.frameworks.filter(function (f) { return f.id === id; });
+            if (matches.length) {
+                this.currentFramework = matches[0];
+            }
+            else {
+                this.currentFramework = null;
+            }
+        };
+        AifUser.prototype.addNewFramework = function (newFramework) {
+            this.frameworks.push(newFramework);
+            this.currentFramework = newFramework;
         };
         AifUser.prototype.hasFrameworks = function () {
             return this.firstName.length > 0;

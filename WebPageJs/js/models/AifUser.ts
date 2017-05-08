@@ -94,16 +94,7 @@ module aif {
   }
 
 
-  export class AifFramework {
 
-    constructor(
-      public id:number,
-        public name:string,
-        public description:string
-    ){
-
-    }
-  }
 
   export interface IAifUser {
 
@@ -133,6 +124,7 @@ module aif {
   export class AifUser implements IAifUser {
 
     public frameworks : Array<AifFramework> = [];
+    public currentFramework : AifFramework = null;
 
     public hasExistingFrameworks():boolean {
       return this.frameworks != null && this.frameworks.length > 0;
@@ -147,6 +139,21 @@ module aif {
         public language:string
     ){}
 
+
+    setExistingFramework(id:number):void {
+      let matches = this.frameworks.filter(f => f.id === id);
+      if(matches.length) {
+        this.currentFramework = matches[0];
+      } else {
+        this.currentFramework = null;
+      }
+    }
+
+    addNewFramework(newFramework:AifFramework){
+          this.frameworks.push(newFramework);
+          this.currentFramework = newFramework;
+
+    }
 
     hasFrameworks():boolean{
           return this.firstName.length >0;
@@ -180,6 +187,8 @@ module aif {
 
   }
 
+
+
   export class LoginResult {
 
     constructor(
@@ -191,5 +200,7 @@ module aif {
     }
 
   }
+
+
 
 }

@@ -22,35 +22,32 @@
 <body>
 
 
-<div ng-cloak class="main container" ng-controller="accountCtrl as ac">
+<div ng-cloak class="main container" ng-controller="appCtrl as ac">
     <div ng-if="ac.initialised" class="control-row row">
-        <div class="col-md-1 low-pad-cell">
-
-            <div class="aif-button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.logout()"
-                 ng-if="ac.isLoggedIn()">
-                Logout
-            </div>
-
+        <div class="col-md-1 low-pad-cell" ng-if="!ac.isLoggedIn()">
             <div class="aif-button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.showLogin()"
-                 ng-if="!ac.isLoggedIn()">
+                 >
                 Login
             </div>
 
         </div>
 
-        <div class="col-md-1 low-pad-cell" ng-if="!ac.isLoggedIn()">
-            <div class="aif-button background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.showRegister()">
+        <div class="col-md-5 low-pad-cell" ng-if="!ac.isLoggedIn()">
+            <div class="aif-button aif-button-free background-dark_blue bottom-dark-border-dark_blue" ng-click="ac.showRegister()">
                 Register
             </div>
         </div>
 
-        <div class="col-md-8 low-pad-cell hidden-sm-down" ng-if="ac.isLoggedIn()">
-            <h4>Welcome {{ ac.userModel.firstName }}</h4></div>
-        <div class="col-md-7 low-pad-cell" ng-if="!ac.isLoggedIn()"></div>
+        <div class="col-md-6 low-pad-cell hidden-sm-down" ng-if="ac.isLoggedIn()">
 
-        <div class="col-md-2 low-pad-cell">
+            <h4 ng-click="ac.viewAccount()" ><a class="account-button"></a> Welcome {{ ac.currentUser.firstName }}</h4></div>
+
+        <div class="col-md-5 low-pad-cell text-right">
+            <span class="framework-name" ng-if="ac.currentFramework">
+            <h4> {{ ac.currentFramework.name }}</h4>
+            </span>
             <div ng-click="ac.saveProgress()"
-                 class="aif-button background-bright_green bottom-dark-border-bright_green pull-right">
+                 class="aif-button aif-button-inline background-bright_green bottom-dark-border-bright_green">
                 Save Progress
             </div>
         </div>
@@ -67,7 +64,7 @@
                      ng-class="{'col-md-4': step.colSpan === 1, 'col-md-8': step.colSpan === 2}">
                     <div class="aif-tile" ng-class="ctrl.getColorClass('background', step)"
                          ng-click="ctrl.handleStepClick(step)">
-                        <div class="bg-cloak" ng-if="ctrl.editMode || ac.displayLogic.fadeBg"
+                        <div class="bg-cloak" ng-if="ctrl.editMode || ac.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
                         <h2 ng-if="!step.isSubmit">{{ step.title }}</h2>
                         <div ng-if="!step.isSubmit" class="anchor-bottom"
@@ -96,25 +93,40 @@
 
         <div id="loginRow" class="login-row-container">
 
-            <div class="row " ng-if="ac.displayLogic.displayLogin">
+            <aif-login-screen ng-controller="loginCtrl as lc"
+                              ng-if="ac.vs.displayLogin">
+            </aif-login-screen>
+
+            <aif-account-screen ng-controller="accountViewCtrl as av"
+                              ng-if="ac.vs.displayAccount">
+            </aif-account-screen>
+
+            <aif-create-fw-screen ng-controller="createFrameworkCtrl as cf"
+                              ng-if="ac.vs.displayCreate">
+            </aif-create-fw-screen>
+
+            <aif-save-as-screen ng-controller="saveAsCtrl as sa"
+                                ng-if="ac.vs.displaySaveAs">
+
+            </aif-save-as-screen>
+
+
+            <div class="row"  ng-if="false">
 
                 <div class="col-md-8 low-pad-cell">
 
-                    <div class="aif-tile login-box" ng-class="{'long': ac.displayLogic.displaySelectFramework}">
+                    <div class="aif-tile login-box">
                         <a class="btn btn-link close-button pull-right" ng-click="ac.hideLoginBox()">X</a>
-                        <h2>Login <span ng-if="ac.displayLogic.displaySelectFramework"> succesful!</span> </h2>
-                        <h3 ng-if="ac.displayLogic.displaySelectFramework" class="login-message">&nbsp;</h3>
-                        <h3 ng-if="!ac.displayLogic.displaySelectFramework" class="login-message"><span
-                                ng-bind-html="ac.displayLogic.loginMessageQ"></span>
-                            <a class="heading-link" id="pop_signup"
-                               ng-click="ac.showRegister()">
+                        <h2>Login</h2>
+
+                        <h3 class="login-message">
+                            <span ng-bind-html="ac.displayLogic.loginMessageQ"></span>
+                            <a class="heading-link" id="pop_signup" ng-click="ac.showRegister()">
                                 {{ ac.displayLogic.loginMessageA }}
-
-                            </a></h3>
-                        <div class="login-box-group" ng-if="!ac.displayLogic.displaySelectFramework || ac.displayLogic.hasExistingFrameworks">
-                            <form name="form" novalidate class="css-form" ng-submit="ac.login(form)"
-                                  ng-if="!ac.displayLogic.displaySelectFramework">
-
+                            </a>
+                        </h3>
+                        <div class="login-box-group">
+                            <form name="form" novalidate class="css-form" ng-submit="ac.login(form)">
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input id="email" ng-model="ac.userModel.email" required type="email"
@@ -218,6 +230,88 @@
 
                 </div>
 
+            </d>
+
+
+            <div class="row " ng-if="false">
+
+                <div class="col-md-8 low-pad-cell">
+
+                    <div class="aif-tile login-box long">
+                        <a class="btn btn-link close-button pull-right" ng-click="ac.hideLoginBox()">X</a>
+                        <h2>Login succesful!</h2>
+                        <h3 class="login-message">&nbsp;</h3>
+
+                        <div class="login-box-group">
+
+                            <form name="formLoad" novalidate class="css-form" ng-if="lc.vs.hasExistingFrameworks"
+                                  ng-submit="ac.loadOrCreateFramework(formLoad)">
+                                <p> Select an existing framework to load... </p>
+                                <div class="form-group" >
+                                    <label for="email">Existing frameworks</label>
+                                    <select id="eFramework" ng-model="ac.savedFrameworkModel.existingFrameworkId"
+                                            class="form-control dropdown" name="eFramework"
+                                    >
+                                        <option ng-repeat="framework in ac.app.user.frameworks" ng-value="framework.id">
+                                            {{ framework.name }}
+                                        </option>
+                                    </select>
+
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                                           type="submit" value="Load">
+                                </div>
+
+                            </form>
+                        </div>
+
+
+
+                        <div class="login-box-group" ng-if="lc.vs.displaySelectFramework">
+
+
+                            <form name="formCreate" novalidate class="css-form" ng-submit="ac.loadOrCreateFramework(formCreate)">
+                                <p> {{ lc.vs.createMessage }} </p>
+                                <div class="form-group">
+                                    <label for="nFrameworkName">Name</label>
+                                    <input type="text" ng-model="ac.savedFrameworkModel.newFrameworkName" required
+                                           class="form-control" id="nFrameworkName"
+                                           name="nFrameworkName" placeholder="Framework name">
+                                    <div class="form-validation-error"
+                                         ng-show="formLoad.$submitted || formLoad.nFrameworkName.$touched">
+                                        <span ng-show="formLoad.nFrameworkName.$error.required">You must provide a name for your framework.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nframeworkDesc">Description</label>
+                                    <textarea id="nframeworkDesc" type="text" rows="5" class="form-control"
+                                              name="nframeworkDesc" ng-model="ac.savedFrameworkModel.newFrameworkDescription"
+                                              placeholder="Optionally add any notes here "></textarea>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                                           type="submit" value="Create">
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
             </div>
 
             <div class="row " ng-if="ac.displayLogic.displayFtnDetails">
@@ -544,6 +638,7 @@
 </div>
 <script src="js/libs/bootstrap/tether.min.js" type="text/javascript"></script>
 <script src="js/libs/angular/angular.min.js" type="text/javascript"></script>
+<script src="js/libs/angular/angular-cookies.js" type="text/javascript"></script>
 <script src="node_modules/angular-click-outside/angular-click-outside.js" type="text/javascript"></script>
 <script src="js/Application.js"></script>
 

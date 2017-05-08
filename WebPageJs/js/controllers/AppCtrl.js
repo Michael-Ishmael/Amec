@@ -2,85 +2,80 @@
 var aif;
 (function (aif) {
     'use strict';
-    var AccountCtrl = (function () {
-        function AccountCtrl($window, $sce, aifService) {
+    var AppCtrl = (function () {
+        function AppCtrl($scope, $window, $sce, userRepository, vs) {
+            this.$scope = $scope;
             this.$window = $window;
             this.$sce = $sce;
-            this.aifService = aifService;
+            this.userRepository = userRepository;
+            this.vs = vs;
             this.loginFailure = false;
             this.message = null;
-            this.displayLogic = null;
-            this.userModel = null;
             this.initialised = false;
-            this.currentFramework = null;
             this.savedFrameworkModel = null;
+            this.currentFramework = null;
+            this.currentUser = null;
             this.init();
         }
-        AccountCtrl.prototype.init = function () {
+        AppCtrl.prototype.init = function () {
             var _this = this;
+            this.$scope.$on("user:loggedIn", function (event, data) { _this.userLoggedChanged(data); });
+            this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
+            this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
             var self = this;
-            this.aifService.getApp().then(function (a) {
-                self.app = a;
-                if (a && a.user) {
-                    _this.userModel = a.user.asAppUser();
-                }
-                else {
-                    _this.userModel = new aif.AppUser(null, null, null, null, null, null);
+            this.userRepository.get().then(function (user) {
+                if (user) {
+                    _this.currentUser = user;
+                    if (user.currentFramework)
+                        _this.currentFramework = user.currentFramework;
                 }
                 _this.initialised = true;
             });
-            this.displayLogic = new LoginDisplayLogic(this.$sce);
         };
-        AccountCtrl.prototype.isLoggedIn = function () {
-            return !!(this.app && this.app.user);
-        };
-        AccountCtrl.prototype.showLogin = function () {
-            this.displayLogic.showLogin();
-        };
-        AccountCtrl.prototype.showForgottenDetails = function () {
-            this.displayLogic.showForgottenDetails();
-        };
-        AccountCtrl.prototype.hideLoginBox = function () {
-            this.displayLogic.hideLoginDisplay();
-        };
-        AccountCtrl.prototype.showRegister = function () {
-            this.displayLogic.showRegister();
-        };
-        AccountCtrl.prototype.saveProgress = function () {
-            this.displayLogic.attemptSave(this.isLoggedIn());
-        };
-        AccountCtrl.prototype.login = function (form) {
-            if (form) {
-                if (!form.$valid)
-                    return;
-                form.$setPristine();
-                form.$setUntouched();
+        AppCtrl.prototype.userLoggedChanged = function (user) {
+            if (user) {
+                this.currentUser = user;
+                if (this.currentUser.currentFramework) {
+                    this.setCurrentFramework(this.currentUser.currentFramework);
+                }
             }
             else {
-                return;
+                this.currentUser = null;
+                this.currentFramework = null;
             }
-            var self = this;
-            this.aifService.login(this.userModel.email, this.userModel.password).then(function (r) {
-                if (!r.success) {
-                    self.loginFailure = true;
-                    self.message = r.message;
-                }
-                else {
-                    self.userModel = r.user.asAppUser();
-                    self.savedFrameworkModel = new SavedFrameworkModel();
-                    self.displayLogic.showSelectFramework(self.app.user.hasExistingFrameworks());
-                }
-            }).catch(function (r) {
-                self.loginFailure = true;
-                self.message = r.message;
-            });
         };
-        AccountCtrl.prototype.registerNewUser = function (form) {
+        AppCtrl.prototype.setCurrentFramework = function (framework) {
+            this.currentFramework = framework;
+        };
+        AppCtrl.prototype.isLoggedIn = function () {
+            return !!this.currentUser;
+        };
+        AppCtrl.prototype.showLogin = function () {
+            this.vs.showLogin();
+        };
+        AppCtrl.prototype.showForgottenDetails = function () {
+            this.vs.showForgottenDetails();
+        };
+        AppCtrl.prototype.hideLoginBox = function () {
+            this.vs.resetView();
+        };
+        AppCtrl.prototype.showRegister = function () {
+            this.vs.showRegister();
+        };
+        AppCtrl.prototype.viewAccount = function () {
+            this.vs.showAccount(aif.AccountDisplayRoute.FromViewAccount);
+        };
+        AppCtrl.prototype.saveProgress = function () {
+            var loggedIn = this.isLoggedIn();
+            var hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
+            this.vs.attemptSave(loggedIn, hasExisting);
+        };
+        AppCtrl.prototype.registerNewUser = function (form) {
             if (!form.$valid)
                 return;
             this.hideLoginBox();
         };
-        AccountCtrl.prototype.loadOrCreateFramework = function (form) {
+        AppCtrl.prototype.loadOrCreateFramework = function (form) {
             if (!form.$valid)
                 return;
             if (this.savedFrameworkModel.existingFrameworkId > -1) {
@@ -99,20 +94,10 @@ var aif;
             }
             this.hideLoginBox();
         };
-        AccountCtrl.prototype.logout = function () {
-            var self = this;
-            this.displayLogic.hideLoginDisplay();
-            this.aifService.logout().then(function (b) {
-                if (b) {
-                    //this.$window.location.href = "";
-                    window.location.href = window.location.href;
-                }
-            });
-        };
-        return AccountCtrl;
+        return AppCtrl;
     }());
-    AccountCtrl.$inject = ["$window", "$sce", "aifService"];
-    aif.AccountCtrl = AccountCtrl;
+    AppCtrl.$inject = ["$scope", "$window", "$sce", "userRepository", "viewService"];
+    aif.AppCtrl = AppCtrl;
     var SavedFrameworkModel = (function () {
         function SavedFrameworkModel() {
             this.existingFrameworkId = -1;
@@ -136,7 +121,6 @@ var aif;
             };
             this.fadeBg = false;
             this.displayLogin = false;
-            this.loginGrayed = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayFtnDetails = false;
@@ -156,7 +140,6 @@ var aif;
             this.reset();
             this.fadeBg = true;
             this.displayLogin = true;
-            this.loginGrayed = true;
             this.displaySelectFramework = true;
             this.hasExistingFrameworks = hasExisting;
             if (hasExisting)
@@ -189,7 +172,6 @@ var aif;
         LoginDisplayLogic.prototype.reset = function () {
             this.fadeBg = false;
             this.displayLogin = false;
-            this.loginGrayed = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayFtnDetails = false;

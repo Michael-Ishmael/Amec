@@ -234,15 +234,6 @@ var aif;
         return AifApp;
     }());
     aif.AifApp = AifApp;
-    var AifFramework = (function () {
-        function AifFramework(id, name, description) {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-        }
-        return AifFramework;
-    }());
-    aif.AifFramework = AifFramework;
     var AppUser = (function () {
         function AppUser(email, firstName, lastName, organisation, jobTitle, language) {
             this.email = email;
@@ -266,9 +257,23 @@ var aif;
             this.jobTitle = jobTitle;
             this.language = language;
             this.frameworks = [];
+            this.currentFramework = null;
         }
         AifUser.prototype.hasExistingFrameworks = function () {
             return this.frameworks != null && this.frameworks.length > 0;
+        };
+        AifUser.prototype.setExistingFramework = function (id) {
+            var matches = this.frameworks.filter(function (f) { return f.id === id; });
+            if (matches.length) {
+                this.currentFramework = matches[0];
+            }
+            else {
+                this.currentFramework = null;
+            }
+        };
+        AifUser.prototype.addNewFramework = function (newFramework) {
+            this.frameworks.push(newFramework);
+            this.currentFramework = newFramework;
         };
         AifUser.prototype.hasFrameworks = function () {
             return this.firstName.length > 0;
@@ -292,35 +297,208 @@ var aif;
     }());
     aif.LoginResult = LoginResult;
 })(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var AifFramework = (function () {
+        function AifFramework(id, name, description) {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.selected = false;
+            this.flaggedDelete = false;
+            this.current = false;
+        }
+        return AifFramework;
+    }());
+    aif.AifFramework = AifFramework;
+    var SaveFrameworkResult = (function () {
+        function SaveFrameworkResult(success, frameWork, message) {
+            this.success = success;
+            this.frameWork = frameWork;
+            this.message = message;
+        }
+        return SaveFrameworkResult;
+    }());
+    aif.SaveFrameworkResult = SaveFrameworkResult;
+})(aif || (aif = {}));
 /// <reference path="../_all.ts" />
 /// <reference path="../_all.ts" />
 /// <reference path="../_all.ts" />
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    (function (AccountDisplayRoute) {
+        AccountDisplayRoute[AccountDisplayRoute["FromLogin"] = 0] = "FromLogin";
+        AccountDisplayRoute[AccountDisplayRoute["FromSave"] = 1] = "FromSave";
+        AccountDisplayRoute[AccountDisplayRoute["FromViewAccount"] = 2] = "FromViewAccount";
+    })(aif.AccountDisplayRoute || (aif.AccountDisplayRoute = {}));
+    var AccountDisplayRoute = aif.AccountDisplayRoute;
+    var ViewService = (function () {
+        function ViewService($sce) {
+            this.$sce = $sce;
+            this.MESSAGES = {
+                DEFAULT_LOGIN_Q: "New here?",
+                DEFAULT_LOGIN_A: "Create an account",
+                SAVE_ATTEMPT_LOGIN_Q: "You need to be logged in to save progress.<br>Log in below or",
+                SAVE_ATTEMPT_LOGIN_A: "click here to create an account",
+                OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
+                JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
+            };
+            this.fadeBg = false;
+            this.displayLogin = false;
+            this.displayAccount = false;
+            this.displayCreate = false;
+            this.displaySaveAs = false;
+            this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
+            this.displaySelectFramework = false;
+            this.hasExistingFrameworks = false;
+            this.displayFtnDetails = false;
+            this.displayRegister = false;
+            this.displaySave = false;
+            this.loginMessageQ = this.MESSAGES.DEFAULT_LOGIN_Q;
+            this.loginMessageA = this.MESSAGES.DEFAULT_LOGIN_A;
+            this.reset();
+        }
+        ViewService.prototype.showLogin = function (fromSave) {
+            if (fromSave === void 0) { fromSave = false; }
+            this.reset();
+            this.fadeBg = true;
+            if (fromSave)
+                this.accountDisplayRoute = AccountDisplayRoute.FromSave;
+            this.displayLogin = true;
+        };
+        ViewService.prototype.showAccount = function (route) {
+            this.reset();
+            this.fadeBg = true;
+            this.displayAccount = true;
+            this.accountDisplayRoute = route;
+        };
+        ViewService.prototype.showCreateFramework = function (route, hasExisting) {
+            this.reset();
+            this.fadeBg = true;
+            this.displayCreate = true;
+            this.accountDisplayRoute = route;
+            this.hasExistingFrameworks = hasExisting;
+        };
+        ViewService.prototype.showForgottenDetails = function () {
+            this.reset();
+            this.fadeBg = true;
+            this.displayFtnDetails = true;
+        };
+        ViewService.prototype.resetView = function () {
+            this.reset();
+        };
+        ViewService.prototype.showRegister = function () {
+            this.reset();
+            this.fadeBg = true;
+            this.displayRegister = true;
+        };
+        ViewService.prototype.attemptSave = function (loggedIn, hasExisting) {
+            if (hasExisting === void 0) { hasExisting = false; }
+            this.reset();
+            this.fadeBg = true;
+            if (!loggedIn) {
+                this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.SAVE_ATTEMPT_LOGIN_Q);
+                this.loginMessageA = this.MESSAGES.SAVE_ATTEMPT_LOGIN_A;
+                this.displayLogin = true;
+                return;
+            }
+            else {
+                this.accountDisplayRoute = AccountDisplayRoute.FromSave;
+                if (hasExisting) {
+                    this.displaySaveAs = true;
+                }
+                else {
+                    this.displayCreate = true;
+                }
+            }
+        };
+        ViewService.prototype.showCreate = function (hasExisting) {
+            if (hasExisting === void 0) { hasExisting = false; }
+            this.reset();
+            this.fadeBg = true;
+            this.displayCreate = true;
+        };
+        ViewService.prototype.reset = function () {
+            this.fadeBg = false;
+            this.displayLogin = false;
+            this.displayAccount = false;
+            this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
+            this.displayCreate = false;
+            this.displaySaveAs = false;
+            this.displaySelectFramework = false;
+            this.hasExistingFrameworks = false;
+            this.displayFtnDetails = false;
+            this.displayRegister = false;
+            this.displaySave = false;
+            this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_Q);
+            this.loginMessageA = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_A);
+        };
+        ViewService.$inject = ["$sce"];
+        return ViewService;
+    }());
+    aif.ViewService = ViewService;
+})(aif || (aif = {}));
 /// <reference path="../_all.ts" />
 var aif;
 (function (aif) {
     'use strict';
     var UserRepository = (function () {
-        function UserRepository($timeout) {
+        function UserRepository($timeout, $rootScope, $cookies) {
             this.$timeout = $timeout;
+            this.$rootScope = $rootScope;
+            this.$cookies = $cookies;
+            //For debug
             this.startLoggedIn = false;
         }
         UserRepository.prototype.get = function () {
-            var self = this;
+            var _this = this;
             return this.$timeout(function () {
-                if (self.startLoggedIn) {
-                    return aif.AifUser.createFromData(users[0]);
-                }
-                else {
-                    return null;
+                var cUser = _this.$cookies.getObject("aifUser");
+                if (cUser && cUser.email) {
+                    var matches = users.filter(function (u) { return u.email == cUser.email; });
+                    if (matches.length) {
+                        var user = aif.AifUser.createFromData(matches[0]);
+                        if (user.email === "mail@michaelishmael.com") {
+                            user.frameworks = userFrameworks;
+                            if (cUser.currentFrameworkId) {
+                                user.setExistingFramework(cUser.currentFrameworkId);
+                            }
+                        }
+                        _this.currentUser = user;
+                        return user;
+                    }
+                    else {
+                        return null;
+                    }
                 }
             }, 200);
         };
-        UserRepository.prototype.logout = function () {
+        UserRepository.prototype.save = function () {
+            var _this = this;
             return this.$timeout(function () {
+                if (!_this.currentUser) {
+                    return new aif.SaveFrameworkResult(false, null, "User not logged in");
+                }
+                if (!_this.currentUser.currentFramework) {
+                }
+                return new aif.SaveFrameworkResult(true, _this.currentUser.currentFramework, null);
+            }, 200);
+        };
+        UserRepository.prototype.logout = function () {
+            var _this = this;
+            return this.$timeout(function () {
+                _this.currentUser = null;
+                _this.$cookies.remove("aifUser");
+                _this.$rootScope.$broadcast("user:loggedOut");
                 return true;
             });
         };
         UserRepository.prototype.login = function (email, password) {
+            var _this = this;
             return this.$timeout(function () {
                 var matches = users.filter(function (u) { return u.email == email; });
                 if (matches.length) {
@@ -328,6 +506,9 @@ var aif;
                     if (user.email === "mail@michaelishmael.com") {
                         user.frameworks = userFrameworks;
                     }
+                    _this.currentUser = user;
+                    _this.$rootScope.$broadcast("user:loggedIn", user);
+                    _this.storeUser();
                     return new aif.LoginResult(true, user, null);
                 }
                 else {
@@ -335,8 +516,84 @@ var aif;
                 }
             }, 200);
         };
+        UserRepository.prototype.storeUser = function () {
+            var userObj = {
+                email: this.currentUser.email,
+                currentFrameworkId: null
+            };
+            if (this.currentUser.currentFramework)
+                userObj.currentFrameworkId = this.currentUser.currentFramework.id;
+            this.$cookies.putObject("aifUser", userObj);
+        };
+        UserRepository.prototype.createNewFramework = function (name, description) {
+            var _this = this;
+            var hasUser = !!this.currentUser;
+            return this.$timeout(function () {
+                if (!hasUser)
+                    return new aif.SaveFrameworkResult(false, null, "User not logged in");
+                var newId = _this.currentUser.frameworks == null ? 1 : _this.currentUser.frameworks.length + 1;
+                var framework = new aif.AifFramework(newId, name, description);
+                _this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                framework.current = true;
+                _this.currentUser.addNewFramework(framework);
+                _this.storeUser();
+                _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+                return new aif.SaveFrameworkResult(true, framework, "Framework created");
+            }, 200);
+        };
+        UserRepository.prototype.setExistingFramework = function (id) {
+            var _this = this;
+            var hasUser = !!this.currentUser;
+            return this.$timeout(function () {
+                if (!hasUser)
+                    return new aif.SaveFrameworkResult(false, null, "User not logged in");
+                if (_this.currentUser.frameworks == null)
+                    return new aif.SaveFrameworkResult(false, null, "User has no frameworks");
+                var matches = _this.currentUser.frameworks.filter(function (f) { return f.id === id; });
+                if (matches.length) {
+                    var framework = matches[0];
+                    _this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                    framework.current = true;
+                    //TODO: Save framework here
+                    _this.currentUser.currentFramework = framework;
+                    _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+                    _this.storeUser();
+                    return new aif.SaveFrameworkResult(true, framework, "Framework selected");
+                }
+                else {
+                    _this.currentUser.currentFramework = null;
+                    _this.$rootScope.$broadcast("framework:frameworkUpdated", null);
+                    return new aif.SaveFrameworkResult(false, null, "No matching frameworks found");
+                }
+            }, 200);
+        };
+        UserRepository.prototype.deleteFramework = function (id) {
+            var _this = this;
+            var hasUser = !!this.currentUser;
+            return this.$timeout(function () {
+                if (!hasUser)
+                    return false;
+                if (_this.currentUser.frameworks == null)
+                    return false;
+                var foundIndex = -1;
+                var foundFramework = null;
+                _this.currentUser.frameworks.forEach(function (f, i) {
+                    if (f.id == id) {
+                        foundIndex = i;
+                        foundFramework = f;
+                    }
+                });
+                if (foundIndex > -1) {
+                    if (_this.currentUser.currentFramework == foundFramework) {
+                        _this.currentUser.currentFramework = null;
+                        _this.$rootScope.$broadcast("framework:frameworkUpdated", null);
+                    }
+                    _this.currentUser.frameworks.splice(foundIndex, 1);
+                }
+            }, 200);
+        };
         //wp_lostpassword_url()
-        UserRepository.$inject = ["$timeout"];
+        UserRepository.$inject = ["$timeout", "$rootScope", '$cookies'];
         return UserRepository;
     }());
     aif.UserRepository = UserRepository;
@@ -361,13 +618,43 @@ var aif;
     var userFrameworks = [
         {
             id: 1,
-            name: "Coca-cola summer campaign",
-            description: "New music promotion"
+            name: "Coca-cola spring campaign",
+            description: "New music promotion",
+            selected: false,
+            flaggedDelete: false,
+            current: false
         },
         {
             id: 2,
             name: "Sprite summer campaign",
-            description: "New basketball promotion"
+            description: "New basketball promotion",
+            selected: false,
+            flaggedDelete: false,
+            current: false
+        },
+        // {
+        //   id: 3,
+        //   name: "Fanta summer campaign",
+        //   description: "Renewed comedy promotion",
+        //   selected: false,
+        //   flaggedDelete: false,
+        //   current: false
+        // },
+        {
+            id: 4,
+            name: "Diet Coke summer campaign",
+            description: "Continued lifestyle promotion",
+            selected: false,
+            flaggedDelete: false,
+            current: false
+        },
+        {
+            id: 5,
+            name: "Coke Zero winter",
+            description: "Xtreme sports tie-ins",
+            selected: false,
+            flaggedDelete: false,
+            current: false
         }
     ];
 })(aif || (aif = {}));
@@ -650,28 +937,78 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
-    var PasswordMatchDir = (function () {
-        function PasswordMatchDir() {
-            this.restrict = 'A';
-            this.require = 'ngModel';
-            this.link = function (scope, element, attrs, ctrl) {
-                var firstPassword = '#' + attrs['pwCheck'];
-                element.add(firstPassword).on('keyup', function () {
-                    scope.$apply(function () {
-                        var v = element.val() === $(firstPassword).val();
-                        ctrl.$setValidity('pwmatch', v);
-                    });
-                });
-            };
+    var AifLoginScreen = (function () {
+        function AifLoginScreen() {
+            this.templateUrl = 'js/views/login.html';
+            this.restrict = 'E';
+            this.contollerAs = 'lc';
+            this.bindToContoller = true;
         }
-        PasswordMatchDir.factory = function () {
-            var directive = function () { return new PasswordMatchDir(); };
+        AifLoginScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifLoginScreen.factory = function () {
+            var directive = function () { return new AifLoginScreen(); };
             //directive.$inject = ['$location', 'toaster'];
             return directive;
         };
-        return PasswordMatchDir;
+        AifLoginScreen.$inject = [''];
+        return AifLoginScreen;
     }());
-    aif.PasswordMatchDir = PasswordMatchDir;
+    aif.AifLoginScreen = AifLoginScreen;
+    var AifAccountScreen = (function () {
+        function AifAccountScreen() {
+            this.templateUrl = 'js/views/account.html';
+            this.restrict = 'E';
+            this.contollerAs = 'av';
+            this.bindToContoller = true;
+        }
+        AifAccountScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifAccountScreen.factory = function () {
+            var directive = function () { return new AifAccountScreen(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifAccountScreen.$inject = [''];
+        return AifAccountScreen;
+    }());
+    aif.AifAccountScreen = AifAccountScreen;
+    var AifCreateFwScreen = (function () {
+        function AifCreateFwScreen() {
+            this.templateUrl = 'js/views/create.html';
+            this.restrict = 'E';
+            this.contollerAs = 'cf';
+            this.bindToContoller = true;
+        }
+        AifCreateFwScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifCreateFwScreen.factory = function () {
+            var directive = function () { return new AifCreateFwScreen(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifCreateFwScreen.$inject = [''];
+        return AifCreateFwScreen;
+    }());
+    aif.AifCreateFwScreen = AifCreateFwScreen;
+    var AifSaveAsScreen = (function () {
+        function AifSaveAsScreen() {
+            this.templateUrl = 'js/views/saveAs.html';
+            this.restrict = 'E';
+            this.contollerAs = 'cf';
+            this.bindToContoller = true;
+        }
+        AifSaveAsScreen.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifSaveAsScreen.factory = function () {
+            var directive = function () { return new AifSaveAsScreen(); };
+            //directive.$inject = ['$location', 'toaster'];
+            return directive;
+        };
+        AifSaveAsScreen.$inject = [''];
+        return AifSaveAsScreen;
+    }());
+    aif.AifSaveAsScreen = AifSaveAsScreen;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
 var aif;
@@ -771,90 +1108,216 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
-    var AccountCtrl = (function () {
-        function AccountCtrl($window, $sce, aifService) {
-            this.$window = $window;
-            this.$sce = $sce;
-            this.aifService = aifService;
-            this.loginFailure = false;
-            this.message = null;
-            this.displayLogic = null;
-            this.userModel = null;
-            this.initialised = false;
-            this.currentFramework = null;
-            this.savedFrameworkModel = null;
+    var CreateFrameworkCtrl = (function () {
+        function CreateFrameworkCtrl($scope, userRepository, vs) {
+            this.$scope = $scope;
+            this.userRepository = userRepository;
+            this.vs = vs;
+            this.title = "New Measurement Framework";
+            this.user = null;
+            this.existingFrameworkId = null;
+            this.newFrameworkName = null;
+            this.newFrameworkDescription = null;
+            this.createMessage = " ";
+            this.cancelButtonText = "Cancel";
+            this.saveUnsuccessful = false;
+            this.saveFailMessage = null;
             this.init();
         }
-        AccountCtrl.prototype.init = function () {
+        CreateFrameworkCtrl.prototype.init = function () {
+            if (!this.userRepository.currentUser) {
+                this.vs.showLogin();
+                return;
+            }
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
+                this.createMessage = "Create a new framework to save your progress.";
+            }
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromLogin) {
+                this.title = "Create your first framework";
+                this.createMessage = "Create a new framework to store your progress.";
+                this.cancelButtonText = "Skip for now";
+            }
+            this.user = this.userRepository.currentUser;
+        };
+        CreateFrameworkCtrl.prototype.createNewFramework = function (form) {
             var _this = this;
+            if (!form.$valid)
+                return;
+            if (this.user) {
+                this.userRepository.createNewFramework(this.newFrameworkName, this.newFrameworkDescription)
+                    .then(function (r) {
+                    if (r.success) {
+                        _this.vs.resetView();
+                    }
+                    else {
+                        _this.saveUnsuccessful = true;
+                        _this.saveFailMessage = r.message;
+                    }
+                });
+            }
+        };
+        CreateFrameworkCtrl.$inject = ["$scope", "userRepository", "viewService"];
+        return CreateFrameworkCtrl;
+    }());
+    aif.CreateFrameworkCtrl = CreateFrameworkCtrl;
+})(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var SaveAsCtrl = (function () {
+        function SaveAsCtrl($scope, userRepository, vs) {
+            this.$scope = $scope;
+            this.userRepository = userRepository;
+            this.vs = vs;
+            this.title = "Your account";
+            this.user = null;
+            this.currentFramework = null;
+            this.altMessage = "S";
+            this.exInc = 0;
+            this.saveUnsuccessful = false;
+            this.saveFailMessage = null;
+            this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
+            this.init();
+        }
+        SaveAsCtrl.prototype.getColorClass = function (prefix, index) {
+            if (index === void 0) { index = 0; }
+            if (index > this.colors.length - 1)
+                index = index % this.colors.length;
+            return prefix + "-" + this.colors[index] + " ";
+        };
+        SaveAsCtrl.prototype.init = function () {
+            if (!this.userRepository.currentUser) {
+                this.vs.showLogin(true);
+                return;
+            }
+            this.user = this.userRepository.currentUser;
+            if (this.user.currentFramework) {
+                this.currentFramework = this.user.currentFramework;
+                this.toggleSelectFramework(this.currentFramework);
+                this.altMessage = "Alternatively, s";
+                this.exInc = 1;
+            }
+            this.setTitle(this.vs.accountDisplayRoute);
+        };
+        SaveAsCtrl.prototype.setTitle = function (displayRoute) {
+            this.title = "Save framework";
+            if (this.currentFramework) {
+            }
+            else {
+            }
+        };
+        SaveAsCtrl.prototype.saveAsSelectedFramework = function () {
+            var _this = this;
+            if (this.user && this.frameworkIsSelected()) {
+                var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
+                this.userRepository.setExistingFramework(selected.id).then(function (s) {
+                    if (s) {
+                        _this.vs.resetView();
+                    }
+                });
+            }
+        };
+        SaveAsCtrl.prototype.toggleSelectFramework = function (framework) {
+            if (framework.selected) {
+                framework.selected = false;
+            }
+            else {
+                this.user.frameworks.forEach(function (f) { return f.selected = false; });
+                framework.selected = true;
+            }
+        };
+        SaveAsCtrl.prototype.frameworkIsSelected = function () {
+            return this.user.frameworks.some(function (f) { return f.selected; });
+        };
+        SaveAsCtrl.$inject = ["$scope", "userRepository", "viewService"];
+        return SaveAsCtrl;
+    }());
+    aif.SaveAsCtrl = SaveAsCtrl;
+})(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var AppCtrl = (function () {
+        function AppCtrl($scope, $window, $sce, userRepository, vs) {
+            this.$scope = $scope;
+            this.$window = $window;
+            this.$sce = $sce;
+            this.userRepository = userRepository;
+            this.vs = vs;
+            this.loginFailure = false;
+            this.message = null;
+            this.initialised = false;
+            this.savedFrameworkModel = null;
+            this.currentFramework = null;
+            this.currentUser = null;
+            this.init();
+        }
+        AppCtrl.prototype.init = function () {
+            var _this = this;
+            this.$scope.$on("user:loggedIn", function (event, data) { _this.userLoggedChanged(data); });
+            this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
+            this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
             var self = this;
-            this.aifService.getApp().then(function (a) {
-                self.app = a;
-                if (a && a.user) {
-                    _this.userModel = a.user.asAppUser();
-                }
-                else {
-                    _this.userModel = new aif.AppUser(null, null, null, null, null, null);
+            this.userRepository.get().then(function (user) {
+                if (user) {
+                    _this.currentUser = user;
+                    if (user.currentFramework)
+                        _this.currentFramework = user.currentFramework;
                 }
                 _this.initialised = true;
             });
-            this.displayLogic = new LoginDisplayLogic(this.$sce);
         };
-        AccountCtrl.prototype.isLoggedIn = function () {
-            return !!(this.app && this.app.user);
-        };
-        AccountCtrl.prototype.showLogin = function () {
-            this.displayLogic.showLogin();
-        };
-        AccountCtrl.prototype.showForgottenDetails = function () {
-            this.displayLogic.showForgottenDetails();
-        };
-        AccountCtrl.prototype.hideLoginBox = function () {
-            this.displayLogic.hideLoginDisplay();
-        };
-        AccountCtrl.prototype.showRegister = function () {
-            this.displayLogic.showRegister();
-        };
-        AccountCtrl.prototype.saveProgress = function () {
-            this.displayLogic.attemptSave(this.isLoggedIn());
-        };
-        AccountCtrl.prototype.login = function (form) {
-            if (form) {
-                if (!form.$valid)
-                    return;
-                form.$setPristine();
-                form.$setUntouched();
+        AppCtrl.prototype.userLoggedChanged = function (user) {
+            if (user) {
+                this.currentUser = user;
+                if (this.currentUser.currentFramework) {
+                    this.setCurrentFramework(this.currentUser.currentFramework);
+                }
             }
             else {
-                return;
+                this.currentUser = null;
+                this.currentFramework = null;
             }
-            var self = this;
-            this.aifService.login(this.userModel.email, this.userModel.password).then(function (r) {
-                if (!r.success) {
-                    self.loginFailure = true;
-                    self.message = r.message;
-                }
-                else {
-                    self.userModel = r.user.asAppUser();
-                    self.savedFrameworkModel = new SavedFrameworkModel();
-                    self.displayLogic.showSelectFramework(self.app.user.hasExistingFrameworks());
-                }
-            }).catch(function (r) {
-                self.loginFailure = true;
-                self.message = r.message;
-            });
         };
-        AccountCtrl.prototype.registerNewUser = function (form) {
+        AppCtrl.prototype.setCurrentFramework = function (framework) {
+            this.currentFramework = framework;
+        };
+        AppCtrl.prototype.isLoggedIn = function () {
+            return !!this.currentUser;
+        };
+        AppCtrl.prototype.showLogin = function () {
+            this.vs.showLogin();
+        };
+        AppCtrl.prototype.showForgottenDetails = function () {
+            this.vs.showForgottenDetails();
+        };
+        AppCtrl.prototype.hideLoginBox = function () {
+            this.vs.resetView();
+        };
+        AppCtrl.prototype.showRegister = function () {
+            this.vs.showRegister();
+        };
+        AppCtrl.prototype.viewAccount = function () {
+            this.vs.showAccount(aif.AccountDisplayRoute.FromViewAccount);
+        };
+        AppCtrl.prototype.saveProgress = function () {
+            var loggedIn = this.isLoggedIn();
+            var hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
+            this.vs.attemptSave(loggedIn, hasExisting);
+        };
+        AppCtrl.prototype.registerNewUser = function (form) {
             if (!form.$valid)
                 return;
             this.hideLoginBox();
         };
-        AccountCtrl.prototype.loadOrCreateFramework = function (form) {
-            var _this = this;
+        AppCtrl.prototype.loadOrCreateFramework = function (form) {
             if (!form.$valid)
                 return;
             if (this.savedFrameworkModel.existingFrameworkId > -1) {
-                var matches = this.app.user.frameworks.filter(function (f) { return f.id == _this.savedFrameworkModel.existingFrameworkId; });
+                var self_1 = this;
+                var matches = this.app.user.frameworks.filter(function (f) { return f.id === self_1.savedFrameworkModel.existingFrameworkId; });
                 if (matches.length)
                     this.currentFramework = matches[0];
             }
@@ -868,20 +1331,10 @@ var aif;
             }
             this.hideLoginBox();
         };
-        AccountCtrl.prototype.logout = function () {
-            var self = this;
-            this.displayLogic.hideLoginDisplay();
-            this.aifService.logout().then(function (b) {
-                if (b) {
-                    //this.$window.location.href = "";
-                    window.location.href = window.location.href;
-                }
-            });
-        };
-        AccountCtrl.$inject = ["$window", "$sce", "aifService"];
-        return AccountCtrl;
+        AppCtrl.$inject = ["$scope", "$window", "$sce", "userRepository", "viewService"];
+        return AppCtrl;
     }());
-    aif.AccountCtrl = AccountCtrl;
+    aif.AppCtrl = AppCtrl;
     var SavedFrameworkModel = (function () {
         function SavedFrameworkModel() {
             this.existingFrameworkId = -1;
@@ -905,7 +1358,6 @@ var aif;
             };
             this.fadeBg = false;
             this.displayLogin = false;
-            this.loginGrayed = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayFtnDetails = false;
@@ -925,7 +1377,6 @@ var aif;
             this.reset();
             this.fadeBg = true;
             this.displayLogin = true;
-            this.loginGrayed = true;
             this.displaySelectFramework = true;
             this.hasExistingFrameworks = hasExisting;
             if (hasExisting)
@@ -958,7 +1409,6 @@ var aif;
         LoginDisplayLogic.prototype.reset = function () {
             this.fadeBg = false;
             this.displayLogin = false;
-            this.loginGrayed = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayFtnDetails = false;
@@ -972,6 +1422,154 @@ var aif;
     }());
     aif.LoginDisplayLogic = LoginDisplayLogic;
 })(aif || (aif = {}));
+/// <///<reference path=".../_all.ts" />
+var aif;
+(function (aif) {
+    'use strict';
+    var AccountViewCtrl = (function () {
+        function AccountViewCtrl($scope, userRepository, vs) {
+            this.$scope = $scope;
+            this.userRepository = userRepository;
+            this.vs = vs;
+            this.title = "Your account";
+            this.user = null;
+            this.createMessage = "Use the fields below create a new framework.";
+            this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
+            this.init();
+        }
+        AccountViewCtrl.prototype.getColorClass = function (prefix, index) {
+            if (index === void 0) { index = 0; }
+            if (index > this.colors.length - 1)
+                index = index % this.colors.length;
+            return prefix + "-" + this.colors[index] + " ";
+        };
+        AccountViewCtrl.prototype.init = function () {
+            if (!this.userRepository.currentUser) {
+                this.vs.showLogin();
+                return;
+            }
+            this.user = this.userRepository.currentUser;
+            if (this.user.hasExistingFrameworks()) {
+                this.createMessage = "...or create a new framework.";
+            }
+            this.setTitle(this.vs.accountDisplayRoute);
+        };
+        AccountViewCtrl.prototype.logout = function () {
+            this.closeView();
+            this.userRepository.logout().then(function (b) {
+                if (b) {
+                }
+            });
+        };
+        AccountViewCtrl.prototype.setTitle = function (displayRoute) {
+            switch (displayRoute) {
+                case aif.AccountDisplayRoute.FromLogin:
+                    this.title = "Log in successful!";
+                    break;
+                case aif.AccountDisplayRoute.FromSave:
+                    this.title = "Save framework";
+                    break;
+                case aif.AccountDisplayRoute.FromViewAccount:
+                default:
+                    // do nothing
+                    break;
+            }
+        };
+        AccountViewCtrl.prototype.closeView = function () {
+            this.user.frameworks.forEach(function (f) { return f.selected = false; });
+            this.user.frameworks.forEach(function (f) { return f.flaggedDelete = false; });
+            this.vs.resetView();
+        };
+        AccountViewCtrl.prototype.loadSelectedFramework = function () {
+            var _this = this;
+            if (this.user && this.frameworkIsSelected()) {
+                var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
+                this.userRepository.setExistingFramework(selected.id).then(function (r) {
+                    if (r.success) {
+                        _this.closeView();
+                    }
+                    else {
+                    }
+                });
+            }
+        };
+        AccountViewCtrl.prototype.showCreateFramework = function () {
+            this.vs.showCreate(this.user.hasExistingFrameworks());
+        };
+        AccountViewCtrl.prototype.frameworkIsSelected = function () {
+            return this.user.frameworks.some(function (f) { return f.selected; });
+        };
+        AccountViewCtrl.prototype.deleteFramework = function ($event, framework) {
+            this.userRepository.deleteFramework(framework.id).then(function (s) {
+                if (!s) {
+                    framework.flaggedDelete = false;
+                }
+            });
+            $event.preventDefault();
+        };
+        AccountViewCtrl.prototype.toggleSelectFramework = function (framework) {
+            if (framework.selected) {
+                framework.selected = false;
+            }
+            else {
+                this.user.frameworks.forEach(function (f) { return f.selected = false; });
+                framework.selected = true;
+            }
+        };
+        AccountViewCtrl.prototype.toggleFlagDeleteFramework = function ($event, framework) {
+            framework.flaggedDelete = !framework.flaggedDelete;
+        };
+        AccountViewCtrl.$inject = ["$scope", "userRepository", "viewService"];
+        return AccountViewCtrl;
+    }());
+    aif.AccountViewCtrl = AccountViewCtrl;
+})(aif || (aif = {}));
+var aif;
+(function (aif) {
+    'use strict';
+    var LoginCtrl = (function () {
+        function LoginCtrl(vs, userRepository) {
+            this.vs = vs;
+            this.userRepository = userRepository;
+            this.loginFailure = false;
+            this.loginMessage = null;
+            this.init();
+        }
+        LoginCtrl.prototype.init = function () {
+        };
+        LoginCtrl.prototype.login = function (form) {
+            var _this = this;
+            if (form) {
+                if (!form.$valid)
+                    return;
+                form.$setPristine();
+                form.$setUntouched();
+            }
+            else {
+                return;
+            }
+            this.userRepository.login(this.email, this.password).then(function (r) {
+                if (!r.success) {
+                    _this.loginFailure = true;
+                    _this.loginMessage = r.message;
+                }
+                else {
+                    if (r.user.hasExistingFrameworks())
+                        _this.vs.showAccount(aif.AccountDisplayRoute.FromLogin);
+                    else {
+                        _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, false);
+                    }
+                }
+            }).catch(function (r) {
+                _this.loginFailure = true;
+                _this.loginMessage = r.message;
+            });
+        };
+        LoginCtrl.$inject = ["viewService", "userRepository"];
+        return LoginCtrl;
+    }());
+    aif.LoginCtrl = LoginCtrl;
+})(aif || (aif = {}));
 /// <reference path='_all.ts' />
 /**
  * The main Aif app module.
@@ -981,28 +1579,43 @@ var aif;
 var aif;
 (function (aif_1) {
     'use strict';
-    var aif = angular.module('aif', ['tw.directives.clickOutside'])
+    var aif = angular.module('aif', ['ngCookies', 'tw.directives.clickOutside'])
         .service('userRepository', aif_1.UserRepository)
         .service('frameworkRepository', aif_1.FrameworkRepository)
         .service('aifService', aif_1.AifService)
-        .directive('passwordMatchDir', aif_1.PasswordMatchDir.factory())
-        .controller('accountCtrl', aif_1.AccountCtrl)
-        .controller('frameworkCtrl', aif_1.FrameworkCtrl);
+        .service('viewService', aif_1.ViewService)
+        .controller('appCtrl', aif_1.AppCtrl)
+        .controller('accountViewCtrl', aif_1.AccountViewCtrl)
+        .controller('frameworkCtrl', aif_1.FrameworkCtrl)
+        .controller('createFrameworkCtrl', aif_1.CreateFrameworkCtrl)
+        .controller('loginCtrl', aif_1.LoginCtrl)
+        .controller('saveAsCtrl', aif_1.SaveAsCtrl)
+        .directive('aifLoginScreen', aif_1.AifLoginScreen.factory())
+        .directive('aifAccountScreen', aif_1.AifAccountScreen.factory())
+        .directive('aifCreateFwScreen', aif_1.AifCreateFwScreen.factory())
+        .directive('aifSaveAsScreen', aif_1.AifSaveAsScreen.factory());
 })(aif || (aif = {}));
 /// <reference path='libs/jquery/jquery.d.ts' />
 /// <reference path='libs/angular/angular.d.ts' />
+/// <reference path='libs/angular/angular-cookies.d.ts' />
 /// <reference path='models/WorkflowInput.ts' />
 /// <reference path='models/WorkflowStep.ts' />
 /// <reference path='models/WorkflowRow.ts' />
 /// <reference path='models/AifUser.ts' />
+/// <reference path='models/AifFramework.ts' />
 /// <reference path='interfaces/IUserRepository.ts' />
 /// <reference path='interfaces/IFrameworkRepository.ts' />
 /// <reference path='interfaces/IAifService.ts' />
+/// <reference path="services/ViewService.ts" />
 /// <reference path="services/UserRepository.ts" />
 /// <reference path="services/FrameworkRepository.ts" />
 /// <reference path="services/AifService.ts" />
-/// <reference path="directives/PasswordMatchDir.ts" />
+/// <reference path="directives/AccountDirectives.ts" />
 /// <reference path="controllers/FrameworkCtrl.ts" />
-/// <reference path="controllers/AccountCtrl.ts" />
+/// <reference path="controllers/CreateFrameworkCtrl.ts" />
+/// <reference path="controllers/SaveAsCtrl.ts" />
+/// <reference path="controllers/AppCtrl.ts" />
+/// <reference path="controllers/AccountViewCtrl.ts" />
+/// <reference path="controllers/LoginCtrl.ts" />
 /// <reference path='Application.ts' /> 
 //# sourceMappingURL=Application.js.map

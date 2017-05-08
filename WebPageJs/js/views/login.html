@@ -1,0 +1,62 @@
+<div class="row"  >
+
+    <div class="col-md-8 low-pad-cell">
+
+        <div class="aif-tile login-box">
+            <a class="btn btn-link close-button pull-right" ng-click="lc.vs.resetView()">X</a>
+            <h2>Login</h2>
+
+            <h4 class="login-message">
+                <span ng-bind-html="lc.vs.loginMessageQ"></span>
+                <a class="heading-link" id="pop_signup" ng-click="lc.vs.showRegister()">
+                    {{ lc.vs.loginMessageA }}
+                </a>
+            </h4>
+            <br>
+            <div class="login-box-group">
+                <form name="form" novalidate class="css-form" ng-submit="lc.login(form)">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" ng-model="lc.email" required type="email"
+                               class="form-control" name="uEmail"
+                               placeholder="Email Address"
+                               ng-disabled="lc.vs.displaySelectFramework">
+                        <div class="form-validation-error"
+                             ng-show="form.$submitted || form.uEmail.$touched">
+                            <span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+                            <span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group" ng-if="!lc.vs.displaySelectFramework">
+                        <label for="uPassword">Password</label>
+                        <input type="password" ng-model="lc.password" required
+                               class="form-control" id="uPassword" name="uPassword" placeholder="Password">
+                        <div class="form-validation-error"
+                             ng-show="form.$submitted || form.uPassword.$touched">
+                            <span ng-show="form.uPassword.$error.required">Tell use your password.</span>
+                        </div>
+                    </div>
+
+
+                    <p class="text-link" ng-if="lc.vs.displaySelectFramework">Successfully logged
+                        in</p>
+
+                    <div class="form-group">
+                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                               type="submit" value="Login">
+                        <a class="text-link" ng-click="lc.vs.showForgottenDetails()">Lost password?</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

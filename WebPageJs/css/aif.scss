@@ -6,6 +6,7 @@ $dark_blue: rgb(0, 114, 175);
 $purple: rgb(138, 0, 182);
 $black: rgb(31, 31, 31);
 $bright_green: rgb(45, 164, 26);
+$pale_grey: rgb(191, 191, 191);
 
 $color-list: (
         red $red,
@@ -15,7 +16,8 @@ $color-list: (
         dark_blue $dark_blue,
         purple $purple,
         black $black,
-        bright_green $bright_green
+        bright_green $bright_green,
+        pale_grey $pale_grey
 );
 
 @each $value in $color-list {
@@ -34,6 +36,41 @@ $color-list: (
 
   .bottom-dark-border-#{nth($value, 1)} {
     border-bottom: 4px solid darken(nth($value, 2), 15%);
+  }
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
@@ -100,15 +137,23 @@ h4 {
     max-width: 168px;
   }
 
+  &.aif-button-free{
+    width: auto;
+    max-width: none;
+    padding: 2px 6px;
+  }
+
 }
 
 
 
 .control-row {
 
+  line-height: 20px;
+
   .aif-button {
     max-width: 135px;
-    line-height: 22px;
+    line-height: 24px;
     height: 30px;
     font-size: 13px;
 
@@ -116,8 +161,45 @@ h4 {
       width: auto;
       max-width: unset;
       display: inline-block;
+      padding-left: 6px;
+      padding-right: 6px;
 
     }
+
+  }
+
+  .account-button {
+    background-size: contain;
+    height: 26px;
+    width: 26px;
+    display: inline-block;
+    background: url('../images/avatar.png') no-repeat;
+    cursor: pointer;
+
+  }
+
+  h4 {
+    display: inline-block;
+    margin-bottom: 0;
+    cursor: pointer;
+    a {
+      line-height: 20px;
+      vertical-align: bottom;
+    }
+  }
+
+  .framework-name {
+
+    h4 {
+      color: $green;
+      line-height: 20px;
+      vertical-align: middle;
+    }
+    color: #9dea9a;
+    font-style: italic;
+    text-align: right;
+    margin-right: 6px;
+    cursor: pointer;
   }
 
 
@@ -136,7 +218,72 @@ h2 {
   color: #fff;
 }
 
+.choose-fw-layout {
 
+  margin-bottom: 20px;
+  padding: 0 10px;
+  position: relative;
+
+  .low-pad-cell{
+    padding: 5px;
+  }
+
+  .choose-fw-tile {
+
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    height: 90px;
+    cursor: pointer;
+
+    &.selected {
+      border: 2px solid #fff;
+      padding: 8px;
+
+      .trash-icon{
+        bottom: 4px;
+        right: 4px;
+      }
+    }
+
+    &.shake {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    .trash-icon{
+      background: url('../images/trash-icon.png') no-repeat;
+      background-size: contain;
+      height: 26px;
+      width: 26px;
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+    }
+
+    .text-link.sml {
+
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+
+      a {
+        font-style: normal;
+        margin-left: 12px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+
+  }
+
+
+}
 
 .low-pad-cell {
   padding-right: 5px;
@@ -302,8 +449,32 @@ h2 {
   font-family: lato, sans-serif;
   padding: 8px 0 0 15px;
 
+  h4.login-message{
+    line-height: 1.8rem;
+  }
+
   &.save-box {
     background-color: #00c394;
+  }
+
+  .account-layout {
+    max-width: 450px;
+
+    .em{
+
+      font-style: italic;
+    }
+
+    a {
+
+      font-style: italic;
+      color: lighten($dark_blue, 10%);
+
+      &:hover {
+        color: $dark_blue;
+        text-decoration: underline;
+      }
+    }
   }
 
   &.login-box {
@@ -332,8 +503,10 @@ h2 {
     }
 
     .text-link {
+      display: inline-block;
       margin-left: 15px;
       font-style: italic;
+      cursor: pointer;
     }
 
     .login-box-group {
@@ -345,6 +518,14 @@ h2 {
       &:last-child{
         margin-right: 0;
       }
+
+      .aif-button{
+        margin-right: 6px;
+      }
+
+      .text-link.lge{
+        font-size: 1.2rem;
+      }
     }
 
   }
@@ -352,11 +533,12 @@ h2 {
 
   p.submit-text {
     color: #fff;
-    padding: 8px 16px;
+    padding: 8px 10px;
 
     font-size: 18px;
     font-weight: 300;
     font-family: lato, sans-serif;
+    line-height: 23px;
   }
 
 }

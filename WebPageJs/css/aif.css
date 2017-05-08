@@ -94,6 +94,36 @@
 .bottom-dark-border-bright_green {
   border-bottom: 4px solid #1b6210; }
 
+.background-pale_grey {
+  background-color: #bfbfbf; }
+
+.background-dark-pale_grey {
+  background-color: #9b9b9b; }
+
+.background-light-pale_grey {
+  background-color: #e3e3e3; }
+
+.bottom-dark-border-pale_grey {
+  border-bottom: 4px solid #999999; }
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0); } }
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0); } }
 body {
   font-family: lato, sans-serif;
   background-color: #4c4c4c; }
@@ -143,16 +173,48 @@ h4 {
   border-radius: 0; }
   .aif-button.aif-button-wide {
     max-width: 168px; }
-
-.control-row .aif-button {
-  max-width: 135px;
-  line-height: 22px;
-  height: 30px;
-  font-size: 13px; }
-  .control-row .aif-button.aif-button-inline {
+  .aif-button.aif-button-free {
     width: auto;
-    max-width: unset;
-    display: inline-block; }
+    max-width: none;
+    padding: 2px 6px; }
+
+.control-row {
+  line-height: 20px; }
+  .control-row .aif-button {
+    max-width: 135px;
+    line-height: 24px;
+    height: 30px;
+    font-size: 13px; }
+    .control-row .aif-button.aif-button-inline {
+      width: auto;
+      max-width: unset;
+      display: inline-block;
+      padding-left: 6px;
+      padding-right: 6px; }
+  .control-row .account-button {
+    background-size: contain;
+    height: 26px;
+    width: 26px;
+    display: inline-block;
+    background: url("../images/avatar.png") no-repeat;
+    cursor: pointer; }
+  .control-row h4 {
+    display: inline-block;
+    margin-bottom: 0;
+    cursor: pointer; }
+    .control-row h4 a {
+      line-height: 20px;
+      vertical-align: bottom; }
+  .control-row .framework-name {
+    color: #9dea9a;
+    font-style: italic;
+    text-align: right;
+    margin-right: 6px;
+    cursor: pointer; }
+    .control-row .framework-name h4 {
+      color: #00c394;
+      line-height: 20px;
+      vertical-align: middle; }
 
 .pull-right {
   float: right; }
@@ -162,6 +224,47 @@ h2 {
   font-family: lato, sans-serif;
   font-weight: 300;
   color: #fff; }
+
+.choose-fw-layout {
+  margin-bottom: 20px;
+  padding: 0 10px;
+  position: relative; }
+  .choose-fw-layout .low-pad-cell {
+    padding: 5px; }
+  .choose-fw-layout .choose-fw-tile {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    height: 90px;
+    cursor: pointer; }
+    .choose-fw-layout .choose-fw-tile.selected {
+      border: 2px solid #fff;
+      padding: 8px; }
+      .choose-fw-layout .choose-fw-tile.selected .trash-icon {
+        bottom: 4px;
+        right: 4px; }
+    .choose-fw-layout .choose-fw-tile.shake {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px; }
+    .choose-fw-layout .choose-fw-tile .trash-icon {
+      background: url("../images/trash-icon.png") no-repeat;
+      background-size: contain;
+      height: 26px;
+      width: 26px;
+      position: absolute;
+      bottom: 6px;
+      right: 6px; }
+    .choose-fw-layout .choose-fw-tile .text-link.sml {
+      position: absolute;
+      bottom: 6px;
+      right: 6px; }
+      .choose-fw-layout .choose-fw-tile .text-link.sml a {
+        font-style: normal;
+        margin-left: 12px; }
+        .choose-fw-layout .choose-fw-tile .text-link.sml a:hover {
+          text-decoration: underline; }
 
 .low-pad-cell {
   padding-right: 5px;
@@ -277,8 +380,20 @@ h2 {
   cursor: pointer;
   font-family: lato, sans-serif;
   padding: 8px 0 0 15px; }
+  .aif-tile h4.login-message {
+    line-height: 1.8rem; }
   .aif-tile.save-box {
     background-color: #00c394; }
+  .aif-tile .account-layout {
+    max-width: 450px; }
+    .aif-tile .account-layout .em {
+      font-style: italic; }
+    .aif-tile .account-layout a {
+      font-style: italic;
+      color: #0093e2; }
+      .aif-tile .account-layout a:hover {
+        color: #0072af;
+        text-decoration: underline; }
   .aif-tile.login-box {
     background-color: #292b2c; }
   .aif-tile.login-box, .aif-tile.save-box {
@@ -294,8 +409,10 @@ h2 {
       font-style: italic;
       color: #0072af; }
     .aif-tile.login-box .text-link, .aif-tile.save-box .text-link {
+      display: inline-block;
       margin-left: 15px;
-      font-style: italic; }
+      font-style: italic;
+      cursor: pointer; }
     .aif-tile.login-box .login-box-group, .aif-tile.save-box .login-box-group {
       display: inline-block;
       float: left;
@@ -303,12 +420,17 @@ h2 {
       margin-right: 30px; }
       .aif-tile.login-box .login-box-group:last-child, .aif-tile.save-box .login-box-group:last-child {
         margin-right: 0; }
+      .aif-tile.login-box .login-box-group .aif-button, .aif-tile.save-box .login-box-group .aif-button {
+        margin-right: 6px; }
+      .aif-tile.login-box .login-box-group .text-link.lge, .aif-tile.save-box .login-box-group .text-link.lge {
+        font-size: 1.2rem; }
   .aif-tile p.submit-text {
     color: #fff;
-    padding: 8px 16px;
+    padding: 8px 10px;
     font-size: 18px;
     font-weight: 300;
-    font-family: lato, sans-serif; }
+    font-family: lato, sans-serif;
+    line-height: 23px; }
 
 .anchor-bottom {
   position: absolute;
