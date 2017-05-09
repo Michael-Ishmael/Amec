@@ -6,7 +6,8 @@ module aif {
     TextArea = 1,
     NumberedInputs = 2,
     LinkedInputs = 3,
-    BlankInputs = 4
+    BlankInputs = 4,
+    WholeStep = 5
   }
 
 

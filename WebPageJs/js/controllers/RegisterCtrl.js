@@ -13,7 +13,7 @@ var aif;
             this.init();
         }
         RegisterCtrl.prototype.init = function () {
-            this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
+            this.userModel = new AppUser(null, null, null, null, null, null, null);
         };
         RegisterCtrl.prototype.registerNewUser = function (form) {
             var _this = this;

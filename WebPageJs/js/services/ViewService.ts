@@ -26,8 +26,8 @@ module aif {
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
     public displayFtnDetails:boolean = false;
 
-    public displayGrid = true;
-    public displaySummary:boolean =false;
+    public displayGrid = false;
+    public displaySummary:boolean =true;
 
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;
@@ -39,6 +39,14 @@ module aif {
       this.reset();
       this.displaySummary = true;
       this.displayGrid = false;
+
+    }
+
+    public showGrid():void {
+
+      this.reset();
+      this.displaySummary = false;
+      this.displayGrid = true;
 
     }
 

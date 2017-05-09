@@ -1,0 +1,101 @@
+.rotate {
+
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+
+#frameworkSummary {
+
+  margin-top: 20px;
+  width: 1140px;
+
+  .summary-row {
+    margin-bottom: 5px;
+  }
+
+  .summary-section{
+
+    &.imp {
+      width: 240px;
+    }
+
+    &.mes {
+      width: 500px;
+    }
+
+  }
+
+  .low-pad-row {
+    margin-left: -3px;
+    margin-right: -3px;
+  }
+
+  .low-pad-cell{
+    padding: 0 3px 0 3px;
+  }
+
+  .section-header {
+
+     background-color: rgb(138, 138, 138);
+    width: 30px;
+    float: left;
+    padding-top: 160px;
+
+    &.prep{
+
+      height: 236px;
+      //background-image: url('../images/Artboard1.png');
+      //background-size: contain;
+      //background-position: 2px 0;
+    }
+  }
+
+  .section-content {
+
+    margin-left: 36px;
+
+    h5.summary-heading {
+      font-size: .8em;
+      height: 24px;
+      line-height: 24px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 4px 0;
+      padding: 0;
+
+      &.joined {
+        margin-bottom: 0;
+      }
+    }
+
+    .summary-box {
+
+      padding: 4px;
+      min-height: 184px;
+
+      &.first-row {
+        max-height: 200px;
+      }
+
+    }
+
+
+
+  }
+
+}

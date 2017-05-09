@@ -3,10 +3,17 @@
 module aif {
   'use strict';
 
-  export class FrameworkRepository implements IFrameworkRepository
-   {
+  export class FrameworkRepository implements IFrameworkRepository {
 
-    get () : WorkflowStep[] {
+    static $inject = ["$timeout", "$rootScope", '$cookies'];
+
+    public frameworkSummary: AifSummary;
+
+    constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService, private $cookies: ng.cookies.ICookiesService) {
+
+    }
+
+    get(): WorkflowStep[] {
       let steps = this.getRawStepArray().map(s => WorkflowStep.fromData(s));
       let inputs = this.getRawInputArray();
 
@@ -17,7 +24,68 @@ module aif {
       return steps;
     }
 
-    private getRawStepArray(): IWorkflowStep[]{
+    getSummary(): ng.IPromise<AifSummary> {
+
+      return this.$timeout(() => {
+
+        if (this.frameworkSummary != null) return this.frameworkSummary;
+
+        let steps = this.get();
+
+        let summary: AifSummary = new AifSummary();
+
+        let data = this.getRawSummaryArray();
+
+        for (let dataRow of data) {
+          let summaryRow = new AifSummaryRow();
+
+          for (let dataSection of dataRow.sections) {
+
+            let summarySection = new AifSummarySection(dataSection.heading);
+            summarySection.width = dataSection.width;
+
+            for (let dataGroup of dataSection.groups) {
+
+              let summaryGroup = new AifSummaryGroup(dataGroup.heading, null, null);
+
+              for (let dataEntry of dataGroup.entries) {
+
+                let step = findEntry(dataEntry.stepId);
+                if (step) {
+                  let heading = dataEntry.headingOverride ? dataEntry.headingOverride : step.title;
+                  let summaryEntry = new AifFrameworkStep(heading);
+                  summaryGroup.steps.push(summaryEntry)
+                }
+
+              }
+
+              summarySection.groups.push(summaryGroup);
+
+            }
+
+            summaryRow.sections.push(summarySection);
+          }
+
+          summary.rows.push(summaryRow)
+        }
+        this.frameworkSummary = summary;
+        return summary;
+
+        function findEntry(stepIndex: number, entryIndex?: number): WorkflowStep {
+          let matches = steps.filter(s => s.index == stepIndex);
+          if (matches.length) {
+            let step = matches[0];
+            return step;
+          }
+          return null;
+        }
+
+
+      }, 200);
+
+    }
+
+    private getRawStepArray(): IWorkflowStep[] {
 
       let steps = [
         {
@@ -185,7 +253,7 @@ module aif {
 
     }
 
-    private getRawInputArray(): IWorkflowInput[]{
+    private getRawInputArray(): IWorkflowInput[] {
 
       return [
         {
@@ -230,6 +298,114 @@ module aif {
             }
           ]
         }
+      ];
+
+    }
+
+    private getRawSummaryArray(): Array<IAifSummaryRowData> {
+
+      return [
+        {
+          sections: [
+            {
+              heading: "Preparation",
+              groups: [
+                {
+                  heading: "Align Objectives",
+                  entries: [
+                    {
+                      entryType: "stepItem",
+                      stepId: 1,
+                      stepEntryIndex: 1
+                    },
+                    {
+                      entryType: "stepItem",
+                      stepId: 1,
+                      stepEntryIndex: 2
+                    }
+                  ]
+                },
+                {
+                  heading: "Plan & Set Targets",
+                  entries: [
+                    {
+                      entryType: "stepItem",
+                      stepId: 2,
+                      stepEntryIndex: 1
+                    },
+                    {
+                      entryType: "stepItem",
+                      stepId: 2,
+                      stepEntryIndex: 2,
+                      headingOverride: "Strategy"
+                    }
+                  ]
+                }
+              ],
+              width: 1
+            }
+          ],
+          maxRowHeight: 176
+        },
+        {
+          sections: [
+            {
+              heading: "Implementation",
+              groups: [
+                {
+                  heading: "Implement",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 3,
+                    }
+                  ]
+                }
+              ],
+              width: .25
+            },
+            {
+              heading: "Measurement & Insights",
+              groups: [
+                {
+                  heading: "Measure Activity",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 4,
+                    }
+                  ]
+                },
+                {
+                  heading: "Audience Response & Effects",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 5,
+                    },
+                    {
+                      entryType: "step",
+                      stepId: 6,
+                    }
+                  ]
+                },
+                {
+                  heading: "Organisation & Stakeholder Effects",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 7,
+                    }
+                  ]
+                },
+              ],
+              width: .75
+            }
+          ],
+          maxRowHeight: 300
+        }
+
+
       ];
 
     }

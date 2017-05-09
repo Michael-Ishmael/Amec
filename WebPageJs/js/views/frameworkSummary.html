@@ -1,8 +1,92 @@
 <div id="frameworkSummary" ng-controller="frameworkSummaryCtrl as fs">
 
-    <h2> Framework summary </h2>
-{{ fs.message }}
-    <div class="row">
+
+
+    <div class="summary-row">
+        <div class="summary-section">
+            <div class="section-header prep">
+                <h4 class="rotate">
+                    {{ fs.sectionOne.heading }}
+                </h4>
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="col-md-6 low-pad-cell" ng-repeat="group in fs.sectionOne.groups">
+
+                        <h5 class="summary-heading background-dark-red">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="col-md-6 low-pad-cell" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined background-red">{{ step.heading }}</h5>
+                                <div class="summary-box first-row background-light-pale_grey">
+                                    Some text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="summary-row">
+
+        <div class="summary-section imp">
+            <div class="section-header prep">
+                <h4 class="rotate">
+                    {{ fs.sectionTwo.heading }}
+                </h4>
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="col-md-12 low-pad-cell" ng-repeat="group in fs.sectionTwo.groups">
+
+                        <h5 class="summary-heading background-dark-red">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined background-red">{{ step.heading }}</h5>
+                                <div class="summary-box first-row background-light-pale_grey">
+                                    Some text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="summary-section mes">
+            <div class="section-header prep">
+                <h4 class="rotate">
+                    {{ fs.sectionTwo.heading }}
+                </h4>
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="col-md-12 low-pad-cell" ng-repeat="group in fs.sectionTwo.groups">
+
+                        <h5 class="summary-heading background-dark-red">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined background-red">{{ step.heading }}</h5>
+                                <div class="summary-box first-row background-light-pale_grey">
+                                    Some text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 

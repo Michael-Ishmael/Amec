@@ -7,6 +7,7 @@ var aif;
         InputStyle[InputStyle["NumberedInputs"] = 2] = "NumberedInputs";
         InputStyle[InputStyle["LinkedInputs"] = 3] = "LinkedInputs";
         InputStyle[InputStyle["BlankInputs"] = 4] = "BlankInputs";
+        InputStyle[InputStyle["WholeStep"] = 5] = "WholeStep";
     })(InputStyle = aif.InputStyle || (aif.InputStyle = {}));
     var WorkflowInputItem = (function () {
         function WorkflowInputItem(heading, subHeading, leadText, remainText, inputStyle, inputSize) {

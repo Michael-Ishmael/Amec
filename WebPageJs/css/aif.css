@@ -1,3 +1,55 @@
+.rotate {
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+  /* IE */
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+  -o-transform: rotate(-90deg);
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
+
+#frameworkSummary {
+  margin-top: 20px;
+  width: 1140px; }
+  #frameworkSummary .summary-row {
+    margin-bottom: 5px; }
+  #frameworkSummary .summary-section.imp {
+    width: 240px; }
+  #frameworkSummary .summary-section.mes {
+    width: 500px; }
+  #frameworkSummary .low-pad-row {
+    margin-left: -3px;
+    margin-right: -3px; }
+  #frameworkSummary .low-pad-cell {
+    padding: 0 3px 0 3px; }
+  #frameworkSummary .section-header {
+    background-color: #8a8a8a;
+    width: 30px;
+    float: left;
+    padding-top: 160px; }
+    #frameworkSummary .section-header.prep {
+      height: 236px; }
+  #frameworkSummary .section-content {
+    margin-left: 36px; }
+    #frameworkSummary .section-content h5.summary-heading {
+      font-size: .8em;
+      height: 24px;
+      line-height: 24px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 4px 0;
+      padding: 0; }
+      #frameworkSummary .section-content h5.summary-heading.joined {
+        margin-bottom: 0; }
+    #frameworkSummary .section-content .summary-box {
+      padding: 4px;
+      min-height: 184px; }
+      #frameworkSummary .section-content .summary-box.first-row {
+        max-height: 200px; }
+
 .background-red {
   background-color: #d50046; }
 
@@ -271,7 +323,7 @@ h2 {
   padding-left: 5px; }
 
 .main {
-  padding: 50px 60px; }
+  padding: 50px 0px; }
 
 .bg-cloak {
   position: absolute;

@@ -3,7 +3,10 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkRepository = (function () {
-        function FrameworkRepository() {
+        function FrameworkRepository($timeout, $rootScope, $cookies) {
+            this.$timeout = $timeout;
+            this.$rootScope = $rootScope;
+            this.$cookies = $cookies;
         }
         FrameworkRepository.prototype.get = function () {
             var steps = this.getRawStepArray().map(function (s) { return aif.WorkflowStep.fromData(s); });
@@ -12,6 +15,51 @@ var aif;
                 steps.filter(function (s) { return s.index === i.stepIndex; }).forEach(function (s) { return s.loadInput(i); });
             });
             return steps;
+        };
+        FrameworkRepository.prototype.getSummary = function () {
+            var _this = this;
+            return this.$timeout(function () {
+                if (_this.frameworkSummary != null)
+                    return _this.frameworkSummary;
+                var steps = _this.get();
+                var summary = new aif.AifSummary();
+                var data = _this.getRawSummaryArray();
+                for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+                    var dataRow = data_1[_i];
+                    var summaryRow = new aif.AifSummaryRow();
+                    for (var _a = 0, _b = dataRow.sections; _a < _b.length; _a++) {
+                        var dataSection = _b[_a];
+                        var summarySection = new aif.AifSummarySection(dataSection.heading);
+                        summarySection.width = dataSection.width;
+                        for (var _c = 0, _d = dataSection.groups; _c < _d.length; _c++) {
+                            var dataGroup = _d[_c];
+                            var summaryGroup = new aif.AifSummaryGroup(dataGroup.heading, null, null);
+                            for (var _e = 0, _f = dataGroup.entries; _e < _f.length; _e++) {
+                                var dataEntry = _f[_e];
+                                var step = findEntry(dataEntry.stepId);
+                                if (step) {
+                                    var heading = dataEntry.headingOverride ? dataEntry.headingOverride : step.title;
+                                    var summaryEntry = new aif.AifFrameworkStep(heading);
+                                    summaryGroup.steps.push(summaryEntry);
+                                }
+                            }
+                            summarySection.groups.push(summaryGroup);
+                        }
+                        summaryRow.sections.push(summarySection);
+                    }
+                    summary.rows.push(summaryRow);
+                }
+                _this.frameworkSummary = summary;
+                return summary;
+                function findEntry(stepIndex, entryIndex) {
+                    var matches = steps.filter(function (s) { return s.index == stepIndex; });
+                    if (matches.length) {
+                        var step = matches[0];
+                        return step;
+                    }
+                    return null;
+                }
+            }, 200);
         };
         FrameworkRepository.prototype.getRawStepArray = function () {
             var steps = [
@@ -223,7 +271,111 @@ var aif;
                 }
             ];
         };
+        FrameworkRepository.prototype.getRawSummaryArray = function () {
+            return [
+                {
+                    sections: [
+                        {
+                            heading: "Preparation",
+                            groups: [
+                                {
+                                    heading: "Align Objectives",
+                                    entries: [
+                                        {
+                                            entryType: "stepItem",
+                                            stepId: 1,
+                                            stepEntryIndex: 1
+                                        },
+                                        {
+                                            entryType: "stepItem",
+                                            stepId: 1,
+                                            stepEntryIndex: 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    heading: "Plan & Set Targets",
+                                    entries: [
+                                        {
+                                            entryType: "stepItem",
+                                            stepId: 2,
+                                            stepEntryIndex: 1
+                                        },
+                                        {
+                                            entryType: "stepItem",
+                                            stepId: 2,
+                                            stepEntryIndex: 2,
+                                            headingOverride: "Strategy"
+                                        }
+                                    ]
+                                }
+                            ],
+                            width: 1
+                        }
+                    ],
+                    maxRowHeight: 176
+                },
+                {
+                    sections: [
+                        {
+                            heading: "Implementation",
+                            groups: [
+                                {
+                                    heading: "Implement",
+                                    entries: [
+                                        {
+                                            entryType: "step",
+                                            stepId: 3,
+                                        }
+                                    ]
+                                }
+                            ],
+                            width: .25
+                        },
+                        {
+                            heading: "Measurement & Insights",
+                            groups: [
+                                {
+                                    heading: "Measure Activity",
+                                    entries: [
+                                        {
+                                            entryType: "step",
+                                            stepId: 4,
+                                        }
+                                    ]
+                                },
+                                {
+                                    heading: "Audience Response & Effects",
+                                    entries: [
+                                        {
+                                            entryType: "step",
+                                            stepId: 5,
+                                        },
+                                        {
+                                            entryType: "step",
+                                            stepId: 6,
+                                        }
+                                    ]
+                                },
+                                {
+                                    heading: "Organisation & Stakeholder Effects",
+                                    entries: [
+                                        {
+                                            entryType: "step",
+                                            stepId: 7,
+                                        }
+                                    ]
+                                },
+                            ],
+                            width: .75
+                        }
+                    ],
+                    maxRowHeight: 300
+                }
+            ];
+        };
         return FrameworkRepository;
     }());
+    FrameworkRepository.$inject = ["$timeout", "$rootScope", '$cookies'];
     aif.FrameworkRepository = FrameworkRepository;
 })(aif || (aif = {}));

@@ -52,8 +52,12 @@
             </div>
         </div>
         <div class="col-md-1 low-pad-cell">
-            <div ng-click="ac.submitFramework()"
+            <div ng-click="ac.submitFramework()" ng-if="ac.vs.displayGrid"
                     class="aif-button background-bright_green bottom-dark-border-bright_green">Submit</div>
+
+            <div ng-click="ac.vs.showGrid()" ng-if="ac.vs.displaySummary"
+                 class="aif-button background-bright_green bottom-dark-border-bright_green">Edit</div>
+
         </div>
     </div>
 
@@ -117,6 +121,7 @@
             </aif-register-screen>
 
             <aif-reset-password ng-controller="resetPasswordCtrl as rp"
+                                ng-if="ac.vs.displayFtnDetails"
                                  >
             </aif-reset-password>
 

@@ -19,8 +19,8 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
-            this.displayGrid = true;
-            this.displaySummary = false;
+            this.displayGrid = false;
+            this.displaySummary = true;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
@@ -31,6 +31,11 @@ var aif;
             this.reset();
             this.displaySummary = true;
             this.displayGrid = false;
+        };
+        ViewService.prototype.showGrid = function () {
+            this.reset();
+            this.displaySummary = false;
+            this.displayGrid = true;
         };
         ViewService.prototype.showLogin = function (fromSave) {
             if (fromSave === void 0) { fromSave = false; }

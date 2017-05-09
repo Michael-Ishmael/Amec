@@ -10,6 +10,11 @@ module aif {
     public editMode: boolean = false;
     public editStep: WorkflowStep = null;
     public infoCell: WorkflowInfoCell = null;
+    public summary: AifSummary = null;
+
+    public sectionOne: AifSummarySection = null;
+    public sectionTwo: AifSummarySection = null;
+    public sectionThree: AifSummarySection = null;
 
     public message: string = "Hoi hoi";
 
@@ -18,7 +23,7 @@ module aif {
       "viewService"
     ];
 
-    constructor(private $window: ng.IWindowService, private frameworkRepository: IFrameworkRepository, public vs: ViewService) {
+    constructor(private $window: ng.IWindowService, private frameworkRepository: FrameworkRepository, public vs: ViewService) {
 
       this.init();
 
@@ -27,6 +32,21 @@ module aif {
     private init(): void {
       this.steps = this.frameworkRepository.get();
       this.rows = this.setRowsFromSteps(this.steps);
+      this.frameworkRepository.getSummary().then(
+          r => {
+            this.summary = r;
+            this.sectionOne = this.summary.rows[0].sections[0];
+            this.sectionTwo = this.summary.rows[1].sections[0];
+            this.sectionThree = this.summary.rows[1].sections[1];
+          }
+      )
+    }
+
+    public getColClassForSection(section:AifSummarySection):string{
+
+      let suffix = (12 * section.width -1).toString();
+      return "col-md-" + suffix;
+
     }
 
     private setRowsFromSteps(steps: IWorkflowStep[]):WorkflowRow[] {
