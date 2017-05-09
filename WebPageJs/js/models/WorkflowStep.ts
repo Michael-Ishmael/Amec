@@ -31,6 +31,7 @@ module aif {
     public inputRow:Array<IWorkflowGridCell> = null;
     public cellType: WorkflowCellType = WorkflowCellType.Step;
     public showInput: boolean;
+    public inputEntries: Array<WorkflowInputItem> =[];
 
     constructor(public title: string,
                 public index: number,
@@ -46,13 +47,14 @@ module aif {
         for(let cell of this.inputRow){
           if(cell.cellType === WorkflowCellType.Input){
             let inputCell = cell as WorkflowInputCell;
-            inputCell.items = input.items;
+            inputCell.items = input.items.map(i => {
+              return WorkflowInputItem.fromData(i)
+            });
+            this.inputEntries = inputCell.items;
           }
         }
       }
     }
-
-
 
     public static fromData(data: IWorkflowStep) {
       let step = new WorkflowStep(

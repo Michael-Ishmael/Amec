@@ -32,6 +32,7 @@ module aif {
           groups: [
               {
                 heading:string,
+                color: string,
                 entries:[
                     {
                       entryType:string,
@@ -75,43 +76,58 @@ module aif {
     public steps:Array<IAifFrameworkEntry> = [];
 
     constructor(public heading:string,
-                public headingColor: string,
-                public bodyColor: string
+                public color: string
       ){
 
     }
   }
 
-  export class AifFrameworkStep implements IAifFrameworkEntry {
-
-    inputStyle: InputStyle;
-    entries: Array<IAifFrameworkEntry> = [];
-
-    constructor(public heading:string){
-      this.inputStyle = InputStyle.WholeStep;
-    }
-
-    html(): string {
-      throw new Error('Method not implemented.');
-    }
-
-
+  export enum SummaryStyle {
+    Entry = 0,
+    WholeStep = 1
   }
 
 
   export interface IAifFrameworkEntry {
     heading:string;
-    inputStyle:InputStyle,
+    summaryStyle:SummaryStyle,
     html():string
   }
 
+  export class AifFrameworkStep implements IAifFrameworkEntry {
+
+    inputStyle: InputStyle;
+    summaryStyle:SummaryStyle;
+    entries: Array<IAifFrameworkEntry> = [];
+
+    constructor(public heading:string){
+      this.summaryStyle = SummaryStyle.WholeStep;
+    }
+
+    html(): string {
+      let ht:string = "";
+      if(this.entries) this.entries.forEach(e => {
+        let eht = e.html();
+        if(eht){
+          if(ht.length) ht += "<br>";
+          ht += eht.trim();
+        }
+      } );
+      return ht.trim();
+    }
+
+
+  }
+
+
+
   export class AifFreeTextFrameworkEntry implements  IAifFrameworkEntry{
 
-    public inputStyle:InputStyle;
+    public summaryStyle:SummaryStyle;
     public text:string;
 
     constructor(public heading:string){
-      this.inputStyle = InputStyle.TextArea;
+      this.summaryStyle = SummaryStyle.Entry;
     }
 
     public html():string {

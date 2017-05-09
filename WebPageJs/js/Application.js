@@ -6,7 +6,6 @@ var aif;
         InputStyle[InputStyle["NumberedInputs"] = 2] = "NumberedInputs";
         InputStyle[InputStyle["LinkedInputs"] = 3] = "LinkedInputs";
         InputStyle[InputStyle["BlankInputs"] = 4] = "BlankInputs";
-        InputStyle[InputStyle["WholeStep"] = 5] = "WholeStep";
     })(aif.InputStyle || (aif.InputStyle = {}));
     var InputStyle = aif.InputStyle;
     var WorkflowInputItem = (function () {
@@ -17,7 +16,16 @@ var aif;
             this.remainText = remainText;
             this.inputStyle = inputStyle;
             this.inputSize = inputSize;
+            this.frameworkEntry = null;
+            this.createFrameworkEntry();
         }
+        WorkflowInputItem.prototype.createFrameworkEntry = function () {
+            switch (this.inputStyle) {
+                case InputStyle.TextArea:
+                default:
+                    this.frameworkEntry = new aif.AifFreeTextFrameworkEntry(this.heading);
+            }
+        };
         WorkflowInputItem.fromData = function (data) {
             return new WorkflowInputItem(data.heading, data.subHeading, data.leadText, data.remainText, data.inputStyle, data.inputSize);
         };
@@ -90,6 +98,7 @@ var aif;
             this.isSubmit = isSubmit;
             this.inputRow = null;
             this.cellType = WorkflowCellType.Step;
+            this.inputEntries = [];
         }
         WorkflowStep.prototype.loadInput = function (input) {
             if (this.inputRow) {
@@ -97,7 +106,10 @@ var aif;
                     var cell = _a[_i];
                     if (cell.cellType === WorkflowCellType.Input) {
                         var inputCell = cell;
-                        inputCell.items = input.items;
+                        inputCell.items = input.items.map(function (i) {
+                            return aif.WorkflowInputItem.fromData(i);
+                        });
+                        this.inputEntries = inputCell.items;
                     }
                 }
             }
@@ -341,23 +353,37 @@ var aif;
     }());
     aif.AifSummarySection = AifSummarySection;
     var AifSummaryGroup = (function () {
-        function AifSummaryGroup(heading, headingColor, bodyColor) {
+        function AifSummaryGroup(heading, color) {
             this.heading = heading;
-            this.headingColor = headingColor;
-            this.bodyColor = bodyColor;
+            this.color = color;
             this.steps = [];
         }
         return AifSummaryGroup;
     }());
     aif.AifSummaryGroup = AifSummaryGroup;
+    (function (SummaryStyle) {
+        SummaryStyle[SummaryStyle["Entry"] = 0] = "Entry";
+        SummaryStyle[SummaryStyle["WholeStep"] = 1] = "WholeStep";
+    })(aif.SummaryStyle || (aif.SummaryStyle = {}));
+    var SummaryStyle = aif.SummaryStyle;
     var AifFrameworkStep = (function () {
         function AifFrameworkStep(heading) {
             this.heading = heading;
             this.entries = [];
-            this.inputStyle = aif.InputStyle.WholeStep;
+            this.summaryStyle = SummaryStyle.WholeStep;
         }
         AifFrameworkStep.prototype.html = function () {
-            throw new Error('Method not implemented.');
+            var ht = "";
+            if (this.entries)
+                this.entries.forEach(function (e) {
+                    var eht = e.html();
+                    if (eht) {
+                        if (ht.length)
+                            ht += "<br>";
+                        ht += eht.trim();
+                    }
+                });
+            return ht.trim();
         };
         return AifFrameworkStep;
     }());
@@ -365,7 +391,7 @@ var aif;
     var AifFreeTextFrameworkEntry = (function () {
         function AifFreeTextFrameworkEntry(heading) {
             this.heading = heading;
-            this.inputStyle = aif.InputStyle.TextArea;
+            this.summaryStyle = SummaryStyle.Entry;
         }
         AifFreeTextFrameworkEntry.prototype.html = function () {
             return this.text;
@@ -407,8 +433,8 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
-            this.displayGrid = false;
-            this.displaySummary = true;
+            this.displayGrid = true;
+            this.displaySummary = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
@@ -750,13 +776,18 @@ var aif;
             this.$timeout = $timeout;
             this.$rootScope = $rootScope;
             this.$cookies = $cookies;
+            this.frameworkSteps = null;
+            this.frameworkSummary = null;
         }
         FrameworkRepository.prototype.get = function () {
+            if (this.frameworkSteps)
+                return this.frameworkSteps;
             var steps = this.getRawStepArray().map(function (s) { return aif.WorkflowStep.fromData(s); });
             var inputs = this.getRawInputArray();
             inputs.forEach(function (i) {
                 steps.filter(function (s) { return s.index === i.stepIndex; }).forEach(function (s) { return s.loadInput(i); });
             });
+            this.frameworkSteps = steps;
             return steps;
         };
         FrameworkRepository.prototype.getSummary = function () {
@@ -776,15 +807,12 @@ var aif;
                         summarySection.width = dataSection.width;
                         for (var _c = 0, _d = dataSection.groups; _c < _d.length; _c++) {
                             var dataGroup = _d[_c];
-                            var summaryGroup = new aif.AifSummaryGroup(dataGroup.heading, null, null);
+                            var summaryGroup = new aif.AifSummaryGroup(dataGroup.heading, dataGroup.color);
                             for (var _e = 0, _f = dataGroup.entries; _e < _f.length; _e++) {
                                 var dataEntry = _f[_e];
-                                var step = findEntry(dataEntry.stepId);
-                                if (step) {
-                                    var heading = dataEntry.headingOverride ? dataEntry.headingOverride : step.title;
-                                    var summaryEntry = new aif.AifFrameworkStep(heading);
-                                    summaryGroup.steps.push(summaryEntry);
-                                }
+                                var entry = findEntry(dataEntry.stepId, dataEntry.stepEntryIndex, dataEntry.headingOverride);
+                                if (entry)
+                                    summaryGroup.steps.push(entry);
                             }
                             summarySection.groups.push(summaryGroup);
                         }
@@ -794,11 +822,18 @@ var aif;
                 }
                 _this.frameworkSummary = summary;
                 return summary;
-                function findEntry(stepIndex, entryIndex) {
+                function findEntry(stepIndex, entryIndex, headingOverride) {
                     var matches = steps.filter(function (s) { return s.index == stepIndex; });
                     if (matches.length) {
                         var step = matches[0];
-                        return step;
+                        if (entryIndex && step.inputEntries.length >= entryIndex) {
+                            var iEntry = step.inputEntries[entryIndex - 1];
+                            return iEntry.frameworkEntry;
+                        }
+                        var heading = headingOverride ? headingOverride : step.title;
+                        var summaryEntry = new aif.AifFrameworkStep(heading);
+                        summaryEntry.entries = step.inputEntries.map(function (e) { return e.frameworkEntry; });
+                        return summaryEntry;
                     }
                     return null;
                 }
@@ -852,7 +887,7 @@ var aif;
                     ]
                 },
                 {
-                    title: 'Activity',
+                    title: 'Activities',
                     index: 3,
                     row: 1,
                     colSpan: 1,
@@ -1011,6 +1046,19 @@ var aif;
                             inputSize: 5
                         }
                     ]
+                },
+                {
+                    stepIndex: 3,
+                    items: [
+                        {
+                            heading: "List all the key activities that you will or did undertake.",
+                            subHeading: null,
+                            leadText: "Activities",
+                            remainText: " include:<br><br><ul><li>Formative research (e.g., surveys, focus groups, pre-testing)</li><li>Planning (including SWOT analysis, PEST or PESTLE, etc.)</li>​<li>Design of materials</li><li>Writing and production of communication materials, events, etc.</li></ul>",
+                            inputStyle: aif.InputStyle.LinkedInputs,
+                            inputSize: 5
+                        }
+                    ]
                 }
             ];
         };
@@ -1023,6 +1071,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Align Objectives",
+                                    color: "red",
                                     entries: [
                                         {
                                             entryType: "stepItem",
@@ -1038,6 +1087,7 @@ var aif;
                                 },
                                 {
                                     heading: "Plan & Set Targets",
+                                    color: "yellow",
                                     entries: [
                                         {
                                             entryType: "stepItem",
@@ -1065,6 +1115,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Implement",
+                                    color: "green",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -1080,6 +1131,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Measure Activity",
+                                    color: "light_blue",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -1089,6 +1141,7 @@ var aif;
                                 },
                                 {
                                     heading: "Audience Response & Effects",
+                                    color: "dark_blue",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -1102,6 +1155,7 @@ var aif;
                                 },
                                 {
                                     heading: "Organisation & Stakeholder Effects",
+                                    color: "purple",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -1287,13 +1341,27 @@ var aif;
         }
         AifFrameworkSummary.factory = function () {
             var directive = function () { return new AifFrameworkSummary(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         AifFrameworkSummary.$inject = [''];
         return AifFrameworkSummary;
     }());
     aif.AifFrameworkSummary = AifFrameworkSummary;
+    var AifControlRow = (function () {
+        function AifControlRow() {
+            this.templateUrl = 'js/views/controlRow.html';
+            this.restrict = 'E';
+        }
+        AifControlRow.factory = function () {
+            var directive = function () { return new AifControlRow(); };
+            //directive.$inject = ['$location'];
+            return directive;
+        };
+        AifControlRow.$inject = [''];
+        return AifControlRow;
+    }());
+    aif.AifControlRow = AifControlRow;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
 var aif;
@@ -1544,9 +1612,19 @@ var aif;
                 _this.sectionThree = _this.summary.rows[1].sections[1];
             });
         };
-        FrameworkSummaryCtrl.prototype.getColClassForSection = function (section) {
-            var suffix = (12 * section.width - 1).toString();
-            return "col-md-" + suffix;
+        FrameworkSummaryCtrl.prototype.getColorClass = function (prefix, color) {
+            if (color === "red" && prefix.indexOf("light") > -1) {
+                return prefix + "pale_grey";
+            }
+            return prefix + color;
+        };
+        FrameworkSummaryCtrl.prototype.getWidthClass = function (group, inside) {
+            if (group.steps.length == 2) {
+                return "col-md-6";
+            }
+            if (inside)
+                return "col-md-12";
+            return "col-md-3";
         };
         FrameworkSummaryCtrl.prototype.setRowsFromSteps = function (steps) {
             var rowObj = steps.reduce(function (grps, s) {
@@ -1645,6 +1723,8 @@ var aif;
     aif.SaveAsCtrl = SaveAsCtrl;
 })(aif || (aif = {}));
 /// <///<reference path=".../_all.ts" />
+var getEntireDom;
+var downloadPDF;
 var aif;
 (function (aif) {
     'use strict';
@@ -1719,6 +1799,18 @@ var aif;
             var loggedIn = this.isLoggedIn();
             var hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
             this.vs.attemptSave(loggedIn, hasExisting);
+        };
+        AppCtrl.prototype.downloadAifPdf = function () {
+            if (getEntireDom && downloadPDF) {
+                var opts = {
+                    document_type: 'pdf',
+                    document_content: getEntireDom(),
+                    name: 'Framework',
+                    javascript: false,
+                    test: false
+                };
+                downloadPDF(opts, 'UmPbAOzv3fSfgTsHLZV');
+            }
         };
         AppCtrl.prototype.registerNewUser = function (form) {
             if (!form.$valid)

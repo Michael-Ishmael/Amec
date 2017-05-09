@@ -26,8 +26,8 @@ module aif {
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
     public displayFtnDetails:boolean = false;
 
-    public displayGrid = false;
-    public displaySummary:boolean =true;
+    public displayGrid = true;
+    public displaySummary:boolean =false;
 
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;

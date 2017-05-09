@@ -19,6 +19,7 @@ var aif;
             this.isSubmit = isSubmit;
             this.inputRow = null;
             this.cellType = WorkflowCellType.Step;
+            this.inputEntries = [];
         }
         WorkflowStep.prototype.loadInput = function (input) {
             if (this.inputRow) {
@@ -26,7 +27,10 @@ var aif;
                     var cell = _a[_i];
                     if (cell.cellType === WorkflowCellType.Input) {
                         var inputCell = cell;
-                        inputCell.items = input.items;
+                        inputCell.items = input.items.map(function (i) {
+                            return aif.WorkflowInputItem.fromData(i);
+                        });
+                        this.inputEntries = inputCell.items;
                     }
                 }
             }

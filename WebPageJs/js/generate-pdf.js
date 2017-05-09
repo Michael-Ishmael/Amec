@@ -43,22 +43,30 @@ function getEntireDom()
 {
     var pdfDOM = $("html").clone();
 
-    pdfDOM.find("body").replaceWith($('#Stage_Framework').clone());
+    var frameWork = pdfDOM.find("#frameworkSummary").clone();
+    var newBody = $("<body></body>").append(frameWork);
+    var css = pdfDOM.find("#pageCSS").html();
+
+    pdfDOM.find("body").replaceWith(newBody);
+    pdfDOM.find("head").append("<style>" + css + "</style>")
+    ;
     return pdfDOM.html();
 }
 
 $(document).ready(function(){
     $(document).on('click','#Stage_download-pdf-1',function(e){
-      console.log('click event');
+      //console.log('click event');
         e.preventDefault();
-        opts = {
+       var opts = {
             document_type: 'pdf',
             document_content: getEntireDom(),
             name: 'Framework',
             javascript: false,
             test: false
-        }
+        };
         downloadPDF(opts,'UmPbAOzv3fSfgTsHLZV');
     });
 });
+
+
 

@@ -1,4 +1,6 @@
 /// <///<reference path=".../_all.ts" />
+var getEntireDom;
+var downloadPDF;
 var aif;
 (function (aif) {
     'use strict';
@@ -73,6 +75,18 @@ var aif;
             var loggedIn = this.isLoggedIn();
             var hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
             this.vs.attemptSave(loggedIn, hasExisting);
+        };
+        AppCtrl.prototype.downloadAifPdf = function () {
+            if (getEntireDom && downloadPDF) {
+                var opts = {
+                    document_type: 'pdf',
+                    document_content: getEntireDom(),
+                    name: 'Framework',
+                    javascript: false,
+                    test: false
+                };
+                downloadPDF(opts, 'UmPbAOzv3fSfgTsHLZV');
+            }
         };
         AppCtrl.prototype.registerNewUser = function (form) {
             if (!form.$valid)

@@ -1,5 +1,8 @@
 /// <///<reference path=".../_all.ts" />
 
+let getEntireDom;
+let downloadPDF;
+
 module aif {
   'use strict';
   import IFormController = angular.IFormController;
@@ -99,6 +102,23 @@ module aif {
       let loggedIn = this.isLoggedIn();
       let hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
       this.vs.attemptSave(loggedIn, hasExisting);
+    }
+
+
+
+    public downloadAifPdf(){
+
+      if(getEntireDom && downloadPDF){
+        let opts = {
+          document_type: 'pdf',
+          document_content: getEntireDom(),
+          name: 'Framework',
+          javascript: false,
+          test: false
+        };
+        downloadPDF(opts,'UmPbAOzv3fSfgTsHLZV');
+      }
+
     }
 
 

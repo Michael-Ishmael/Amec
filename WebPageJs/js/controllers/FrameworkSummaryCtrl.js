@@ -28,9 +28,19 @@ var aif;
                 _this.sectionThree = _this.summary.rows[1].sections[1];
             });
         };
-        FrameworkSummaryCtrl.prototype.getColClassForSection = function (section) {
-            var suffix = (12 * section.width - 1).toString();
-            return "col-md-" + suffix;
+        FrameworkSummaryCtrl.prototype.getColorClass = function (prefix, color) {
+            if (color === "red" && prefix.indexOf("light") > -1) {
+                return prefix + "pale_grey";
+            }
+            return prefix + color;
+        };
+        FrameworkSummaryCtrl.prototype.getWidthClass = function (group, inside) {
+            if (group.steps.length == 2) {
+                return "col-md-6";
+            }
+            if (inside)
+                return "col-md-12";
+            return "col-md-3";
         };
         FrameworkSummaryCtrl.prototype.setRowsFromSteps = function (steps) {
             var rowObj = steps.reduce(function (grps, s) {

@@ -7,7 +7,6 @@ module aif {
     NumberedInputs = 2,
     LinkedInputs = 3,
     BlankInputs = 4,
-    WholeStep = 5
   }
 
 
@@ -16,11 +15,13 @@ module aif {
     subHeading: string
     leadText: string;
     remainText: string;
-    inputStyle: InputStyle
-    inputSize: number
+    inputStyle: InputStyle;
+    inputSize: number;
   }
 
   export class WorkflowInputItem implements IWorkflowInputItem {
+
+    frameworkEntry:IAifFrameworkEntry = null;
 
     constructor(public heading: string,
                 public subHeading: string,
@@ -28,6 +29,15 @@ module aif {
                 public remainText: string,
                 public inputStyle: InputStyle,
                 public inputSize: number) {
+      this.createFrameworkEntry();
+    }
+
+    private createFrameworkEntry():void{
+      switch (this.inputStyle){
+        case InputStyle.TextArea:
+        default:
+          this.frameworkEntry = new AifFreeTextFrameworkEntry(this.heading);
+      }
     }
 
     public static fromData(data: IWorkflowInputItem) {

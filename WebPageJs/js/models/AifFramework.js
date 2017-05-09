@@ -39,23 +39,37 @@ var aif;
     }());
     aif.AifSummarySection = AifSummarySection;
     var AifSummaryGroup = (function () {
-        function AifSummaryGroup(heading, headingColor, bodyColor) {
+        function AifSummaryGroup(heading, color) {
             this.heading = heading;
-            this.headingColor = headingColor;
-            this.bodyColor = bodyColor;
+            this.color = color;
             this.steps = [];
         }
         return AifSummaryGroup;
     }());
     aif.AifSummaryGroup = AifSummaryGroup;
+    var SummaryStyle;
+    (function (SummaryStyle) {
+        SummaryStyle[SummaryStyle["Entry"] = 0] = "Entry";
+        SummaryStyle[SummaryStyle["WholeStep"] = 1] = "WholeStep";
+    })(SummaryStyle = aif.SummaryStyle || (aif.SummaryStyle = {}));
     var AifFrameworkStep = (function () {
         function AifFrameworkStep(heading) {
             this.heading = heading;
             this.entries = [];
-            this.inputStyle = aif.InputStyle.WholeStep;
+            this.summaryStyle = SummaryStyle.WholeStep;
         }
         AifFrameworkStep.prototype.html = function () {
-            throw new Error('Method not implemented.');
+            var ht = "";
+            if (this.entries)
+                this.entries.forEach(function (e) {
+                    var eht = e.html();
+                    if (eht) {
+                        if (ht.length)
+                            ht += "<br>";
+                        ht += eht.trim();
+                    }
+                });
+            return ht.trim();
         };
         return AifFrameworkStep;
     }());
@@ -63,7 +77,7 @@ var aif;
     var AifFreeTextFrameworkEntry = (function () {
         function AifFreeTextFrameworkEntry(heading) {
             this.heading = heading;
-            this.inputStyle = aif.InputStyle.TextArea;
+            this.summaryStyle = SummaryStyle.Entry;
         }
         AifFreeTextFrameworkEntry.prototype.html = function () {
             return this.text;

@@ -11,28 +11,45 @@
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
 
 #frameworkSummary {
-  margin-top: 20px;
-  width: 1140px; }
+  margin: 10px -15px 0 -15px; }
   #frameworkSummary .summary-row {
-    margin-bottom: 5px; }
-  #frameworkSummary .summary-section.imp {
-    width: 240px; }
-  #frameworkSummary .summary-section.mes {
-    width: 500px; }
+    margin-bottom: 12px; }
+  #frameworkSummary .summary-section {
+    position: relative; }
+    #frameworkSummary .summary-section.imp {
+      width: 250px;
+      display: inline-block; }
+    #frameworkSummary .summary-section.mes {
+      width: 900px;
+      display: inline-block;
+      margin-left: 15px; }
   #frameworkSummary .low-pad-row {
     margin-left: -3px;
     margin-right: -3px; }
   #frameworkSummary .low-pad-cell {
     padding: 0 3px 0 3px; }
+  #frameworkSummary .prep .section-header {
+    height: 236px;
+    background-image: url("../images/ss-header-1.png"); }
+  #frameworkSummary .imp .section-header {
+    height: 582px;
+    background-image: url("../images/ss-header-2.png"); }
+  #frameworkSummary .imp .summary-box {
+    height: 582px; }
+  #frameworkSummary .mes .section-header {
+    height: 582px;
+    background-image: url("../images/ss-header-3.png"); }
+  #frameworkSummary .mes .summary-box {
+    height: 582px; }
   #frameworkSummary .section-header {
     background-color: #8a8a8a;
-    width: 30px;
+    width: 34px;
     float: left;
-    padding-top: 160px; }
-    #frameworkSummary .section-header.prep {
-      height: 236px; }
+    padding-top: 160px;
+    background-position: 2px 0;
+    background-size: contain; }
   #frameworkSummary .section-content {
-    margin-left: 36px; }
+    margin-left: 42px; }
     #frameworkSummary .section-content h5.summary-heading {
       font-size: .8em;
       height: 24px;
@@ -45,7 +62,7 @@
       #frameworkSummary .section-content h5.summary-heading.joined {
         margin-bottom: 0; }
     #frameworkSummary .section-content .summary-box {
-      padding: 4px;
+      padding: 4px 8px;
       min-height: 184px; }
       #frameworkSummary .section-content .summary-box.first-row {
         max-height: 200px; }
@@ -59,6 +76,9 @@
 .background-light-red {
   background-color: #ff1d68; }
 
+.background-pale-red {
+  background-color: #ffd5e3; }
+
 .bottom-dark-border-red {
   border-bottom: 4px solid #89002d; }
 
@@ -70,6 +90,9 @@
 
 .background-light-yellow {
   background-color: #ffbd78; }
+
+.background-pale-yellow {
+  background-color: #fff2e4; }
 
 .bottom-dark-border-yellow {
   border-bottom: 4px solid #e47400; }
@@ -83,6 +106,9 @@
 .background-light-green {
   background-color: #0bffc4; }
 
+.background-pale-green {
+  background-color: #c3fff1; }
+
 .bottom-dark-border-green {
   border-bottom: 4px solid #00775a; }
 
@@ -94,6 +120,9 @@
 
 .background-light-light_blue {
   background-color: #47afff; }
+
+.background-pale-light_blue {
+  background-color: #cce9ff; }
 
 .bottom-dark-border-light_blue {
   border-bottom: 4px solid #0065b3; }
@@ -107,6 +136,9 @@
 .background-light-dark_blue {
   background-color: #00a1f6; }
 
+.background-pale-dark_blue {
+  background-color: #afe3ff; }
+
 .bottom-dark-border-dark_blue {
   border-bottom: 4px solid #004063; }
 
@@ -118,6 +150,9 @@
 
 .background-light-purple {
   background-color: #c000fd; }
+
+.background-pale-purple {
+  background-color: #edb6ff; }
 
 .bottom-dark-border-purple {
   border-bottom: 4px solid #50006a; }
@@ -131,6 +166,9 @@
 .background-light-black {
   background-color: #434343; }
 
+.background-pale-black {
+  background-color: #1f1f1f; }
+
 .bottom-dark-border-black {
   border-bottom: 4px solid black; }
 
@@ -143,6 +181,9 @@
 .background-light-bright_green {
   background-color: #41dd28; }
 
+.background-pale-bright_green {
+  background-color: #2da41a; }
+
 .bottom-dark-border-bright_green {
   border-bottom: 4px solid #1b6210; }
 
@@ -154,6 +195,9 @@
 
 .background-light-pale_grey {
   background-color: #e3e3e3; }
+
+.background-pale-pale_grey {
+  background-color: #f2f2f2; }
 
 .bottom-dark-border-pale_grey {
   border-bottom: 4px solid #999999; }
@@ -233,16 +277,17 @@ h4 {
 .control-row {
   line-height: 20px; }
   .control-row .aif-button {
-    max-width: 135px;
+    width: auto;
+    display: inline-block;
     line-height: 24px;
     height: 30px;
-    font-size: 13px; }
-    .control-row .aif-button.aif-button-inline {
-      width: auto;
-      max-width: unset;
-      display: inline-block;
-      padding-left: 6px;
-      padding-right: 6px; }
+    font-size: 13px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: 90px;
+    margin-right: 4px; }
+    .control-row .aif-button:last-child {
+      margin-right: 0; }
   .control-row .account-button {
     background-size: contain;
     height: 26px;
@@ -262,7 +307,8 @@ h4 {
     font-style: italic;
     text-align: right;
     margin-right: 6px;
-    cursor: pointer; }
+    cursor: pointer;
+    display: inline-block; }
     .control-row .framework-name h4 {
       color: #00c394;
       line-height: 20px;
@@ -340,7 +386,9 @@ h2 {
   font-family: lato, sans-serif;
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  right: 0;
+  min-height: 200px; }
   .aif-input .info-button {
     width: 24px;
     height: 24px;
@@ -435,6 +483,13 @@ h2 {
   .aif-tile h4.login-message {
     line-height: 1.8rem;
     margin: 20px 0 4px 0; }
+  .aif-tile .start-message {
+    height: 36px;
+    margin-right: 50px;
+    padding: 6px 28px;
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: 22px; }
   .aif-tile.save-box {
     background-color: #00c394; }
   .aif-tile .account-layout {

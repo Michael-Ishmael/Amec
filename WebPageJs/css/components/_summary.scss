@@ -20,21 +20,28 @@
 
 #frameworkSummary {
 
-  margin-top: 20px;
-  width: 1140px;
+  margin: 10px -15px 0 -15px;
 
   .summary-row {
-    margin-bottom: 5px;
+    margin-bottom: 12px;
+
+
   }
 
   .summary-section{
 
+
+    position: relative;
+
     &.imp {
-      width: 240px;
+      width: 250px;
+      display: inline-block;
     }
 
     &.mes {
-      width: 500px;
+      width: 900px;
+      display: inline-block;
+      margin-left: 15px;
     }
 
   }
@@ -48,25 +55,54 @@
     padding: 0 3px 0 3px;
   }
 
+  .prep {
+
+    .section-header{
+      height: 236px;
+      background-image: url('../images/ss-header-1.png');
+
+    }
+
+  }
+
+  .imp {
+    .section-header{
+      height: 582px;
+      background-image: url('../images/ss-header-2.png');
+    }
+
+    .summary-box {
+      height: 582px;
+    }
+  }
+
+  .mes {
+    .section-header{
+      height: 582px;
+      background-image: url('../images/ss-header-3.png');
+    }
+
+    .summary-box {
+      height: 582px;
+    }
+  }
+
   .section-header {
 
-     background-color: rgb(138, 138, 138);
-    width: 30px;
+    background-color: rgb(138, 138, 138);
+    width: 34px;
     float: left;
     padding-top: 160px;
+    background-position: 2px 0;
+    background-size: contain;
 
-    &.prep{
 
-      height: 236px;
-      //background-image: url('../images/Artboard1.png');
-      //background-size: contain;
-      //background-position: 2px 0;
-    }
+
   }
 
   .section-content {
 
-    margin-left: 36px;
+    margin-left:42px;
 
     h5.summary-heading {
       font-size: .8em;
@@ -85,7 +121,7 @@
 
     .summary-box {
 
-      padding: 4px;
+      padding: 4px 8px;
       min-height: 184px;
 
       &.first-row {

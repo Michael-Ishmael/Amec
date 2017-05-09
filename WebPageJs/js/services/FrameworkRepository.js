@@ -7,13 +7,18 @@ var aif;
             this.$timeout = $timeout;
             this.$rootScope = $rootScope;
             this.$cookies = $cookies;
+            this.frameworkSteps = null;
+            this.frameworkSummary = null;
         }
         FrameworkRepository.prototype.get = function () {
+            if (this.frameworkSteps)
+                return this.frameworkSteps;
             var steps = this.getRawStepArray().map(function (s) { return aif.WorkflowStep.fromData(s); });
             var inputs = this.getRawInputArray();
             inputs.forEach(function (i) {
                 steps.filter(function (s) { return s.index === i.stepIndex; }).forEach(function (s) { return s.loadInput(i); });
             });
+            this.frameworkSteps = steps;
             return steps;
         };
         FrameworkRepository.prototype.getSummary = function () {
@@ -33,15 +38,12 @@ var aif;
                         summarySection.width = dataSection.width;
                         for (var _c = 0, _d = dataSection.groups; _c < _d.length; _c++) {
                             var dataGroup = _d[_c];
-                            var summaryGroup = new aif.AifSummaryGroup(dataGroup.heading, null, null);
+                            var summaryGroup = new aif.AifSummaryGroup(dataGroup.heading, dataGroup.color);
                             for (var _e = 0, _f = dataGroup.entries; _e < _f.length; _e++) {
                                 var dataEntry = _f[_e];
-                                var step = findEntry(dataEntry.stepId);
-                                if (step) {
-                                    var heading = dataEntry.headingOverride ? dataEntry.headingOverride : step.title;
-                                    var summaryEntry = new aif.AifFrameworkStep(heading);
-                                    summaryGroup.steps.push(summaryEntry);
-                                }
+                                var entry = findEntry(dataEntry.stepId, dataEntry.stepEntryIndex, dataEntry.headingOverride);
+                                if (entry)
+                                    summaryGroup.steps.push(entry);
                             }
                             summarySection.groups.push(summaryGroup);
                         }
@@ -51,15 +53,22 @@ var aif;
                 }
                 _this.frameworkSummary = summary;
                 return summary;
-                function findEntry(stepIndex, entryIndex) {
+                function findEntry(stepIndex, entryIndex, headingOverride) {
                     var matches = steps.filter(function (s) { return s.index == stepIndex; });
                     if (matches.length) {
                         var step = matches[0];
-                        return step;
+                        if (entryIndex && step.inputEntries.length >= entryIndex) {
+                            var iEntry = step.inputEntries[entryIndex - 1];
+                            return iEntry.frameworkEntry;
+                        }
+                        var heading = headingOverride ? headingOverride : step.title;
+                        var summaryEntry = new aif.AifFrameworkStep(heading);
+                        summaryEntry.entries = step.inputEntries.map(function (e) { return e.frameworkEntry; });
+                        return summaryEntry;
                     }
                     return null;
                 }
-            }, 200);
+            }, 1);
         };
         FrameworkRepository.prototype.getRawStepArray = function () {
             var steps = [
@@ -109,7 +118,7 @@ var aif;
                     ]
                 },
                 {
-                    title: 'Activity',
+                    title: 'Activities',
                     index: 3,
                     row: 1,
                     colSpan: 1,
@@ -268,6 +277,19 @@ var aif;
                             inputSize: 5
                         }
                     ]
+                },
+                {
+                    stepIndex: 3,
+                    items: [
+                        {
+                            heading: "List all the key activities that you will or did undertake.",
+                            subHeading: null,
+                            leadText: "Activities",
+                            remainText: " include:<br><br><ul><li>Formative research (e.g., surveys, focus groups, pre-testing)</li><li>Planning (including SWOT analysis, PEST or PESTLE, etc.)</li>​<li>Design of materials</li><li>Writing and production of communication materials, events, etc.</li></ul>",
+                            inputStyle: aif.InputStyle.LinkedInputs,
+                            inputSize: 5
+                        }
+                    ]
                 }
             ];
         };
@@ -280,6 +302,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Align Objectives",
+                                    color: "red",
                                     entries: [
                                         {
                                             entryType: "stepItem",
@@ -295,6 +318,7 @@ var aif;
                                 },
                                 {
                                     heading: "Plan & Set Targets",
+                                    color: "yellow",
                                     entries: [
                                         {
                                             entryType: "stepItem",
@@ -322,6 +346,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Implement",
+                                    color: "green",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -337,6 +362,7 @@ var aif;
                             groups: [
                                 {
                                     heading: "Measure Activity",
+                                    color: "light_blue",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -346,6 +372,7 @@ var aif;
                                 },
                                 {
                                     heading: "Audience Response & Effects",
+                                    color: "dark_blue",
                                     entries: [
                                         {
                                             entryType: "step",
@@ -359,6 +386,7 @@ var aif;
                                 },
                                 {
                                     heading: "Organisation & Stakeholder Effects",
+                                    color: "purple",
                                     entries: [
                                         {
                                             entryType: "step",

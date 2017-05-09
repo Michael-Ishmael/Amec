@@ -117,12 +117,25 @@ var aif;
         }
         AifFrameworkSummary.factory = function () {
             var directive = function () { return new AifFrameworkSummary(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifFrameworkSummary;
     }());
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
-    //
+    var AifControlRow = (function () {
+        function AifControlRow() {
+            this.templateUrl = 'js/views/controlRow.html';
+            this.restrict = 'E';
+        }
+        AifControlRow.factory = function () {
+            var directive = function () { return new AifControlRow(); };
+            //directive.$inject = ['$location'];
+            return directive;
+        };
+        return AifControlRow;
+    }());
+    AifControlRow.$inject = [''];
+    aif.AifControlRow = AifControlRow;
 })(aif || (aif = {}));

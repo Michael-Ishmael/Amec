@@ -9,16 +9,17 @@ $bright_green: rgb(45, 164, 26);
 $pale_grey: rgb(191, 191, 191);
 
 $color-list: (
-        red $red,
-        yellow $yellow,
-        green $green,
-        light_blue $light_blue,
-        dark_blue $dark_blue,
-        purple $purple,
-        black $black,
-        bright_green $bright_green,
-        pale_grey $pale_grey
+        red $red 50%,
+        yellow $yellow 35%,
+        green $green 50%,
+        light_blue $light_blue 40%,
+        dark_blue $dark_blue 50%,
+        purple $purple 50%,
+        black $black 0%,
+        bright_green $bright_green 0%,
+        pale_grey $pale_grey 20%
 );
+
 
 @import "components/summary";
 
@@ -34,6 +35,10 @@ $color-list: (
 
   .background-light-#{nth($value, 1)} {
     background-color: lighten(nth($value, 2), 14%);
+  }
+
+  .background-pale-#{nth($value, 1)} {
+    background-color: lighten(nth($value, 2), nth($value, 3));
   }
 
   .bottom-dark-border-#{nth($value, 1)} {
@@ -151,22 +156,26 @@ h4 {
 
 .control-row {
 
+
+
   line-height: 20px;
 
   .aif-button {
-    max-width: 135px;
+    width: auto;
+    display: inline-block;
     line-height: 24px;
     height: 30px;
     font-size: 13px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: 90px;
+    margin-right: 4px;
 
-    &.aif-button-inline{
-      width: auto;
-      max-width: unset;
-      display: inline-block;
-      padding-left: 6px;
-      padding-right: 6px;
-
+    &:last-child {
+      margin-right: 0;
     }
+
+
 
   }
 
@@ -202,6 +211,7 @@ h4 {
     text-align: right;
     margin-right: 6px;
     cursor: pointer;
+    display: inline-block;
   }
 
 
@@ -314,6 +324,8 @@ h2 {
   position: absolute;
   left: 0;
   top: 0;
+  right: 0;
+  min-height: 200px;
 
   .info-button{
     width: 24px;
@@ -455,6 +467,17 @@ h2 {
     line-height: 1.8rem;
     margin: 20px 0 4px 0;
   }
+
+
+  .start-message {
+    height: 36px;
+    margin-right: 50px;
+    padding: 6px 28px;
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: 22px;
+  }
+
 
   &.save-box {
     background-color: #00c394;

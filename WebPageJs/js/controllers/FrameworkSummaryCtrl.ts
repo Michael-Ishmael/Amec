@@ -42,11 +42,21 @@ module aif {
       )
     }
 
-    public getColClassForSection(section:AifSummarySection):string{
+    public getColorClass(prefix:string, color:string):string{
 
-      let suffix = (12 * section.width -1).toString();
-      return "col-md-" + suffix;
+      if(color === "red" && prefix.indexOf("light") > -1){
+        return prefix + "pale_grey";
+      }
+      return prefix + color;
+    }
 
+    public getWidthClass(group:AifSummaryGroup, inside:boolean):string {
+
+      if(group.steps.length == 2){
+        return "col-md-6";
+      }
+      if(inside) return "col-md-12";
+      return "col-md-3";
     }
 
     private setRowsFromSteps(steps: IWorkflowStep[]):WorkflowRow[] {

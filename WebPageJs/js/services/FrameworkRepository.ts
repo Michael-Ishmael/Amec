@@ -7,19 +7,25 @@ module aif {
 
     static $inject = ["$timeout", "$rootScope", '$cookies'];
 
-    public frameworkSummary: AifSummary;
+    public frameworkSteps: Array<WorkflowStep> = null;
+    public frameworkSummary: AifSummary = null;
 
     constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService, private $cookies: ng.cookies.ICookiesService) {
 
     }
 
     get(): WorkflowStep[] {
+
+      if (this.frameworkSteps) return this.frameworkSteps;
+
       let steps = this.getRawStepArray().map(s => WorkflowStep.fromData(s));
       let inputs = this.getRawInputArray();
 
       inputs.forEach(i => {
         steps.filter(s => s.index === i.stepIndex).forEach(s => s.loadInput(i));
       });
+
+      this.frameworkSteps = steps;
 
       return steps;
     }
@@ -46,16 +52,12 @@ module aif {
 
             for (let dataGroup of dataSection.groups) {
 
-              let summaryGroup = new AifSummaryGroup(dataGroup.heading, null, null);
+              let summaryGroup = new AifSummaryGroup(dataGroup.heading, dataGroup.color);
 
               for (let dataEntry of dataGroup.entries) {
 
-                let step = findEntry(dataEntry.stepId);
-                if (step) {
-                  let heading = dataEntry.headingOverride ? dataEntry.headingOverride : step.title;
-                  let summaryEntry = new AifFrameworkStep(heading);
-                  summaryGroup.steps.push(summaryEntry)
-                }
+                let entry = findEntry(dataEntry.stepId, dataEntry.stepEntryIndex, dataEntry.headingOverride);
+                if(entry) summaryGroup.steps.push(entry)
 
               }
 
@@ -71,17 +73,25 @@ module aif {
         this.frameworkSummary = summary;
         return summary;
 
-        function findEntry(stepIndex: number, entryIndex?: number): WorkflowStep {
+        function findEntry(stepIndex: number, entryIndex?: number, headingOverride?: string): IAifFrameworkEntry {
           let matches = steps.filter(s => s.index == stepIndex);
           if (matches.length) {
             let step = matches[0];
-            return step;
+            if (entryIndex && step.inputEntries.length >= entryIndex) {
+              let iEntry = step.inputEntries[entryIndex - 1];
+              return iEntry.frameworkEntry;
+            }
+            let heading = headingOverride ? headingOverride : step.title;
+            let summaryEntry = new AifFrameworkStep(heading);
+            summaryEntry.entries = step.inputEntries.map(e => e.frameworkEntry);
+
+            return summaryEntry;
           }
           return null;
         }
 
 
-      }, 200);
+      }, 1);
 
     }
 
@@ -134,7 +144,7 @@ module aif {
           ]
         },
         {
-          title: 'Activity',
+          title: 'Activities',
           index: 3,
           row: 1,
           colSpan: 1,
@@ -297,6 +307,19 @@ module aif {
               inputSize: 5
             }
           ]
+        },
+        {
+          stepIndex: 3,
+          items: [
+            {
+              heading: "List all the key activities that you will or did undertake.",
+              subHeading: null,
+              leadText: "Activities",
+              remainText: " include:<br><br><ul><li>Formative research (e.g., surveys, focus groups, pre-testing)</li><li>Planning (including SWOT analysis, PEST or PESTLE, etc.)</li>​<li>Design of materials</li><li>Writing and production of communication materials, events, etc.</li></ul>",
+              inputStyle: InputStyle.LinkedInputs,
+              inputSize: 5
+            }
+          ]
         }
       ];
 
@@ -312,6 +335,7 @@ module aif {
               groups: [
                 {
                   heading: "Align Objectives",
+                  color: "red",
                   entries: [
                     {
                       entryType: "stepItem",
@@ -327,6 +351,7 @@ module aif {
                 },
                 {
                   heading: "Plan & Set Targets",
+                  color: "yellow",
                   entries: [
                     {
                       entryType: "stepItem",
@@ -351,9 +376,11 @@ module aif {
           sections: [
             {
               heading: "Implementation",
+
               groups: [
                 {
                   heading: "Implement",
+                  color: "green",
                   entries: [
                     {
                       entryType: "step",
@@ -369,6 +396,7 @@ module aif {
               groups: [
                 {
                   heading: "Measure Activity",
+                  color: "light_blue",
                   entries: [
                     {
                       entryType: "step",
@@ -378,6 +406,7 @@ module aif {
                 },
                 {
                   heading: "Audience Response & Effects",
+                  color: "dark_blue",
                   entries: [
                     {
                       entryType: "step",
@@ -391,6 +420,7 @@ module aif {
                 },
                 {
                   heading: "Organisation & Stakeholder Effects",
+                  color: "purple",
                   entries: [
                     {
                       entryType: "step",

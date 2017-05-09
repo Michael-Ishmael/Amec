@@ -7,7 +7,6 @@ var aif;
         InputStyle[InputStyle["NumberedInputs"] = 2] = "NumberedInputs";
         InputStyle[InputStyle["LinkedInputs"] = 3] = "LinkedInputs";
         InputStyle[InputStyle["BlankInputs"] = 4] = "BlankInputs";
-        InputStyle[InputStyle["WholeStep"] = 5] = "WholeStep";
     })(InputStyle = aif.InputStyle || (aif.InputStyle = {}));
     var WorkflowInputItem = (function () {
         function WorkflowInputItem(heading, subHeading, leadText, remainText, inputStyle, inputSize) {
@@ -17,7 +16,16 @@ var aif;
             this.remainText = remainText;
             this.inputStyle = inputStyle;
             this.inputSize = inputSize;
+            this.frameworkEntry = null;
+            this.createFrameworkEntry();
         }
+        WorkflowInputItem.prototype.createFrameworkEntry = function () {
+            switch (this.inputStyle) {
+                case InputStyle.TextArea:
+                default:
+                    this.frameworkEntry = new aif.AifFreeTextFrameworkEntry(this.heading);
+            }
+        };
         WorkflowInputItem.fromData = function (data) {
             return new WorkflowInputItem(data.heading, data.subHeading, data.leadText, data.remainText, data.inputStyle, data.inputSize);
         };

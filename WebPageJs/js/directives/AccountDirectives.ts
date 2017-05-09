@@ -174,15 +174,24 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifFrameworkSummary();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
-
-
   }
 
+  export class AifControlRow implements ng.IDirective {
+
+    static $inject: Array<string> = [''];
+    templateUrl: string = 'js/views/controlRow.html';
+    restrict: string = 'E';
 
 
-  //
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new AifControlRow();
+      //directive.$inject = ['$location'];
+      return directive;
+    }
+  }
+
 
 }
