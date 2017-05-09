@@ -387,7 +387,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="oldaif" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,7 +615,7 @@
       <workItem from="1494254098721" duration="7534000" />
       <workItem from="1494264221786" duration="68000" />
       <workItem from="1494264308443" duration="17695000" />
-      <workItem from="1494284913523" duration="1716000" />
+      <workItem from="1494284913523" duration="2151000" />
     </task>
     <servers />
   </component>
@@ -912,6 +912,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1470931844000" expanded="true" signature="598:610" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
