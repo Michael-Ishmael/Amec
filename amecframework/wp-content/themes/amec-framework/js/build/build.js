@@ -4,7 +4,14 @@ var aif;
     var AifStepInputStyle;
     (function (AifStepInputStyle) {
         AifStepInputStyle[AifStepInputStyle["FreeText"] = 1] = "FreeText";
+        AifStepInputStyle[AifStepInputStyle["NumberedValues"] = 2] = "NumberedValues";
+        AifStepInputStyle[AifStepInputStyle["KeyedValues"] = 3] = "KeyedValues";
     })(AifStepInputStyle = aif.AifStepInputStyle || (aif.AifStepInputStyle = {}));
+    var AifStepSummaryStyle;
+    (function (AifStepSummaryStyle) {
+        AifStepSummaryStyle[AifStepSummaryStyle["Entry"] = 0] = "Entry";
+        AifStepSummaryStyle[AifStepSummaryStyle["WholeStep"] = 1] = "WholeStep";
+    })(AifStepSummaryStyle = aif.AifStepSummaryStyle || (aif.AifStepSummaryStyle = {}));
     var AifInputCellType;
     (function (AifInputCellType) {
         AifInputCellType[AifInputCellType["Input"] = 1] = "Input";
@@ -53,11 +60,12 @@ var aif;
             translation: null
         }
     };
-    AifData.stepData = [
+    AifData.stepStructure = [
         {
             stepIndex: 1,
-            labelKey: "S1_L",
+            stepHeadingKey: "S1_L",
             inputStyle: AifStepInputStyle.FreeText,
+            summaryStyle: AifStepSummaryStyle.Entry,
             baseColor: "red",
             row: 1,
             colSpan: 2,
@@ -107,7 +115,7 @@ var aif;
             switch (this.inputStyle) {
                 case InputStyle.TextArea:
                 default:
-                    this.frameworkEntry = new aif.AifFreeTextFrameworkEntry(this.heading);
+                    this.frameworkEntry = new AifFreeTextFrameworkEntry(this.heading);
             }
         };
         WorkflowInputItem.fromData = function (data) {
@@ -407,10 +415,50 @@ var aif;
             this.selected = false;
             this.flaggedDelete = false;
             this.current = false;
+            this.editView = null;
+            this.summaryView = null;
         }
         return AifFramework;
     }());
     aif.AifFramework = AifFramework;
+    var AifFrameworkEditView = (function () {
+        function AifFrameworkEditView() {
+            this.steps = [];
+        }
+        return AifFrameworkEditView;
+    }());
+    aif.AifFrameworkEditView = AifFrameworkEditView;
+    var AifUserFramework = (function () {
+        function AifUserFramework(frameworkId, userData) {
+            this.frameworkId = frameworkId;
+            this.userData = userData;
+            this.inputs = {};
+        }
+        AifUserFramework.prototype.addInputOrEmpty = function (key, inputStyle) {
+            if (inputStyle == aif.AifStepInputStyle.KeyedValues) {
+                if (this.userData.inputs.hasOwnProperty(key)) {
+                    this.inputs[key] = this.userData.inputs[key].map(function (v) {
+                        return new AifKeyPairInputValue(v.key, v.value);
+                    });
+                }
+                else {
+                    this.inputs[key] = [];
+                }
+            }
+            else {
+                if (this.userData.inputs.hasOwnProperty(key)) {
+                    this.inputs[key] = this.userData.inputs[key].map(function (v) {
+                        return new AifStringInputValue(v);
+                    });
+                }
+                else {
+                    this.inputs[key] = [];
+                }
+            }
+        };
+        return AifUserFramework;
+    }());
+    aif.AifUserFramework = AifUserFramework;
     var AifSummary = (function () {
         function AifSummary() {
             this.rows = [];
@@ -444,21 +492,17 @@ var aif;
         return AifSummaryGroup;
     }());
     aif.AifSummaryGroup = AifSummaryGroup;
-    var SummaryStyle;
-    (function (SummaryStyle) {
-        SummaryStyle[SummaryStyle["Entry"] = 0] = "Entry";
-        SummaryStyle[SummaryStyle["WholeStep"] = 1] = "WholeStep";
-    })(SummaryStyle = aif.SummaryStyle || (aif.SummaryStyle = {}));
     var AifFrameworkStep = (function () {
-        function AifFrameworkStep(heading) {
+        function AifFrameworkStep(stepIndex, heading) {
+            this.stepIndex = stepIndex;
             this.heading = heading;
-            this.entries = [];
-            this.summaryStyle = SummaryStyle.WholeStep;
+            this.inputs = [];
+            this.summaryHeading = heading;
         }
         AifFrameworkStep.prototype.html = function () {
             var ht = "";
-            if (this.entries)
-                this.entries.forEach(function (e) {
+            if (this.inputs)
+                this.inputs.forEach(function (e) {
                     var eht = e.html();
                     if (eht) {
                         if (ht.length)
@@ -471,30 +515,46 @@ var aif;
         return AifFrameworkStep;
     }());
     aif.AifFrameworkStep = AifFrameworkStep;
-    var AifTextFrameworkStepInput = (function () {
-        function AifTextFrameworkStepInput() {
+    var AifStepInput = (function () {
+        function AifStepInput() {
             this.heading = null;
             this.subHeading = null;
             this.info = null;
             this.textLimit = 500;
         }
-        return AifTextFrameworkStepInput;
+        AifStepInput.prototype.html = function () {
+            var ht = "";
+            if (this.values)
+                this.values.forEach(function (v) {
+                    var eht = v.asHtml();
+                    if (eht) {
+                        if (ht.length)
+                            ht += "<br>";
+                        ht += eht.trim();
+                    }
+                });
+            return ht.trim();
+        };
+        return AifStepInput;
     }());
-    aif.AifTextFrameworkStepInput = AifTextFrameworkStepInput;
+    aif.AifStepInput = AifStepInput;
     var AifStringInputValue = (function () {
-        function AifStringInputValue() {
-            this.text = null;
+        function AifStringInputValue(text) {
+            this.text = text;
         }
         AifStringInputValue.prototype.asHtml = function () {
             return this.text;
+        };
+        AifStringInputValue.prototype.asJson = function () {
+            return JSON.stringify(this.text);
         };
         return AifStringInputValue;
     }());
     aif.AifStringInputValue = AifStringInputValue;
     var AifKeyPairInputValue = (function () {
-        function AifKeyPairInputValue() {
-            this.key = null;
-            this.text = null;
+        function AifKeyPairInputValue(key, text) {
+            this.key = key;
+            this.text = text;
         }
         AifKeyPairInputValue.prototype.asHtml = function () {
             return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>";
@@ -508,17 +568,6 @@ var aif;
         return AifKeyPairInputValue;
     }());
     aif.AifKeyPairInputValue = AifKeyPairInputValue;
-    var AifFreeTextFrameworkEntry = (function () {
-        function AifFreeTextFrameworkEntry(heading) {
-            this.heading = heading;
-            this.summaryStyle = SummaryStyle.Entry;
-        }
-        AifFreeTextFrameworkEntry.prototype.html = function () {
-            return this.text;
-        };
-        return AifFreeTextFrameworkEntry;
-    }());
-    aif.AifFreeTextFrameworkEntry = AifFreeTextFrameworkEntry;
     var SaveFrameworkResult = (function () {
         function SaveFrameworkResult(success, frameWork, message) {
             this.success = success;
@@ -1006,30 +1055,78 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkRepository = (function () {
-        function FrameworkRepository($timeout, $rootScope, $cookies) {
+        function FrameworkRepository($timeout, $rootScope, $cookies, userRepository) {
             this.$timeout = $timeout;
             this.$rootScope = $rootScope;
             this.$cookies = $cookies;
-            this.frameworkSteps = null;
+            this.userRepository = userRepository;
+            this.editView = null;
             this.frameworkSummary = null;
+            this.currentUserFramework = null;
         }
-        FrameworkRepository.prototype.get = function () {
-            if (this.frameworkSteps)
-                return this.frameworkSteps;
-            var steps = this.getRawStepArray().map(function (s) { return aif.WorkflowStep.fromData(s); });
-            var inputs = this.getRawInputArray();
-            inputs.forEach(function (i) {
-                steps.filter(function (s) { return s.index === i.stepIndex; }).forEach(function (s) { return s.loadInput(i); });
+        FrameworkRepository.prototype.getEditView = function (frameworkId) {
+            var _this = this;
+            var currentFramework;
+            if (this.editView && this.currentUserFramework.frameworkId == frameworkId)
+                return this.editView;
+            if (this.userRepository.currentUser
+                && this.userRepository.currentUser.currentFramework) {
+                if (this.userRepository.currentUser.currentFramework.editView)
+                    return this.userRepository.currentUser.currentFramework.editView;
+                currentFramework = this.userRepository.currentUser.currentFramework;
+            }
+            var structureSteps = aif.AifData.stepStructure;
+            var copy = aif.AifData.baseCopy;
+            var userData = this.getMockUserFramework();
+            this.currentUserFramework = new aif.AifUserFramework(frameworkId, userData);
+            var steps = structureSteps.map(function (s) {
+                var heading = _this.resolveTranslation(copy[s.stepHeadingKey]);
+                var step = new aif.AifFrameworkStep(s.stepIndex, heading);
+                step.baseColor = s.baseColor;
+                step.row = s.row;
+                step.colSpan = s.colSpan;
+                step.cellOrder = s.cellOrder;
+                step.inputStyle = s.inputStyle;
+                step.summaryStyle = s.summaryStyle;
+                step.inputs = s.inputs.map(function (i) {
+                    var input = new aif.AifStepInput();
+                    input.textLimit = i.textLimit;
+                    input.heading = _this.resolveTranslation(copy[i.headingKey]);
+                    input.subHeading = _this.resolveTranslation(copy[i.subHeadingKey]);
+                    input.info = _this.resolveTranslation(copy[i.infoKey]);
+                    _this.currentUserFramework.addInputOrEmpty(i.valuesKey, s.inputStyle);
+                    input.values = _this.currentUserFramework.inputs[i.valuesKey];
+                    return input;
+                });
+                return step;
             });
-            this.frameworkSteps = steps;
-            return steps;
+            this.editView = new aif.AifFrameworkEditView();
+            this.editView.steps = steps;
+            if (currentFramework)
+                currentFramework.editView = this.editView;
+            return this.editView;
+        };
+        FrameworkRepository.prototype.resolveTranslation = function (copyItem) {
+            if (!copyItem)
+                return null;
+            if (copyItem.translation)
+                return copyItem.translation;
+            return copyItem.en;
+        };
+        FrameworkRepository.prototype.getMockUserFramework = function () {
+            return {
+                inputs: {
+                    "S1_I1_V": ["This is my ​Organizational Objectives text"],
+                    "S1_I2_V": ["This is my Communications Objectives text"],
+                }
+            };
         };
         FrameworkRepository.prototype.getSummary = function () {
             var _this = this;
             return this.$timeout(function () {
-                if (_this.frameworkSummary != null)
-                    return _this.frameworkSummary;
-                var steps = _this.get();
+                if (_this.editView == null)
+                    return null;
+                var steps = _this.editView.steps;
                 var summary = new aif.AifSummary();
                 var data = _this.getRawSummaryArray();
                 for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
@@ -1057,239 +1154,22 @@ var aif;
                 _this.frameworkSummary = summary;
                 return summary;
                 function findEntry(stepIndex, entryIndex, headingOverride) {
-                    var matches = steps.filter(function (s) { return s.index == stepIndex; });
+                    var matches = steps.filter(function (s) { return s.stepIndex == stepIndex; });
                     if (matches.length) {
                         var step = matches[0];
-                        if (entryIndex && step.inputEntries.length >= entryIndex) {
-                            var iEntry = step.inputEntries[entryIndex - 1];
-                            return iEntry.frameworkEntry;
+                        if (entryIndex && step.inputs.length >= entryIndex) {
+                            var iEntry = step.inputs[entryIndex - 1];
+                            if (headingOverride)
+                                iEntry.summaryHeading = headingOverride;
+                            return iEntry;
                         }
-                        var heading = headingOverride ? headingOverride : step.title;
-                        var summaryEntry = new aif.AifFrameworkStep(heading);
-                        summaryEntry.entries = step.inputEntries.map(function (e) { return e.frameworkEntry; });
-                        return summaryEntry;
+                        if (headingOverride)
+                            step.summaryHeading = headingOverride;
+                        return step;
                     }
                     return null;
                 }
             }, 1);
-        };
-        FrameworkRepository.prototype.getRawStepArray = function () {
-            var steps = [
-                {
-                    title: 'Objectives',
-                    index: 1,
-                    row: 1,
-                    colSpan: 1,
-                    color: "red",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 1,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 1,
-                            colSpan: 1
-                        }
-                    ]
-                },
-                {
-                    title: 'Inputs',
-                    index: 2,
-                    row: 1,
-                    colSpan: 1,
-                    color: "yellow",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 1,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 1,
-                            colSpan: 2
-                        },
-                    ]
-                },
-                {
-                    title: 'Activities',
-                    index: 3,
-                    row: 1,
-                    colSpan: 1,
-                    color: "green",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 1,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 1,
-                            colSpan: 2
-                        }
-                    ]
-                },
-                {
-                    title: 'Outputs',
-                    index: 4,
-                    row: 2,
-                    colSpan: 1,
-                    color: "light_blue",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 2,
-                            colSpan: 2
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 2,
-                            colSpan: 1
-                        }
-                    ]
-                },
-                {
-                    title: 'Out-takes',
-                    index: 5,
-                    row: 2,
-                    colSpan: 1,
-                    color: "dark_blue",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Empty,
-                            row: 2,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 2,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 2,
-                            colSpan: 1
-                        }
-                    ]
-                },
-                {
-                    title: 'Outcomes',
-                    index: 6,
-                    row: 2,
-                    colSpan: 1,
-                    color: "dark_blue",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Empty,
-                            row: 2,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Info,
-                            row: 2,
-                            colSpan: 1
-                        },
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 2,
-                            colSpan: 1
-                        },
-                    ]
-                },
-                {
-                    title: 'Impact',
-                    index: 7,
-                    row: 3,
-                    colSpan: 2,
-                    color: "purple",
-                    cellType: aif.WorkflowCellType.Step,
-                    inputRow: [
-                        {
-                            cellType: aif.WorkflowCellType.Input,
-                            row: 2,
-                            colSpan: 2
-                        },
-                    ]
-                },
-                {
-                    title: 'SUBMIT',
-                    index: 8,
-                    row: 3,
-                    colSpan: 1,
-                    color: "black",
-                    isSubmit: true,
-                    cellType: aif.WorkflowCellType.Step,
-                }
-            ];
-            return steps;
-        };
-        FrameworkRepository.prototype.getRawInputArray = function () {
-            return [
-                {
-                    stepIndex: 1,
-                    items: [
-                        {
-                            heading: "Organizational Objectives",
-                            subHeading: "What are the broad objectives or your organisation?",
-                            leadText: "Organizational Objectives",
-                            remainText: "are usually published in the organization’s business plan or strategy. They are often long-term and require more than communication. Identify which organizational objectives your communication program can support.",
-                            inputStyle: aif.InputStyle.TextArea,
-                            inputSize: 500
-                        },
-                        {
-                            heading: "Communications Objectives",
-                            subHeading: "What are your communication objectives for this program?",
-                            leadText: "Communications Objectives",
-                            remainText: "are the specific objectives that your communication program, campaign, or project is designed to achieve. Your communication objectives must support one or more organizational objectives; identify which one\'s.</p><p>​Make sure your communications are SMART – Specific, Measurable, Achievable, Relevant and Time bound. Clearly define them and set targets for what you are looking to achieve",
-                            inputStyle: aif.InputStyle.TextArea,
-                            inputSize: 500
-                        }
-                    ]
-                },
-                {
-                    stepIndex: 2,
-                    items: [
-                        {
-                            heading: "Target Audience",
-                            subHeading: "Define your key target audiences",
-                            leadText: "Target Audience",
-                            remainText: "define clearly with which audiences you are looking to communicate. Be as specific as possible. The more refined your audience definition, the more focussed your targeting can be. Think demographics, socio-economic data and media consumption habits.",
-                            inputStyle: aif.InputStyle.NumberedInputs,
-                            inputSize: 5
-                        },
-                        {
-                            heading: "Strategy and other inputs",
-                            subHeading: "Highlight your strategic plan and other 'inputs'",
-                            leadText: "Strategy and other inputs",
-                            remainText: "define the plan to reach your key target audiences and crucially achieve the SMART communications objectives and pre-defined targets that you have set. What are the key highlights from your plan? ​",
-                            inputStyle: aif.InputStyle.NumberedInputs,
-                            inputSize: 5
-                        }
-                    ]
-                },
-                {
-                    stepIndex: 3,
-                    items: [
-                        {
-                            heading: "List all the key activities that you will or did undertake.",
-                            subHeading: null,
-                            leadText: "Activities",
-                            remainText: " include:<br><br><ul><li>Formative research (e.g., surveys, focus groups, pre-testing)</li><li>Planning (including SWOT analysis, PEST or PESTLE, etc.)</li>​<li>Design of materials</li><li>Writing and production of communication materials, events, etc.</li></ul>",
-                            inputStyle: aif.InputStyle.LinkedInputs,
-                            inputSize: 5
-                        }
-                    ]
-                }
-            ];
         };
         FrameworkRepository.prototype.getRawSummaryArray = function () {
             return [
@@ -1402,7 +1282,7 @@ var aif;
         };
         return FrameworkRepository;
     }());
-    FrameworkRepository.$inject = ["$timeout", "$rootScope", '$cookies'];
+    FrameworkRepository.$inject = ["$timeout", "$rootScope", '$cookies', 'userRepository'];
     aif.FrameworkRepository = FrameworkRepository;
 })(aif || (aif = {}));
 /// <reference path="../_all.ts" />
@@ -1649,9 +1529,11 @@ var aif;
             this.editMode = false;
             this.editStep = null;
             this.infoCell = null;
-            this.steps = frameworkRepository.get();
-            this.rows = aif.FrameworkCtrl.setRowsFromSteps(this.steps);
+            this.init();
         }
+        FrameworkCtrl.prototype.init = function () {
+            this.editView = this.frameworkRepository.getEditView(-1);
+        };
         FrameworkCtrl.prototype.getColorClass = function (prefix, step) {
             return prefix + "-" + step.color + " ";
         };

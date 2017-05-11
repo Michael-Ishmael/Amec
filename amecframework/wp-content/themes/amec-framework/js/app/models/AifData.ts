@@ -47,7 +47,7 @@ module aif {
     export interface IAifUserFramework {
 
         inputs: {[id: string]: Array<any> } ;
-        hasOwnProperty(prop:string):boolean;
+
 
     }
 

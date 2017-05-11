@@ -50,16 +50,16 @@ module aif {
 
       if(inputStyle == AifStepInputStyle.KeyedValues){
 
-        if(this.userData.hasOwnProperty(key)){
-          this.inputs[key] = this.userData[key].map(v => {
+        if(this.userData.inputs.hasOwnProperty(key)){
+          this.inputs[key] = this.userData.inputs[key].map(v => {
             return new AifKeyPairInputValue(v.key, v.value);
           })
         } else {
           this.inputs[key] = [];
         }
       } else {
-        if(this.userData.hasOwnProperty(key)){
-          this.inputs[key] = this.userData[key].map(v => {
+        if(this.userData.inputs.hasOwnProperty(key)){
+          this.inputs[key] = this.userData.inputs[key].map(v => {
             return new AifStringInputValue(v);
           })
         } else {

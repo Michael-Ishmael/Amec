@@ -139,6 +139,18 @@
 
 
             <aif-user-screens></aif-user-screens>
+
+
+
+
+        </div>
+
+        <div class="entries" ng-controller="frameworkCtrl as fc">
+
+            <div ng-repeat="step in fc.editView.steps">
+                <h3> {{ step.heading }} </h3>
+            </div>
+
         </div>
     </div>
 </div>

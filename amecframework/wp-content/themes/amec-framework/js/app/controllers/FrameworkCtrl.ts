@@ -5,7 +5,7 @@ module aif {
 
   export class FrameworkCtrl {
 
-    public steps: WorkflowStep[];
+    public editView: AifFrameworkEditView;
     public rows: WorkflowRow[];
     public editMode: boolean = false;
     public editStep: WorkflowStep = null;
@@ -17,10 +17,12 @@ module aif {
     ];
 
     constructor(private $window:ng.IWindowService, private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
+      this.init();
 
-      this.steps = frameworkRepository.get();
-      this.rows = aif.FrameworkCtrl.setRowsFromSteps(this.steps);
+    }
 
+    private init():void {
+       this.editView = this.frameworkRepository.getEditView(-1);
     }
 
     public getColorClass(prefix:string, step:WorkflowStep):string{

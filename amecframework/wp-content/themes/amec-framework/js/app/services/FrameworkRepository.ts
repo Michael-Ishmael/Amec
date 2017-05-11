@@ -5,19 +5,28 @@ module aif {
 
   export class FrameworkRepository implements IFrameworkRepository {
 
-    static $inject = ["$timeout", "$rootScope", '$cookies'];
+    static $inject = ["$timeout", "$rootScope", '$cookies', 'userRepository'];
 
     public editView: AifFrameworkEditView = null;
     public frameworkSummary: AifSummary = null;
     public currentUserFramework:AifUserFramework = null;
 
-    constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService, private $cookies: ng.cookies.ICookiesService) {
+    constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService,
+                private $cookies: ng.cookies.ICookiesService, private userRepository:UserRepository) {
 
     }
 
     getEditView(frameworkId:number): AifFrameworkEditView {
 
+      let currentFramework:AifFramework;
+
       if (this.editView && this.currentUserFramework.frameworkId == frameworkId) return this.editView;
+      if( this.userRepository.currentUser
+          && this.userRepository.currentUser.currentFramework) {
+        if( this.userRepository.currentUser.currentFramework.editView ) return this.userRepository.currentUser.currentFramework.editView;
+        currentFramework = this.userRepository.currentUser.currentFramework;
+      }
+
 
       let structureSteps = AifData.stepStructure;
       let copy = AifData.baseCopy;
@@ -55,7 +64,7 @@ module aif {
 
       this.editView = new AifFrameworkEditView();
       this.editView.steps = steps;
-
+      if(currentFramework) currentFramework.editView = this.editView;
       return this.editView;
 
     }
