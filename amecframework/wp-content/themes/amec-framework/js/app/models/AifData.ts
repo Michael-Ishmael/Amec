@@ -2,7 +2,14 @@ module aif {
     'use strict';
 
     export enum AifStepInputStyle {
-        FreeText = 1
+        FreeText = 1,
+        NumberedValues = 2,
+        KeyedValues = 3
+    }
+
+    export enum AifStepSummaryStyle {
+        Entry = 0,
+        WholeStep = 1
     }
 
     export enum AifInputCellType {
@@ -16,13 +23,14 @@ module aif {
         subHeadingKey: string,
         infoKey: string,
         textLimit: number,
-        values: Array<string>
+        valuesKey: string
     }
 
     export interface IAifStepData {
         stepIndex: number,
-        labelKey: string,
+        stepHeadingKey: string,
         inputStyle: AifStepInputStyle,
+        summaryStyle:AifStepSummaryStyle,
         baseColor: string,
         row: number,
         colSpan: number,
@@ -35,6 +43,14 @@ module aif {
         en: string,
         translation: string
     }
+
+    export interface IAifUserFramework {
+
+        inputs: {[id: string]: Array<any> } ;
+        hasOwnProperty(prop:string):boolean;
+
+    }
+
 
     export class AifData {
 
@@ -77,11 +93,12 @@ module aif {
 
         };
 
-        public static stepData: Array<IAifStepData> = [
+        public static stepStructure: Array<IAifStepData> = [
             {
                 stepIndex: 1,
-                labelKey: "S1_L",
+                stepHeadingKey: "S1_L",
                 inputStyle: AifStepInputStyle.FreeText,
+                summaryStyle: AifStepSummaryStyle.Entry,
                 baseColor: "red",
                 row: 1,
                 colSpan: 2,
@@ -92,14 +109,14 @@ module aif {
                         subHeadingKey: "S1_I1_SH",
                         infoKey: "S1_I1_I",
                         textLimit: 500,
-                        values: []
+                        valuesKey: "S1_I1_V"
                     },
                     {
                         headingKey: "S1_I2_H",
                         subHeadingKey: "S1_I2_SH",
                         infoKey: "S1_I2_I",
                         textLimit: 500,
-                        values: []
+                        valuesKey: "S1_I2_V"
                     }
                 ]
 

@@ -2,45 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82c5ea1c-1f2f-433a-8055-1f67839aec74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/controllers/InputTileCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/views/listInputTile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/.idea/typescript-compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-aif.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/controllers/UserScreensCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/services/AifHttpInterceptor.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/views/userScreens.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/tsconfig.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/ajax-auth.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/libs/custom-ajax-auth.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/libs/custom-ajax-auth.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/custom-ajax-auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Notes" afterPath="$PROJECT_DIR$/../Notes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css" afterPath="$PROJECT_DIR$/css/aif.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.css.map" afterPath="$PROJECT_DIR$/css/aif.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/aif.scss" afterPath="$PROJECT_DIR$/css/aif.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js" afterPath="$PROJECT_DIR$/js/Application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js.map" afterPath="$PROJECT_DIR$/js/Application.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.ts" afterPath="$PROJECT_DIR$/js/Application.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/_all.js" afterPath="$PROJECT_DIR$/js/_all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/_all.ts" afterPath="$PROJECT_DIR$/js/_all.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/aif_data.js" afterPath="$PROJECT_DIR$/js/aif_data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" afterPath="$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/directives/AccountDirectives.js" afterPath="$PROJECT_DIR$/js/directives/AccountDirectives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/directives/AccountDirectives.ts" afterPath="$PROJECT_DIR$/js/directives/AccountDirectives.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/FrameworkRepository.js" afterPath="$PROJECT_DIR$/js/services/FrameworkRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/FrameworkRepository.ts" afterPath="$PROJECT_DIR$/js/services/FrameworkRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" afterPath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.css" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.css.map" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.scss" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/loop-page.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/loop-page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/blaze.js" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/blaze.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-aif.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-aif.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/custom-ajax-auth.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/custom-ajax-auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/controllers/UserScreensCtrl.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/controllers/UserScreensCtrl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/models/AifFramework.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/models/AifFramework.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js.map" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/tsconfig.json" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/tsconfig.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -101,8 +70,8 @@
           <file leaf-file-name="FrameworkCtrl.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+                <state relative-caret-position="507">
+                  <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -1035,8 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/FrameworkCtrl.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        <state relative-caret-position="507">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>

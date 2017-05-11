@@ -4,7 +4,7 @@ module aif {
 
   export interface IFrameworkRepository {
 
-    get (): WorkflowStep[];
+    getEditView (frameworkId: number): AifFrameworkEditView;
 
 
   }

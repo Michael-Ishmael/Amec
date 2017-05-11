@@ -8,9 +8,10 @@
     "outFile":"./build/build.js"
   },
   "include": [
-    "*/**/*.ts"
+    "app/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "app/_all.ts"
   ]
 }

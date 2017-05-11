@@ -68,14 +68,14 @@ var aif;
                     subHeadingKey: "S1_I1_SH",
                     infoKey: "S1_I1_I",
                     textLimit: 500,
-                    values: []
+                    valuesKey: "S1_I1_V"
                 },
                 {
                     headingKey: "S1_I2_H",
                     subHeadingKey: "S1_I2_SH",
                     infoKey: "S1_I2_I",
                     textLimit: 500,
-                    values: []
+                    valuesKey: "S1_I2_V"
                 }
             ]
         }
@@ -471,6 +471,43 @@ var aif;
         return AifFrameworkStep;
     }());
     aif.AifFrameworkStep = AifFrameworkStep;
+    var AifTextFrameworkStepInput = (function () {
+        function AifTextFrameworkStepInput() {
+            this.heading = null;
+            this.subHeading = null;
+            this.info = null;
+            this.textLimit = 500;
+        }
+        return AifTextFrameworkStepInput;
+    }());
+    aif.AifTextFrameworkStepInput = AifTextFrameworkStepInput;
+    var AifStringInputValue = (function () {
+        function AifStringInputValue() {
+            this.text = null;
+        }
+        AifStringInputValue.prototype.asHtml = function () {
+            return this.text;
+        };
+        return AifStringInputValue;
+    }());
+    aif.AifStringInputValue = AifStringInputValue;
+    var AifKeyPairInputValue = (function () {
+        function AifKeyPairInputValue() {
+            this.key = null;
+            this.text = null;
+        }
+        AifKeyPairInputValue.prototype.asHtml = function () {
+            return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>";
+        };
+        AifKeyPairInputValue.prototype.asJson = function () {
+            return JSON.stringify({
+                key: this.key,
+                text: this.text
+            });
+        };
+        return AifKeyPairInputValue;
+    }());
+    aif.AifKeyPairInputValue = AifKeyPairInputValue;
     var AifFreeTextFrameworkEntry = (function () {
         function AifFreeTextFrameworkEntry(heading) {
             this.heading = heading;

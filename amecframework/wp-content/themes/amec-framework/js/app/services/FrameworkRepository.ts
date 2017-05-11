@@ -7,36 +7,81 @@ module aif {
 
     static $inject = ["$timeout", "$rootScope", '$cookies'];
 
-    public frameworkSteps: Array<WorkflowStep> = null;
+    public editView: AifFrameworkEditView = null;
     public frameworkSummary: AifSummary = null;
+    public currentUserFramework:AifUserFramework = null;
 
     constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService, private $cookies: ng.cookies.ICookiesService) {
 
     }
 
-    get(): WorkflowStep[] {
+    getEditView(frameworkId:number): AifFrameworkEditView {
 
-      if (this.frameworkSteps) return this.frameworkSteps;
+      if (this.editView && this.currentUserFramework.frameworkId == frameworkId) return this.editView;
 
-      let steps = this.getRawStepArray().map(s => WorkflowStep.fromData(s));
-      let inputs = this.getRawInputArray();
+      let structureSteps = AifData.stepStructure;
+      let copy = AifData.baseCopy;
+      let userData = this.getMockUserFramework();
+      this.currentUserFramework = new AifUserFramework(frameworkId, userData);
 
-      inputs.forEach(i => {
-        steps.filter(s => s.index === i.stepIndex).forEach(s => s.loadInput(i));
+      let steps:Array<AifFrameworkStep> = structureSteps.map(s => {
+
+        let heading = this.resolveTranslation(copy[s.stepHeadingKey]);
+        let step = new AifFrameworkStep(s.stepIndex, heading);
+        step.baseColor = s.baseColor;
+        step.row = s.row;
+        step.colSpan = s.colSpan;
+        step.cellOrder = s.cellOrder;
+        step.inputStyle = s.inputStyle;
+        step.summaryStyle = s.summaryStyle;
+        step.inputs = s.inputs.map(i => {
+
+          let input = new AifStepInput();
+          input.textLimit = i.textLimit;
+          input.heading = this.resolveTranslation(copy[i.headingKey]);
+          input.subHeading = this.resolveTranslation(copy[i.subHeadingKey]);
+          input.info = this.resolveTranslation(copy[i.infoKey]);
+
+          this.currentUserFramework.addInputOrEmpty(i.valuesKey, s.inputStyle);
+          input.values = this.currentUserFramework.inputs[i.valuesKey];
+
+          return input;
+
+        });
+
+        return step;
+
       });
 
-      this.frameworkSteps = steps;
+      this.editView = new AifFrameworkEditView();
+      this.editView.steps = steps;
 
-      return steps;
+      return this.editView;
+
+    }
+
+    private resolveTranslation(copyItem:IAifCopyItem):string {
+      if(!copyItem) return null;
+      if(copyItem.translation) return copyItem.translation;
+      return copyItem.en;
+    }
+
+    private getMockUserFramework():IAifUserFramework{
+      return {
+        inputs: {
+          "S1_I1_V" : ["This is my ​Organizational Objectives text"],
+          "S1_I2_V" : ["This is my Communications Objectives text"],
+        }
+      };
     }
 
     getSummary(): ng.IPromise<AifSummary> {
 
       return this.$timeout(() => {
 
-        if (this.frameworkSummary != null) return this.frameworkSummary;
+        if (this.editView == null) return null;
 
-        let steps = this.get();
+        let steps = this.editView.steps;
 
         let summary: AifSummary = new AifSummary();
 
@@ -74,18 +119,17 @@ module aif {
         return summary;
 
         function findEntry(stepIndex: number, entryIndex?: number, headingOverride?: string): IAifFrameworkEntry {
-          let matches = steps.filter(s => s.index == stepIndex);
+          let matches = steps.filter(s => s.stepIndex == stepIndex);
           if (matches.length) {
             let step = matches[0];
-            if (entryIndex && step.inputEntries.length >= entryIndex) {
-              let iEntry = step.inputEntries[entryIndex - 1];
-              return iEntry.frameworkEntry;
+            if (entryIndex && step.inputs.length >= entryIndex) {
+              let iEntry = step.inputs[entryIndex - 1];
+              if(headingOverride) iEntry.summaryHeading = headingOverride;
+              return iEntry;
             }
-            let heading = headingOverride ? headingOverride : step.title;
-            let summaryEntry = new AifFrameworkStep(heading);
-            summaryEntry.entries = step.inputEntries.map(e => e.frameworkEntry);
+            if(headingOverride) step.summaryHeading = headingOverride;
+            return step;
 
-            return summaryEntry;
           }
           return null;
         }
@@ -95,6 +139,124 @@ module aif {
 
     }
 
+
+    private getRawSummaryArray(): Array<IAifSummaryRowData> {
+
+      return [
+        {
+          sections: [
+            {
+              heading: "Preparation",
+              groups: [
+                {
+                  heading: "Align Objectives",
+                  color: "red",
+                  entries: [
+                    {
+                      entryType: "stepItem",
+                      stepId: 1,
+                      stepEntryIndex: 1
+                    },
+                    {
+                      entryType: "stepItem",
+                      stepId: 1,
+                      stepEntryIndex: 2
+                    }
+                  ]
+                },
+                {
+                  heading: "Plan & Set Targets",
+                  color: "yellow",
+                  entries: [
+                    {
+                      entryType: "stepItem",
+                      stepId: 2,
+                      stepEntryIndex: 1
+                    },
+                    {
+                      entryType: "stepItem",
+                      stepId: 2,
+                      stepEntryIndex: 2,
+                      headingOverride: "Strategy"
+                    }
+                  ]
+                }
+              ],
+              width: 1
+            }
+          ],
+          maxRowHeight: 176
+        },
+        {
+          sections: [
+            {
+              heading: "Implementation",
+
+              groups: [
+                {
+                  heading: "Implement",
+                  color: "green",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 3,
+                    }
+                  ]
+                }
+              ],
+              width: .25
+            },
+            {
+              heading: "Measurement & Insights",
+              groups: [
+                {
+                  heading: "Measure Activity",
+                  color: "light_blue",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 4,
+                    }
+                  ]
+                },
+                {
+                  heading: "Organisational & Stakeholder Effects",
+                  color: "dark_blue",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 5,
+                    },
+                    {
+                      entryType: "step",
+                      stepId: 6,
+                    }
+                  ]
+                },
+                {
+                  heading: "Organisation & Stakeholder Effects",
+                  color: "purple",
+                  entries: [
+                    {
+                      entryType: "step",
+                      stepId: 7,
+                    }
+                  ]
+                },
+              ],
+              width: .75
+            }
+          ],
+          maxRowHeight: 300
+        }
+
+
+      ];
+
+    }
+
+
+/*
     private getRawStepArray(): IWorkflowStep[] {
 
       let steps = [
@@ -320,121 +482,7 @@ module aif {
 
     }
 
-    private getRawSummaryArray(): Array<IAifSummaryRowData> {
-
-      return [
-        {
-          sections: [
-            {
-              heading: "Preparation",
-              groups: [
-                {
-                  heading: "Align Objectives",
-                  color: "red",
-                  entries: [
-                    {
-                      entryType: "stepItem",
-                      stepId: 1,
-                      stepEntryIndex: 1
-                    },
-                    {
-                      entryType: "stepItem",
-                      stepId: 1,
-                      stepEntryIndex: 2
-                    }
-                  ]
-                },
-                {
-                  heading: "Plan & Set Targets",
-                  color: "yellow",
-                  entries: [
-                    {
-                      entryType: "stepItem",
-                      stepId: 2,
-                      stepEntryIndex: 1
-                    },
-                    {
-                      entryType: "stepItem",
-                      stepId: 2,
-                      stepEntryIndex: 2,
-                      headingOverride: "Strategy"
-                    }
-                  ]
-                }
-              ],
-              width: 1
-            }
-          ],
-          maxRowHeight: 176
-        },
-        {
-          sections: [
-            {
-              heading: "Implementation",
-
-              groups: [
-                {
-                  heading: "Implement",
-                  color: "green",
-                  entries: [
-                    {
-                      entryType: "step",
-                      stepId: 3,
-                    }
-                  ]
-                }
-              ],
-              width: .25
-            },
-            {
-              heading: "Measurement & Insights",
-              groups: [
-                {
-                  heading: "Measure Activity",
-                  color: "light_blue",
-                  entries: [
-                    {
-                      entryType: "step",
-                      stepId: 4,
-                    }
-                  ]
-                },
-                {
-                  heading: "Organisational & Stakeholder Effects",
-                  color: "dark_blue",
-                  entries: [
-                    {
-                      entryType: "step",
-                      stepId: 5,
-                    },
-                    {
-                      entryType: "step",
-                      stepId: 6,
-                    }
-                  ]
-                },
-                {
-                  heading: "Organisation & Stakeholder Effects",
-                  color: "purple",
-                  entries: [
-                    {
-                      entryType: "step",
-                      stepId: 7,
-                    }
-                  ]
-                },
-              ],
-              width: .75
-            }
-          ],
-          maxRowHeight: 300
-        }
-
-
-      ];
-
-    }
-
+*/
   }
 
 }
