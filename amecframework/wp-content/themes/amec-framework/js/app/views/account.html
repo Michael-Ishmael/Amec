@@ -1,0 +1,100 @@
+<div class="row " >
+
+    <div class="col-md-8 low-pad-cell">
+
+        <div class="account-screen long">
+            <a class="btn btn-link close-button pull-right" ng-click="av.closeView()">X</a>
+            <h2 class="d-inline-block">{{ av.title }}</h2>
+            <span class="text-link" ng-click="av.logout()">logout</span>
+
+            <!--<div class="pull-right aif-button aif-button-free background-dark_blue bottom-dark-border-dark_blue" ng-click="av.logout()" >-->
+                <!--Logout-->
+            <!--</div>-->
+            <h3 class="login-message">&nbsp;</h3>
+
+            <div  ng-if="av.user.hasExistingFrameworks()">
+
+                <p class="account-layout">Select an existing framework to load or
+                    <a ng-click="av.showCreateFramework()">create a new one</a> </p>
+
+                    <div class="choose-fw-layout" >
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-xs-12 low-pad-cell"
+                                  ng-repeat="fw in av.user.frameworks">
+
+                                <div class="choose-fw-tile" ng-if="!fw.flaggedDelete" ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"
+                                    ng-click="av.toggleSelectFramework(fw)"
+                                    >
+                                    <h5> {{ fw.name }} </h5>
+                                    <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span> </p>
+
+                                    <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>
+                                </div>
+
+                                <div class="choose-fw-tile shake" ng-class="av.getColorClass('background-dark', $index)" ng-if="fw.flaggedDelete">
+
+                                    <p>Are you sure you want to delete {{ fw.name }}?</p>
+                                    <span class="text-link sml">
+                                        <a ng-click="av.deleteFramework($event, fw)">Yes</a>
+                                        <a  ng-click="av.toggleFlagDeleteFramework($event, fw)">No</a>
+                                    </span>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                               ng-disabled="!av.frameworkIsSelected()"
+                               type="button" value="Load" ng-click="av.loadSelectedFramework()">
+                    </div>
+
+
+            </div>
+
+            <div class="account-layout" ng-if="!av.user.hasExistingFrameworks()">
+                <h5 >
+                    Hi <span class="em">{{ av.user.firstName }}</span>
+                </h5>
+                <p>
+                    This screen can be used to view and load measurement frameworks you have
+                    saved under you login.
+                </p>
+                <p>
+                    You haven't saved any frameworks yet.  Click <a class="em" ng-click="av.vs.showCreate()">create</a> below to set up
+                    a new framework for your campaign.
+                </p>
+                <p>
+                    Alternatively <a class="em" ng-click="av.closeView()">close</a> this screen and start
+                    working with the tool.  You can come back at any time to save your progress.
+                </p>
+
+                <div class="form-group">
+                    <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+
+                           type="button" ng-click="av.vs.showCreate()" value="Create">
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>

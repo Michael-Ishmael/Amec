@@ -56,8 +56,19 @@ var aif;
             return false;
         };
         FrameworkCtrl.prototype.isInput = function (cell) {
-            if (cell.cellType == aif.WorkflowCellType.Input)
-                return true;
+            if (cell.cellType == aif.WorkflowCellType.Input) {
+                var inputCell = cell;
+                if (inputCell.items[0].inputStyle !== aif.InputStyle.NumberedInputs)
+                    return true;
+            }
+            return false;
+        };
+        FrameworkCtrl.prototype.isListInput = function (cell) {
+            if (cell.cellType == aif.WorkflowCellType.Input) {
+                var inputCell = cell;
+                if (inputCell.items[0].inputStyle === aif.InputStyle.NumberedInputs)
+                    return true;
+            }
             return false;
         };
         FrameworkCtrl.prototype.showInfoCell = function (inputItem, infoCell) {

@@ -1,0 +1,30 @@
+<div id="loginRow" class="login-row-container">
+
+    <aif-login-screen ng-controller="loginCtrl as lc"
+                      ng-if="us.vs.displayLogin">
+    </aif-login-screen>
+
+    <aif-account-screen ng-controller="accountViewCtrl as av"
+                        ng-if="us.vs.displayAccount">
+    </aif-account-screen>
+
+    <aif-create-fw-screen ng-controller="createFrameworkCtrl as cf"
+                          ng-if="us.vs.displayCreate">
+    </aif-create-fw-screen>
+
+    <aif-save-as-screen ng-controller="saveAsCtrl as sa"
+                        ng-if="us.vs.displaySaveAs">
+
+    </aif-save-as-screen>
+
+    <aif-register-screen ng-controller="registerCtrl as rc"
+                         ng-if="us.vs.displayRegister">
+
+    </aif-register-screen>
+
+    <aif-reset-password ng-controller="resetPasswordCtrl as rp"
+                        ng-if="us.vs.displayFtnDetails">
+
+    </aif-reset-password>
+
+</div>

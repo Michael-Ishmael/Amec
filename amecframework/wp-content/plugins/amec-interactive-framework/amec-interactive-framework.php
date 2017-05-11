@@ -56,8 +56,12 @@ function aif_custom_post_type()
             ],
             'show_ui' => true,
             'show_in_menu'      => true,
-            'supports' => ['title', 'editor'],
-            'taxonomies' => ['aif_workflow_entry_type']
+            'supports' => ['title', 'editor', 'author', 'excerpt'],
+            'taxonomies' => ['aif_workflow_entry_type'],
+            'capability_type'    => 'post',
+            'show_in_rest'       => true,
+            'rest_base'          => 'aifworkflows-api',
+            'rest_controller_class' => 'WP_REST_Posts_Controller',
         ]
     );
 }

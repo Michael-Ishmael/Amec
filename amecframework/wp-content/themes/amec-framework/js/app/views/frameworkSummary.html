@@ -1,0 +1,93 @@
+<div id="frameworkSummary" ng-cloak ng-controller="frameworkSummaryCtrl as fs">
+
+
+
+    <div class="summary-row">
+        <div class="summary-section prep">
+            <div class="section-header ">
+                <!--<h4 class="rotate">-->
+                    <!--{{ fs.sectionOne.heading }}-->
+                <!--</h4>-->
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="col-md-6 low-pad-cell" ng-repeat="group in fs.sectionOne.groups">
+
+                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="col-md-6 low-pad-cell" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
+                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    {{ step.html() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="summary-row">
+
+        <div class="summary-section imp">
+            <div class="section-header">
+                <!--<h4 class="rotate">-->
+                    <!--{{ fs.sectionTwo.heading }}-->
+                <!--</h4>-->
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="col-md-12 low-pad-cell" ng-repeat="group in fs.sectionTwo.groups">
+
+                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
+                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    {{ step.html() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="summary-section mes">
+            <div class="section-header prep">
+                <!--<h4 class="rotate">-->
+                    <!--{{ fs.sectionTwo.heading }}-->
+                <!--</h4>-->
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row">
+
+                    <div class="low-pad-cell" ng-class="fs.getWidthClass(group, false)" ng-repeat="group in fs.sectionThree.groups">
+
+                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
+                        <div class="row low-pad-row">
+                            <div class="low-pad-cell" ng-class="fs.getWidthClass(group, true)" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
+                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    {{ step.html() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -90,7 +90,7 @@ function set_anchor_points(){
 	jQuery('.avia-section').each(function(){
 		sections.push([jQuery(this).attr('id'), jQuery(this).offset().top]);
 	});
-	console.log (sections);
+	//console.log (sections);
 }
 
 jQuery(window).on('scroll', function() {

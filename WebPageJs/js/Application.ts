@@ -22,6 +22,7 @@ module aif {
     .controller('registerCtrl', RegisterCtrl)
     .controller('resetPasswordCtrl', ResetPasswordCtrl)
     .controller('frameworkSummaryCtrl', FrameworkSummaryCtrl)
+    .controller('listInputTileCtrl', ListInputTileCtrl)
     .directive('aifLoginScreen', AifLoginScreen.factory())
     .directive('aifAccountScreen', AifAccountScreen.factory())
     .directive('aifCreateFwScreen', AifCreateFwScreen.factory())
@@ -29,6 +30,7 @@ module aif {
     .directive('aifRegisterScreen', AifRegisterScreen.factory())
     .directive('aifResetPassword', AifResetPassword.factory())
     .directive('aifFrameworkSummary', AifFrameworkSummary.factory())
+    .directive('aifListInputTile', AifListInputTile.factory())
   ;
 
     //.directive('todoBlur', todoBlur)

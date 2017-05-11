@@ -1,0 +1,80 @@
+<div class="row ">
+
+    <div class="col-md-8 low-pad-cell">
+
+        <div class="aif-tile account-screen long">
+            <a class="btn btn-link close-button pull-right" ng-click="sa.vs.resetView()">X</a>
+            <h2 class="d-inline-block">{{ sa.title }}</h2>
+
+
+            <h3 class="login-message">&nbsp;</h3>
+
+            <div ng-if="sa.currentFramework">
+
+                <p>
+                    Save your progress to:
+                </p>
+                <div class="choose-fw-layout">
+                    <div class="row">
+
+                        <div class="col-md-6 col-xs-12 low-pad-cell">
+
+                            <div class="choose-fw-tile"
+                                 ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"
+                                 ng-click="sa.toggleSelectFramework(fw)"
+                            >
+                                <h5> {{ sa.currentFramework.name }} </h5>
+                                <p> {{ sa.currentFramework.description | limitTo:100 }} <span
+                                        ng-if="sa.currentFramework.description.length>100">...</span></p>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="account-layout">{{ sa.altMessage }}ave as an existing framework or
+                <a ng-click="sa.showCreateFramework()">create a new one</a></p>
+
+            <div class="choose-fw-layout">
+
+                <div class="row">
+
+                    <div class="col-md-6 col-xs-12 low-pad-cell"
+                         ng-repeat="fw in sa.user.frameworks" ng-if="fw !== sa.currentFramework">
+
+                        <div class="choose-fw-tile"
+                             ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]"
+                             ng-click="sa.toggleSelectFramework(fw)"
+                        >
+                            <h5> {{ fw.name }} </h5>
+                            <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group">
+                <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                       ng-disabled="!sa.frameworkIsSelected()"
+                       type="button" value="Save" ng-click="sa.saveAsSelectedFramework()">
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+</div>

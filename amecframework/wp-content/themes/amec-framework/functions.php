@@ -1,6 +1,6 @@
 <?php
 
-require_once( get_stylesheet_directory() . '/libs/custom-ajax-auth.php' );
+require_once( get_stylesheet_directory() . '/includes/custom-ajax-auth.php' );
 /* Interactive FrameWork */
 
 function amec_adding_scripts() {
@@ -14,18 +14,32 @@ function amec_adding_scripts() {
     wp_register_script( 'tether-js', get_stylesheet_directory_uri() . '/js/vendor/tether.min.js', array('jquery'), NULL, true );
 
     wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap.css', false, NULL, 'all' );
-    wp_register_style( 'bootstrap-grid-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap-grid.css', false, NULL, 'all' );
-    wp_register_style( 'bootstrap-reboot-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap-reboot.css', false, NULL, 'all' );
     wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/vendor/bootstrap.min.js', array('jquery'), NULL, true );
 
+
+    wp_register_script( 'angular-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular.min.js', array('jquery'), NULL, true );
+    wp_register_script( 'angular-cookies-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular-cookies.js', array('angular-js'), NULL, true );
+    wp_register_script( 'export-pdf', get_stylesheet_directory_uri() . '/js/generate-pdf.js', array('jquery'), NULL, true );
+    wp_register_script( 'aif-app', get_stylesheet_directory_uri() . '/js/build/build.js', array('angular-js', 'angular-cookies-js'), NULL, true );
+
+    wp_localize_script( 'aif-app', 'aif_constants', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'templateDir' => get_stylesheet_directory_uri(),
+        'redirecturl' => get_permalink(),
+        'logout_nonce' => wp_create_nonce('ajax-logout-nonce'),
+    ));
     wp_enqueue_style( 'bootstrap-css' );
     wp_enqueue_style( 'bootstrap-grid-css' );
     wp_enqueue_style( 'bootstrap-reboot-css' );
-    wp_enqueue_style( 'aif-css', get_stylesheet_directory_uri() . '/css/aif.css');
+    wp_enqueue_style( 'aif-css', get_stylesheet_directory_uri() . '/css/aif-app.css');
 
 
     wp_enqueue_script( 'tether-js' );
-    wp_enqueue_script( 'bootstrap-js' );
+//    wp_enqueue_script( 'bootstrap-js' );
+    wp_enqueue_script( 'angular-js' );
+    wp_enqueue_script( 'angular-cookies-js' );
+    wp_enqueue_script( 'export-pdf' );
+    wp_enqueue_script( 'aif-app' );
 }
 
 add_action( 'wp_enqueue_scripts', 'amec_adding_scripts' , 99);
@@ -41,6 +55,44 @@ return $fonts;
 }
 
 
+add_action( 'rest_api_init', 'dt_register_api_hooks');
+function dt_register_api_hooks( ) {
+
+    register_rest_route( 'aif/v1', '/userframeworks/', array(
+        'methods' => 'GET',
+        'callback' => 'dt_get_user_frameworks',
+    ) );
+
+}
+
+function dt_get_user_frameworks() {
+    //if ( false === ( $all_post_ids = get_transient( 'dt_all_post_ids' ) ) ) {
+
+
+        $user_id = get_current_user_id();
+        $return = array();
+
+        $all_posts = get_posts( array(
+            'author' => $user_id,
+            'numberposts' => -1,
+            'post_type'   => 'aif_workflow',
+            'fields'      => 'title',
+        ) );
+
+        foreach($all_posts as $post) {
+            $newPost = array();
+            $newPost['id'] = $post->ID;
+            $newPost['title'] = $post->post_title;
+            $newPost['excerpt'] = $post->post_excerpt;
+            $return[] = $newPost;
+        }
+
+        // cache for 2 hours
+        //set_transient( 'dt_all_post_ids', $all_post_ids, 60*60*2 );
+    //}
+
+    return $return;
+}
 
 /* Widget area for language switcher */
 
@@ -67,6 +119,9 @@ if ( is_active_sidebar( 'header-widget-area' ) ) : ?>
 }
 
 add_action( 'avia_meta_header', 'amec_header_widget_display' );
+
+
+
 
 
 /* END - Widget area for language switcher */

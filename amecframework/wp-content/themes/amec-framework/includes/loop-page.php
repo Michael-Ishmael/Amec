@@ -12,23 +12,22 @@ if (have_posts()) :
     while (have_posts()) : the_post();
         ?>
 
-        <article class='post-entry post-entry-type-page <?php echo $post_class; ?>' <?php avia_markup_helper(array('context' => 'entry')); ?>>
 
-            <div id="aif-container" class="clearfix container aif-container">
                 <?php
-                echo '<header class="entry-content-header">';
+//                echo '<header class="entry-content-header">';
 
                 $thumb = get_the_post_thumbnail(get_the_ID(), $avia_config['size']);
-                get_template_part("includes/amec", "controls");
 
 
                 if($thumb) echo "<div class='page-thumb'>{$thumb}</div>";
                 echo '</header>';
 
                 //display the actual post content
-                echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
+/*                echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
                 the_content(__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span>');
-                echo '</div>';
+                echo '</div>';*/
+
+                get_template_part("includes/amec", "aif");
 
                 echo '<footer class="entry-footer">';
                 wp_link_pages(array('before' =>'<div class="pagination_split_post">',
@@ -39,9 +38,8 @@ if (have_posts()) :
 
                 do_action('ava_after_content', get_the_ID(), 'page');
                 ?>
-            </div>
 
-        </article><!--end post-entry-->
+
 
 
         <?php

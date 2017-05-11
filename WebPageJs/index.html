@@ -86,7 +86,7 @@
                      ng-class="{'col-md-4': step.colSpan === 1, 'col-md-8': step.colSpan === 2}">
                     <div class="aif-tile" ng-class="ctrl.getColorClass('background', step)"
                          ng-click="ctrl.handleStepClick(step)">
-                        <div class="bg-cloak" ng-if="ctrl.editMode || ac.vs.fadeBg"
+                        <div class="bg-cloak" ng-if="ac.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
                         <h2 ng-if="!step.isSubmit">{{ step.title }}</h2>
                         <div ng-if="!step.isSubmit" class="anchor-bottom"
@@ -195,6 +195,9 @@
                             </div>
 
                         </div>
+
+                        <aif-list-input-tile ng-if="ctrl.isListInput(cell)" cell="cell" step="step"
+                        ></aif-list-input-tile>
 
                         <div class="aif-tile" ng-if="ctrl.isInfo(cell) && cell.visible">
 

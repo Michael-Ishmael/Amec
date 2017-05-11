@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "outDir": "./build",
+    "outFile":"./build/build.js"
+  },
+  "include": [
+    "*/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

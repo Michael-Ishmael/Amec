@@ -13,7 +13,7 @@ var aif;
         };
         AifLoginScreen.factory = function () {
             var directive = function () { return new AifLoginScreen(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifLoginScreen;
@@ -31,7 +31,7 @@ var aif;
         };
         AifAccountScreen.factory = function () {
             var directive = function () { return new AifAccountScreen(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifAccountScreen;
@@ -49,7 +49,7 @@ var aif;
         };
         AifCreateFwScreen.factory = function () {
             var directive = function () { return new AifCreateFwScreen(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifCreateFwScreen;
@@ -67,7 +67,7 @@ var aif;
         };
         AifSaveAsScreen.factory = function () {
             var directive = function () { return new AifSaveAsScreen(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifSaveAsScreen;
@@ -85,7 +85,7 @@ var aif;
         };
         AifRegisterScreen.factory = function () {
             var directive = function () { return new AifRegisterScreen(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifRegisterScreen;
@@ -103,7 +103,7 @@ var aif;
         };
         AifResetPassword.factory = function () {
             var directive = function () { return new AifResetPassword(); };
-            //directive.$inject = ['$location', 'toaster'];
+            //directive.$inject = ['$location'];
             return directive;
         };
         return AifResetPassword;
@@ -138,4 +138,27 @@ var aif;
     }());
     AifControlRow.$inject = [''];
     aif.AifControlRow = AifControlRow;
+    var AifListInputTile = (function () {
+        function AifListInputTile() {
+            this.templateUrl = 'js/views/listInputTile.html';
+            this.restrict = 'E';
+            this.scope = {
+                cell: '=',
+                step: '='
+            };
+            this.controller = aif.ListInputTileCtrl;
+            this.controllerAs = 'li';
+        }
+        //replace=true;
+        AifListInputTile.prototype.link = function (scope, element, attributes) {
+        };
+        AifListInputTile.factory = function () {
+            var directive = function () { return new AifListInputTile(); };
+            //directive.$inject = ['$location'];
+            return directive;
+        };
+        return AifListInputTile;
+    }());
+    AifListInputTile.$inject = [''];
+    aif.AifListInputTile = AifListInputTile;
 })(aif || (aif = {}));

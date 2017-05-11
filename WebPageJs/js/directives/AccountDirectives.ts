@@ -23,7 +23,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifLoginScreen();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -50,7 +50,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifAccountScreen();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -77,7 +77,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifCreateFwScreen();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -104,7 +104,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifSaveAsScreen();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -131,7 +131,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifRegisterScreen();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -158,7 +158,7 @@ module aif {
 
     static factory(): ng.IDirectiveFactory {
       const directive = () => new AifResetPassword();
-      //directive.$inject = ['$location', 'toaster'];
+      //directive.$inject = ['$location'];
       return directive;
     }
 
@@ -191,6 +191,35 @@ module aif {
       //directive.$inject = ['$location'];
       return directive;
     }
+  }
+
+  export class AifListInputTile implements ng.IDirective {
+
+    static $inject: Array<string> = [''];
+
+    templateUrl: string = 'js/views/listInputTile.html';
+    restrict: string = 'E';
+    scope: {[key: string] : string} = {
+       cell: '=',
+       step: '='
+     };
+    controller = ListInputTileCtrl;
+    controllerAs:string = 'li';
+    //replace=true;
+
+    link(scope,element,attributes):void {
+    }
+
+    constructor() {
+
+    }
+
+    static factory(): ng.IDirectiveFactory {
+      const directive = () => new AifListInputTile();
+      //directive.$inject = ['$location'];
+      return directive;
+    }
+
   }
 
 

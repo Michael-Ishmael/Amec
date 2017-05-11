@@ -73,10 +73,25 @@ module aif {
     }
 
     public isInput(cell: IWorkflowGridCell):boolean {
-      if(cell.cellType == WorkflowCellType.Input)
-        return true;
+      if(cell.cellType == WorkflowCellType.Input){
+        let inputCell = cell as WorkflowInputCell;
+        if(inputCell.items[0].inputStyle !== InputStyle.NumberedInputs)
+          return true;
+      }
       return false;
     }
+
+
+    public isListInput(cell: IWorkflowGridCell):boolean {
+      if(cell.cellType == WorkflowCellType.Input){
+        let inputCell = cell as WorkflowInputCell;
+        if(inputCell.items[0].inputStyle === InputStyle.NumberedInputs)
+          return true;
+      }
+
+      return false;
+    }
+
 
     public showInfoCell(inputItem: IWorkflowInputItem, infoCell: WorkflowInfoCell):void{
       //e.stopPropagation();

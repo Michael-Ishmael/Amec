@@ -1,0 +1,487 @@
+$red: rgb(213, 0, 70);
+$yellow: rgb(255, 154, 49);
+$green: rgb(0, 195, 148);
+$light_blue: rgb(0, 144, 255);
+$dark_blue: rgb(0, 114, 175);
+$purple: rgb(138, 0, 182);
+$black: rgb(31, 31, 31);
+$bright_green: rgb(45, 164, 26);
+$pale_grey: rgb(191, 191, 191);
+
+$color-list: (
+        red $red 50%,
+        yellow $yellow 35%,
+        green $green 50%,
+        light_blue $light_blue 40%,
+        dark_blue $dark_blue 50%,
+        purple $purple 50%,
+        black $black 0%,
+        bright_green $bright_green 0%,
+        pale_grey $pale_grey 20%
+);
+
+[ng-cloak] {
+  display: none;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#aif-app {
+
+  font-family: lato, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #fff;
+  background-color: #4c4c4c;
+
+  /* row resets */
+  .row {
+    margin-bottom: 0;
+  }
+
+  @import "vendor/bootstrap";
+  @import "components/summary";
+
+  @each $value in $color-list {
+
+    .background-#{nth($value, 1)} {
+      background-color: nth($value, 2);
+    }
+
+    .background-dark-#{nth($value, 1)} {
+      background-color: darken(nth($value, 2), 14%);
+    }
+
+    .background-light-#{nth($value, 1)} {
+      background-color: lighten(nth($value, 2), 14%);
+    }
+
+    .background-pale-#{nth($value, 1)} {
+      background-color: lighten(nth($value, 2), nth($value, 3));
+    }
+
+    .bottom-dark-border-#{nth($value, 1)} {
+      border-bottom: 4px solid darken(nth($value, 2), 15%);
+    }
+  }
+
+  [ng-cloak] {
+    display: none;
+  }
+
+  .pull-right {
+    float: right !important;
+  }
+
+  .low-pad-cell {
+    padding: 0 5px;
+  }
+
+  .full-size-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .bg-cloak {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.56);
+    z-index: 4;
+  }
+
+  .aif-button {
+    max-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    line-height: 24px;
+    border-radius: 0;
+    display: inline-block;
+    padding: 2px 8px;
+    min-width: 90px;
+  }
+
+  .control-row {
+
+    line-height: 20px;
+
+    .aif-button {
+      height: 30px;
+      font-size: 13px;
+      margin-right: 4px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+
+    .account-button {
+      background-size: contain;
+      height: 26px;
+      width: 26px;
+      display: inline-block;
+      background: url('../images/avatar.png') no-repeat;
+      cursor: pointer;
+    }
+
+    h4 {
+      display: inline-block;
+      margin: 0;
+      cursor: pointer;
+      a {
+        line-height: 20px;
+        vertical-align: bottom;
+      }
+    }
+
+    .framework-name {
+
+      h4 {
+        color: $green;
+        line-height: 20px;
+        vertical-align: middle;
+      }
+      color: #9dea9a;
+      font-style: italic;
+      text-align: right;
+      margin-right: 6px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+  }
+
+  .base-framework {
+    position: relative;
+  }
+
+  .aif-tile {
+    margin-top: 10px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    font-family: lato, sans-serif;
+    padding: 8px 0 0 15px;
+
+    h2 {
+      margin-top: 2px;
+      font-weight: 300;
+    }
+
+    .start-message {
+      height: 36px;
+      margin-right: 50px;
+      padding: 6px 28px;
+      text-align: right;
+      text-transform: uppercase;
+      margin-top: 24px;
+    }
+
+    .anchor-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+
+      .button-label {
+        font-size: 25px;
+        color: #fff;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+    }
+
+    .circle-border {
+
+      position: absolute;
+      opacity: 1;
+      width: 51px;
+      height: 51px;
+      right: 12px;
+      bottom: 10px;
+      border-radius: 50%;
+      border: 3px solid white;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 44px;
+      color: #fff;
+      text-align: center;
+
+    }
+
+    .border-caret {
+      display: inline-block;
+      position: relative;
+      top: 3px;
+      width: 40px;
+      height: 18px;
+      float: right;
+
+      .caret-left {
+        position: relative;
+        left: 0px;
+        top: 7px;
+        width: 21px;
+        height: 3px;
+        background-color: #fff;
+        transform: translate(0px, 0px) translateZ(0px) rotate(-45deg) scale(1, 1);
+      }
+
+      .caret-right {
+        position: relative;
+        left: 13px;
+        top: 4px;
+        width: 21px;
+        height: 3px;
+        background-color: #fff;
+        transform: translate(0px, 0px) translateZ(0px) rotate(45deg) scale(1, 1);
+      }
+
+    }
+
+    p.submit-text {
+      color: #fff;
+      padding: 8px 10px;
+
+      font-size: 18px;
+      font-weight: 300;
+      font-family: lato, sans-serif;
+      line-height: 23px;
+    }
+
+  }
+
+  .login-row-container {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    color: #fff;
+
+  }
+
+  .account-screen {
+    background-color: #292b2c;
+    min-height: 410px;
+    cursor: default;
+    height: auto;
+    margin-top: 10px;
+
+    &.long {
+      min-height: 620px;
+    }
+
+    .close-button {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    padding: 8px 15px;
+
+    a {
+      cursor: pointer;
+
+    }
+
+    h4.login-message{
+      line-height: 1.8rem;
+      margin: 20px 0 4px 0;
+    }
+
+    .start-message {
+      height: 36px;
+      margin-right: 50px;
+      padding: 6px 28px;
+      text-align: right;
+      text-transform: uppercase;
+      margin-top: 22px;
+    }
+
+    .account-layout {
+      max-width: 470px;
+
+      .em{
+
+        font-style: italic;
+      }
+
+      a {
+
+        font-style: italic;
+        color: lighten($dark_blue, 10%);
+        font-size: 1.2rem;
+        display: inline-block;
+
+        &:hover {
+          color: $dark_blue;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .heading-link {
+      font-style: italic;
+      color: #0072af;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-left: 15px;
+      font-style: italic;
+      cursor: pointer;
+    }
+
+    .login-box-group {
+      display: inline-block;
+      float: left;
+      width: 45%;
+      margin-right: 30px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .aif-button {
+        margin-right: 6px;
+      }
+
+      .text-link.lge {
+        font-size: 1.2rem;
+      }
+    }
+
+    p.submit-text {
+      color: #fff;
+      padding: 8px 10px;
+
+      font-size: 18px;
+      font-weight: 300;
+      font-family: lato, sans-serif;
+      line-height: 23px;
+    }
+
+    .css-form {
+      input, select, textarea {
+        &.ng-invalid.ng-touched {
+          background-color: #FA787E;
+        }
+
+        .ng-valid.ng-touched {
+          background-color: #78FA89;
+        }
+
+      }
+
+      .form-validation-error{
+        color: #af0000;
+        font-size: 0.9rem;
+      }
+
+    }
+
+  }
+
+  .choose-fw-layout {
+
+    margin-bottom: 20px;
+    padding: 0 10px;
+    position: relative;
+    max-height: 220px;
+    overflow-y: scroll;
+
+    .low-pad-cell{
+      padding: 5px;
+    }
+
+    .choose-fw-tile {
+
+      position: relative;
+      padding: 10px;
+      width: 100%;
+      height: 90px;
+      cursor: pointer;
+
+      &.selected {
+        border: 2px solid #fff;
+        padding: 8px;
+
+        .trash-icon{
+          bottom: 4px;
+          right: 4px;
+        }
+      }
+
+      &.shake {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      .trash-icon{
+        background: url('../images/trash-icon.png') no-repeat;
+        background-size: contain;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        bottom: 6px;
+        right: 6px;
+      }
+
+      .text-link.sml {
+
+        position: absolute;
+        bottom: 6px;
+        right: 6px;
+
+        a {
+          font-style: normal;
+          margin-left: 12px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+    }
+
+
+  }
+
+
+}

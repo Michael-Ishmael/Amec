@@ -1,0 +1,139 @@
+<div class="row ">
+
+    <div class="col-md-8 low-pad-cell">
+
+        <div class="aif-tile account-screen long">
+            <a class="btn btn-link close-button pull-right" ng-click="rc.vs.resetView()">X</a>
+            <h2>Register</h2>
+            <h3 class="login-message">Already have an account? <a class="heading-link" id="pop_register"
+                                                                  ng-click="rc.vs.showLogin()">Login here</a>
+            </h3>
+            <form id="register" novalidate name="formReg" class="css-form"
+                  ng-submit="rc.registerNewUser(formReg)">
+
+
+                <div class="login-box-group">
+
+
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input id="regEmail" ng-model="rc.userModel.email" required type="text"
+                               class="form-control" name="rEmail"
+                               placeholder="Email Address">
+                        <div class="form-validation-error"
+                             ng-show="form.$submitted || formReg.rEmail.$touched">
+                            <span ng-show="formReg.rEmail.$error.required">You must supply a valid email address.</span>
+                            <span ng-show="formReg.rEmail.$error.email">This is not a valid email.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rPassword">Password</label>
+                        <input type="password" ng-model="rc.userModel.password" required name="rPassword"
+                               class="form-control" id="rPassword"
+                               placeholder="Password" ng-minlength="8">
+
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.rPassword.$touched">
+                            <span ng-show="formReg.rPassword.$error.required">You must supply a password.</span>
+                            <span ng-show="formReg.rPassword.$error.minlength">Your password should be at least eight characters long.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfPassword">Confirm Password</label>
+                        <input type="password" class="form-control" name="rConfPassword" required
+                               id="regConfPassword" ng-model="rc.userModel.passwordConfirmation"
+                               placeholder="Confirm Password">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.rConfPassword.$touched">
+                            <span ng-show="rc.userModel.password !== rc.userModel.passwordConfirmation">The passwords don't match.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regLanguage">Language</label>
+                        <select id="regLanguage" name="language" ng-model="rc.userModel.language" required
+                                class="form-control dropdown">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="sk">Swedish</option>
+                        </select>
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.language.$touched">
+                            <span ng-show="formReg.language.$error.required">You specify a language.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                               type="submit" value="Register">
+
+                    </div>
+
+                </div>
+
+                <div class="login-box-group">
+
+
+                    <div class="form-group">
+                        <label for="regConfPassword">First Name</label>
+                        <input type="text" class="form-control" name="firstName"
+                               id="regFirstName" placeholder="First Name" ng-model="rc.userModel.firstName"
+                               required>
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.firstName.$touched">
+                            <span ng-show="formReg.firstName.$error.required">You must supply a first name.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfPassword">Last Name</label>
+                        <input type="text" class="form-control" name="lastName"
+                               ng-model="rc.userModel.lastName" required
+                               id="regLastName" placeholder="Last Name">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.lastName.$touched">
+                            <span ng-show="formReg.lastName.$error.required">You must supply a last name.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regOrganisation">Organisation</label>
+                        <input id="regOrganisation" type="text" class="form-control" name="organisation"
+                               ng-model="rc.userModel.organisation" required
+                               placeholder="Organisation">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.organisation.$touched">
+                            <span ng-show="formReg.organisation.$error.required">You must tell us your company or organisation name.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="regJobTitle">Job Title</label>
+                        <input type="text" name="jobTitle" class="form-control" id="regJobTitle"
+                               ng-model="rc.userModel.jobTitle" required
+                               placeholder="Job Title">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.jobTitle.$touched">
+                            <span ng-show="formReg.jobTitle.$error.required">You must provide a job title.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>

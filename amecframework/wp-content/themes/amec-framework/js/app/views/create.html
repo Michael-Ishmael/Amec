@@ -1,0 +1,57 @@
+<div class="row " >
+
+    <div class="col-md-8 low-pad-cell">
+
+        <div class="aif-tile account-screen long">
+            <a class="btn btn-link close-button pull-right" ng-click="cf.vs.resetView()">X</a>
+            <h2>New Measurement Framework</h2>
+            <h3 class="login-message">&nbsp;</h3>
+
+
+            <h4> {{ cf.createMessage }} </h4>
+            <br>
+            <div class="login-box-group">
+
+                <form name="formCreate" novalidate class="css-form" ng-submit="cf.createNewFramework(formCreate)">
+
+                    <div class="form-group">
+                        <label for="nFrameworkName">Name</label>
+                        <input type="text" ng-model="cf.newFrameworkName" required
+                               class="form-control" id="nFrameworkName"
+                               name="nFrameworkName" placeholder="Framework name">
+                        <div class="form-validation-error"
+                             ng-show="formLoad.$submitted || formLoad.nFrameworkName.$touched">
+                            <span ng-show="formLoad.nFrameworkName.$error.required">You must provide a name for your framework.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nframeworkDesc">Description</label>
+                        <textarea id="nframeworkDesc" type="text" rows="5" class="form-control"
+                                  name="nframeworkDesc" ng-model="cf.newFrameworkDescription"
+                                  placeholder="Optionally add any notes here "></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                               type="submit" value="Create">
+                        <a class="text-link lge" ng-click="cf.vs.resetView()"
+                           title="You can click save progress to come back at any time"
+                        >{{ cf.cancelButtonText }}</a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
