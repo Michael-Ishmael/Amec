@@ -37,11 +37,13 @@
             </div>
         </div>
 
-        <div class="base-framework">
+        <div class="base-framework" ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
             <div class="row ng-scope">
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-red" 
                          ng-click="ctrl.handleStepClick(1)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Objectives</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-red">
                             <div class="start-message ng-scope background-dark-red">
@@ -56,6 +58,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-yellow" 
                          ng-click="ctrl.handleStepClick(2)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Inputs</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-yellow">
                             <div class="circle-border ng-binding background-dark-yellow">
@@ -67,6 +71,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-green" 
                          ng-click="ctrl.handleStepClick(3)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Activities</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-green">
                             <div class="circle-border ng-binding background-dark-green">
@@ -80,6 +86,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-light_blue" 
                          ng-click="ctrl.handleStepClick(4)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Outputs</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-light_blue">
                             <div class="circle-border ng-binding background-dark-light_blue">
@@ -91,6 +99,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-dark_blue" 
                          ng-click="ctrl.handleStepClick(5)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Out-takes</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-dark_blue">
                             <div class="circle-border ng-binding background-dark-dark_blue">
@@ -102,6 +112,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-dark_blue" 
                          ng-click="ctrl.handleStepClick(6)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Outcomes</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-dark_blue">
                             <div class="circle-border ng-binding background-dark-dark_blue">
@@ -115,6 +127,8 @@
                 <div class="low-pad-cell ng-scope col-md-8">
                     <div class="aif-tile background-purple" 
                          ng-click="ctrl.handleStepClick(7)">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <h2 class="ng-binding ng-scope">Impact</h2>
                         <div class="anchor-bottom ng-scope bottom-dark-border-purple">
                             <div class="circle-border ng-binding background-dark-purple">
@@ -126,6 +140,8 @@
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-black" 
                          ng-click="ac.submitFramework()">
+                        <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
                         <p class="submit-text ng-scope">
                             Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
                         </p>
@@ -138,19 +154,18 @@
             </div>
 
 
-            <aif-user-screens></aif-user-screens>
+            <aif-user-screens ng-if="ctrl.vs.showingUserScreens()"></aif-user-screens>
+
+            <aif-input-grid ng-if="ctrl.vs.displayEdit" step="ctrl.editStep"></aif-input-grid>
 
 
 
 
         </div>
 
-        <div class="entries" ng-controller="frameworkCtrl as fc">
+        <aif-framework-summary ng-if="ac.vs.displaySummary">
 
-            <div ng-repeat="step in fc.editView.steps">
-                <h3> {{ step.heading }} </h3>
-            </div>
+        </aif-framework-summary>
 
-        </div>
     </div>
 </div>

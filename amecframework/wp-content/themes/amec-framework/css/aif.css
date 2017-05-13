@@ -16,11 +16,11 @@
     margin-bottom: 12px; }
   #frameworkSummary .summary-section {
     position: relative; }
-    #frameworkSummary .summary-section.imp {
-      width: 250px;
+    #frameworkSummary .summary-section.prep {
+      width: 800px;
       display: inline-block; }
-    #frameworkSummary .summary-section.mes {
-      width: 900px;
+    #frameworkSummary .summary-section.imp {
+      width: 290px;
       display: inline-block;
       margin-left: 15px; }
   #frameworkSummary .low-pad-row {
@@ -28,19 +28,26 @@
     margin-right: -3px; }
   #frameworkSummary .low-pad-cell {
     padding: 0 3px 0 3px; }
+  #frameworkSummary .summary-box {
+    color: #404040;
+    font-weight: 400; }
   #frameworkSummary .prep .section-header {
     height: 236px;
-    background-image: url("../images/ss-header-1.png"); }
+    background-image: url("../images/ss-header-1.png");
+    background-repeat: no-repeat;
+    background-position-y: 50%; }
   #frameworkSummary .imp .section-header {
-    height: 582px;
-    background-image: url("../images/ss-header-2.png"); }
-  #frameworkSummary .imp .summary-box {
-    height: 582px; }
+    height: 236px;
+    background-image: url("../images/ss-header-2.png");
+    background-repeat: no-repeat;
+    background-position-y: 50%; }
   #frameworkSummary .mes .section-header {
     height: 582px;
-    background-image: url("../images/ss-header-3.png"); }
+    background-image: url("../images/ss-header-3.png");
+    background-repeat: no-repeat;
+    background-position-y: 50%; }
   #frameworkSummary .mes .summary-box {
-    height: 582px; }
+    height: 530px; }
   #frameworkSummary .section-header {
     background-color: #8a8a8a;
     width: 34px;

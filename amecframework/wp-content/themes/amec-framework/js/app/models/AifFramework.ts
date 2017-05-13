@@ -14,6 +14,7 @@ module aif {
     public selected:boolean = false;
     public flaggedDelete:boolean = false;
     public current:boolean = false;
+    public userFramework?:AifUserFramework = null;
     public editView:AifFrameworkEditView = null;
     public summaryView:AifSummary = null;
 
@@ -60,7 +61,7 @@ module aif {
       } else {
         if(this.userData.inputs.hasOwnProperty(key)){
           this.inputs[key] = this.userData.inputs[key].map(v => {
-            return new AifStringInputValue(v);
+            return new AifStringInputValue(v, inputStyle == AifStepInputStyle.NumberedValues);
           })
         } else {
           this.inputs[key] = [];
@@ -142,7 +143,6 @@ module aif {
 
   export class AifFrameworkStep implements IAifFrameworkEntry {
 
-    inputStyle: AifStepInputStyle;
     summaryStyle:AifStepSummaryStyle;
     baseColor: string;
     row: number;
@@ -150,6 +150,7 @@ module aif {
     cellOrder: Array<AifInputCellType>;
     inputs: Array<AifStepInput> = [];
     summaryHeading: string;
+
 
     constructor(public stepIndex: number, public heading:string){
       this.summaryHeading = heading;
@@ -167,20 +168,25 @@ module aif {
       return ht.trim();
     }
 
-
   }
 
   export class AifStepInput implements IAifFrameworkEntry {
 
+    inputStyle: AifStepInputStyle;
     heading:string = null;
     subHeading:string = null;
     info:string = null;
     textLimit:number = 500;
+    valueCount:number = 1;
     values:Array<IAifStepInputValue>;
     summaryHeading: string;
 
     constructor(){
 
+    }
+
+    isKeyedPair():boolean{
+      return this.inputStyle == AifStepInputStyle.KeyedValues;
     }
 
     public html():string {
@@ -199,14 +205,31 @@ module aif {
 
   export interface IAifStepInputValue {
     text: string;
+
+    isFreeText():boolean;
+    isNumberedText():boolean;
+    isKeyedPair():boolean;
+
     asHtml():string;
     asJson():string;
   }
 
   export class AifStringInputValue implements IAifStepInputValue{
 
-    constructor(public text: string){
+    constructor(public text: string, private numbered:boolean){
 
+    }
+
+    isFreeText():boolean{
+      return !this.numbered;
+    }
+
+    isNumberedText():boolean{
+      return this.numbered;
+    }
+
+    isKeyedPair():boolean{
+      return false;
     }
 
     asHtml():string {
@@ -226,6 +249,17 @@ module aif {
 
     }
 
+    isFreeText():boolean{
+      return false;
+    }
+
+    isNumberedText():boolean{
+      return false;
+    }
+
+    isKeyedPair():boolean{
+      return true;
+    }
 
     asHtml():string {
       return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>"

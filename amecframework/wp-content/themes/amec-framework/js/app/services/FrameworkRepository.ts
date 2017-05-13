@@ -19,18 +19,21 @@ module aif {
     getEditView(frameworkId:number): AifFrameworkEditView {
 
       let currentFramework:AifFramework;
+      let userData:AifUserFramework;
 
       if (this.editView && this.currentUserFramework.frameworkId == frameworkId) return this.editView;
       if( this.userRepository.currentUser
           && this.userRepository.currentUser.currentFramework) {
         if( this.userRepository.currentUser.currentFramework.editView ) return this.userRepository.currentUser.currentFramework.editView;
         currentFramework = this.userRepository.currentUser.currentFramework;
+        userData = this.userRepository.currentUser.currentFramework.userFramework;
+      } else {
+        userData = new AifUserFramework(-1, {inputs: {}}) ;
       }
-
 
       let structureSteps = AifData.stepStructure;
       let copy = AifData.baseCopy;
-      let userData = this.getMockUserFramework();
+
       this.currentUserFramework = new AifUserFramework(frameworkId, userData);
 
       let steps:Array<AifFrameworkStep> = structureSteps.map(s => {
@@ -41,17 +44,17 @@ module aif {
         step.row = s.row;
         step.colSpan = s.colSpan;
         step.cellOrder = s.cellOrder;
-        step.inputStyle = s.inputStyle;
         step.summaryStyle = s.summaryStyle;
         step.inputs = s.inputs.map(i => {
 
           let input = new AifStepInput();
+          input.inputStyle = i.inputStyle;
           input.textLimit = i.textLimit;
+          input.valueCount = i.valueCount;
           input.heading = this.resolveTranslation(copy[i.headingKey]);
           input.subHeading = this.resolveTranslation(copy[i.subHeadingKey]);
           input.info = this.resolveTranslation(copy[i.infoKey]);
-
-          this.currentUserFramework.addInputOrEmpty(i.valuesKey, s.inputStyle);
+          this.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle);
           input.values = this.currentUserFramework.inputs[i.valuesKey];
 
           return input;
@@ -111,7 +114,12 @@ module aif {
               for (let dataEntry of dataGroup.entries) {
 
                 let entry = findEntry(dataEntry.stepId, dataEntry.stepEntryIndex, dataEntry.headingOverride);
-                if(entry) summaryGroup.steps.push(entry)
+                if(entry){
+                  summaryGroup.steps.push(entry)
+                } else {
+                  let step = new AifFrameworkStep(-1, "Empty");
+                  summaryGroup.steps.push(step);
+                }
 
               }
 
@@ -174,19 +182,12 @@ module aif {
                   ]
                 },
                 {
-                  heading: "Plan & Set Targets",
+                  heading: "Inform & Prepare Communication",
                   color: "yellow",
                   entries: [
                     {
-                      entryType: "stepItem",
-                      stepId: 2,
-                      stepEntryIndex: 1
-                    },
-                    {
-                      entryType: "stepItem",
-                      stepId: 2,
-                      stepEntryIndex: 2,
-                      headingOverride: "Strategy"
+                      entryType: "step",
+                      stepId: 2
                     }
                   ]
                 }

@@ -16,7 +16,6 @@
   line-height: 1.428571429;
   color: #fff;
   background-color: #4c4c4c;
-  /* row resets */
   /*!
    * Bootstrap v3.3.7 (http://getbootstrap.com)
    * Copyright 2011-2016 Twitter, Inc.
@@ -57,9 +56,8 @@
   // Utility classes
   @import "bootstrap/utilities";
   @import "bootstrap/responsive-utilities";
-  */ }
-  #aif-app .row {
-    margin-bottom: 0; }
+  */
+  /* row resets */ }
   #aif-app html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -2471,11 +2469,11 @@
       margin-bottom: 12px; }
     #aif-app #frameworkSummary .summary-section {
       position: relative; }
-      #aif-app #frameworkSummary .summary-section.imp {
-        width: 250px;
+      #aif-app #frameworkSummary .summary-section.prep {
+        width: 800px;
         display: inline-block; }
-      #aif-app #frameworkSummary .summary-section.mes {
-        width: 900px;
+      #aif-app #frameworkSummary .summary-section.imp {
+        width: 290px;
         display: inline-block;
         margin-left: 15px; }
     #aif-app #frameworkSummary .low-pad-row {
@@ -2483,19 +2481,26 @@
       margin-right: -3px; }
     #aif-app #frameworkSummary .low-pad-cell {
       padding: 0 3px 0 3px; }
+    #aif-app #frameworkSummary .summary-box {
+      color: #404040;
+      font-weight: 400; }
     #aif-app #frameworkSummary .prep .section-header {
       height: 236px;
-      background-image: url("../images/ss-header-1.png"); }
+      background-image: url("../images/ss-header-1.png");
+      background-repeat: no-repeat;
+      background-position-y: 50%; }
     #aif-app #frameworkSummary .imp .section-header {
-      height: 582px;
-      background-image: url("../images/ss-header-2.png"); }
-    #aif-app #frameworkSummary .imp .summary-box {
-      height: 582px; }
+      height: 236px;
+      background-image: url("../images/ss-header-2.png");
+      background-repeat: no-repeat;
+      background-position-y: 50%; }
     #aif-app #frameworkSummary .mes .section-header {
       height: 582px;
-      background-image: url("../images/ss-header-3.png"); }
+      background-image: url("../images/ss-header-3.png");
+      background-repeat: no-repeat;
+      background-position-y: 50%; }
     #aif-app #frameworkSummary .mes .summary-box {
-      height: 582px; }
+      height: 530px; }
     #aif-app #frameworkSummary .section-header {
       background-color: #8a8a8a;
       width: 34px;
@@ -2521,6 +2526,12 @@
         min-height: 184px; }
         #aif-app #frameworkSummary .section-content .summary-box.first-row {
           max-height: 200px; }
+  #aif-app .row {
+    margin-bottom: 0;
+    clear: none; }
+  #aif-app text-area {
+    color: black;
+    font-family: system-ui; }
   #aif-app .background-red {
     background-color: #d50046; }
   #aif-app .background-dark-red {
@@ -2615,6 +2626,8 @@
     display: none; }
   #aif-app .pull-right {
     float: right !important; }
+  #aif-app .clearfix {
+    clear: both; }
   #aif-app .low-pad-cell {
     padding: 0 5px; }
   #aif-app .full-size-child {
@@ -2678,7 +2691,8 @@
         line-height: 20px;
         vertical-align: middle; }
   #aif-app .base-framework {
-    position: relative; }
+    position: relative;
+    min-height: 1000px; }
   #aif-app .aif-tile {
     margin-top: 10px;
     height: 200px;
@@ -2760,7 +2774,8 @@
     right: 0;
     bottom: 0;
     height: 50px;
-    color: #fff; }
+    color: #fff;
+    z-index: 7; }
   #aif-app .account-screen {
     background-color: #292b2c;
     min-height: 410px;
@@ -2873,5 +2888,144 @@
           margin-left: 12px; }
           #aif-app .choose-fw-layout .choose-fw-tile .text-link.sml a:hover {
             text-decoration: underline; }
+  #aif-app .entries {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    #aif-app .entries h3 {
+      margin: 0; }
+  #aif-app .aif-input {
+    color: #fff;
+    font-family: lato, sans-serif;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    min-height: 200px;
+    cursor: default; }
+    #aif-app .aif-input .info-button {
+      width: 24px;
+      height: 24px;
+      background-color: #fff;
+      color: #8e8e8e;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 25px;
+      margin: 6px;
+      float: right; }
+    #aif-app .aif-input .header {
+      padding: 8px 0 0 15px;
+      height: 50px;
+      margin-bottom: 4px; }
+      #aif-app .aif-input .header h3 {
+        display: inline-block;
+        font-size: 25px;
+        font-weight: 300;
+        color: #fff; }
+    #aif-app .aif-input .section {
+      padding: 8px 15px; }
+      #aif-app .aif-input .section.demi {
+        width: 50%;
+        float: left; }
+      #aif-app .aif-input .section h4 {
+        font-size: 23px;
+        font-weight: 300;
+        color: #fff; }
+      #aif-app .aif-input .section p.sub-heading {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 0;
+        display: inline-block;
+        width: 90%; }
+      #aif-app .aif-input .section .inputs-container {
+        position: relative; }
+        #aif-app .aif-input .section .inputs-container .info-button {
+          position: absolute;
+          right: 0;
+          top: -38px; }
+        #aif-app .aif-input .section .inputs-container .peso-header {
+          margin-left: 20px;
+          margin-bottom: 10px; }
+          #aif-app .aif-input .section .inputs-container .peso-header .peso-button-header {
+            width: 132px;
+            float: left; }
+            #aif-app .aif-input .section .inputs-container .peso-header .peso-button-header > div {
+              width: 32px;
+              float: left;
+              margin-right: 1px;
+              text-align: center;
+              font-size: 18px;
+              padding: 2px 0; }
+          #aif-app .aif-input .section .inputs-container .peso-header .peso-desc {
+            margin-left: 152px;
+            line-height: 32px; }
+        #aif-app .aif-input .section .inputs-container .peso-entry {
+          margin-bottom: 8px; }
+          #aif-app .aif-input .section .inputs-container .peso-entry .peso-buttons {
+            width: 132px;
+            float: left; }
+            #aif-app .aif-input .section .inputs-container .peso-entry .peso-buttons > div {
+              width: 32px;
+              height: 32px;
+              float: left;
+              margin-right: 1px;
+              text-align: center;
+              font-size: 18px;
+              padding: 2px 0; }
+              #aif-app .aif-input .section .inputs-container .peso-entry .peso-buttons > div > input {
+                margin: 0; }
+          #aif-app .aif-input .section .inputs-container .peso-entry .peso-input {
+            margin-left: 158px; }
+            #aif-app .aif-input .section .inputs-container .peso-entry .peso-input > input {
+              margin: 0;
+              height: 32px; }
+      #aif-app .aif-input .section .input-index {
+        width: 20px;
+        float: left; }
+      #aif-app .aif-input .section input {
+        margin: 0 0 12px; }
+        #aif-app .aif-input .section input.numbered-input {
+          margin-left: 30px;
+          background-color: red;
+          width: auto; }
+      #aif-app .aif-input .section .numbered-input {
+        margin-left: 30px; }
+      #aif-app .aif-input .section textarea {
+        color: black;
+        font-size: 16px;
+        width: 100%;
+        height: 155px;
+        resize: none;
+        border: none; }
+        #aif-app .aif-input .section textarea.medium {
+          height: 258px; }
+        #aif-app .aif-input .section textarea.tall {
+          height: 468px; }
+  #aif-app .info {
+    background-color: #eaeaea;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #8a8a8a;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0; }
+    #aif-app .info .lead-in {
+      text-transform: capitalize;
+      font-weight: bold; }
+    #aif-app .info .bold {
+      font-weight: bold; }
+    #aif-app .info p {
+      padding: 0; }
+    #aif-app .info a.further-info-link {
+      text-decoration: underline; }
+    #aif-app .info ul {
+      list-style: disc;
+      margin-top: 10px;
+      padding-left: 10px; }
 
 /*# sourceMappingURL=aif-app.css.map */

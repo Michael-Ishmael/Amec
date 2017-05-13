@@ -22,8 +22,9 @@ module aif {
     .controller('registerCtrl', RegisterCtrl)
     .controller('resetPasswordCtrl', ResetPasswordCtrl)
     .controller('frameworkSummaryCtrl', FrameworkSummaryCtrl)
-    .controller('frameworkSummaryCtrl', UserScreensCtrl)
+    .controller('userScreensCtrl', UserScreensCtrl)
     .controller('listInputTileCtrl', ListInputTileCtrl)
+    .controller('inputGridCtrl', InputGridCtrl)
     .directive('aifLoginScreen', AifLoginScreen.factory())
     .directive('aifAccountScreen', AifAccountScreen.factory())
     .directive('aifCreateFwScreen', AifCreateFwScreen.factory())
@@ -33,6 +34,7 @@ module aif {
     .directive('aifFrameworkSummary', AifFrameworkSummary.factory())
     .directive('aifListInputTile', AifListInputTile.factory())
     .directive('aifUserScreens', AifUserScreens.factory())
+    .directive('aifInputGrid', AifInputGrid.factory())
       .config(['$httpProvider', (_$httpProvider:ng.IHttpProvider) => {
           _$httpProvider.interceptors.push(AifHttpInterceptor.factory())
       } ])

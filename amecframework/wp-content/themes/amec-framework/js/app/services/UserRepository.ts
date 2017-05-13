@@ -150,8 +150,29 @@ module aif {
           return new SaveFrameworkResult(false, null, "User not logged in");
         }
 
-        if(!this.currentUser.currentFramework){
-          //Save here
+        if(this.currentUser.currentFramework){
+
+
+          let regUrl:string = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/';
+          let data:IWpFrameworkPost = {
+            title: name,
+            content: JSON.stringify(this.currentUser.currentFramework.userFramework),
+            author: this.currentUser.id,
+            excerpt: this.currentUser.currentFramework.description,
+            type: "aif_workflow",
+            status: "publish"
+          };
+
+          return this.$http.post(regUrl, JSON.stringify(data),
+          ).then((response:ng.IHttpPromiseCallbackArg<IWpFramePostResponse>) => {
+
+            let postId = response.data.id;
+            let framework = this.currentUser.currentFramework;
+            return new SaveFrameworkResult(true, framework, null);
+
+          }, e => {
+            return new SaveFrameworkResult(false, null, e.statusText);
+          });
         }
         return new SaveFrameworkResult(true, this.currentUser.currentFramework, null);
 
@@ -428,7 +449,7 @@ module aif {
       contactNumber: "07866 627 323"
     }
   ];
-
+/*
   let userFrameworks: Array<AifFramework> = [
     {
       id: 1,
@@ -473,7 +494,7 @@ module aif {
 
 
   ];
-
+*/
 
 }
 

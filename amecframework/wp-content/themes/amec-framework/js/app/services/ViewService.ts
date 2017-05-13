@@ -50,6 +50,12 @@ module aif {
 
     }
 
+    public showingUserScreens():boolean {
+      //TODO: Improve
+      return this.displayAccount || this.displayLogin || this.displaySaveAs
+          || this.displayCreate || this.displayFtnDetails || this.displaySelectFramework
+          || this.displayRegister || this.displaySave ;
+    }
 
     public showLogin(fromSave:boolean = false):void{
       this.reset();

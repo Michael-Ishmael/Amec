@@ -11,11 +11,12 @@ module aif {
 
     templateUrl: string = TEMPLATE_PATH + '/js/app/views/login.html';
     restrict: string = 'E';
-    controller:LoginCtrl;
+
+    controller:InputGridCtrl;
     controllerAs:string = 'lc';
     bindToContoller: boolean = true;
 
-    link(scope,element,attributes,ctrl:LoginCtrl):void {
+    link(scope,element,attributes, ctrl:LoginCtrl):void {
 
     }
 
@@ -46,7 +47,7 @@ module aif {
     //replace=true;
 
     link(scope,element,attributes):void {
-      console.log('here');
+
     }
 
     constructor() {
@@ -71,7 +72,7 @@ module aif {
     restrict: string = 'E';
     controller:AccountViewCtrl;
     controllerAs:string = 'av';
-    bindToContoller: boolean = true;
+    bindToController: boolean = true;
 
     link(scope,element,attributes,ctrl:AccountViewCtrl):void {
 
@@ -98,7 +99,7 @@ module aif {
     restrict: string = 'E';
     controller:CreateFrameworkCtrl;
     controllerAs:string = 'cf';
-    bindToContoller: boolean = true;
+    bindToController: boolean = true;
 
     link(scope,element,attributes,ctrl:CreateFrameworkCtrl):void {
 
@@ -125,7 +126,7 @@ module aif {
     restrict: string = 'E';
     controller:SaveAsCtrl;
     controllerAs:string = 'cf';
-    bindToContoller: boolean = true;
+    bindToController: boolean = true;
 
     link(scope,element,attributes,ctrl:SaveAsCtrl):void {
 
@@ -152,7 +153,7 @@ module aif {
     restrict: string = 'E';
     controller:RegisterCtrl;
     controllerAs:string = 'rc';
-    bindToContoller: boolean = true;
+    bindToController: boolean = true;
 
     link(scope,element,attributes,ctrl:RegisterCtrl):void {
 
@@ -179,7 +180,7 @@ module aif {
     restrict: string = 'E';
     controller:ResetPasswordCtrl;
     controllerAs:string = 'rc';
-    bindToContoller: boolean = true;
+    bindToController: boolean = true;
 
     link(scope,element,attributes,ctrl:ResetPasswordCtrl):void {
 
@@ -212,16 +213,26 @@ module aif {
     }
   }
 
-  export class AifControlRow implements ng.IDirective {
+  export class AifInputGrid implements ng.IDirective {
 
     static $inject: Array<string> = [''];
-    templateUrl: string = TEMPLATE_PATH + '/js/app/views/controlRow.html';
+    templateUrl: string = TEMPLATE_PATH + '/js/app/views/inputGrid.html';
     restrict: string = 'E';
+    scope: {[key: string] : string} = {
+      step: '='
+    };
+    controller =InputGridCtrl;
+    controllerAs:string = 'ig';
+    bindToController: boolean = true;
 
-
+    link(scope,element,attributes, ctrl:InputGridCtrl):void {
+      if(ctrl){
+        ctrl.init()
+      }
+    }
 
     static factory(): ng.IDirectiveFactory {
-      const directive = () => new AifControlRow();
+      const directive = () => new AifInputGrid();
       //directive.$inject = ['$location'];
       return directive;
     }

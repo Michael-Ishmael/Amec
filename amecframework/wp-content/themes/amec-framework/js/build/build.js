@@ -58,32 +58,274 @@ var aif;
             description: "Step 1 Input 2 Info",
             en: "<span class=\"lead-in\" >Communications Objectives</span> are the specific, measureable, achievable, relevant, time-bound (SMART) objectives that your communication program, campaign, or project is designed to achieve. Your SMART communication objectives must support one or more organizational objectives; identify which one's.",
             translation: null
+        },
+        "S2_L": {
+            description: "Step Label 1",
+            en: "Inputs",
+            translation: null
+        },
+        "S2_I1_H": {
+            description: "Step 2 Input 1 Heading",
+            en: "Target Audience",
+            translation: null
+        },
+        "S2_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "Define your key target audiences",
+            translation: null
+        },
+        "S2_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Target Audience</span> define clearly with which audiences you are looking to communicate. Be as specific as possible. The more refined your audience definition, the more focussed your targeting can be. Think demographics, socio-economic data and media consumption habits.",
+            translation: null
+        },
+        "S2_I2_H": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "Strategic Inputs",
+            translation: null
+        },
+        "S2_I2_SH": {
+            description: "Step 2 Input 2 Sub heading",
+            en: "List key inputs necessary to inform and prepare your communication.",
+            translation: null
+        },
+        "S2_I2_I": {
+            description: "Step 2 Input 2 Info",
+            en: "<span class=\"lead-in\" >Inputs</span> include both information and materials that you need to design and prepare your communication.  Inputs can include: <ul><li><span class=\"bold\">Existing research</span> data that is relevant</li><li><span class=\"bold\">Background and context</span> information</li><li><span class=\"bold\">Budget</span> – set a budget and identify the most cost-effective approaches (e.g., through Cost Effectiveness Analysis)</li><li><span class=\"bold\">Resources</span> – what skills do you need? Are there potential partners?</li></ul>",
+            translation: null
+        },
+        "S3_L": {
+            description: "Step 3 Label",
+            en: "Activities",
+            translation: null
+        },
+        "S3_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "List all the key activities that you will undertake or have undertaken",
+            translation: null
+        },
+        "S3_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Activities</span> include: <ul><li><span class=\"bold\">Formative research to be undertaken</span> (e.g., surveys, focus groups, pre-testing)</li><li><span class=\"bold\">Planning</span> (including SWOT analysis, PEST or PESTLE, etc.)</li><li><span class=\"bold\">Design</span> of materials</li><li><span class=\"bold\">Writing and production </span> of communication materials, events, etc.</li></ul>",
+            translation: null
+        },
+        "S4_L": {
+            description: "Step 4 Label",
+            en: "Outputs",
+            translation: null
+        },
+        "S4_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "List the content, materials, and activities that you distributed and to which your target audiences were exposed",
+            translation: null
+        },
+        "S4_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Outputs</span> include: <ul><li><span class=\"bold\">Advertising</span> data that is relevant</li><li><span class=\"bold\">Publicity</span> information</li><li><span class=\"bold\">Web sites, blogs, partnerships or supplements </span> (owned media)</li><li><span class=\"bold\">Social media</span> – what skills do you need? Are there potential partners?</li><li><span class=\"bold\">Events</span> held – e.g., how many attended?</li><li><span class=\"bold\">Sponsorships</span> launched – e.g., what audience reach?</li><li><span class=\"bold\">Direct mail, e-mail, or e-marketing</span>, etc. – e.g., what audience reach?</li></ul>",
+            translation: null
+        },
+        "S5_L": {
+            description: "Step 4 Label",
+            en: "Out-takes",
+            translation: null
+        },
+        "S5_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "List here what your target audiences took out of your communication and how they reacted to it",
+            translation: null
+        },
+        "S5_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Out-takes</span> are your ...",
+            translation: null
+        },
+        "S6_L": {
+            description: "Step 4 Label",
+            en: "Out-takes",
+            translation: null
+        },
+        "S6_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "​List here evidence of the effects of your communication on your target audience",
+            translation: null
+        },
+        "S6_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Outcomes</span> are the effects ...",
+            translation: null
+        },
+        "S7_L": {
+            description: "Step 4 Label",
+            en: "Organizational Impact",
+            translation: null
+        },
+        "S7_I1_SH": {
+            description: "Step 2 Input 1 Sub heading",
+            en: "​How has the organisation been impacted during the campaign?",
+            translation: null
+        },
+        "S7_I1_I": {
+            description: "Step 2 Input 1 Info",
+            en: "<span class=\"lead-in\" >Impact</span> is the ultimate ...",
+            translation: null
         }
     };
     AifData.stepStructure = [
         {
             stepIndex: 1,
             stepHeadingKey: "S1_L",
-            inputStyle: AifStepInputStyle.FreeText,
             summaryStyle: AifStepSummaryStyle.Entry,
             baseColor: "red",
             row: 1,
-            colSpan: 2,
+            colSpan: 1,
             cellOrder: [AifInputCellType.Input, AifInputCellType.Info],
             inputs: [
                 {
+                    inputStyle: AifStepInputStyle.FreeText,
                     headingKey: "S1_I1_H",
                     subHeadingKey: "S1_I1_SH",
                     infoKey: "S1_I1_I",
                     textLimit: 500,
+                    valueCount: 1,
                     valuesKey: "S1_I1_V"
                 },
                 {
+                    inputStyle: AifStepInputStyle.FreeText,
                     headingKey: "S1_I2_H",
                     subHeadingKey: "S1_I2_SH",
                     infoKey: "S1_I2_I",
                     textLimit: 500,
+                    valueCount: 1,
                     valuesKey: "S1_I2_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 2,
+            stepHeadingKey: "S2_L",
+            summaryStyle: AifStepSummaryStyle.Entry,
+            baseColor: "yellow",
+            row: 1,
+            colSpan: 2,
+            cellOrder: [AifInputCellType.Info, AifInputCellType.Input],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.NumberedValues,
+                    headingKey: "S2_I1_H",
+                    subHeadingKey: "S2_I1_SH",
+                    infoKey: "S2_I1_I",
+                    textLimit: 200,
+                    valueCount: 10,
+                    valuesKey: "S2_I1_V"
+                },
+                {
+                    inputStyle: AifStepInputStyle.FreeText,
+                    headingKey: "S2_I2_H",
+                    subHeadingKey: "S2_I2_SH",
+                    infoKey: "S2_I2_I",
+                    textLimit: 1000,
+                    valueCount: 1,
+                    valuesKey: "S2_I2_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 3,
+            stepHeadingKey: "S3_L",
+            summaryStyle: AifStepSummaryStyle.WholeStep,
+            baseColor: "green",
+            row: 1,
+            colSpan: 2,
+            cellOrder: [AifInputCellType.Info, AifInputCellType.Input],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.KeyedValues,
+                    headingKey: "S3_I1_H",
+                    subHeadingKey: "S3_I1_SH",
+                    infoKey: "S3_I1_I",
+                    textLimit: 200,
+                    valueCount: 16,
+                    valuesKey: "S3_I1_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 4,
+            stepHeadingKey: "S4_L",
+            summaryStyle: AifStepSummaryStyle.WholeStep,
+            baseColor: "light_blue",
+            row: 2,
+            colSpan: 2,
+            cellOrder: [AifInputCellType.Input, AifInputCellType.Info],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.KeyedValues,
+                    headingKey: "S4_I1_H",
+                    subHeadingKey: "S4_I1_SH",
+                    infoKey: "S4_I1_I",
+                    textLimit: 200,
+                    valueCount: 16,
+                    valuesKey: "S4_I1_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 5,
+            stepHeadingKey: "S5_L",
+            summaryStyle: AifStepSummaryStyle.WholeStep,
+            baseColor: "dark_blue",
+            row: 2,
+            colSpan: 1,
+            cellOrder: [AifInputCellType.Empty, AifInputCellType.Input, AifInputCellType.Info],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.NumberedValues,
+                    headingKey: "S5_I1_H",
+                    subHeadingKey: "S5_I1_SH",
+                    infoKey: "S5_I1_I",
+                    textLimit: 200,
+                    valueCount: 10,
+                    valuesKey: "S5_I1_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 6,
+            stepHeadingKey: "S6_L",
+            summaryStyle: AifStepSummaryStyle.WholeStep,
+            baseColor: "dark_blue",
+            row: 2,
+            colSpan: 1,
+            cellOrder: [AifInputCellType.Empty, AifInputCellType.Info, AifInputCellType.Input],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.NumberedValues,
+                    headingKey: "S6_I1_H",
+                    subHeadingKey: "S6_I1_SH",
+                    infoKey: "S6_I1_I",
+                    textLimit: 200,
+                    valueCount: 10,
+                    valuesKey: "S6_I1_V"
+                }
+            ]
+        },
+        {
+            stepIndex: 7,
+            stepHeadingKey: "S7_L",
+            summaryStyle: AifStepSummaryStyle.WholeStep,
+            baseColor: "purple",
+            row: 3,
+            colSpan: 2,
+            cellOrder: [AifInputCellType.Input, AifInputCellType.Info],
+            inputs: [
+                {
+                    inputStyle: AifStepInputStyle.NumberedValues,
+                    headingKey: "S7_I1_H",
+                    subHeadingKey: "S7_I1_SH",
+                    infoKey: "S7_I1_I",
+                    textLimit: 200,
+                    valueCount: 10,
+                    valuesKey: "S7_I1_V"
                 }
             ]
         }
@@ -415,6 +657,7 @@ var aif;
             this.selected = false;
             this.flaggedDelete = false;
             this.current = false;
+            this.userFramework = null;
             this.editView = null;
             this.summaryView = null;
         }
@@ -448,7 +691,7 @@ var aif;
             else {
                 if (this.userData.inputs.hasOwnProperty(key)) {
                     this.inputs[key] = this.userData.inputs[key].map(function (v) {
-                        return new AifStringInputValue(v);
+                        return new AifStringInputValue(v, inputStyle == aif.AifStepInputStyle.NumberedValues);
                     });
                 }
                 else {
@@ -521,7 +764,11 @@ var aif;
             this.subHeading = null;
             this.info = null;
             this.textLimit = 500;
+            this.valueCount = 1;
         }
+        AifStepInput.prototype.isKeyedPair = function () {
+            return this.inputStyle == aif.AifStepInputStyle.KeyedValues;
+        };
         AifStepInput.prototype.html = function () {
             var ht = "";
             if (this.values)
@@ -539,9 +786,19 @@ var aif;
     }());
     aif.AifStepInput = AifStepInput;
     var AifStringInputValue = (function () {
-        function AifStringInputValue(text) {
+        function AifStringInputValue(text, numbered) {
             this.text = text;
+            this.numbered = numbered;
         }
+        AifStringInputValue.prototype.isFreeText = function () {
+            return !this.numbered;
+        };
+        AifStringInputValue.prototype.isNumberedText = function () {
+            return this.numbered;
+        };
+        AifStringInputValue.prototype.isKeyedPair = function () {
+            return false;
+        };
         AifStringInputValue.prototype.asHtml = function () {
             return this.text;
         };
@@ -556,6 +813,15 @@ var aif;
             this.key = key;
             this.text = text;
         }
+        AifKeyPairInputValue.prototype.isFreeText = function () {
+            return false;
+        };
+        AifKeyPairInputValue.prototype.isNumberedText = function () {
+            return false;
+        };
+        AifKeyPairInputValue.prototype.isKeyedPair = function () {
+            return true;
+        };
         AifKeyPairInputValue.prototype.asHtml = function () {
             return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>";
         };
@@ -618,6 +884,12 @@ var aif;
             this.reset();
             this.displaySummary = false;
             this.displayGrid = true;
+        };
+        ViewService.prototype.showingUserScreens = function () {
+            //TODO: Improve
+            return this.displayAccount || this.displayLogin || this.displaySaveAs
+                || this.displayCreate || this.displayFtnDetails || this.displaySelectFramework
+                || this.displayRegister || this.displaySave;
         };
         ViewService.prototype.showLogin = function (fromSave) {
             if (fromSave === void 0) { fromSave = false; }
@@ -773,8 +1045,23 @@ var aif;
                 if (!_this.currentUser) {
                     return new aif.SaveFrameworkResult(false, null, "User not logged in");
                 }
-                if (!_this.currentUser.currentFramework) {
-                    //Save here
+                if (_this.currentUser.currentFramework) {
+                    var regUrl = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/';
+                    var data = {
+                        title: name,
+                        content: JSON.stringify(_this.currentUser.currentFramework.userFramework),
+                        author: _this.currentUser.id,
+                        excerpt: _this.currentUser.currentFramework.description,
+                        type: "aif_workflow",
+                        status: "publish"
+                    };
+                    return _this.$http.post(regUrl, JSON.stringify(data)).then(function (response) {
+                        var postId = response.data.id;
+                        var framework = _this.currentUser.currentFramework;
+                        return new aif.SaveFrameworkResult(true, framework, null);
+                    }, function (e) {
+                        return new aif.SaveFrameworkResult(false, null, e.statusText);
+                    });
                 }
                 return new aif.SaveFrameworkResult(true, _this.currentUser.currentFramework, null);
             }, 200);
@@ -1007,22 +1294,23 @@ var aif;
             contactNumber: "07866 627 323"
         }
     ];
-    var userFrameworks = [
+    /*
+      let userFrameworks: Array<AifFramework> = [
         {
-            id: 1,
-            name: "Coca-cola spring campaign",
-            description: "New music promotion",
-            selected: false,
-            flaggedDelete: false,
-            current: false
+          id: 1,
+          name: "Coca-cola spring campaign",
+          description: "New music promotion",
+          selected: false,
+          flaggedDelete: false,
+          current:false
         },
         {
-            id: 2,
-            name: "Sprite summer campaign",
-            description: "New basketball promotion",
-            selected: false,
-            flaggedDelete: false,
-            current: false
+          id: 2,
+          name: "Sprite summer campaign",
+          description: "New basketball promotion",
+          selected: false,
+          flaggedDelete: false,
+          current: false
         },
         // {
         //   id: 3,
@@ -1033,22 +1321,25 @@ var aif;
         //   current: false
         // },
         {
-            id: 4,
-            name: "Diet Coke summer campaign",
-            description: "Continued lifestyle promotion",
-            selected: false,
-            flaggedDelete: false,
-            current: false
+          id: 4,
+          name: "Diet Coke summer campaign",
+          description: "Continued lifestyle promotion",
+          selected: false,
+          flaggedDelete: false,
+          current: false
         },
         {
-            id: 5,
-            name: "Coke Zero winter",
-            description: "Xtreme sports tie-ins",
-            selected: false,
-            flaggedDelete: false,
-            current: false
+          id: 5,
+          name: "Coke Zero winter",
+          description: "Xtreme sports tie-ins",
+          selected: false,
+          flaggedDelete: false,
+          current: false
         }
-    ];
+    
+    
+      ];
+    */
 })(aif || (aif = {}));
 /// <reference path="../_all.ts" />
 var aif;
@@ -1067,6 +1358,7 @@ var aif;
         FrameworkRepository.prototype.getEditView = function (frameworkId) {
             var _this = this;
             var currentFramework;
+            var userData;
             if (this.editView && this.currentUserFramework.frameworkId == frameworkId)
                 return this.editView;
             if (this.userRepository.currentUser
@@ -1074,10 +1366,13 @@ var aif;
                 if (this.userRepository.currentUser.currentFramework.editView)
                     return this.userRepository.currentUser.currentFramework.editView;
                 currentFramework = this.userRepository.currentUser.currentFramework;
+                userData = this.userRepository.currentUser.currentFramework.userFramework;
+            }
+            else {
+                userData = new aif.AifUserFramework(-1, { inputs: {} });
             }
             var structureSteps = aif.AifData.stepStructure;
             var copy = aif.AifData.baseCopy;
-            var userData = this.getMockUserFramework();
             this.currentUserFramework = new aif.AifUserFramework(frameworkId, userData);
             var steps = structureSteps.map(function (s) {
                 var heading = _this.resolveTranslation(copy[s.stepHeadingKey]);
@@ -1086,15 +1381,16 @@ var aif;
                 step.row = s.row;
                 step.colSpan = s.colSpan;
                 step.cellOrder = s.cellOrder;
-                step.inputStyle = s.inputStyle;
                 step.summaryStyle = s.summaryStyle;
                 step.inputs = s.inputs.map(function (i) {
                     var input = new aif.AifStepInput();
+                    input.inputStyle = i.inputStyle;
                     input.textLimit = i.textLimit;
+                    input.valueCount = i.valueCount;
                     input.heading = _this.resolveTranslation(copy[i.headingKey]);
                     input.subHeading = _this.resolveTranslation(copy[i.subHeadingKey]);
                     input.info = _this.resolveTranslation(copy[i.infoKey]);
-                    _this.currentUserFramework.addInputOrEmpty(i.valuesKey, s.inputStyle);
+                    _this.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle);
                     input.values = _this.currentUserFramework.inputs[i.valuesKey];
                     return input;
                 });
@@ -1142,8 +1438,13 @@ var aif;
                             for (var _e = 0, _f = dataGroup.entries; _e < _f.length; _e++) {
                                 var dataEntry = _f[_e];
                                 var entry = findEntry(dataEntry.stepId, dataEntry.stepEntryIndex, dataEntry.headingOverride);
-                                if (entry)
+                                if (entry) {
                                     summaryGroup.steps.push(entry);
+                                }
+                                else {
+                                    var step = new aif.AifFrameworkStep(-1, "Empty");
+                                    summaryGroup.steps.push(step);
+                                }
                             }
                             summarySection.groups.push(summaryGroup);
                         }
@@ -1195,19 +1496,12 @@ var aif;
                                     ]
                                 },
                                 {
-                                    heading: "Plan & Set Targets",
+                                    heading: "Inform & Prepare Communication",
                                     color: "yellow",
                                     entries: [
                                         {
-                                            entryType: "stepItem",
-                                            stepId: 2,
-                                            stepEntryIndex: 1
-                                        },
-                                        {
-                                            entryType: "stepItem",
-                                            stepId: 2,
-                                            stepEntryIndex: 2,
-                                            headingOverride: "Strategy"
+                                            entryType: "step",
+                                            stepId: 2
                                         }
                                     ]
                                 }
@@ -1365,7 +1659,6 @@ var aif;
         }
         //replace=true;
         AifUserScreens.prototype.link = function (scope, element, attributes) {
-            console.log('here');
         };
         AifUserScreens.factory = function () {
             var directive = function () { return new AifUserScreens(); };
@@ -1381,7 +1674,7 @@ var aif;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/account.html';
             this.restrict = 'E';
             this.controllerAs = 'av';
-            this.bindToContoller = true;
+            this.bindToController = true;
         }
         AifAccountScreen.prototype.link = function (scope, element, attributes, ctrl) {
         };
@@ -1399,7 +1692,7 @@ var aif;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/create.html';
             this.restrict = 'E';
             this.controllerAs = 'cf';
-            this.bindToContoller = true;
+            this.bindToController = true;
         }
         AifCreateFwScreen.prototype.link = function (scope, element, attributes, ctrl) {
         };
@@ -1417,7 +1710,7 @@ var aif;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/saveAs.html';
             this.restrict = 'E';
             this.controllerAs = 'cf';
-            this.bindToContoller = true;
+            this.bindToController = true;
         }
         AifSaveAsScreen.prototype.link = function (scope, element, attributes, ctrl) {
         };
@@ -1435,7 +1728,7 @@ var aif;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/register.html';
             this.restrict = 'E';
             this.controllerAs = 'rc';
-            this.bindToContoller = true;
+            this.bindToController = true;
         }
         AifRegisterScreen.prototype.link = function (scope, element, attributes, ctrl) {
         };
@@ -1453,7 +1746,7 @@ var aif;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/resetPassword.html';
             this.restrict = 'E';
             this.controllerAs = 'rc';
-            this.bindToContoller = true;
+            this.bindToController = true;
         }
         AifResetPassword.prototype.link = function (scope, element, attributes, ctrl) {
         };
@@ -1480,20 +1773,31 @@ var aif;
     }());
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
-    var AifControlRow = (function () {
-        function AifControlRow() {
-            this.templateUrl = TEMPLATE_PATH + '/js/app/views/controlRow.html';
+    var AifInputGrid = (function () {
+        function AifInputGrid() {
+            this.templateUrl = TEMPLATE_PATH + '/js/app/views/inputGrid.html';
             this.restrict = 'E';
+            this.scope = {
+                step: '='
+            };
+            this.controller = aif.InputGridCtrl;
+            this.controllerAs = 'ig';
+            this.bindToController = true;
         }
-        AifControlRow.factory = function () {
-            var directive = function () { return new AifControlRow(); };
+        AifInputGrid.prototype.link = function (scope, element, attributes, ctrl) {
+            if (ctrl) {
+                ctrl.init();
+            }
+        };
+        AifInputGrid.factory = function () {
+            var directive = function () { return new AifInputGrid(); };
             //directive.$inject = ['$location'];
             return directive;
         };
-        return AifControlRow;
+        return AifInputGrid;
     }());
-    AifControlRow.$inject = [''];
-    aif.AifControlRow = AifControlRow;
+    AifInputGrid.$inject = [''];
+    aif.AifInputGrid = AifInputGrid;
     var AifListInputTile = (function () {
         function AifListInputTile() {
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/listInputTile.html';
@@ -1537,18 +1841,17 @@ var aif;
         FrameworkCtrl.prototype.getColorClass = function (prefix, step) {
             return prefix + "-" + step.color + " ";
         };
-        FrameworkCtrl.prototype.handleStepClick = function (step) {
-            if (!step.isSubmit) {
-                this.switchToEditMode(step);
+        FrameworkCtrl.prototype.handleStepClick = function (stepIndex) {
+            var matches = this.editView.steps.filter(function (s) { return s.stepIndex === stepIndex; });
+            if (matches.length) {
+                this.switchToEditMode(matches[0]);
             }
-            //submit
             return;
         };
         FrameworkCtrl.prototype.switchToEditMode = function (step) {
-            this.vs.showEdit();
             this.editMode = true;
-            step.showInput = true;
             this.editStep = step;
+            this.vs.showEdit();
         };
         FrameworkCtrl.prototype.isInSameStep = function (scp, arg2) {
             console.log(arg2);
@@ -1557,13 +1860,6 @@ var aif;
         FrameworkCtrl.prototype.clearEditMode = function () {
             this.vs.resetView();
             this.editMode = false;
-            this.editStep.showInput = false;
-            this.editStep.inputRow.forEach(function (c) {
-                if (c.cellType === aif.WorkflowCellType.Info) {
-                    var i = c;
-                    i.visible = false;
-                }
-            });
             this.editStep = null;
         };
         FrameworkCtrl.prototype.isInfo = function (cell) {
@@ -1795,8 +2091,6 @@ var aif;
         }
         FrameworkSummaryCtrl.prototype.init = function () {
             var _this = this;
-            this.steps = this.frameworkRepository.get();
-            this.rows = this.setRowsFromSteps(this.steps);
             this.frameworkRepository.getSummary().then(function (r) {
                 _this.summary = r;
                 _this.sectionOne = _this.summary.rows[0].sections[0];
@@ -1810,27 +2104,13 @@ var aif;
             }
             return prefix + color;
         };
-        FrameworkSummaryCtrl.prototype.getWidthClass = function (group, inside) {
-            if (group.steps.length == 2) {
-                return "col-md-6";
-            }
-            if (inside)
-                return "col-md-12";
-            return "col-md-3";
-        };
-        FrameworkSummaryCtrl.prototype.setRowsFromSteps = function (steps) {
-            var rowObj = steps.reduce(function (grps, s) {
-                (grps[s["row"]] = grps[s["row"]] || []).push(s);
-                return grps;
-            }, {});
-            var rowCount = Math.max.apply(Math, steps.map(function (s) { return s.row; }));
-            var rows = [];
-            for (var i = 0; i < rowCount; i++) {
-                var rowArray = rowObj[i + 1];
-                var row = new aif.WorkflowRow(rowArray);
-                rows.push(row);
-            }
-            return rows;
+        FrameworkSummaryCtrl.prototype.getWidthClass = function (steps, totalSize, inside) {
+            if (totalSize === void 0) { totalSize = 1; }
+            if (inside === void 0) { inside = false; }
+            var unit = 12 / totalSize;
+            if (!inside)
+                unit = unit * steps;
+            return "col-md-" + unit.toString();
         };
         return FrameworkSummaryCtrl;
     }());
@@ -1839,6 +2119,106 @@ var aif;
         "viewService"
     ];
     aif.FrameworkSummaryCtrl = FrameworkSummaryCtrl;
+})(aif || (aif = {}));
+var aif;
+(function (aif) {
+    'use strict';
+    var Empty = (function () {
+        function Empty() {
+        }
+        Empty.prototype.isEmpty = function () {
+            return true;
+        };
+        return Empty;
+    }());
+    aif.Empty = Empty;
+    var InputCell = (function () {
+        function InputCell(colSpan, cellType) {
+            if (colSpan === void 0) { colSpan = 1; }
+            this.colSpan = colSpan;
+            this.cellType = cellType;
+        }
+        InputCell.prototype.isInput = function () {
+            return this.cellType == aif.AifInputCellType.Input;
+        };
+        InputCell.prototype.isInfo = function () {
+            return this.cellType == aif.AifInputCellType.Info;
+        };
+        InputCell.prototype.isEmpty = function () {
+            return this.cellType == aif.AifInputCellType.Empty;
+        };
+        return InputCell;
+    }());
+    aif.InputCell = InputCell;
+    var InputRow = (function () {
+        function InputRow() {
+            this.cells = [];
+        }
+        InputRow.prototype.isEmpty = function () {
+            return this.cells.length == 0;
+        };
+        return InputRow;
+    }());
+    aif.InputRow = InputRow;
+    var InputGridCtrl = (function () {
+        function InputGridCtrl($scope, $sce, vs) {
+            this.$scope = $scope;
+            this.$sce = $sce;
+            this.vs = vs;
+            this.rows = [];
+            this.infoText = null;
+            this.init();
+        }
+        InputGridCtrl.prototype.getColorClass = function (prefix) {
+            return prefix + "-" + this.step.baseColor + " ";
+        };
+        InputGridCtrl.prototype.showInfo = function (input) {
+            this.infoText = this.$sce.trustAsHtml(input.info);
+        };
+        InputGridCtrl.prototype.close = function () {
+            this.vs.resetView();
+        };
+        InputGridCtrl.prototype.init = function () {
+            var _this = this;
+            this.infoText = null;
+            if (this.step) {
+                this.step.inputs.forEach(function (i) {
+                    if (i.values == null || i.values.length == 0) {
+                        i.values = [];
+                        for (var j = 0; j < i.valueCount; j++) {
+                            if (i.inputStyle === aif.AifStepInputStyle.KeyedValues) {
+                                i.values.push(new aif.AifKeyPairInputValue("", ""));
+                            }
+                            else {
+                                i.values.push(new aif.AifStringInputValue("", i.inputStyle === aif.AifStepInputStyle.NumberedValues));
+                            }
+                        }
+                    }
+                });
+                var _loop_1 = function (i) {
+                    var row = new InputRow();
+                    if (i == this_1.step.row) {
+                        this_1.step.cellOrder.forEach(function (o) {
+                            if (o === aif.AifInputCellType.Input) {
+                                row.cells.push(new InputCell(_this.step.colSpan, o));
+                            }
+                            else {
+                                row.cells.push(new InputCell(1, o));
+                            }
+                        });
+                    }
+                    this_1.rows.push(row);
+                };
+                var this_1 = this;
+                for (var i = 1; i <= this.step.row; i++) {
+                    _loop_1(i);
+                }
+            }
+        };
+        return InputGridCtrl;
+    }());
+    InputGridCtrl.$inject = ["$scope", '$sce', "viewService"];
+    aif.InputGridCtrl = InputGridCtrl;
 })(aif || (aif = {}));
 var aif;
 (function (aif) {
@@ -1891,6 +2271,9 @@ var aif;
                 var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
                 this.userRepository.setExistingFramework(selected.id).then(function (s) {
                     if (s) {
+                        _this.userRepository.save().then(function (s) {
+                            console.log(s.success);
+                        });
                         _this.vs.resetView();
                     }
                 });
@@ -1906,7 +2289,9 @@ var aif;
             }
         };
         SaveAsCtrl.prototype.frameworkIsSelected = function () {
-            return this.user.frameworks.some(function (f) { return f.selected; });
+            return this.user.frameworks.some(function (f) {
+                return f.selected;
+            });
         };
         return SaveAsCtrl;
     }());
@@ -2356,6 +2741,7 @@ var aif;
 /// <reference path="controllers/InputTileCtrl.ts" />
 /// <reference path="controllers/CreateFrameworkCtrl.ts" />
 /// <reference path="controllers/FrameworkSummaryCtrl.ts" />
+/// <reference path="controllers/InputGridCtrl.ts" />
 /// <reference path="controllers/SaveAsCtrl.ts" />
 /// <reference path="controllers/AppCtrl.ts" />
 /// <reference path="controllers/AccountViewCtrl.ts" />
@@ -2385,8 +2771,9 @@ var aif;
         .controller('registerCtrl', aif_1.RegisterCtrl)
         .controller('resetPasswordCtrl', aif_1.ResetPasswordCtrl)
         .controller('frameworkSummaryCtrl', aif_1.FrameworkSummaryCtrl)
-        .controller('frameworkSummaryCtrl', aif_1.UserScreensCtrl)
+        .controller('userScreensCtrl', aif_1.UserScreensCtrl)
         .controller('listInputTileCtrl', aif_1.ListInputTileCtrl)
+        .controller('inputGridCtrl', aif_1.InputGridCtrl)
         .directive('aifLoginScreen', aif_1.AifLoginScreen.factory())
         .directive('aifAccountScreen', aif_1.AifAccountScreen.factory())
         .directive('aifCreateFwScreen', aif_1.AifCreateFwScreen.factory())
@@ -2396,6 +2783,7 @@ var aif;
         .directive('aifFrameworkSummary', aif_1.AifFrameworkSummary.factory())
         .directive('aifListInputTile', aif_1.AifListInputTile.factory())
         .directive('aifUserScreens', aif_1.AifUserScreens.factory())
+        .directive('aifInputGrid', aif_1.AifInputGrid.factory())
         .config(['$httpProvider', function (_$httpProvider) {
             _$httpProvider.interceptors.push(aif_1.AifHttpInterceptor.factory());
         }]);

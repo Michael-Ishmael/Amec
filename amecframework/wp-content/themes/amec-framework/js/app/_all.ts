@@ -21,6 +21,7 @@
 /// <reference path="controllers/InputTileCtrl.ts" />
 /// <reference path="controllers/CreateFrameworkCtrl.ts" />
 /// <reference path="controllers/FrameworkSummaryCtrl.ts" />
+/// <reference path="controllers/InputGridCtrl.ts" />
 /// <reference path="controllers/SaveAsCtrl.ts" />
 /// <reference path="controllers/AppCtrl.ts" />
 /// <reference path="controllers/AccountViewCtrl.ts" />

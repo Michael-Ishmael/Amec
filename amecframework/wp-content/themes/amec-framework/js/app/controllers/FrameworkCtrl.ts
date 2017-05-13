@@ -8,7 +8,7 @@ module aif {
     public editView: AifFrameworkEditView;
     public rows: WorkflowRow[];
     public editMode: boolean = false;
-    public editStep: WorkflowStep = null;
+    public editStep: AifFrameworkStep = null;
     public infoCell: WorkflowInfoCell = null;
 
     public static $inject = ["$window",
@@ -16,7 +16,8 @@ module aif {
       "viewService"
     ];
 
-    constructor(private $window:ng.IWindowService, private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
+    constructor(private $window:ng.IWindowService,
+                private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
       this.init();
 
     }
@@ -29,20 +30,20 @@ module aif {
       return prefix + "-" + step.color + " ";
     }
 
-    public handleStepClick(step:WorkflowStep):void{
-      if(!step.isSubmit){
-        this.switchToEditMode(step);
+    public handleStepClick(stepIndex:number):void{
+      let matches = this.editView.steps.filter(s => s.stepIndex === stepIndex);
+      if(matches.length){
+        this.switchToEditMode(matches[0])
       }
-      //submit
+
       return
     }
 
 
-    private switchToEditMode(step:WorkflowStep):void{
-      this.vs.showEdit();
+    private switchToEditMode(step:AifFrameworkStep):void{
       this.editMode = true;
-      step.showInput = true;
       this.editStep = step;
+      this.vs.showEdit();
     }
 
     public isInSameStep(scp, arg2): boolean {
@@ -53,12 +54,6 @@ module aif {
     public clearEditMode():void {
       this.vs.resetView();
       this.editMode = false;
-      this.editStep.showInput = false;
-      this.editStep.inputRow.forEach(c => {
-        if(c.cellType === WorkflowCellType.Info) {
-          let i = c as WorkflowInfoCell;
-          i.visible =false;
-        }});
       this.editStep = null;
     }
 

@@ -30,8 +30,7 @@ module aif {
     }
 
     private init(): void {
-      this.steps = this.frameworkRepository.get();
-      this.rows = this.setRowsFromSteps(this.steps);
+
       this.frameworkRepository.getSummary().then(
           r => {
             this.summary = r;
@@ -50,31 +49,14 @@ module aif {
       return prefix + color;
     }
 
-    public getWidthClass(group:AifSummaryGroup, inside:boolean):string {
+    public getWidthClass(steps:number, totalSize:number = 1, inside:boolean = false):string {
 
-      if(group.steps.length == 2){
-        return "col-md-6";
-      }
-      if(inside) return "col-md-12";
-      return "col-md-3";
+      let unit = 12 / totalSize;
+      if(!inside) unit = unit * steps;
+
+      return "col-md-" + unit.toString();
     }
 
-    private setRowsFromSteps(steps: IWorkflowStep[]):WorkflowRow[] {
-      let rowObj = steps.reduce(function(grps, s){
-        (grps[s["row"]] = grps[s["row"]] || []).push(s);
-        return grps;
-      }, {});
-
-      let rowCount = Math.max.apply(Math, steps.map(function(s){return s.row;}));
-      let rows = [];
-
-      for (let i = 0; i < rowCount; i++) {
-        let rowArray = rowObj[i + 1];
-        let row = new WorkflowRow(rowArray);
-        rows.push(row);
-      }
-      return rows;
-    }
 
 
   }
