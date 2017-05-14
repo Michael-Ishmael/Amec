@@ -1031,13 +1031,14 @@ var aif;
         UserRepository.prototype.get = function () {
             var loggedIn = this.$cookies.get("aifloggedin");
             if (!loggedIn) {
-                this.getUser(); //Attempt a get user anyway as might have cleared cookie
+                this.getUser(true); //Attempt a get user anyway as might have cleared cookie
                 return this.$q.when(null);
             }
             return this.getUser();
         };
-        UserRepository.prototype.getUser = function () {
+        UserRepository.prototype.getUser = function (broadcastLogin) {
             var _this = this;
+            if (broadcastLogin === void 0) { broadcastLogin = false; }
             var regUrl = ajax_auth_object.ajaxurl;
             var restUrl = ajax_auth_object.resturl + "aif/v1/userframeworks";
             var data = {
@@ -1057,6 +1058,8 @@ var aif;
                         _this.$cookies.remove("justloggedin");
                     }
                     _this.currentUser = user;
+                    if (broadcastLogin)
+                        _this.$rootScope.$broadcast("user:loggedIn", user);
                     currentFrameworkId = _this.getFrameworkCookie() || -1;
                     return _this.$http.get(restUrl);
                 }
@@ -1226,13 +1229,12 @@ var aif;
              }, 200);*/
         };
         UserRepository.prototype.storeUser = function () {
-            var userObj = {
-                email: this.currentUser.email,
-                currentFrameworkId: null
-            };
-            if (this.currentUser.currentFramework)
-                userObj.currentFrameworkId = this.currentUser.currentFramework.id;
-            this.$cookies.putObject("aifUser", userObj);
+            // let userObj = {
+            //     email: this.currentUser.email,
+            //     currentFrameworkId: null
+            // };
+            // if (this.currentUser.currentFramework) userObj.currentFrameworkId = this.currentUser.currentFramework.id;
+            // this.$cookies.putObject("aifUser", userObj);
         };
         UserRepository.prototype.createNewFramework = function (name, description) {
             var _this = this;
@@ -1291,7 +1293,6 @@ var aif;
                     return this.save().then(function (s) {
                         if (s.success) {
                             _this.$rootScope.$broadcast("framework:frameworkSwitched", framework_1);
-                            _this.storeUser();
                             return new aif.SaveFrameworkResult(true, framework_1, "Framework selected");
                         }
                         else {
@@ -1374,7 +1375,6 @@ var aif;
                         if (_this.frameworkService)
                             _this.frameworkService.onFrameworkLoaded();
                         _this.$rootScope.$broadcast("framework:frameworkUpdated", framework_2);
-                        _this.storeUser();
                         return new aif.SaveFrameworkResult(true, framework_2, "Framework selected");
                     });
                 }

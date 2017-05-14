@@ -108,7 +108,7 @@ module aif {
 
             let loggedIn = this.$cookies.get("aifloggedin");
             if(!loggedIn){
-                this.getUser(); //Attempt a get user anyway as might have cleared cookie
+                this.getUser(true); //Attempt a get user anyway as might have cleared cookie
                 return this.$q.when(null);
             }
 
@@ -116,7 +116,7 @@ module aif {
 
         }
 
-        private getUser():ng.IPromise<AifUser> {
+        private getUser(broadcastLogin:boolean = false):ng.IPromise<AifUser> {
 
             let regUrl: string = ajax_auth_object.ajaxurl;
             let restUrl: string = ajax_auth_object.resturl + "aif/v1/userframeworks";
@@ -146,6 +146,7 @@ module aif {
                         this.$cookies.remove("justloggedin");
                     }
                     this.currentUser = user;
+                    if(broadcastLogin) this.$rootScope.$broadcast("user:loggedIn", user);
                     currentFrameworkId = this.getFrameworkCookie() || -1;
                     return this.$http.get(restUrl);
                 }
@@ -360,12 +361,12 @@ module aif {
         }
 
         private storeUser() {
-            let userObj = {
-                email: this.currentUser.email,
-                currentFrameworkId: null
-            };
-            if (this.currentUser.currentFramework) userObj.currentFrameworkId = this.currentUser.currentFramework.id;
-            this.$cookies.putObject("aifUser", userObj);
+            // let userObj = {
+            //     email: this.currentUser.email,
+            //     currentFrameworkId: null
+            // };
+            // if (this.currentUser.currentFramework) userObj.currentFrameworkId = this.currentUser.currentFramework.id;
+            // this.$cookies.putObject("aifUser", userObj);
         }
 
 
@@ -435,7 +436,6 @@ module aif {
                         if(s.success){
 
                             this.$rootScope.$broadcast("framework:frameworkSwitched", framework);
-                            this.storeUser();
                             return new SaveFrameworkResult(true, framework, "Framework selected")
                         } else {
                             return s;
@@ -528,7 +528,6 @@ module aif {
                             this.currentUserFramework = new AifUserFramework(id, data);
                             if(this.frameworkService) this.frameworkService.onFrameworkLoaded();
                             this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-                            this.storeUser();
                             return new SaveFrameworkResult(true, framework, "Framework selected")
                         });
 
