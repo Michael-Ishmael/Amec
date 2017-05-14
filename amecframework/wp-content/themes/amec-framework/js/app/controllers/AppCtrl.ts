@@ -60,6 +60,12 @@ module aif {
         this.currentUser = user;
         if(this.currentUser.currentFramework){
           this.setCurrentFramework(this.currentUser.currentFramework);
+        } else {
+          if(user.hasExistingFrameworks())
+            this.vs.showAccount(AccountDisplayRoute.FromLogin);
+          else {
+            this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, false);
+          }
         }
       } else {
         this.currentUser = null;

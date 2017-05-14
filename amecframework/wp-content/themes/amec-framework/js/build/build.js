@@ -1058,10 +1058,7 @@ var aif;
                         _this.$cookies.remove("justloggedin");
                     }
                     _this.currentUser = user;
-                    if (broadcastLogin) {
-                        _this.$cookies.put("aifloggedin", "true");
-                        _this.$rootScope.$broadcast("user:loggedIn", user);
-                    }
+                    _this.$cookies.put("aifloggedin", "true");
                     currentFrameworkId = _this.getFrameworkCookie() || -1;
                     return _this.$http.get(restUrl);
                 }
@@ -1076,6 +1073,9 @@ var aif;
                     return _this.loadFramework(currentFrameworkId);
                 return null;
             }).then(function (response) {
+                if (broadcastLogin) {
+                    _this.$rootScope.$broadcast("user:loggedIn", user);
+                }
                 return user;
             });
         };
@@ -2516,6 +2516,13 @@ var aif;
                 this.currentUser = user;
                 if (this.currentUser.currentFramework) {
                     this.setCurrentFramework(this.currentUser.currentFramework);
+                }
+                else {
+                    if (user.hasExistingFrameworks())
+                        this.vs.showAccount(aif.AccountDisplayRoute.FromLogin);
+                    else {
+                        this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, false);
+                    }
                 }
             }
             else {
