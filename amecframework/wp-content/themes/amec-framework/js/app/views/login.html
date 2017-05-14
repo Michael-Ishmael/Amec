@@ -43,6 +43,14 @@
                              ng-show="form.$submitted || form.uPassword.$touched">
                             <span ng-show="form.uPassword.$error.required">Tell use your password.</span>
                         </div>
+
+                        <div class="form-validation-error"  ng-show="lc.loginFailure">
+                            <span>{{ lc.loginMessage }}</span>
+                        </div>
+
+                        <div ng-if="lc.loginMessage && !lc.loginFailure">
+                            {{ lc.loginMessage }}
+                        </div>
                     </div>
 
 

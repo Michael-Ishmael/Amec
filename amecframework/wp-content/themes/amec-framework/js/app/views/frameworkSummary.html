@@ -14,14 +14,13 @@
                 <div class="row low-pad-row">
 
                     <div class="low-pad-cell" ng-repeat="group in fs.sectionOne.groups"
-                           ng-class="fs.getWidthClass(group.steps.length, 3)" >
+                           ng-class="fs.getWidthClass(group.steps.length, 4)" >
 
                         <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
                         <div class="row low-pad-row">
                             <div class="low-pad-cell" ng-repeat="step in group.steps" ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
                                 <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
-                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    {{ step.html() }}
+                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
                                 </div>
                             </div>
                         </div>
@@ -30,6 +29,12 @@
             </div>
 
         </div>
+
+
+
+    </div>
+
+    <div class="summary-row">
 
         <div class="summary-section imp">
             <div class="section-header">
@@ -47,14 +52,13 @@
                         <div class="row low-pad-row">
                             <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
                                 <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.summaryHeading }}</h5>
-                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    {{ step.html() }}
+                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
                                 </div>
                             </div>
                             <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
                                 <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
                                 <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                  Empty
+                                    ...
                                 </div>
                             </div>
 
@@ -64,11 +68,6 @@
             </div>
 
         </div>
-
-    </div>
-
-    <div class="summary-row">
-
 
 
         <div class="summary-section mes">
@@ -87,15 +86,14 @@
                         <div class="row low-pad-row">
                             <div class="low-pad-cell" ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)" ng-repeat="step in group.steps">
                                 <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
-                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    {{ step.html() }}
+                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
                                 </div>
                             </div>
 
                             <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
                                 <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
                                 <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    Empty
+                                    ...
                                 </div>
                             </div>
 

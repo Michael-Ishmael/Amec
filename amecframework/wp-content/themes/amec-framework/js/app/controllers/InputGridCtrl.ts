@@ -75,21 +75,6 @@ module aif {
             this.infoText = null;
             if (this.step) {
 
-                this.step.inputs.forEach(i => {
-                    if (i.values == null || i.values.length == 0) {
-                        i.values = [];
-
-                        for (let j = 0; j < i.valueCount; j++) {
-                            if (i.inputStyle === AifStepInputStyle.KeyedValues) {
-                                i.values.push(new AifKeyPairInputValue("", ""));
-                            } else {
-                                i.values.push(new AifStringInputValue("", i.inputStyle === AifStepInputStyle.NumberedValues));
-                            }
-                        }
-
-                    }
-                });
-
                 for (let i = 1; i <= this.step.row; i++) {
 
                     let row = new InputRow();

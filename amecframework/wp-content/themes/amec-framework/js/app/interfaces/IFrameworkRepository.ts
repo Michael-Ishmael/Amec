@@ -4,8 +4,8 @@ module aif {
 
   export interface IFrameworkRepository {
 
-    getEditView (frameworkId: number): AifFrameworkEditView;
-
+    getEditView (): AifFrameworkEditView;
+    onFrameworkLoaded():void;
 
   }
 

@@ -2469,13 +2469,11 @@
       margin-bottom: 12px; }
     #aif-app #frameworkSummary .summary-section {
       position: relative; }
-      #aif-app #frameworkSummary .summary-section.prep {
-        width: 800px;
-        display: inline-block; }
       #aif-app #frameworkSummary .summary-section.imp {
-        width: 290px;
-        display: inline-block;
-        margin-left: 15px; }
+        width: 230px;
+        float: left; }
+      #aif-app #frameworkSummary .summary-section.mes {
+        margin-left: 245px; }
     #aif-app #frameworkSummary .low-pad-row {
       margin-left: -3px;
       margin-right: -3px; }
@@ -2490,10 +2488,12 @@
       background-repeat: no-repeat;
       background-position-y: 50%; }
     #aif-app #frameworkSummary .imp .section-header {
-      height: 236px;
+      height: 582px;
       background-image: url("../images/ss-header-2.png");
       background-repeat: no-repeat;
       background-position-y: 50%; }
+    #aif-app #frameworkSummary .imp .summary-box {
+      height: 530px; }
     #aif-app #frameworkSummary .mes .section-header {
       height: 582px;
       background-image: url("../images/ss-header-3.png");
@@ -2526,6 +2526,9 @@
         min-height: 184px; }
         #aif-app #frameworkSummary .section-content .summary-box.first-row {
           max-height: 200px; }
+        #aif-app #frameworkSummary .section-content .summary-box .key {
+          margin-right: 8px;
+          font-weight: bold; }
   #aif-app .row {
     margin-bottom: 0;
     clear: none; }

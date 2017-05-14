@@ -34,19 +34,19 @@
     position: relative;
 
     &.prep {
-      width: 800px;
-      display: inline-block;
+
     }
 
     &.imp {
-      width: 290px;
-      display: inline-block;
-      margin-left: 15px;
+      width: 230px;
+      float: left;
+
     }
 
     &.mes {
-
-
+      //width: 800px;
+      //display: inline-block;
+      margin-left: 245px;
     }
 
   }
@@ -79,12 +79,15 @@
 
   .imp {
     .section-header{
-      height: 236px;
+      height: 582px;
       background-image: url('../images/ss-header-2.png');
       background-repeat: no-repeat;
       background-position-y: 50%;
     }
 
+    .summary-box {
+      height: 530px;
+    }
 
   }
 
@@ -140,6 +143,11 @@
 
       &.first-row {
         max-height: 200px;
+      }
+
+      .key {
+        margin-right: 8px;
+        font-weight: bold;
       }
 
     }

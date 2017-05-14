@@ -79,7 +79,7 @@ module aif {
 
         let selected = this.user.frameworks.filter(f => f.selected)[0];
 
-        this.userRepository.setExistingFramework(selected.id).then(
+        this.userRepository.loadFramework(selected.id).then(
           (r) => {
             if (r.success) {
               this.closeView();

@@ -21,7 +21,7 @@
 
                             <div class="choose-fw-tile"
                                  ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"
-                                 ng-click="sa.toggleSelectFramework(fw)"
+                                 ng-click="sa.selectFramework(sa.currentFramework)"
                             >
                                 <h5> {{ sa.currentFramework.name }} </h5>
                                 <p> {{ sa.currentFramework.description | limitTo:100 }} <span
@@ -47,7 +47,7 @@
 
                         <div class="choose-fw-tile"
                              ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]"
-                             ng-click="sa.toggleSelectFramework(fw)"
+                             ng-click="sa.selectFramework(fw)"
                         >
                             <h5> {{ fw.name }} </h5>
                             <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>

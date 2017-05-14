@@ -38,7 +38,7 @@ module aif {
             this.user = this.userRepository.currentUser;
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
-                this.toggleSelectFramework(this.currentFramework);
+                this.selectFramework(this.currentFramework);
                 this.altMessage = "Alternatively, s";
                 this.exInc = 1;
             }
@@ -61,7 +61,7 @@ module aif {
             if (this.user && this.frameworkIsSelected()) {
 
                 let selected = this.user.frameworks.filter(f => f.selected)[0];
-                this.userRepository.setExistingFramework(selected.id).then(s => {
+                this.userRepository.saveOverFramework(selected.id).then(s => {
                     if (s) {
                         this.userRepository.save().then(s => {
 
@@ -76,9 +76,13 @@ module aif {
 
         }
 
-        public toggleSelectFramework(framework: AifFramework) {
+        public showCreateFramework(){
+            this.vs.showCreateFramework(AccountDisplayRoute.FromSave, this.user.frameworks.length > 0);
+        }
+
+        public selectFramework(framework: AifFramework) {
             if (framework.selected) {
-                framework.selected = false;
+                return;
             } else {
                 this.user.frameworks.forEach(f => f.selected = false);
                 framework.selected = true;

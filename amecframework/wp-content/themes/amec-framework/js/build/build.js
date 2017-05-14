@@ -657,9 +657,6 @@ var aif;
             this.selected = false;
             this.flaggedDelete = false;
             this.current = false;
-            this.userFramework = null;
-            this.editView = null;
-            this.summaryView = null;
         }
         return AifFramework;
     }());
@@ -677,27 +674,38 @@ var aif;
             this.userData = userData;
             this.inputs = {};
         }
-        AifUserFramework.prototype.addInputOrEmpty = function (key, inputStyle) {
+        AifUserFramework.prototype.addInputOrEmpty = function (key, inputStyle, valueCount) {
+            var inputs = [];
             if (inputStyle == aif.AifStepInputStyle.KeyedValues) {
                 if (this.userData.inputs.hasOwnProperty(key)) {
-                    this.inputs[key] = this.userData.inputs[key].map(function (v) {
+                    inputs = this.userData.inputs[key].map(function (v) {
                         return new AifKeyPairInputValue(v.key, v.value);
                     });
                 }
-                else {
-                    this.inputs[key] = [];
+                for (var i = inputs.length; i < valueCount; i++) {
+                    inputs.push(new AifKeyPairInputValue(null, null));
                 }
             }
             else {
                 if (this.userData.inputs.hasOwnProperty(key)) {
-                    this.inputs[key] = this.userData.inputs[key].map(function (v) {
+                    inputs = this.userData.inputs[key].map(function (v) {
                         return new AifStringInputValue(v, inputStyle == aif.AifStepInputStyle.NumberedValues);
                     });
                 }
-                else {
-                    this.inputs[key] = [];
+                for (var i = inputs.length; i < valueCount; i++) {
+                    inputs.push(new AifStringInputValue(null, inputStyle == aif.AifStepInputStyle.NumberedValues));
                 }
             }
+            this.inputs[key] = inputs;
+        };
+        AifUserFramework.prototype.asJsonObj = function () {
+            var jInputs = {};
+            for (var prop in this.inputs) {
+                if (this.inputs.hasOwnProperty(prop)) {
+                    jInputs[prop] = this.inputs[prop].filter(function (v) { return v.hasValue(); }).map(function (v) { return v.asJsonObj(); });
+                }
+            }
+            return { inputs: jInputs };
         };
         return AifUserFramework;
     }());
@@ -772,12 +780,14 @@ var aif;
         AifStepInput.prototype.html = function () {
             var ht = "";
             if (this.values)
-                this.values.forEach(function (v) {
-                    var eht = v.asHtml();
-                    if (eht) {
-                        if (ht.length)
-                            ht += "<br>";
-                        ht += eht.trim();
+                this.values.forEach(function (v, i) {
+                    if (v.hasValue()) {
+                        var eht = v.asHtml(i + 1);
+                        if (eht) {
+                            if (ht.length)
+                                ht += "<br>";
+                            ht += eht.trim();
+                        }
                     }
                 });
             return ht.trim();
@@ -799,11 +809,20 @@ var aif;
         AifStringInputValue.prototype.isKeyedPair = function () {
             return false;
         };
-        AifStringInputValue.prototype.asHtml = function () {
-            return this.text;
+        AifStringInputValue.prototype.hasValue = function () {
+            return !!this.text;
         };
-        AifStringInputValue.prototype.asJson = function () {
-            return JSON.stringify(this.text);
+        AifStringInputValue.prototype.asHtml = function (index) {
+            if (index === void 0) { index = -1; }
+            if (this.numbered && index > -1) {
+                return "<span class=\"key\">" + index + "</span><span class=\"value\">" + this.text + "</span>";
+            }
+            else {
+                return "<p class='free-text'>" + this.text + "</p>";
+            }
+        };
+        AifStringInputValue.prototype.asJsonObj = function () {
+            return this.text;
         };
         return AifStringInputValue;
     }());
@@ -822,14 +841,17 @@ var aif;
         AifKeyPairInputValue.prototype.isKeyedPair = function () {
             return true;
         };
-        AifKeyPairInputValue.prototype.asHtml = function () {
-            return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>";
+        AifKeyPairInputValue.prototype.hasValue = function () {
+            return (!!this.text && !!this.key);
         };
-        AifKeyPairInputValue.prototype.asJson = function () {
-            return JSON.stringify({
+        AifKeyPairInputValue.prototype.asHtml = function () {
+            return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.text + "</span>";
+        };
+        AifKeyPairInputValue.prototype.asJsonObj = function () {
+            return {
                 key: this.key,
                 text: this.text
-            });
+            };
         };
         return AifKeyPairInputValue;
     }());
@@ -977,15 +999,25 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
+    aif.EMPTY_FRAMEWORK_ID = -1;
     var UserRepository = (function () {
-        function UserRepository($timeout, $rootScope, $cookies, $http) {
+        function UserRepository($timeout, $rootScope, $cookies, $http, $q) {
             this.$timeout = $timeout;
             this.$rootScope = $rootScope;
             this.$cookies = $cookies;
             this.$http = $http;
+            this.$q = $q;
             //For debug
             this.startLoggedIn = false;
+            this.currentUserFramework = this.getEmptyUserFramework();
         }
+        UserRepository.prototype.getEmptyUserFramework = function () {
+            var emptyData = { inputs: {} };
+            return new aif.AifUserFramework(aif.EMPTY_FRAMEWORK_ID, emptyData);
+        };
+        UserRepository.prototype.setFrameworkService = function (service) {
+            this.frameworkService = service;
+        };
         UserRepository.prototype.get = function () {
             var _this = this;
             var regUrl = ajax_auth_object.ajaxurl;
@@ -1012,7 +1044,9 @@ var aif;
             }, function (e) {
                 return null;
             }).then(function (response) {
-                user.frameworks = response.data.map(function (f) { return new aif.AifFramework(f.id, f.title, f.excerpt); });
+                if (user) {
+                    user.frameworks = response.data.map(function (f) { return new aif.AifFramework(f.id, f.title, f.excerpt); });
+                }
                 return user;
             });
             // return this.$timeout(() => {
@@ -1041,30 +1075,30 @@ var aif;
         };
         UserRepository.prototype.save = function () {
             var _this = this;
-            return this.$timeout(function () {
-                if (!_this.currentUser) {
-                    return new aif.SaveFrameworkResult(false, null, "User not logged in");
-                }
-                if (_this.currentUser.currentFramework) {
-                    var regUrl = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/';
-                    var data = {
-                        title: name,
-                        content: JSON.stringify(_this.currentUser.currentFramework.userFramework),
-                        author: _this.currentUser.id,
-                        excerpt: _this.currentUser.currentFramework.description,
-                        type: "aif_workflow",
-                        status: "publish"
-                    };
-                    return _this.$http.post(regUrl, JSON.stringify(data)).then(function (response) {
-                        var postId = response.data.id;
-                        var framework = _this.currentUser.currentFramework;
-                        return new aif.SaveFrameworkResult(true, framework, null);
-                    }, function (e) {
-                        return new aif.SaveFrameworkResult(false, null, e.statusText);
-                    });
-                }
-                return new aif.SaveFrameworkResult(true, _this.currentUser.currentFramework, null);
-            }, 200);
+            if (!this.currentUser) {
+                return this.$q.when(new aif.SaveFrameworkResult(false, null, "User not logged in"));
+            }
+            if (!this.currentUser.currentFramework) {
+                return this.$q.when(new aif.SaveFrameworkResult(false, null, "No framework to save"));
+            }
+            else {
+                var regUrl = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/' + this.currentUser.currentFramework.id;
+                var data = {
+                    title: this.currentUser.currentFramework.name,
+                    content: JSON.stringify(this.currentUserFramework.asJsonObj()),
+                    author: this.currentUser.id,
+                    excerpt: this.currentUser.currentFramework.description,
+                    type: "aif_workflow",
+                    status: "publish"
+                };
+                return this.$http.post(regUrl, JSON.stringify(data)).then(function (response) {
+                    var postId = response.data.id;
+                    var framework = _this.currentUser.currentFramework;
+                    return new aif.SaveFrameworkResult(true, framework, null);
+                }, function (e) {
+                    return new aif.SaveFrameworkResult(false, null, e.statusText);
+                });
+            }
         };
         UserRepository.prototype.registerNewUser = function (user) {
             var _this = this;
@@ -1096,23 +1130,23 @@ var aif;
                 return new aif.LoginResult(false, null, e.statusText);
             });
             /*      return this.$timeout(() => {
-            
-                    let newUser = new AifUser(
-                      user.email,
-                      user.firstName,
-                      user.lastName,
-                      user.organisation,
-                      user.jobTitle,
-                      user.language,
-                      user.contactNumber
-                    );
-            
-                    this.currentUser = newUser;
-                    this.$rootScope.$broadcast("user:loggedIn", newUser);
-                    this.storeUser();
-                    return new LoginResult(true, newUser, null);
-            
-                  });*/
+
+             let newUser = new AifUser(
+             user.email,
+             user.firstName,
+             user.lastName,
+             user.organisation,
+             user.jobTitle,
+             user.language,
+             user.contactNumber
+             );
+
+             this.currentUser = newUser;
+             this.$rootScope.$broadcast("user:loggedIn", newUser);
+             this.storeUser();
+             return new LoginResult(true, newUser, null);
+
+             });*/
         };
         UserRepository.prototype.logout = function () {
             var _this = this;
@@ -1145,34 +1179,41 @@ var aif;
                 security: ajax_auth_object.login_nonce
             };
             return this.$http.post(regUrl, regUser).then(function (r) {
-                if (r.data && r.data.loggedIn) {
-                    var newUser = new aif.AifUser(email, r.data.displayName, null, null, null, null, null);
-                    _this.currentUser = newUser;
-                    ajax_auth_object.logout_nonce = r.data.logOutNonce;
-                    _this.$cookies.put("justloggedin", "true");
-                    _this.$rootScope.$broadcast("user:loggedIn", newUser);
-                    return new aif.LoginResult(true, newUser, null);
+                if (r.data) {
+                    if (r.data.loggedIn) {
+                        var newUser = new aif.AifUser(email, r.data.displayName, null, null, null, null, null);
+                        _this.currentUser = newUser;
+                        ajax_auth_object.logout_nonce = r.data.logOutNonce;
+                        _this.$cookies.put("justloggedin", "true");
+                        _this.$rootScope.$broadcast("user:loggedIn", newUser);
+                        return new aif.LoginResult(true, newUser, null);
+                    }
+                    else {
+                        if (r.data.message.toLowerCase().indexOf('wrong username or password') > -1) {
+                            return new aif.LoginResult(false, null, r.data.message);
+                        }
+                    }
                 }
-                return new aif.LoginResult(false, null, r.data.message);
+                return new aif.LoginResult(false, null, null);
             }, function (e) {
-                return new aif.LoginResult(false, null, e.statusText);
+                return new aif.LoginResult(false, null, null);
             });
             /*      return this.$timeout(() => {
-                    let matches = users.filter(u => u.email == email);
-                    if (matches.length) {
-                      let user = AifUser.createFromData(matches[0]);
-                      if (user.email === "mail@michaelishmael.com") {
-                        user.frameworks = userFrameworks;
-                      }
-                      this.currentUser = user;
-                      this.$rootScope.$broadcast("user:loggedIn", user);
-                      this.storeUser();
-                      return new LoginResult(true, user, null);
-                    } else {
-                      return new LoginResult(false, null, "Login failed")
-                    }
-            
-                  }, 200);*/
+             let matches = users.filter(u => u.email == email);
+             if (matches.length) {
+             let user = AifUser.createFromData(matches[0]);
+             if (user.email === "mail@michaelishmael.com") {
+             user.frameworks = userFrameworks;
+             }
+             this.currentUser = user;
+             this.$rootScope.$broadcast("user:loggedIn", user);
+             this.storeUser();
+             return new LoginResult(true, user, null);
+             } else {
+             return new LoginResult(false, null, "Login failed")
+             }
+
+             }, 200);*/
         };
         UserRepository.prototype.storeUser = function () {
             var userObj = {
@@ -1189,7 +1230,7 @@ var aif;
             var regUrl = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/';
             var data = {
                 title: name,
-                content: description,
+                content: JSON.stringify({ inputs: {} }),
                 author: this.currentUser.id,
                 excerpt: description,
                 type: "aif_workflow",
@@ -1198,81 +1239,164 @@ var aif;
             return this.$http.post(regUrl, JSON.stringify(data)).then(function (response) {
                 var postId = response.data.id;
                 var framework = new aif.AifFramework(postId, name, description);
+                _this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                framework.current = true;
                 _this.currentUser.frameworks.push(framework);
+                _this.currentUser.currentFramework = framework;
+                _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
                 return new aif.SaveFrameworkResult(true, framework, null);
             }, function (e) {
                 return new aif.SaveFrameworkResult(false, null, e.statusText);
             });
             /*
-                  return this.$timeout(() => {
-                    if (!hasUser) return new SaveFrameworkResult(false, null, "User not logged in");
-            
-                    let newId = this.currentUser.frameworks == null ? 1 : this.currentUser.frameworks.length + 1;
-                    let framework = new AifFramework(newId, name, description);
-                    this.currentUser.frameworks.forEach(f => f.current = false);
-                    framework.current = true;
-                    this.currentUser.addNewFramework(framework);
-                    this.storeUser();
-                    this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-                    return new SaveFrameworkResult(true, framework, "Framework created")
-            
-                  }, 200);*/
+             return this.$timeout(() => {
+             if (!hasUser) return new SaveFrameworkResult(false, null, "User not logged in");
+
+             let newId = this.currentUser.frameworks == null ? 1 : this.currentUser.frameworks.length + 1;
+             let framework = new AifFramework(newId, name, description);
+             this.currentUser.frameworks.forEach(f => f.current = false);
+             framework.current = true;
+             this.currentUser.addNewFramework(framework);
+             this.storeUser();
+             this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+             return new SaveFrameworkResult(true, framework, "Framework created")
+
+             }, 200);*/
         };
-        UserRepository.prototype.setExistingFramework = function (id) {
+        UserRepository.prototype.loadUserFramework = function (id, data) {
+            var userFramework = new aif.AifUserFramework(id, data);
+        };
+        UserRepository.prototype.saveOverFramework = function (id) {
             var _this = this;
             var hasUser = !!this.currentUser;
-            return this.$timeout(function () {
-                if (!hasUser)
-                    return new aif.SaveFrameworkResult(false, null, "User not logged in");
-                if (_this.currentUser.frameworks == null)
-                    return new aif.SaveFrameworkResult(false, null, "User has no frameworks");
-                var matches = _this.currentUser.frameworks.filter(function (f) { return f.id === id; });
+            if (!hasUser) {
+                return this.$q.when(new aif.SaveFrameworkResult(false, null, "User not logged in"));
+            }
+            else {
+                var matches = this.currentUser.frameworks.filter(function (f) { return f.id === id; });
                 if (matches.length) {
-                    var framework = matches[0];
-                    _this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
-                    framework.current = true;
-                    //TODO: Save framework here
-                    _this.currentUser.currentFramework = framework;
-                    _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-                    _this.storeUser();
-                    return new aif.SaveFrameworkResult(true, framework, "Framework selected");
+                    var framework_1 = matches[0];
+                    this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                    framework_1.current = true;
+                    this.currentUser.currentFramework = framework_1;
+                    return this.save().then(function (s) {
+                        if (s.success) {
+                            _this.$rootScope.$broadcast("framework:frameworkSwitched", framework_1);
+                            _this.storeUser();
+                            return new aif.SaveFrameworkResult(true, framework_1, "Framework selected");
+                        }
+                        else {
+                            return s;
+                        }
+                    }, function (e) {
+                        return new aif.SaveFrameworkResult(false, null, e.message);
+                    });
                 }
                 else {
-                    _this.currentUser.currentFramework = null;
-                    _this.$rootScope.$broadcast("framework:frameworkUpdated", null);
-                    return new aif.SaveFrameworkResult(false, null, "No matching frameworks found");
+                    this.currentUser.currentFramework = null;
+                    this.$rootScope.$broadcast("framework:frameworkUpdated", null);
+                    var result = new aif.SaveFrameworkResult(false, null, "No matching frameworks found");
+                    return this.$q.when(result);
                 }
-            }, 200);
+                /*
+                
+                 let restUrl: string = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
+                 return this.$http.get(restUrl)
+                 .then((response: ng.IHttpPromiseCallbackArg<IWpRestFrameworkResponse>) => {
+                
+                 let data:IAifUserFramework;
+                 try {
+                 data = JSON.parse(response.data.content_json);
+                 } catch(ex) {
+                 data = { "inputs" : {} }
+                 }
+                
+                 this.currentUserFramework = new AifUserFramework(id, data);
+                 if(this.frameworkService) this.frameworkService.onFrameworkLoaded();
+                 this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+                 this.storeUser();
+                 return new SaveFrameworkResult(true, framework, "Framework selected")
+                 });
+                * */
+            }
         };
-        UserRepository.prototype.deleteFramework = function (id) {
+        UserRepository.prototype.loadFramework = function (id) {
             var _this = this;
             var hasUser = !!this.currentUser;
-            return this.$timeout(function () {
-                if (!hasUser)
-                    return false;
-                if (_this.currentUser.frameworks == null)
-                    return false;
-                var foundIndex = -1;
-                var foundFramework = null;
-                _this.currentUser.frameworks.forEach(function (f, i) {
+            if (!hasUser) {
+                return this.$q.when(new aif.SaveFrameworkResult(false, null, "User not logged in"));
+            }
+            else {
+                var matches = this.currentUser.frameworks.filter(function (f) { return f.id === id; });
+                if (matches.length) {
+                    var framework_2 = matches[0];
+                    this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                    framework_2.current = true;
+                    this.currentUser.currentFramework = framework_2;
+                    var restUrl = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
+                    return this.$http.get(restUrl)
+                        .then(function (response) {
+                        var data;
+                        try {
+                            data = JSON.parse(response.data.content_json);
+                        }
+                        catch (ex) {
+                            data = { "inputs": {} };
+                        }
+                        _this.currentUserFramework = new aif.AifUserFramework(id, data);
+                        if (_this.frameworkService)
+                            _this.frameworkService.onFrameworkLoaded();
+                        _this.$rootScope.$broadcast("framework:frameworkUpdated", framework_2);
+                        _this.storeUser();
+                        return new aif.SaveFrameworkResult(true, framework_2, "Framework selected");
+                    });
+                }
+                else {
+                    this.currentUser.currentFramework = null;
+                    this.$rootScope.$broadcast("framework:frameworkUpdated", null);
+                    var result = new aif.SaveFrameworkResult(false, null, "No matching frameworks found");
+                    return this.$q.when(result);
+                }
+            }
+        };
+        UserRepository.prototype.deleteFramework = function (id) {
+            var hasUser = !!this.currentUser;
+            if (!hasUser) {
+                return this.$q.when(false);
+            }
+            else {
+                var foundIndex_1 = -1;
+                var foundFramework_1 = null;
+                this.currentUser.frameworks.forEach(function (f, i) {
                     if (f.id == id) {
-                        foundIndex = i;
-                        foundFramework = f;
+                        foundFramework_1 = f;
+                        foundIndex_1 = i;
                     }
                 });
-                if (foundIndex > -1) {
-                    if (_this.currentUser.currentFramework == foundFramework) {
-                        _this.currentUser.currentFramework = null;
-                        _this.$rootScope.$broadcast("framework:frameworkUpdated", null);
+                if (foundFramework_1) {
+                    if (this.currentUser.currentFramework == foundFramework_1) {
+                        this.currentUser.currentFramework = null;
+                        this.$rootScope.$broadcast("framework:frameworkUpdated", null);
                     }
-                    _this.currentUser.frameworks.splice(foundIndex, 1);
+                    this.currentUser.frameworks.splice(foundIndex_1, 1);
+                    var restUrl = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
+                    return this.$http.delete(restUrl)
+                        .then(function (response) {
+                        return true;
+                    }, function (e) {
+                        console.log(e.statusText);
+                        return false;
+                    });
                 }
-            }, 200);
+                else {
+                    return this.$q.when(false);
+                }
+            }
         };
         return UserRepository;
     }());
     //wp_lostpassword_url()
-    UserRepository.$inject = ["$timeout", "$rootScope", '$cookies', '$http'];
+    UserRepository.$inject = ["$timeout", "$rootScope", '$cookies', '$http', '$q'];
     aif.UserRepository = UserRepository;
     var users = [
         {
@@ -1295,51 +1419,51 @@ var aif;
         }
     ];
     /*
-      let userFrameworks: Array<AifFramework> = [
-        {
-          id: 1,
-          name: "Coca-cola spring campaign",
-          description: "New music promotion",
-          selected: false,
-          flaggedDelete: false,
-          current:false
-        },
-        {
-          id: 2,
-          name: "Sprite summer campaign",
-          description: "New basketball promotion",
-          selected: false,
-          flaggedDelete: false,
-          current: false
-        },
-        // {
-        //   id: 3,
-        //   name: "Fanta summer campaign",
-        //   description: "Renewed comedy promotion",
-        //   selected: false,
-        //   flaggedDelete: false,
-        //   current: false
-        // },
-        {
-          id: 4,
-          name: "Diet Coke summer campaign",
-          description: "Continued lifestyle promotion",
-          selected: false,
-          flaggedDelete: false,
-          current: false
-        },
-        {
-          id: 5,
-          name: "Coke Zero winter",
-          description: "Xtreme sports tie-ins",
-          selected: false,
-          flaggedDelete: false,
-          current: false
-        }
-    
-    
-      ];
-    */
+     let userFrameworks: Array<AifFramework> = [
+     {
+     id: 1,
+     name: "Coca-cola spring campaign",
+     description: "New music promotion",
+     selected: false,
+     flaggedDelete: false,
+     current:false
+     },
+     {
+     id: 2,
+     name: "Sprite summer campaign",
+     description: "New basketball promotion",
+     selected: false,
+     flaggedDelete: false,
+     current: false
+     },
+     // {
+     //   id: 3,
+     //   name: "Fanta summer campaign",
+     //   description: "Renewed comedy promotion",
+     //   selected: false,
+     //   flaggedDelete: false,
+     //   current: false
+     // },
+     {
+     id: 4,
+     name: "Diet Coke summer campaign",
+     description: "Continued lifestyle promotion",
+     selected: false,
+     flaggedDelete: false,
+     current: false
+     },
+     {
+     id: 5,
+     name: "Coke Zero winter",
+     description: "Xtreme sports tie-ins",
+     selected: false,
+     flaggedDelete: false,
+     current: false
+     }
+
+
+     ];
+     */
 })(aif || (aif = {}));
 /// <reference path="../_all.ts" />
 var aif;
@@ -1353,27 +1477,18 @@ var aif;
             this.userRepository = userRepository;
             this.editView = null;
             this.frameworkSummary = null;
-            this.currentUserFramework = null;
+            this.userRepository.setFrameworkService(this);
         }
-        FrameworkRepository.prototype.getEditView = function (frameworkId) {
+        FrameworkRepository.prototype.getEditView = function () {
+            if (!this.editView) {
+                this.createEditView();
+            }
+            return this.editView;
+        };
+        FrameworkRepository.prototype.createEditView = function () {
             var _this = this;
-            var currentFramework;
-            var userData;
-            if (this.editView && this.currentUserFramework.frameworkId == frameworkId)
-                return this.editView;
-            if (this.userRepository.currentUser
-                && this.userRepository.currentUser.currentFramework) {
-                if (this.userRepository.currentUser.currentFramework.editView)
-                    return this.userRepository.currentUser.currentFramework.editView;
-                currentFramework = this.userRepository.currentUser.currentFramework;
-                userData = this.userRepository.currentUser.currentFramework.userFramework;
-            }
-            else {
-                userData = new aif.AifUserFramework(-1, { inputs: {} });
-            }
             var structureSteps = aif.AifData.stepStructure;
             var copy = aif.AifData.baseCopy;
-            this.currentUserFramework = new aif.AifUserFramework(frameworkId, userData);
             var steps = structureSteps.map(function (s) {
                 var heading = _this.resolveTranslation(copy[s.stepHeadingKey]);
                 var step = new aif.AifFrameworkStep(s.stepIndex, heading);
@@ -1390,17 +1505,17 @@ var aif;
                     input.heading = _this.resolveTranslation(copy[i.headingKey]);
                     input.subHeading = _this.resolveTranslation(copy[i.subHeadingKey]);
                     input.info = _this.resolveTranslation(copy[i.infoKey]);
-                    _this.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle);
-                    input.values = _this.currentUserFramework.inputs[i.valuesKey];
+                    _this.userRepository.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle, i.valueCount);
+                    input.values = _this.userRepository.currentUserFramework.inputs[i.valuesKey];
                     return input;
                 });
                 return step;
             });
             this.editView = new aif.AifFrameworkEditView();
             this.editView.steps = steps;
-            if (currentFramework)
-                currentFramework.editView = this.editView;
-            return this.editView;
+        };
+        FrameworkRepository.prototype.onFrameworkLoaded = function () {
+            this.createEditView();
         };
         FrameworkRepository.prototype.resolveTranslation = function (copyItem) {
             if (!copyItem)
@@ -1501,7 +1616,13 @@ var aif;
                                     entries: [
                                         {
                                             entryType: "step",
-                                            stepId: 2
+                                            stepId: 2,
+                                            stepEntryIndex: 1
+                                        },
+                                        {
+                                            entryType: "step",
+                                            stepId: 2,
+                                            stepEntryIndex: 2
                                         }
                                     ]
                                 }
@@ -1826,8 +1947,8 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkCtrl = (function () {
-        function FrameworkCtrl($window, frameworkRepository, vs) {
-            this.$window = $window;
+        function FrameworkCtrl($scope, frameworkRepository, vs) {
+            this.$scope = $scope;
             this.frameworkRepository = frameworkRepository;
             this.vs = vs;
             this.editMode = false;
@@ -1836,7 +1957,11 @@ var aif;
             this.init();
         }
         FrameworkCtrl.prototype.init = function () {
-            this.editView = this.frameworkRepository.getEditView(-1);
+            var _this = this;
+            this.editView = this.frameworkRepository.getEditView();
+            this.$scope.$on("framework:frameworkUpdated", function (event, data) {
+                _this.editView = _this.frameworkRepository.getEditView();
+            });
         };
         FrameworkCtrl.prototype.getColorClass = function (prefix, step) {
             return prefix + "-" + step.color + " ";
@@ -1918,7 +2043,7 @@ var aif;
         };
         return FrameworkCtrl;
     }());
-    FrameworkCtrl.$inject = ["$window",
+    FrameworkCtrl.$inject = ["$scope",
         "frameworkRepository",
         "viewService"
     ];
@@ -1938,8 +2063,8 @@ var aif;
             this.init();
         }
         RegisterCtrl.prototype.init = function () {
-            //this.userModel = new AppUser(null, null, null, null, null, null, null);
-            this.userModel = new aif.AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
+            this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
+            //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
             this.userModel.password = "Crumpet1";
             this.userModel.passwordConfirmation = "Crumpet1";
         };
@@ -2075,8 +2200,8 @@ var aif;
 (function (aif) {
     'use strict';
     var FrameworkSummaryCtrl = (function () {
-        function FrameworkSummaryCtrl($window, frameworkRepository, vs) {
-            this.$window = $window;
+        function FrameworkSummaryCtrl($sce, frameworkRepository, vs) {
+            this.$sce = $sce;
             this.frameworkRepository = frameworkRepository;
             this.vs = vs;
             this.editMode = false;
@@ -2086,7 +2211,6 @@ var aif;
             this.sectionOne = null;
             this.sectionTwo = null;
             this.sectionThree = null;
-            this.message = "Hoi hoi";
             this.init();
         }
         FrameworkSummaryCtrl.prototype.init = function () {
@@ -2097,6 +2221,9 @@ var aif;
                 _this.sectionTwo = _this.summary.rows[1].sections[0];
                 _this.sectionThree = _this.summary.rows[1].sections[1];
             });
+        };
+        FrameworkSummaryCtrl.prototype.sanitize = function (html) {
+            return this.$sce.trustAsHtml(html);
         };
         FrameworkSummaryCtrl.prototype.getColorClass = function (prefix, color) {
             if (color === "red" && prefix.indexOf("light") > -1) {
@@ -2114,7 +2241,7 @@ var aif;
         };
         return FrameworkSummaryCtrl;
     }());
-    FrameworkSummaryCtrl.$inject = ["$window",
+    FrameworkSummaryCtrl.$inject = ["$sce",
         "frameworkRepository",
         "viewService"
     ];
@@ -2182,19 +2309,6 @@ var aif;
             var _this = this;
             this.infoText = null;
             if (this.step) {
-                this.step.inputs.forEach(function (i) {
-                    if (i.values == null || i.values.length == 0) {
-                        i.values = [];
-                        for (var j = 0; j < i.valueCount; j++) {
-                            if (i.inputStyle === aif.AifStepInputStyle.KeyedValues) {
-                                i.values.push(new aif.AifKeyPairInputValue("", ""));
-                            }
-                            else {
-                                i.values.push(new aif.AifStringInputValue("", i.inputStyle === aif.AifStepInputStyle.NumberedValues));
-                            }
-                        }
-                    }
-                });
                 var _loop_1 = function (i) {
                     var row = new InputRow();
                     if (i == this_1.step.row) {
@@ -2252,7 +2366,7 @@ var aif;
             this.user = this.userRepository.currentUser;
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
-                this.toggleSelectFramework(this.currentFramework);
+                this.selectFramework(this.currentFramework);
                 this.altMessage = "Alternatively, s";
                 this.exInc = 1;
             }
@@ -2269,7 +2383,7 @@ var aif;
             var _this = this;
             if (this.user && this.frameworkIsSelected()) {
                 var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
-                this.userRepository.setExistingFramework(selected.id).then(function (s) {
+                this.userRepository.saveOverFramework(selected.id).then(function (s) {
                     if (s) {
                         _this.userRepository.save().then(function (s) {
                             console.log(s.success);
@@ -2279,9 +2393,12 @@ var aif;
                 });
             }
         };
-        SaveAsCtrl.prototype.toggleSelectFramework = function (framework) {
+        SaveAsCtrl.prototype.showCreateFramework = function () {
+            this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, this.user.frameworks.length > 0);
+        };
+        SaveAsCtrl.prototype.selectFramework = function (framework) {
             if (framework.selected) {
-                framework.selected = false;
+                return;
             }
             else {
                 this.user.frameworks.forEach(function (f) { return f.selected = false; });
@@ -2323,6 +2440,7 @@ var aif;
             this.$scope.$on("user:loggedIn", function (event, data) { _this.userLoggedChanged(data); });
             this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
             this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
+            this.$scope.$on("framework:frameworkSwitched", function (event, data) { _this.setCurrentFramework(data); });
             var self = this;
             this.userRepository.get().then(function (user) {
                 if (user) {
@@ -2573,7 +2691,7 @@ var aif;
             var _this = this;
             if (this.user && this.frameworkIsSelected()) {
                 var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
-                this.userRepository.setExistingFramework(selected.id).then(function (r) {
+                this.userRepository.loadFramework(selected.id).then(function (r) {
                     if (r.success) {
                         _this.closeView();
                     }
@@ -2645,9 +2763,16 @@ var aif;
             this.userRepository.login(this.email, this.password).then(function (r) {
                 if (!r.success) {
                     _this.loginFailure = true;
-                    _this.loginMessage = r.message;
+                    if (r.message) {
+                        _this.loginMessage = r.message;
+                    }
+                    else {
+                        _this.loginMessage = "Error contacting server";
+                    }
                 }
                 else {
+                    _this.loginFailure = false;
+                    _this.loginMessage = "Login successful loading...";
                     window.location.href = window.location.href; //' + "?loggedin=true" ;
                     // if(r.user.hasExistingFrameworks())
                     //   this.vs.showAccount(AccountDisplayRoute.FromLogin);

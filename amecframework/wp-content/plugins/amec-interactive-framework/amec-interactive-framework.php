@@ -22,7 +22,7 @@ if ( ! defined( 'AIF_PLUGIN_URL' ) ) {
 
 
 function aif_init(){
-    aif_set_taxonomy();
+    //aif_set_taxonomy();
     aif_custom_post_type();
 }
 
@@ -106,7 +106,13 @@ register_activation_hook ( __FILE__, 'aif_create_framework_page' );
 
 function load_framework_for_user_filter( $content ) {
 
-    //$content = "Arnold's " . $content;
+    //$content = " " . $content;
+
+    global $post;
+
+    // Check for single page and image post type and remove
+    if ( is_single() && $post->post_type == 'aif_workflow' )
+        remove_filter('the_content', 'wpautop');
 
     return $content;
 }

@@ -55,14 +55,46 @@ return $fonts;
 }
 
 
+
+
+
 add_action( 'rest_api_init', 'dt_register_api_hooks');
 function dt_register_api_hooks( ) {
+
+    register_rest_field(
+        'aif_workflow',
+        'content_json',
+        array(
+            'get_callback'    => 'aif_add_content_json_field',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+
 
     register_rest_route( 'aif/v1', '/userframeworks/', array(
         'methods' => 'GET',
         'callback' => 'dt_get_user_frameworks',
     ) );
 
+
+
+
+}
+
+//decide when you want to apply the auto paragraph
+
+
+
+function aif_add_content_json_field( $object, $field_name, $request )
+{
+
+    //global $post;
+    //$post = get_post ($object['id']);
+
+    $raw = get_the_content($object->ID);
+
+    return $raw;
 }
 
 function dt_get_user_frameworks() {
@@ -93,6 +125,8 @@ function dt_get_user_frameworks() {
 
     return $return;
 }
+
+
 
 /* Widget area for language switcher */
 

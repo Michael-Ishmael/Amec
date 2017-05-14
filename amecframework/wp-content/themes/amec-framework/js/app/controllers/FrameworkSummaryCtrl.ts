@@ -16,14 +16,12 @@ module aif {
     public sectionTwo: AifSummarySection = null;
     public sectionThree: AifSummarySection = null;
 
-    public message: string = "Hoi hoi";
-
-    public static $inject = ["$window",
+    public static $inject = ["$sce",
       "frameworkRepository",
       "viewService"
     ];
 
-    constructor(private $window: ng.IWindowService, private frameworkRepository: FrameworkRepository, public vs: ViewService) {
+    constructor(private $sce: ng.ISCEService, private frameworkRepository: FrameworkRepository, public vs: ViewService) {
 
       this.init();
 
@@ -39,6 +37,10 @@ module aif {
             this.sectionThree = this.summary.rows[1].sections[1];
           }
       )
+    }
+
+    public sanitize(html:string):any{
+      return this.$sce.trustAsHtml(html)
     }
 
     public getColorClass(prefix:string, color:string):string{

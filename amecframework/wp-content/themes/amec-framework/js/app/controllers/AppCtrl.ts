@@ -29,6 +29,7 @@ module aif {
       this.$scope.$on("user:loggedIn", (event:ng.IAngularEvent, data:any) => { this.userLoggedChanged(data) } );
       this.$scope.$on("user:loggedOut", (event:ng.IAngularEvent) => { this.userLoggedChanged(null) } );
       this.$scope.$on("framework:frameworkUpdated", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
+      this.$scope.$on("framework:frameworkSwitched", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
 
 
       let self = this;

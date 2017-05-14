@@ -34,8 +34,14 @@ module aif {
       this.userRepository.login(this.email, this.password).then((r) => {
           if(!r.success){
             this.loginFailure = true;
-            this.loginMessage = r.message;
+            if(r.message){
+              this.loginMessage = r.message;
+            } else {
+              this.loginMessage = "Error contacting server"
+            }
           } else {
+            this.loginFailure = false;
+            this.loginMessage = "Login successful loading...";
             window.location.href = window.location.href; //' + "?loggedin=true" ;
             // if(r.user.hasExistingFrameworks())
             //   this.vs.showAccount(AccountDisplayRoute.FromLogin);

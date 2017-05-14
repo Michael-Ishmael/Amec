@@ -14,9 +14,6 @@ module aif {
     public selected:boolean = false;
     public flaggedDelete:boolean = false;
     public current:boolean = false;
-    public userFramework?:AifUserFramework = null;
-    public editView:AifFrameworkEditView = null;
-    public summaryView:AifSummary = null;
 
     constructor(
       public id:number,
@@ -47,26 +44,52 @@ module aif {
     }
 
 
-    public addInputOrEmpty(key:string, inputStyle:AifStepInputStyle){
+    public addInputOrEmpty(key:string, inputStyle:AifStepInputStyle, valueCount:number){
+
+      let inputs:Array<IAifStepInputValue> = [];
 
       if(inputStyle == AifStepInputStyle.KeyedValues){
 
         if(this.userData.inputs.hasOwnProperty(key)){
-          this.inputs[key] = this.userData.inputs[key].map(v => {
+          inputs = this.userData.inputs[key].map(v => {
             return new AifKeyPairInputValue(v.key, v.value);
           })
-        } else {
-          this.inputs[key] = [];
         }
+
+        for (let i = inputs.length; i < valueCount; i++) {
+          inputs.push(new AifKeyPairInputValue(null, null))
+        }
+
       } else {
         if(this.userData.inputs.hasOwnProperty(key)){
-          this.inputs[key] = this.userData.inputs[key].map(v => {
+          inputs = this.userData.inputs[key].map(v => {
             return new AifStringInputValue(v, inputStyle == AifStepInputStyle.NumberedValues);
           })
-        } else {
-          this.inputs[key] = [];
+        }
+
+        for (let i = inputs.length; i < valueCount; i++) {
+          inputs.push(new AifStringInputValue(null, inputStyle == AifStepInputStyle.NumberedValues))
         }
       }
+
+      this.inputs[key] = inputs;
+
+    }
+
+
+    public asJsonObj():any {
+
+      let jInputs = {};
+
+      for (let prop in this.inputs) {
+        if(this.inputs.hasOwnProperty(prop)){
+
+          jInputs[prop] = this.inputs[prop].filter(v => v.hasValue()).map(v => v.asJsonObj())
+
+        }
+      }
+
+      return { inputs: jInputs }
 
     }
 
@@ -178,7 +201,7 @@ module aif {
     info:string = null;
     textLimit:number = 500;
     valueCount:number = 1;
-    values:Array<IAifStepInputValue>;
+    values: Array<IAifStepInputValue> ;
     summaryHeading: string;
 
     constructor(){
@@ -191,11 +214,13 @@ module aif {
 
     public html():string {
       let ht:string = "";
-      if(this.values) this.values.forEach(v => {
-        let eht = v.asHtml();
-        if(eht){
-          if(ht.length) ht += "<br>";
-          ht += eht.trim();
+      if(this.values) this.values.forEach((v, i) => {
+        if(v.hasValue()){
+          let eht = v.asHtml(i + 1);
+          if(eht){
+            if(ht.length) ht += "<br>";
+            ht += eht.trim();
+          }
         }
       } );
       return ht.trim();
@@ -210,8 +235,10 @@ module aif {
     isNumberedText():boolean;
     isKeyedPair():boolean;
 
-    asHtml():string;
-    asJson():string;
+    hasValue():boolean;
+    asHtml(index?:number):string;
+    asJsonObj():any;
+
   }
 
   export class AifStringInputValue implements IAifStepInputValue{
@@ -232,12 +259,21 @@ module aif {
       return false;
     }
 
-    asHtml():string {
-      return this.text;
+    hasValue(){
+      return !!this.text;
     }
 
-    asJson():string {
-      return JSON.stringify(this.text);
+    asHtml(index:number = -1):string {
+      if(this.numbered && index > -1 ){
+        return "<span class=\"key\">" + index + "</span><span class=\"value\">" + this.text + "</span>"
+      } else {
+        return "<p class='free-text'>" + this.text + "</p>"
+      }
+
+    }
+
+    asJsonObj():any {
+      return this.text;
     }
 
   }
@@ -261,15 +297,19 @@ module aif {
       return true;
     }
 
-    asHtml():string {
-      return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.key + "</span>"
+    hasValue():boolean{
+      return (!!this.text && !!this.key);
     }
 
-    asJson():string {
-      return JSON.stringify({
+    asHtml():string {
+      return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.text + "</span>"
+    }
+
+    asJsonObj():any {
+      return {
         key: this.key,
         text: this.text
-      })
+      };
     }
   }
 

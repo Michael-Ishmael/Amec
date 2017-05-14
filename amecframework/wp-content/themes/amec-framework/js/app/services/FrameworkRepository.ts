@@ -9,32 +9,28 @@ module aif {
 
     public editView: AifFrameworkEditView = null;
     public frameworkSummary: AifSummary = null;
-    public currentUserFramework:AifUserFramework = null;
 
     constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService,
                 private $cookies: ng.cookies.ICookiesService, private userRepository:UserRepository) {
 
+        this.userRepository.setFrameworkService(this);
+
     }
 
-    getEditView(frameworkId:number): AifFrameworkEditView {
+    getEditView(): AifFrameworkEditView {
 
-      let currentFramework:AifFramework;
-      let userData:AifUserFramework;
-
-      if (this.editView && this.currentUserFramework.frameworkId == frameworkId) return this.editView;
-      if( this.userRepository.currentUser
-          && this.userRepository.currentUser.currentFramework) {
-        if( this.userRepository.currentUser.currentFramework.editView ) return this.userRepository.currentUser.currentFramework.editView;
-        currentFramework = this.userRepository.currentUser.currentFramework;
-        userData = this.userRepository.currentUser.currentFramework.userFramework;
-      } else {
-        userData = new AifUserFramework(-1, {inputs: {}}) ;
+      if (!this.editView){
+        this.createEditView();
       }
+      return this.editView;
+
+
+    }
+
+    private createEditView():void{
 
       let structureSteps = AifData.stepStructure;
       let copy = AifData.baseCopy;
-
-      this.currentUserFramework = new AifUserFramework(frameworkId, userData);
 
       let steps:Array<AifFrameworkStep> = structureSteps.map(s => {
 
@@ -54,8 +50,10 @@ module aif {
           input.heading = this.resolveTranslation(copy[i.headingKey]);
           input.subHeading = this.resolveTranslation(copy[i.subHeadingKey]);
           input.info = this.resolveTranslation(copy[i.infoKey]);
-          this.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle);
-          input.values = this.currentUserFramework.inputs[i.valuesKey];
+          this.userRepository.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle, i.valueCount);
+
+
+          input.values = this.userRepository.currentUserFramework.inputs[i.valuesKey];
 
           return input;
 
@@ -67,8 +65,12 @@ module aif {
 
       this.editView = new AifFrameworkEditView();
       this.editView.steps = steps;
-      if(currentFramework) currentFramework.editView = this.editView;
-      return this.editView;
+
+    }
+
+    public onFrameworkLoaded( ):void{
+
+       this.createEditView();
 
     }
 
@@ -187,7 +189,13 @@ module aif {
                   entries: [
                     {
                       entryType: "step",
-                      stepId: 2
+                      stepId: 2,
+                      stepEntryIndex: 1
+                    },
+                    {
+                      entryType: "step",
+                      stepId: 2,
+                      stepEntryIndex: 2
                     }
                   ]
                 }

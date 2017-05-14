@@ -11,19 +11,23 @@ module aif {
     public editStep: AifFrameworkStep = null;
     public infoCell: WorkflowInfoCell = null;
 
-    public static $inject = ["$window",
+    public static $inject = ["$scope",
       "frameworkRepository",
       "viewService"
     ];
 
-    constructor(private $window:ng.IWindowService,
+    constructor(private $scope:ng.IScope,
                 private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
       this.init();
 
     }
 
     private init():void {
-       this.editView = this.frameworkRepository.getEditView(-1);
+       this.editView = this.frameworkRepository.getEditView();
+      this.$scope.$on("framework:frameworkUpdated", (event:ng.IAngularEvent, data:any) => {
+        this.editView = this.frameworkRepository.getEditView(); }
+        )
+      ;
     }
 
     public getColorClass(prefix:string, step:WorkflowStep):string{
