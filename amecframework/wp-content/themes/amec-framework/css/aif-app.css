@@ -2844,7 +2844,8 @@
     #aif-app .account-screen .account-layout {
       max-width: 470px; }
       #aif-app .account-screen .account-layout .em {
-        font-style: italic; }
+        font-style: italic;
+        margin-right: 2px; }
       #aif-app .account-screen .account-layout a {
         font-style: italic;
         color: #0093e2;
