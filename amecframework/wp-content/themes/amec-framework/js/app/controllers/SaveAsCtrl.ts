@@ -65,7 +65,7 @@ module aif {
                     if (s) {
                         this.userRepository.save().then(s => {
 
-                            console.log(s.success)
+                            //console.log(s.success)
 
                         });
                         this.vs.resetView();

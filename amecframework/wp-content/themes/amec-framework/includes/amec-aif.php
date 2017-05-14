@@ -1,6 +1,11 @@
 <div id="aif-app" ng-app="aif" data-framework="typescript">
     <div  class="container-fluid" ng-cloak ng-controller="appCtrl as ac">
-        <div   class="control-row row">
+        <div class="loader" ng-if="ac.vs.displayLoading">
+
+
+
+        </div>
+        <div   class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
             <div  class="col-md-6 low-pad-cell"  ng-if="ac.vs.displayGrid">
                 <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
                      ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised">
@@ -20,7 +25,7 @@
                     <h4> {{ ac.currentFramework.name }}</h4>
                 </span>
                 <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
-                     class="aif-button background-bright_green bottom-dark-border-bright_green">
+                     class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
                     Save Progress
                 </div>
                 <div ng-click="ac.submitFramework()"
@@ -37,7 +42,7 @@
             </div>
         </div>
 
-        <div class="base-framework" ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
+        <div class="base-framework" ng-cloak ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
             <div class="row ng-scope">
                 <div class="low-pad-cell ng-scope col-md-4">
                     <div class="aif-tile background-red" 
@@ -163,7 +168,7 @@
 
         </div>
 
-        <aif-framework-summary ng-if="ac.vs.displaySummary">
+        <aif-framework-summary ng-cloak ng-if="ac.vs.displaySummary">
 
         </aif-framework-summary>
 

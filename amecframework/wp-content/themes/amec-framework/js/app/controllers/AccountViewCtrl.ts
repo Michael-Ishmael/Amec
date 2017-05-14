@@ -41,6 +41,7 @@ module aif {
     public logout():void {
 
       this.closeView();
+      this.vs.showLoading();
       this.userRepository.logout().then(
         (b) => {
 

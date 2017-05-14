@@ -679,7 +679,7 @@ var aif;
             if (inputStyle == aif.AifStepInputStyle.KeyedValues) {
                 if (this.userData.inputs.hasOwnProperty(key)) {
                     inputs = this.userData.inputs[key].map(function (v) {
-                        return new AifKeyPairInputValue(v.key, v.value);
+                        return new AifKeyPairInputValue(v.key, v.text);
                     });
                 }
                 for (var i = inputs.length; i < valueCount; i++) {
@@ -889,7 +889,9 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
-            this.displayGrid = true;
+            this.displayGrid = false;
+            this.displayControls = false;
+            this.displayLoading = true;
             this.displaySummary = false;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
@@ -897,6 +899,12 @@ var aif;
             this.displaySave = false;
             this.reset();
         }
+        ViewService.prototype.showLoading = function () {
+            this.reset();
+            this.displayGrid = false;
+            this.displayControls = false;
+            this.displayLoading = true;
+        };
         ViewService.prototype.showSummary = function () {
             this.reset();
             this.displaySummary = true;
@@ -989,6 +997,9 @@ var aif;
             this.displayFtnDetails = false;
             this.displayRegister = false;
             this.displaySave = false;
+            this.displayControls = true;
+            this.displayGrid = true;
+            this.displayLoading = false;
         };
         return ViewService;
     }());
@@ -1020,6 +1031,10 @@ var aif;
         };
         UserRepository.prototype.get = function () {
             var _this = this;
+            var loggedIn = this.$cookies.get("aifloggedin");
+            if (!loggedIn) {
+                return this.$q.when(null);
+            }
             var regUrl = ajax_auth_object.ajaxurl;
             var restUrl = ajax_auth_object.resturl + "aif/v1/userframeworks";
             var data = {
@@ -1120,6 +1135,7 @@ var aif;
                 if (r.data && r.data.loggedIn) {
                     var newUser = new aif.AifUser(user.email, user.firstName, user.lastName, user.organisation, user.jobTitle, user.language, user.contactNumber);
                     newUser.id = r.data.userId;
+                    _this.$cookies.put("aifloggedin", "true");
                     _this.currentUser = newUser;
                     _this.$cookies.put("justloggedin", "true");
                     _this.$rootScope.$broadcast("user:loggedIn", newUser);
@@ -1156,6 +1172,7 @@ var aif;
                 security: ajax_auth_object.logout_nonce
             };
             return this.$http.post(regUrl, regUser).then(function (response) {
+                _this.$cookies.remove("aifloggedin");
                 _this.currentUser = null;
                 _this.$rootScope.$broadcast("user:loggedOut");
                 return !(response.data && !response.data.loggedOut);
@@ -1181,6 +1198,7 @@ var aif;
             return this.$http.post(regUrl, regUser).then(function (r) {
                 if (r.data) {
                     if (r.data.loggedIn) {
+                        _this.$cookies.put("aifloggedin", "true");
                         var newUser = new aif.AifUser(email, r.data.displayName, null, null, null, null, null);
                         _this.currentUser = newUser;
                         ajax_auth_object.logout_nonce = r.data.logOutNonce;
@@ -2065,8 +2083,8 @@ var aif;
         RegisterCtrl.prototype.init = function () {
             this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
             //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
-            this.userModel.password = "Crumpet1";
-            this.userModel.passwordConfirmation = "Crumpet1";
+            //this.userModel.password = "Crumpet1";
+            ///this.userModel.passwordConfirmation = "Crumpet1";
         };
         RegisterCtrl.prototype.registerNewUser = function (form) {
             var _this = this;
@@ -2074,7 +2092,8 @@ var aif;
                 return;
             this.userRepository.registerNewUser(this.userModel).then(function (r) {
                 if (r.success) {
-                    _this.vs.resetView();
+                    _this.vs.showLoading();
+                    window.location.href = window.location.href;
                 }
                 else {
                     //TODO: display error
@@ -2386,7 +2405,7 @@ var aif;
                 this.userRepository.saveOverFramework(selected.id).then(function (s) {
                     if (s) {
                         _this.userRepository.save().then(function (s) {
-                            console.log(s.success);
+                            //console.log(s.success)
                         });
                         _this.vs.resetView();
                     }
@@ -2441,8 +2460,9 @@ var aif;
             this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
             this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
             this.$scope.$on("framework:frameworkSwitched", function (event, data) { _this.setCurrentFramework(data); });
-            var self = this;
+            this.vs.showLoading();
             this.userRepository.get().then(function (user) {
+                _this.vs.resetView();
                 if (user) {
                     _this.currentUser = user;
                     if (user.justLoggedIn) {
@@ -2661,6 +2681,7 @@ var aif;
         };
         AccountViewCtrl.prototype.logout = function () {
             this.closeView();
+            this.vs.showLoading();
             this.userRepository.logout().then(function (b) {
                 if (b) {
                     //this.$window.location.href = "";
@@ -2742,6 +2763,7 @@ var aif;
             this.loginFailure = false;
             this.loginMessage = null;
             this.showNeedMessage = false;
+            this.waiting = false;
             this.init();
         }
         LoginCtrl.prototype.init = function () {
@@ -2760,7 +2782,9 @@ var aif;
             else {
                 return;
             }
+            this.waiting = true;
             this.userRepository.login(this.email, this.password).then(function (r) {
+                _this.waiting = false;
                 if (!r.success) {
                     _this.loginFailure = true;
                     if (r.message) {
@@ -2773,14 +2797,11 @@ var aif;
                 else {
                     _this.loginFailure = false;
                     _this.loginMessage = "Login successful loading...";
-                    window.location.href = window.location.href; //' + "?loggedin=true" ;
-                    // if(r.user.hasExistingFrameworks())
-                    //   this.vs.showAccount(AccountDisplayRoute.FromLogin);
-                    // else {
-                    //   this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, false);
-                    // }
+                    _this.vs.showLoading();
+                    window.location.href = window.location.href;
                 }
             }).catch(function (r) {
+                _this.waiting = false;
                 _this.loginFailure = true;
                 _this.loginMessage = r.message;
             });

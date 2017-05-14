@@ -52,7 +52,7 @@ module aif {
 
         if(this.userData.inputs.hasOwnProperty(key)){
           inputs = this.userData.inputs[key].map(v => {
-            return new AifKeyPairInputValue(v.key, v.value);
+            return new AifKeyPairInputValue(v.key, v.text);
           })
         }
 

@@ -26,13 +26,23 @@ module aif {
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
     public displayFtnDetails:boolean = false;
 
-    public displayGrid = true;
+    public displayGrid = false;
+    public displayControls = false;
+    public displayLoading = true;
+
     public displaySummary:boolean =false;
 
     public displaySelectFramework:boolean = false;
     public hasExistingFrameworks:boolean = false;
     public displayRegister:boolean = false;
     public displaySave:boolean = false;
+
+    public showLoading(){
+      this.reset();
+      this.displayGrid = false;
+      this.displayControls = false;
+      this.displayLoading = true;
+    }
 
     public showSummary():void {
 
@@ -137,6 +147,10 @@ module aif {
       this.displayFtnDetails = false;
       this.displayRegister = false;
       this.displaySave = false;
+
+      this.displayControls = true;
+      this.displayGrid = true;
+      this.displayLoading = false;
   }
 
   }

@@ -22,15 +22,16 @@ module aif {
     private init(): void {
       this.userModel = new AppUser(null, null, null, null, null, null, null);
       //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
-      this.userModel.password = "Crumpet1";
-      this.userModel.passwordConfirmation = "Crumpet1";
+      //this.userModel.password = "Crumpet1";
+      ///this.userModel.passwordConfirmation = "Crumpet1";
     }
 
     public registerNewUser(form:ng.IFormController){
       if(!form.$valid) return;
       this.userRepository.registerNewUser(this.userModel).then(r => {
         if(r.success){
-          this.vs.resetView();
+          this.vs.showLoading();
+          window.location.href = window.location.href;
         } else {
           //TODO: display error
         }

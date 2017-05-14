@@ -59,6 +59,13 @@ $color-list: (
     clear: none;
   }
 
+  .container:before,
+  .container:after,
+  .row:before,
+  .row:after {
+    content: normal; // IE doesn't support `initial`
+  }
+
   text-area {
     color: black;
     font-family: system-ui;
@@ -122,6 +129,14 @@ $color-list: (
     z-index: 4;
   }
 
+  .loader {
+    background-image: url('../images/loading.gif');
+    background-position: center 200px;
+    background-repeat: no-repeat;
+    height: 1000px;
+    width: 100%;
+  }
+
   .aif-button {
     max-height: 40px;
     font-size: 15px;
@@ -147,6 +162,13 @@ $color-list: (
 
       &:last-child {
         margin-right: 0;
+      }
+
+      &.save-button{
+        background-image: url('../images/save.png');
+        background-repeat: no-repeat;
+        background-position: 7px 3px;
+        padding-left: 31px;
       }
 
     }
@@ -394,6 +416,15 @@ $color-list: (
       .text-link.lge {
         font-size: 1.2rem;
       }
+    }
+
+    .little-loader {
+      background-image: url('../images/littleLoading.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 30px;
+      width: 90px;
+      display: inline-block;
     }
 
     p.submit-text {

@@ -11,6 +11,7 @@ module aif {
     public loginFailure:boolean = false;
     public loginMessage:string = null;
     public showNeedMessage:boolean = false;
+    public waiting:boolean = false;
 
     constructor(public vs:ViewService, private userRepository: IUserRepository) {
       this.init();
@@ -31,8 +32,12 @@ module aif {
         return;
       }
 
+      this.waiting = true;
+
       this.userRepository.login(this.email, this.password).then((r) => {
+        this.waiting = false;
           if(!r.success){
+
             this.loginFailure = true;
             if(r.message){
               this.loginMessage = r.message;
@@ -42,15 +47,13 @@ module aif {
           } else {
             this.loginFailure = false;
             this.loginMessage = "Login successful loading...";
-            window.location.href = window.location.href; //' + "?loggedin=true" ;
-            // if(r.user.hasExistingFrameworks())
-            //   this.vs.showAccount(AccountDisplayRoute.FromLogin);
-            // else {
-            //   this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, false);
-            // }
+            this.vs.showLoading();
+            window.location.href = window.location.href;
+
           }
         }
       ).catch(r => {
+        this.waiting = false;
         this.loginFailure = true;
         this.loginMessage = r.message;
       });

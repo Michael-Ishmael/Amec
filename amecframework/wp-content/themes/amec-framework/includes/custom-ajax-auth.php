@@ -94,7 +94,7 @@ function ajax_register()
     $info['user_nicename'] = $info['nickname'] = $info['display_name'] = $info['first_name'] = $firstName;
     $info['last_name'] = sanitize_text_field($_POST['lastName']);
     $info['locale'] = sanitize_text_field($_POST['locale']);
-    $info['role'] = 'subscriber';
+    $info['role'] = 'author';
     $info['show_admin_bar_front'] = 'false';
 
     // Register the user

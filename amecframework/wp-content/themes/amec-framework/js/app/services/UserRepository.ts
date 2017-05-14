@@ -108,6 +108,11 @@ module aif {
 
         get(): ng.IPromise<AifUser> {
 
+            let loggedIn = this.$cookies.get("aifloggedin");
+            if(!loggedIn){
+                return this.$q.when(null);
+            }
+
             let regUrl: string = ajax_auth_object.ajaxurl;
             let restUrl: string = ajax_auth_object.resturl + "aif/v1/userframeworks";
             let data: IWpAjaxCall = {
@@ -115,6 +120,7 @@ module aif {
                 security: ajax_auth_object.logged_in_nonce
             };
             let user: AifUser = null;
+
             return this.$http.post(regUrl, data,
             ).then((response: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse>) => {
 
@@ -238,6 +244,7 @@ module aif {
                         );
 
                         newUser.id = r.data.userId;
+                        this.$cookies.put("aifloggedin", "true");
                         this.currentUser = newUser;
                         this.$cookies.put("justloggedin", "true");
                         this.$rootScope.$broadcast("user:loggedIn", newUser);
@@ -280,7 +287,7 @@ module aif {
 
             return this.$http.post(regUrl, regUser,
             ).then((response: ng.IHttpPromiseCallbackArg<IWpAjaxLoggedOutResponse>) => {
-
+                this.$cookies.remove("aifloggedin");
                 this.currentUser = null;
                 this.$rootScope.$broadcast("user:loggedOut");
                 return !(response.data && !response.data.loggedOut);
@@ -314,6 +321,7 @@ module aif {
 
                     if (r.data) {
                         if (r.data.loggedIn) {
+                            this.$cookies.put("aifloggedin", "true");
                             let newUser = new AifUser(
                                 email, r.data.displayName, null, null, null, null, null
                             );

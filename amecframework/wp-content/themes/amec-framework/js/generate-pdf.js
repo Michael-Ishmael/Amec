@@ -41,10 +41,10 @@ function downloadPDF(data, user_credentials){
 
 function getEntireDom()
 {
-    var pdfDOM = $("html").clone();
+    var pdfDOM = jQuery("html").clone();
 
     var frameWork = pdfDOM.find("#frameworkSummary").clone();
-    var newBody = $("<body></body>").append(frameWork);
+    var newBody = jQuery("<body></body>").append(frameWork);
     var css = pdfDOM.find("#pageCSS").html();
 
     pdfDOM.find("body").replaceWith(newBody);
