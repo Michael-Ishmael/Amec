@@ -1,2 +1,14 @@
+ .key {
+      font-weight: bold;
+      float: left;
 
-"{\"inputs\":{\"S1_I1_V\" : [\"This is my ​Organizational Objectives text\"],\"S1_I2_V\" : [\"This is my Communications Objectives text\"]}}"
+    }
+
+    .value{
+      margin-left: 14px;
+
+      &:after {
+        clear:both;
+      }
+
+    }

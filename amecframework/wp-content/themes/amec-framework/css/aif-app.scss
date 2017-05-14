@@ -348,6 +348,20 @@ $color-list: (
       font-weight: bold;
     }
 
+    .logout {
+      background-color: #0072af;
+      padding: 4px 17px;
+      border-radius: 15px;
+      margin: 10px 0 20px;
+      display: inline-block;
+      font-style: italic;
+      cursor: pointer;
+      font-weight: 400;
+      margin-left: 90px;
+      vertical-align: super;
+      cursor: pointer;
+    }
+
     padding: 8px 15px;
 
     a {
@@ -494,6 +508,10 @@ $color-list: (
       width: 100%;
       height: 90px;
       cursor: pointer;
+
+      a {
+        color: #fff;
+      }
 
       &.selected {
         border: 2px solid #fff;

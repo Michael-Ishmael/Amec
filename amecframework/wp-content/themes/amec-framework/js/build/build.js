@@ -711,7 +711,8 @@ var aif;
     }());
     aif.AifUserFramework = AifUserFramework;
     var AifSummary = (function () {
-        function AifSummary() {
+        function AifSummary(title) {
+            this.title = title;
             this.rows = [];
         }
         return AifSummary;
@@ -767,12 +768,13 @@ var aif;
     }());
     aif.AifFrameworkStep = AifFrameworkStep;
     var AifStepInput = (function () {
-        function AifStepInput() {
-            this.heading = null;
+        function AifStepInput(heading) {
+            this.heading = heading;
             this.subHeading = null;
             this.info = null;
             this.textLimit = 500;
             this.valueCount = 1;
+            this.summaryHeading = this.heading;
         }
         AifStepInput.prototype.isKeyedPair = function () {
             return this.inputStyle == aif.AifStepInputStyle.KeyedValues;
@@ -784,8 +786,7 @@ var aif;
                     if (v.hasValue()) {
                         var eht = v.asHtml(i + 1);
                         if (eht) {
-                            if (ht.length)
-                                ht += "<br>";
+                            //if(ht.length) ht += "<br>";
                             ht += eht.trim();
                         }
                     }
@@ -815,7 +816,7 @@ var aif;
         AifStringInputValue.prototype.asHtml = function (index) {
             if (index === void 0) { index = -1; }
             if (this.numbered && index > -1) {
-                return "<span class=\"key\">" + index + "</span><span class=\"value\">" + this.text + "</span>";
+                return "<div class=\"key\">" + index + "</div><div class=\"value\">" + this.text + "</div>";
             }
             else {
                 return "<p class='free-text'>" + this.text + "</p>";
@@ -845,7 +846,7 @@ var aif;
             return (!!this.text && !!this.key);
         };
         AifKeyPairInputValue.prototype.asHtml = function () {
-            return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.text + "</span>";
+            return "<div class=\"key\">" + this.key + "</div><div class=\"value\">" + this.text + "</div>";
         };
         AifKeyPairInputValue.prototype.asJsonObj = function () {
             return {
@@ -1527,11 +1528,10 @@ var aif;
                 step.cellOrder = s.cellOrder;
                 step.summaryStyle = s.summaryStyle;
                 step.inputs = s.inputs.map(function (i) {
-                    var input = new aif.AifStepInput();
+                    var input = new aif.AifStepInput(_this.resolveTranslation(copy[i.headingKey]));
                     input.inputStyle = i.inputStyle;
                     input.textLimit = i.textLimit;
                     input.valueCount = i.valueCount;
-                    input.heading = _this.resolveTranslation(copy[i.headingKey]);
                     input.subHeading = _this.resolveTranslation(copy[i.subHeadingKey]);
                     input.info = _this.resolveTranslation(copy[i.infoKey]);
                     _this.userRepository.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle, i.valueCount);
@@ -1567,7 +1567,11 @@ var aif;
                 if (_this.editView == null)
                     return null;
                 var steps = _this.editView.steps;
-                var summary = new aif.AifSummary();
+                var title = "";
+                if (_this.userRepository.currentUser && _this.userRepository.currentUser.currentFramework) {
+                    title = _this.userRepository.currentUser.currentFramework.name;
+                }
+                var summary = new aif.AifSummary(title);
                 var data = _this.getRawSummaryArray();
                 for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
                     var dataRow = data_1[_i];
@@ -2417,8 +2421,16 @@ var aif;
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
                 this.selectFramework(this.currentFramework);
-                this.altMessage = "Alternatively, s";
+                if (this.user.frameworks.length > 1) {
+                    this.altMessage = "Alternatively, save as an existing framework or";
+                }
+                else {
+                    this.altMessage = "or";
+                }
                 this.exInc = 1;
+            }
+            else if (this.user.frameworks.length) {
+                this.altMessage = "Save as an existing framework or";
             }
             this.setTitle(this.vs.accountDisplayRoute);
         };
@@ -2428,6 +2440,11 @@ var aif;
             }
             else {
             }
+        };
+        SaveAsCtrl.prototype.closeView = function () {
+            this.user.frameworks.forEach(function (f) { return f.selected = false; });
+            this.user.frameworks.forEach(function (f) { return f.flaggedDelete = false; });
+            this.vs.resetView();
         };
         SaveAsCtrl.prototype.saveAsSelectedFramework = function () {
             var _this = this;
@@ -2448,6 +2465,7 @@ var aif;
             this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, this.user.frameworks.length > 0);
         };
         SaveAsCtrl.prototype.selectFramework = function (framework) {
+            framework.flaggedDelete = false;
             if (framework.selected) {
                 return;
             }
@@ -2455,6 +2473,9 @@ var aif;
                 this.user.frameworks.forEach(function (f) { return f.selected = false; });
                 framework.selected = true;
             }
+        };
+        SaveAsCtrl.prototype.toggleSaveOver = function (framework) {
+            framework.flaggedDelete = !framework.flaggedDelete;
         };
         SaveAsCtrl.prototype.frameworkIsSelected = function () {
             return this.user.frameworks.some(function (f) {
@@ -2561,11 +2582,13 @@ var aif;
             this.vs.attemptSave(loggedIn, hasExisting);
         };
         AppCtrl.prototype.downloadAifPdf = function () {
+            var title = this.currentFramework ? this.currentFramework.name : null;
+            var fileName = "AMEC Measurement Framework" + (title ? ' - ' + title : '');
             if (getEntireDom && downloadPDF) {
                 var opts = {
                     document_type: 'pdf',
-                    document_content: getEntireDom(),
-                    name: 'Framework',
+                    document_content: getEntireDom(title),
+                    name: fileName,
                     javascript: false,
                     test: false
                 };

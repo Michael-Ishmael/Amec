@@ -43,11 +43,10 @@ module aif {
         step.summaryStyle = s.summaryStyle;
         step.inputs = s.inputs.map(i => {
 
-          let input = new AifStepInput();
+          let input = new AifStepInput(this.resolveTranslation(copy[i.headingKey]));
           input.inputStyle = i.inputStyle;
           input.textLimit = i.textLimit;
           input.valueCount = i.valueCount;
-          input.heading = this.resolveTranslation(copy[i.headingKey]);
           input.subHeading = this.resolveTranslation(copy[i.subHeadingKey]);
           input.info = this.resolveTranslation(copy[i.infoKey]);
           this.userRepository.currentUserFramework.addInputOrEmpty(i.valuesKey, i.inputStyle, i.valueCount);
@@ -97,7 +96,12 @@ module aif {
 
         let steps = this.editView.steps;
 
-        let summary: AifSummary = new AifSummary();
+        let title = "";
+        if(this.userRepository.currentUser && this.userRepository.currentUser.currentFramework){
+          title = this.userRepository.currentUser.currentFramework.name;
+        }
+
+        let summary: AifSummary = new AifSummary(title);
 
         let data = this.getRawSummaryArray();
 

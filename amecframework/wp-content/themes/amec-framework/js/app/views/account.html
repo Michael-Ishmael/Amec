@@ -5,12 +5,7 @@
         <div class="account-screen long">
             <a class="btn btn-link close-button pull-right" ng-click="av.closeView()">X</a>
             <h2 class="d-inline-block">{{ av.title }}</h2>
-            <span class="text-link" ng-click="av.logout()">logout</span>
-
-            <!--<div class="pull-right aif-button aif-button-free background-dark_blue bottom-dark-border-dark_blue" ng-click="av.logout()" >-->
-                <!--Logout-->
-            <!--</div>-->
-            <h3 class="login-message">&nbsp;</h3>
+            <div class="logout" ng-click="av.logout()">logout</div>
 
             <div  ng-if="av.user.hasExistingFrameworks()">
 

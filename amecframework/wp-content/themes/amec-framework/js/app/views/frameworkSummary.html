@@ -1,109 +1,278 @@
-<div id="frameworkSummary" ng-cloak ng-controller="frameworkSummaryCtrl as fs">
+<div ng-cloak ng-controller="frameworkSummaryCtrl as fs">
+
+    <div id="frameworkSummary">
 
 
-
-    <div class="summary-row">
-        <div class="summary-section prep">
-            <div class="section-header ">
-                <!--<h4 class="rotate">-->
+        <div class="summary-row">
+            <div class="summary-section prep">
+                <div class="section-header ">
+                    <!--<h4 class="rotate">-->
                     <!--{{ fs.sectionOne.heading }}-->
-                <!--</h4>-->
-            </div>
+                    <!--</h4>-->
+                </div>
 
-            <div class="section-content">
-                <div class="row low-pad-row">
+                <div class="section-content">
+                    <div class="row low-pad-row">
 
-                    <div class="low-pad-cell" ng-repeat="group in fs.sectionOne.groups"
-                           ng-class="fs.getWidthClass(group.steps.length, 4)" >
+                        <div class="low-pad-cell" ng-repeat="group in fs.sectionOne.groups"
+                             ng-class="fs.getWidthClass(group.steps.length, 4)">
 
-                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
-                        <div class="row low-pad-row">
-                            <div class="low-pad-cell" ng-repeat="step in group.steps" ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
-                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
-                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
+                            <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{
+                                group.heading }} </h5>
+                            <div class="row low-pad-row">
+                                <div class="low-pad-cell" ng-repeat="step in group.steps"
+                                     ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                    <h5 class="summary-heading joined"
+                                        ng-class="fs.getColorClass('background-', group.color)">{{ step.summaryHeading }}</h5>
+                                    <div class="summary-box" ng-bind-html="fs.sanitize(step.html())"
+                                         ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
 
         </div>
 
+        <div class="summary-row">
 
+            <div class="summary-section imp">
+                <div class="section-header">
+
+                </div>
+
+                <div class="section-content">
+                    <div class="row low-pad-row">
+
+                        <div class="col-md-12 low-pad-cell" ng-repeat="group in fs.sectionTwo.groups">
+
+                            <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{
+                                group.heading }} </h5>
+                            <div class="row low-pad-row">
+                                <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
+                                    <h5 class="summary-heading joined"
+                                        ng-class="fs.getColorClass('background-', group.color)">{{ step.summaryHeading
+                                        }}</h5>
+                                    <div class="summary-box" ng-bind-html="fs.sanitize(step.html())"
+                                         ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
+                                    <h5 class="summary-heading joined"
+                                        ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
+                                    <div class="summary-box"
+                                         ng-class="fs.getColorClass('background-pale-', group.color)">
+                                        ...
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="summary-section mes">
+                <div class="section-header prep">
+
+                </div>
+
+                <div class="section-content">
+                    <div class="row low-pad-row">
+
+                        <div class="low-pad-cell" ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                             ng-repeat="group in fs.sectionThree.groups">
+
+                            <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{
+                                group.heading }} </h5>
+                            <div class="row low-pad-row">
+                                <div class="low-pad-cell"
+                                     ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                     ng-repeat="step in group.steps">
+                                    <h5 class="summary-heading joined"
+                                        ng-class="fs.getColorClass('background-', group.color)">{{ step.summaryHeading }}</h5>
+                                    <div class="summary-box" ng-bind-html="fs.sanitize(step.html())"
+                                         ng-class="fs.getColorClass('background-pale-', group.color)">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
+                                    <h5 class="summary-heading joined"
+                                        ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
+                                    <div class="summary-box"
+                                         ng-class="fs.getColorClass('background-pale-', group.color)">
+                                        ...
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <div class="summary-row">
+    <div class="print-summary-wrapper">
 
-        <div class="summary-section imp">
-            <div class="section-header">
-                <!--<h4 class="rotate">-->
-                <!--{{ fs.sectionTwo.heading }}-->
-                <!--</h4>-->
+        <div id="printableFrameworkSummary" class="ng-scope">
+
+            <h1>AMEC Measurement Framework
+                <br ng-if="fs.summary.title.length">
+                <span ng-if="fs.summary.title.length" class="em">{{ fs.summary.title }}</span></h1>
+
+            <div class="summary-row">
+                <div class="summary-section prep">
+                    <div class="section-header ">
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <div class="low-pad-cell ng-scope aif-p-12" ng-repeat="group in fs.sectionOne.groups">
+
+                                <h5 class="summary-heading"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">
+                                    {{ group.heading }} </h5>
+                                <div class="row low-pad-row">
+
+                                    <div class="low-pad-cell ng-scope aif-p-6" ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined"
+                                            ng-class="fs.getColorClass('background-', group.color)">{{ step.heading
+                                            }}</h5>
+                                        <div class="summary-box" ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="section-content">
-                <div class="row low-pad-row">
+            <div class="summary-row">
 
-                    <div class="col-md-12 low-pad-cell" ng-repeat="group in fs.sectionTwo.groups">
+                <div class="summary-section imp aif-p-page-break">
+                    <div class="section-header">
 
-                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
-                        <div class="row low-pad-row">
-                            <div class="col-md-12 low-pad-cell" ng-repeat="step in group.steps">
-                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.summaryHeading }}</h5>
-                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <div class="aif-p-12 low-pad-cell ng-scope"
+                                 ng-repeat="group in fs.sectionTwo.groups">
+
+                                <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{
+                                    group.heading }} </h5>
+                                <div class="row low-pad-row">
+                                    <div class="low-pad-cell aif-p-12" ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined"
+                                            ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
+                                        <div class="summary-box" ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
-                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
-                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    ...
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="summary-row">
+
+                <div class="summary-section mes">
+                    <div class="section-header prep">
+
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <div class="low-pad-cell  aif-p-12" >
+
+                                <h5 class="summary-heading background-dark-light_blue">
+                                    {{ fs.sectionThree.groups[0].heading }} </h5>
+                                <div class="row low-pad-row">
+                                    <div class="low-pad-cell aif-p-12">
+                                        <h5 class="summary-heading joined background-light_blue">
+                                            {{ fs.sectionThree.groups[0].steps[0].summaryHeading  }}
+                                        </h5>
+                                        <div class="summary-box background-pale-light_blue"
+                                             ng-bind-html="fs.sanitize(fs.sectionThree.groups[0].steps[0].html())">
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
+                            <div class="low-pad-cell aif-p-12 aif-p-taller">
+
+                                <h5 class="summary-heading background-dark-dark_blue">
+                                {{ fs.sectionThree.groups[1].heading }}
+                                </h5>
+                                <div class="row low-pad-row">
+                                    <div class="low-pad-cell aif-p-6" >
+                                        <h5 class="summary-heading joined background-dark_blue"
+                                            ng-class="fs.getColorClass('background-', group.color)">
+
+                                            {{ fs.sectionThree.groups[1].steps[0].summaryHeading }}
+
+                                        </h5>
+                                        <div class="summary-box background-pale-dark_blue"
+                                             ng-bind-html="fs.sanitize(fs.sectionThree.groups[1].steps[0].html())"></div>
+                                    </div>
+
+
+                                    <div class="low-pad-cell  aif-p-6">
+                                        <h5 class="summary-heading joined background-dark_blue">
+                                        {{  fs.sectionThree.groups[1].steps[1].summaryHeading }}
+                                        </h5>
+                                        <div class="summary-box background-pale-dark_blue"
+                                             ng-bind-html="fs.sanitize(fs.sectionThree.groups[1].steps[1].html())">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="low-pad-cell aif-p-12">
+
+                                <h5 class="summary-heading background-dark-purple">
+                                {{ fs.sectionThree.groups[2].heading }}
+                                </h5>
+                                <div class="row low-pad-row">
+                                    <div class="low-pad-cell aif-p-12">
+                                        <h5 class="summary-heading joined background-purple">
+                                            {{ fs.sectionThree.groups[2].steps[0].summaryHeading }}
+                                        </h5>
+                                        <div class="summary-box background-pale-purple"
+                                             ng-bind-html="fs.sanitize(fs.sectionThree.groups[2].steps[0].html())">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-
-
-        <div class="summary-section mes">
-            <div class="section-header prep">
-                <!--<h4 class="rotate">-->
-                    <!--{{ fs.sectionTwo.heading }}-->
-                <!--</h4>-->
-            </div>
-
-            <div class="section-content">
-                <div class="row low-pad-row">
-
-                    <div class="low-pad-cell" ng-class="fs.getWidthClass(group.steps.length, 4, false)" ng-repeat="group in fs.sectionThree.groups">
-
-                        <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{ group.heading }} </h5>
-                        <div class="row low-pad-row">
-                            <div class="low-pad-cell" ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)" ng-repeat="step in group.steps">
-                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">{{ step.heading }}</h5>
-                                <div class="summary-box" ng-bind-html="fs.sanitize(step.html())" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 low-pad-cell" ng-if="group.steps.length == 0">
-                                <h5 class="summary-heading joined" ng-class="fs.getColorClass('background-', group.color)">Empty</h5>
-                                <div class="summary-box" ng-class="fs.getColorClass('background-pale-', group.color)">
-                                    ...
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
-
 </div>

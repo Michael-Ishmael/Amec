@@ -124,6 +124,11 @@ module aif {
 
 
   export class AifSummary {
+
+    constructor(public title:string){
+
+    }
+
     public rows:Array<AifSummaryRow> = [];
   }
 
@@ -196,7 +201,7 @@ module aif {
   export class AifStepInput implements IAifFrameworkEntry {
 
     inputStyle: AifStepInputStyle;
-    heading:string = null;
+
     subHeading:string = null;
     info:string = null;
     textLimit:number = 500;
@@ -204,8 +209,8 @@ module aif {
     values: Array<IAifStepInputValue> ;
     summaryHeading: string;
 
-    constructor(){
-
+    constructor(public heading:string){
+      this.summaryHeading = this.heading
     }
 
     isKeyedPair():boolean{
@@ -218,7 +223,7 @@ module aif {
         if(v.hasValue()){
           let eht = v.asHtml(i + 1);
           if(eht){
-            if(ht.length) ht += "<br>";
+            //if(ht.length) ht += "<br>";
             ht += eht.trim();
           }
         }
@@ -265,7 +270,7 @@ module aif {
 
     asHtml(index:number = -1):string {
       if(this.numbered && index > -1 ){
-        return "<span class=\"key\">" + index + "</span><span class=\"value\">" + this.text + "</span>"
+        return "<div class=\"key\">" + index + "</div><div class=\"value\">" + this.text + "</div>"
       } else {
         return "<p class='free-text'>" + this.text + "</p>"
       }
@@ -302,7 +307,7 @@ module aif {
     }
 
     asHtml():string {
-      return "<span class=\"key\">" + this.key + "</span><span class=\"value\">" + this.text + "</span>"
+      return "<div class=\"key\">" + this.key + "</div><div class=\"value\">" + this.text + "</div>"
     }
 
     asJsonObj():any {

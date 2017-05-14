@@ -124,7 +124,7 @@
     h5.summary-heading {
       font-size: .8em;
       height: 24px;
-      line-height: 24px;
+      line-height: 25px;
       color: #fff;
       text-transform: uppercase;
       text-align: center;
@@ -135,25 +135,38 @@
         margin-bottom: 0;
       }
     }
+  }
 
-    .summary-box {
 
-      padding: 4px 8px;
-      min-height: 184px;
+  .summary-box {
 
-      &.first-row {
-        max-height: 200px;
-      }
+    padding: 4px 8px;
+    height: 184px;
+    overflow-y: scroll;
 
-      .key {
-        margin-right: 8px;
-        font-weight: bold;
+    &.first-row {
+      max-height: 200px;
+    }
+
+    .key {
+      font-weight: bold;
+      float: left;
+
+    }
+
+    .value{
+      margin-left: 14px;
+
+      &:after {
+        clear:both;
       }
 
     }
 
-
-
   }
 
+}
+
+.print-summary-wrapper{
+  display: none;
 }

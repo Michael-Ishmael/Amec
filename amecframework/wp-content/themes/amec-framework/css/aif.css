@@ -60,7 +60,7 @@
     #frameworkSummary .section-content h5.summary-heading {
       font-size: .8em;
       height: 24px;
-      line-height: 24px;
+      line-height: 25px;
       color: #fff;
       text-transform: uppercase;
       text-align: center;
@@ -68,14 +68,22 @@
       padding: 0; }
       #frameworkSummary .section-content h5.summary-heading.joined {
         margin-bottom: 0; }
-    #frameworkSummary .section-content .summary-box {
-      padding: 4px 8px;
-      min-height: 184px; }
-      #frameworkSummary .section-content .summary-box.first-row {
-        max-height: 200px; }
-      #frameworkSummary .section-content .summary-box .key {
-        margin-right: 8px;
-        font-weight: bold; }
+  #frameworkSummary .summary-box {
+    padding: 4px 8px;
+    height: 184px;
+    overflow-y: scroll; }
+    #frameworkSummary .summary-box.first-row {
+      max-height: 200px; }
+    #frameworkSummary .summary-box .key {
+      font-weight: bold;
+      float: left; }
+    #frameworkSummary .summary-box .value {
+      margin-left: 14px; }
+      #frameworkSummary .summary-box .value:after {
+        clear: both; }
+
+.print-summary-wrapper {
+  display: none; }
 
 .background-red {
   background-color: #d50046; }

@@ -39,8 +39,15 @@ module aif {
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
                 this.selectFramework(this.currentFramework);
-                this.altMessage = "Alternatively, s";
+                if(this.user.frameworks.length > 1){
+                    this.altMessage = "Alternatively, save as an existing framework or";
+                } else {
+                    this.altMessage = "or";
+                }
+
                 this.exInc = 1;
+            } else if(this.user.frameworks.length) {
+                this.altMessage = "Save as an existing framework or";
             }
 
             this.setTitle(this.vs.accountDisplayRoute)
@@ -54,6 +61,12 @@ module aif {
             } else {
 
             }
+        }
+
+        public closeView(){
+            this.user.frameworks.forEach(f => f.selected = false);
+            this.user.frameworks.forEach(f => f.flaggedDelete = false);
+            this.vs.resetView();
         }
 
         public saveAsSelectedFramework(): void {
@@ -81,6 +94,7 @@ module aif {
         }
 
         public selectFramework(framework: AifFramework) {
+            framework.flaggedDelete = false;
             if (framework.selected) {
                 return;
             } else {
@@ -89,6 +103,12 @@ module aif {
             }
 
         }
+
+        public toggleSaveOver(framework: AifFramework) {
+            framework.flaggedDelete = !framework.flaggedDelete;
+
+        }
+
 
         public frameworkIsSelected(): boolean {
             return this.user.frameworks.some(f => {

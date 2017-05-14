@@ -35,8 +35,9 @@
                 </div>
             </div>
 
-            <p class="account-layout">{{ sa.altMessage }}ave as an existing framework or
-                <a ng-click="sa.showCreateFramework()">create a new one</a></p>
+            <p class="account-layout">{{ sa.altMessage }}
+                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length > 3">create a new one</a>
+                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length < 4">create a new framework</a></p>
 
             <div class="choose-fw-layout">
 
@@ -45,13 +46,23 @@
                     <div class="col-md-6 col-xs-12 low-pad-cell"
                          ng-repeat="fw in sa.user.frameworks" ng-if="fw !== sa.currentFramework">
 
-                        <div class="choose-fw-tile"
+                        <div class="choose-fw-tile" ng-if="!fw.flaggedDelete"
                              ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]"
-                             ng-click="sa.selectFramework(fw)"
+                             ng-click="sa.toggleSaveOver(fw)"
                         >
                             <h5> {{ fw.name }} </h5>
                             <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
                             </p>
+
+                        </div>
+
+                        <div class="choose-fw-tile shake" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" ng-if="fw.flaggedDelete">
+
+                            <p>Are you sure you want to save over {{ fw.name }}?</p>
+                            <span class="text-link sml">
+                                        <a ng-click="sa.selectFramework(fw)">Yes</a>
+                                        <a  ng-click="sa.toggleSaveOver(fw)">No</a>
+                                    </span>
 
                         </div>
 

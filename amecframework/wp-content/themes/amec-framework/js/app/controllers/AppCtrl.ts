@@ -121,12 +121,13 @@ module aif {
 
 
     public downloadAifPdf(){
-
+      let title = this.currentFramework ?  this.currentFramework.name : null;
+      let fileName = "AMEC Measurement Framework" + (title ? ' - ' + title : '');
       if(getEntireDom && downloadPDF){
         let opts = {
           document_type: 'pdf',
-          document_content: getEntireDom(),
-          name: 'Framework',
+          document_content: getEntireDom(title),
+          name: fileName,
           javascript: false,
           test: false
         };
