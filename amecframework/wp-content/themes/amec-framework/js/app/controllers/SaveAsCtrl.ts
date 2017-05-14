@@ -11,7 +11,7 @@ module aif {
 
         public altMessage: string = "S";
         public exInc: number = 0;
-
+        public waiting: boolean = false;
 
         public saveUnsuccessful: boolean = false;
         public saveFailMessage: string = null;
@@ -59,7 +59,7 @@ module aif {
         public saveAsSelectedFramework(): void {
 
             if (this.user && this.frameworkIsSelected()) {
-
+                this.waiting = true;
                 let selected = this.user.frameworks.filter(f => f.selected)[0];
                 this.userRepository.saveOverFramework(selected.id).then(s => {
                     if (s) {

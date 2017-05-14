@@ -1010,7 +1010,6 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
-    aif.EMPTY_FRAMEWORK_ID = -1;
     var UserRepository = (function () {
         function UserRepository($timeout, $rootScope, $cookies, $http, $q) {
             this.$timeout = $timeout;
@@ -1024,7 +1023,7 @@ var aif;
         }
         UserRepository.prototype.getEmptyUserFramework = function () {
             var emptyData = { inputs: {} };
-            return new aif.AifUserFramework(aif.EMPTY_FRAMEWORK_ID, emptyData);
+            return new aif.AifUserFramework(-1, emptyData);
         };
         UserRepository.prototype.setFrameworkService = function (service) {
             this.frameworkService = service;
@@ -1042,6 +1041,7 @@ var aif;
                 security: ajax_auth_object.logged_in_nonce
             };
             var user = null;
+            var currentFrameworkId = -1;
             return this.$http.post(regUrl, data).then(function (response) {
                 if (response.data && response.data.loggedIn) {
                     var d = response.data;
@@ -1053,6 +1053,7 @@ var aif;
                         _this.$cookies.remove("justloggedin");
                     }
                     _this.currentUser = user;
+                    currentFrameworkId = _this.getFrameworkCookie() || -1;
                     return _this.$http.get(restUrl);
                 }
                 return null;
@@ -1062,8 +1063,13 @@ var aif;
                 if (user) {
                     user.frameworks = response.data.map(function (f) { return new aif.AifFramework(f.id, f.title, f.excerpt); });
                 }
+                if (currentFrameworkId > -1)
+                    return _this.loadFramework(currentFrameworkId);
+                return null;
+            }).then(function (response) {
                 return user;
             });
+            //this.$cookies.put("aifcurrentframework", framework.id.toString());
             // return this.$timeout(() => {
             //   let cUser = this.$cookies.getObject("aifUser");
             //   if (cUser && cUser.email) {
@@ -1141,9 +1147,10 @@ var aif;
                     _this.$rootScope.$broadcast("user:loggedIn", newUser);
                     return new aif.LoginResult(true, newUser, null);
                 }
-                return new aif.LoginResult(false, null, "Registration error");
+                var message = r.data.message || "Registration error";
+                return new aif.LoginResult(false, null, message);
             }, function (e) {
-                return new aif.LoginResult(false, null, e.statusText);
+                return new aif.LoginResult(false, null, "Registration error");
             });
             /*      return this.$timeout(() => {
 
@@ -1261,6 +1268,7 @@ var aif;
                 framework.current = true;
                 _this.currentUser.frameworks.push(framework);
                 _this.currentUser.currentFramework = framework;
+                _this.setFrameworkCookie(framework.id);
                 _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
                 return new aif.SaveFrameworkResult(true, framework, null);
             }, function (e) {
@@ -1281,9 +1289,6 @@ var aif;
 
              }, 200);*/
         };
-        UserRepository.prototype.loadUserFramework = function (id, data) {
-            var userFramework = new aif.AifUserFramework(id, data);
-        };
         UserRepository.prototype.saveOverFramework = function (id) {
             var _this = this;
             var hasUser = !!this.currentUser;
@@ -1297,6 +1302,7 @@ var aif;
                     this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
                     framework_1.current = true;
                     this.currentUser.currentFramework = framework_1;
+                    this.setFrameworkCookie(framework_1.id);
                     return this.save().then(function (s) {
                         if (s.success) {
                             _this.$rootScope.$broadcast("framework:frameworkSwitched", framework_1);
@@ -1338,6 +1344,23 @@ var aif;
                 * */
             }
         };
+        UserRepository.prototype.setFrameworkCookie = function (frameworkId) {
+            if (this.currentUser) {
+                this.$cookies.put("aifcurrentframework_" + this.currentUser.id, frameworkId.toString());
+            }
+        };
+        UserRepository.prototype.getFrameworkCookie = function () {
+            if (this.currentUser) {
+                var cookieString = this.$cookies.get("aifcurrentframework_" + this.currentUser.id);
+                try {
+                    return parseInt(cookieString);
+                }
+                catch (ex) {
+                    return null;
+                }
+            }
+            return null;
+        };
         UserRepository.prototype.loadFramework = function (id) {
             var _this = this;
             var hasUser = !!this.currentUser;
@@ -1350,6 +1373,7 @@ var aif;
                     var framework_2 = matches[0];
                     this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
                     framework_2.current = true;
+                    this.setFrameworkCookie(framework_2.id);
                     this.currentUser.currentFramework = framework_2;
                     var restUrl = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
                     return this.$http.get(restUrl)
@@ -2077,6 +2101,7 @@ var aif;
             this.loginFailure = false;
             this.loginMessage = null;
             this.showNeedMessage = false;
+            this.waiting = false;
             this.userModel = null;
             this.init();
         }
@@ -2090,15 +2115,33 @@ var aif;
             var _this = this;
             if (!form.$valid)
                 return;
+            if (this.userModel.password != this.userModel.passwordConfirmation)
+                return;
+            this.waiting = true;
             this.userRepository.registerNewUser(this.userModel).then(function (r) {
+                _this.waiting = false;
                 if (r.success) {
+                    _this.loginFailure = false;
                     _this.vs.showLoading();
                     window.location.href = window.location.href;
                 }
                 else {
-                    //TODO: display error
+                    _this.loginFailure = true;
+                    _this.loginMessage = r.message;
                 }
             });
+        };
+        RegisterCtrl.prototype.isCasualEmil = function (email) {
+            if (!email)
+                return;
+            var isCasual = false;
+            var casuals = ["hotmail", "gmail", "yahoo"];
+            casuals.forEach(function (s) {
+                if (email.toLowerCase().indexOf(s) > -1) {
+                    isCasual = true;
+                }
+            });
+            return isCasual;
         };
         return RegisterCtrl;
     }());
@@ -2366,6 +2409,7 @@ var aif;
             this.currentFramework = null;
             this.altMessage = "S";
             this.exInc = 0;
+            this.waiting = false;
             this.saveUnsuccessful = false;
             this.saveFailMessage = null;
             this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
@@ -2401,6 +2445,7 @@ var aif;
         SaveAsCtrl.prototype.saveAsSelectedFramework = function () {
             var _this = this;
             if (this.user && this.frameworkIsSelected()) {
+                this.waiting = true;
                 var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
                 this.userRepository.saveOverFramework(selected.id).then(function (s) {
                     if (s) {
@@ -2465,7 +2510,7 @@ var aif;
                 _this.vs.resetView();
                 if (user) {
                     _this.currentUser = user;
-                    if (user.justLoggedIn) {
+                    if (!user.currentFramework) {
                         _this.initialised = true;
                         if (user.hasExistingFrameworks())
                             _this.vs.showAccount(aif.AccountDisplayRoute.FromLogin);

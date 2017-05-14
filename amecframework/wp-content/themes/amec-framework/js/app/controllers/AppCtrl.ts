@@ -32,13 +32,13 @@ module aif {
       this.$scope.$on("framework:frameworkSwitched", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
 
 
-      this.vs.showLoading()
+      this.vs.showLoading();
       this.userRepository.get().then(
         user => {
           this.vs.resetView();
           if(user){
             this.currentUser = user;
-            if(user.justLoggedIn){
+            if(!user.currentFramework){
               this.initialised = true;
               if(user.hasExistingFrameworks())
                 this.vs.showAccount(AccountDisplayRoute.FromLogin);

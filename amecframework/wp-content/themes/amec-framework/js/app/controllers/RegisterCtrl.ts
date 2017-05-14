@@ -12,7 +12,7 @@ module aif {
     public loginFailure:boolean = false;
     public loginMessage:string = null;
     public showNeedMessage:boolean = false;
-
+    public waiting:boolean = false;
     public userModel:AppUser = null;
 
     constructor(public vs:ViewService, private userRepository: IUserRepository) {
@@ -28,15 +28,35 @@ module aif {
 
     public registerNewUser(form:ng.IFormController){
       if(!form.$valid) return;
+      if(this.userModel.password != this.userModel.passwordConfirmation) return;
+      this.waiting = true;
       this.userRepository.registerNewUser(this.userModel).then(r => {
+        this.waiting = false;
         if(r.success){
+          this.loginFailure = false;
           this.vs.showLoading();
           window.location.href = window.location.href;
         } else {
-          //TODO: display error
+          this.loginFailure = true;
+          this.loginMessage = r.message;
         }
       });
 
+    }
+
+    public isCasualEmil(email:string){
+
+      if(!email) return;
+      let isCasual:boolean = false;
+      let casuals = ["hotmail", "gmail", "yahoo"]
+
+       casuals.forEach(s => {
+        if(email.toLowerCase().indexOf(s) > -1){
+          isCasual = true;
+        }
+      });
+
+      return isCasual;
     }
 
 

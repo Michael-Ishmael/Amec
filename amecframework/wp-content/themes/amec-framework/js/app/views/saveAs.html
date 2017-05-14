@@ -65,7 +65,8 @@
 
 
             <div class="form-group">
-                <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                <div class="little-loader" ng-show="sa.waiting"></div>
+                <input ng-hide="sa.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
                        ng-disabled="!sa.frameworkIsSelected()"
                        type="button" value="Save" ng-click="sa.saveAsSelectedFramework()">
             </div>

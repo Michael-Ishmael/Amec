@@ -11,73 +11,6 @@
             <form id="register" novalidate name="formReg" class="css-form"
                   ng-submit="rc.registerNewUser(formReg)">
 
-
-                <div class="login-box-group">
-
-
-                    <div class="form-group">
-                        <label for="regEmail">Email</label>
-                        <input id="regEmail" ng-model="rc.userModel.email" required type="text"
-                               class="form-control" name="rEmail"
-                               placeholder="Email Address">
-                        <div class="form-validation-error"
-                             ng-show="form.$submitted || formReg.rEmail.$touched">
-                            <span ng-show="formReg.rEmail.$error.required">You must supply a valid email address.</span>
-                            <span ng-show="formReg.rEmail.$error.email">This is not a valid email.</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="rPassword">Password</label>
-                        <input type="password" ng-model="rc.userModel.password" required name="rPassword"
-                               class="form-control" id="rPassword"
-                               placeholder="Password" ng-minlength="8">
-
-                        <div class="form-validation-error"
-                             ng-show="formReg.$submitted || formReg.rPassword.$touched">
-                            <span ng-show="formReg.rPassword.$error.required">You must supply a password.</span>
-                            <span ng-show="formReg.rPassword.$error.minlength">Your password should be at least eight characters long.</span>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="regConfPassword">Confirm Password</label>
-                        <input type="password" class="form-control" name="rConfPassword" required
-                               id="regConfPassword" ng-model="rc.userModel.passwordConfirmation"
-                               placeholder="Confirm Password">
-                        <div class="form-validation-error"
-                             ng-show="formReg.$submitted || formReg.rConfPassword.$touched">
-                            <span ng-show="rc.userModel.password !== rc.userModel.passwordConfirmation">The passwords don't match.</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="regLanguage">Language</label>
-                        <select id="regLanguage" name="language" ng-model="rc.userModel.language" required
-                                class="form-control dropdown">
-                            <option value="en">English</option>
-                            <option value="es">Spanish</option>
-                            <option value="sk">Swedish</option>
-                        </select>
-                        <div class="form-validation-error"
-                             ng-show="formReg.$submitted || formReg.language.$touched">
-                            <span ng-show="formReg.language.$error.required">You specify a language.</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-
-                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
-                               type="submit" value="Register">
-
-                    </div>
-
-                </div>
-
                 <div class="login-box-group">
 
 
@@ -126,8 +59,76 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group">
+                        <label for="regJobTitle">Contact Number</label>
+                        <input type="tel" name="contactNumber" class="form-control" id="regContactNumber"
+                               ng-model="rc.userModel.contactNumber" required
+                               placeholder="Contact Number">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.contactNumber.$touched">
+                            <span ng-show="formReg.contactNumber.$error.required">You must provide a contact number.</span>
+                        </div>
+                    </div>
+
                 </div>
 
+                <div class="login-box-group">
+
+
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input id="regEmail" ng-model="rc.userModel.email" required type="email"
+                               class="form-control" name="rEmail"
+                               placeholder="A Work Email Address">
+                        <div class="form-validation-error"
+                             ng-show="form.$submitted || formReg.rEmail.$touched">
+                            <span ng-show="formReg.rEmail.$error.required">You must supply a valid email address.</span>
+                            <span ng-show="formReg.rEmail.$error.email">This is not a valid email.</span>
+                            <span ng-show="rc.isCasualEmil(rc.userModel.email)">You must use a work email address.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rPassword">Password</label>
+                        <input type="password" ng-model="rc.userModel.password" required name="rPassword"
+                               class="form-control" id="rPassword"
+                               placeholder="Password" ng-minlength="8">
+
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.rPassword.$touched">
+                            <span ng-show="formReg.rPassword.$error.required">You must supply a password.</span>
+                            <span ng-show="formReg.rPassword.$error.minlength">Your password should be at least eight characters long.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfPassword">Confirm Password</label>
+                        <input type="password" class="form-control" name="rConfPassword" required
+                               id="regConfPassword" ng-model="rc.userModel.passwordConfirmation"
+                               placeholder="Confirm Password">
+                        <div class="form-validation-error"
+                             ng-show="formReg.$submitted || formReg.rConfPassword.$touched">
+                            <span ng-show="rc.userModel.password !== rc.userModel.passwordConfirmation">The passwords don't match.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group register-container">
+                        <div class="little-loader" ng-show="rc.waiting"></div>
+
+                        <input  ng-hide="rc.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                                type="submit" value="Register">
+                        <div class="form-validation-error"
+                             ng-show="rc.loginFailure">
+                            <span >{{ rc.loginMessage }}</span>
+                        </div>
+                    </div>
+
+                </div>
 
             </form>
 

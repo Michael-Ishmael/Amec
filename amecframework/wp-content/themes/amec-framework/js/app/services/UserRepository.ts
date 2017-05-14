@@ -73,8 +73,6 @@ module aif {
         username: string;
     }
 
-    export const EMPTY_FRAMEWORK_ID:number = -1;
-
     export class UserRepository implements IUserRepository {
 
 //wp_lostpassword_url()
@@ -98,7 +96,7 @@ module aif {
         private getEmptyUserFramework():AifUserFramework {
 
             let emptyData:IAifUserFramework = { inputs: {} };
-            return new AifUserFramework(EMPTY_FRAMEWORK_ID, emptyData)
+            return new AifUserFramework(-1, emptyData)
 
         }
 
@@ -120,6 +118,7 @@ module aif {
                 security: ajax_auth_object.logged_in_nonce
             };
             let user: AifUser = null;
+            let currentFrameworkId:number = -1;
 
             return this.$http.post(regUrl, data,
             ).then((response: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse>) => {
@@ -140,6 +139,7 @@ module aif {
                         this.$cookies.remove("justloggedin");
                     }
                     this.currentUser = user;
+                    currentFrameworkId = this.getFrameworkCookie() || -1;
                     return this.$http.get(restUrl);
                 }
 
@@ -152,9 +152,17 @@ module aif {
                     user.frameworks = response.data.map(f => new AifFramework(f.id, f.title, f.excerpt));
                 }
 
+                if(currentFrameworkId > -1) return this.loadFramework(currentFrameworkId);
+
+                return null;
+
+            }).then((response: any) => {
 
                 return user;
             })
+
+
+            //this.$cookies.put("aifcurrentframework", framework.id.toString());
 
             // return this.$timeout(() => {
             //   let cUser = this.$cookies.getObject("aifUser");
@@ -250,10 +258,11 @@ module aif {
                         this.$rootScope.$broadcast("user:loggedIn", newUser);
                         return new LoginResult(true, newUser, null);
                     }
-                    return new LoginResult(false, null, "Registration error");
+                    let message =  r.data.message || "Registration error";
+                    return new LoginResult(false, null, message);
                 },
                 e => {
-                    return new LoginResult(false, null, e.statusText);
+                    return new LoginResult(false, null, "Registration error");
                 }
             );
 
@@ -322,6 +331,7 @@ module aif {
                     if (r.data) {
                         if (r.data.loggedIn) {
                             this.$cookies.put("aifloggedin", "true");
+
                             let newUser = new AifUser(
                                 email, r.data.displayName, null, null, null, null, null
                             );
@@ -396,6 +406,7 @@ module aif {
                 framework.current = true;
                 this.currentUser.frameworks.push(framework);
                 this.currentUser.currentFramework = framework;
+                this.setFrameworkCookie(framework.id);
                 this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
                 return new SaveFrameworkResult(true, framework, null);
 
@@ -418,12 +429,6 @@ module aif {
              }, 200);*/
         }
 
-        private loadUserFramework(id:number, data:IAifUserFramework){
-
-            let userFramework = new AifUserFramework(id, data);
-
-        }
-
         saveOverFramework(id: number): ng.IPromise<SaveFrameworkResult> {
             let hasUser = !!this.currentUser;
 
@@ -438,6 +443,7 @@ module aif {
                     this.currentUser.frameworks.forEach(f => f.current = false);
                     framework.current = true;
                     this.currentUser.currentFramework = framework;
+                    this.setFrameworkCookie(framework.id);
 
                     return this.save().then(s => {
 
@@ -490,6 +496,24 @@ module aif {
 
         }
 
+        private setFrameworkCookie(frameworkId:number){
+            if(this.currentUser){
+                this.$cookies.put("aifcurrentframework_" + this.currentUser.id, frameworkId.toString());
+            }
+        }
+
+        private getFrameworkCookie():number{
+            if(this.currentUser){
+                let cookieString = this.$cookies.get("aifcurrentframework_" + this.currentUser.id);
+                try{
+                    return parseInt(cookieString);
+                } catch (ex){
+                    return null;
+                }
+            }
+            return null;
+        }
+
         loadFramework(id: number): ng.IPromise<SaveFrameworkResult> {
             let hasUser = !!this.currentUser;
 
@@ -497,12 +521,12 @@ module aif {
                 return this.$q.when<SaveFrameworkResult>(new SaveFrameworkResult(false, null, "User not logged in"));
             } else {
 
-
                 let matches = this.currentUser.frameworks.filter(f => f.id === id);
                 if (matches.length) {
                     let framework = matches[0];
                     this.currentUser.frameworks.forEach(f => f.current = false);
                     framework.current = true;
+                    this.setFrameworkCookie(framework.id);
 
                     this.currentUser.currentFramework = framework;
                     let restUrl: string = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;

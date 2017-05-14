@@ -105,7 +105,7 @@ function ajax_register()
         if (in_array('empty_user_login', $error))
             echo json_encode(array('loggedIn' => false, 'message' => __($user_register->get_error_message('empty_user_login'))));
         elseif (in_array('existing_user_login', $error))
-            echo json_encode(array('loggedIn' => false, 'message' => __('This username is already registered.')));
+            echo json_encode(array('loggedIn' => false, 'message' => __('This email address is already registered.')));
         elseif (in_array('existing_user_email', $error))
             echo json_encode(array('loggedIn' => false, 'message' => __('This email address is already registered.')));
     } else {

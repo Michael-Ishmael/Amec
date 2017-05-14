@@ -71,6 +71,10 @@ $color-list: (
     font-family: system-ui;
   }
 
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="url"], select {
+    margin: 0;
+  }
+
   @each $value in $color-list {
 
     .background-#{nth($value, 1)} {
@@ -416,6 +420,19 @@ $color-list: (
       .text-link.lge {
         font-size: 1.2rem;
       }
+
+      .register-container {
+        margin-top: 42px;
+
+        > div, > input {
+          float: right;
+        }
+
+        &:after {
+          clear: both;
+        }
+      }
+
     }
 
     .little-loader {

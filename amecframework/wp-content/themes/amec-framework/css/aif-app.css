@@ -2540,6 +2540,8 @@
   #aif-app text-area {
     color: black;
     font-family: system-ui; }
+  #aif-app input[type="text"], #aif-app input[type="password"], #aif-app input[type="email"], #aif-app input[type="tel"], #aif-app input[type="url"], #aif-app select {
+    margin: 0; }
   #aif-app .background-red {
     background-color: #d50046; }
   #aif-app .background-dark-red {
@@ -2851,6 +2853,12 @@
         margin-right: 6px; }
       #aif-app .account-screen .login-box-group .text-link.lge {
         font-size: 1.2rem; }
+      #aif-app .account-screen .login-box-group .register-container {
+        margin-top: 42px; }
+        #aif-app .account-screen .login-box-group .register-container > div, #aif-app .account-screen .login-box-group .register-container > input {
+          float: right; }
+        #aif-app .account-screen .login-box-group .register-container:after {
+          clear: both; }
     #aif-app .account-screen .little-loader {
       background-image: url("../images/littleLoading.gif");
       background-repeat: no-repeat;
