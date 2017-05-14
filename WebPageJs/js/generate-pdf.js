@@ -7,7 +7,7 @@ function changeBackgroundUrlToAbsolute(id)
 
 function addRequiredPageBreaks()
 {
-    $('#Stage_Questions-Timeline_results_level_bg').css('page-break-after','always');
+    jQuery('#Stage_Questions-Timeline_results_level_bg').css('page-break-after','always');
 }
 
 function downloadPDF(data, user_credentials){
@@ -41,10 +41,10 @@ function downloadPDF(data, user_credentials){
 
 function getEntireDom()
 {
-    var pdfDOM = $("html").clone();
+    var pdfDOM = jQuery("html").clone();
 
     var frameWork = pdfDOM.find("#frameworkSummary").clone();
-    var newBody = $("<body></body>").append(frameWork);
+    var newBody = jQuery("<body></body>").append(frameWork);
     var css = pdfDOM.find("#pageCSS").html();
 
     pdfDOM.find("body").replaceWith(newBody);
@@ -52,21 +52,21 @@ function getEntireDom()
     ;
     return pdfDOM.html();
 }
-
-$(document).ready(function(){
-    $(document).on('click','#Stage_download-pdf-1',function(e){
-      //console.log('click event');
-        e.preventDefault();
-       var opts = {
-            document_type: 'pdf',
-            document_content: getEntireDom(),
-            name: 'Framework',
-            javascript: false,
-            test: false
-        };
-        downloadPDF(opts,'UmPbAOzv3fSfgTsHLZV');
-    });
-});
+//
+// $(document).ready(function(){
+//     $(document).on('click','#Stage_download-pdf-1',function(e){
+//       //console.log('click event');
+//         e.preventDefault();
+//        var opts = {
+//             document_type: 'pdf',
+//             document_content: getEntireDom(),
+//             name: 'Framework',
+//             javascript: false,
+//             test: false
+//         };
+//         downloadPDF(opts,'UmPbAOzv3fSfgTsHLZV');
+//     });
+// });
 
 
 
