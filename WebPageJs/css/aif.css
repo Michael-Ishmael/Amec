@@ -10,62 +10,83 @@
   /* Internet Explorer */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
 
-#frameworkSummary {
-  margin: 10px -15px 0 -15px; }
-  #frameworkSummary .summary-row {
-    margin-bottom: 12px; }
-  #frameworkSummary .summary-section {
-    position: relative; }
-    #frameworkSummary .summary-section.imp {
-      width: 250px;
-      display: inline-block; }
-    #frameworkSummary .summary-section.mes {
-      width: 900px;
-      display: inline-block;
-      margin-left: 15px; }
-  #frameworkSummary .low-pad-row {
-    margin-left: -3px;
-    margin-right: -3px; }
-  #frameworkSummary .low-pad-cell {
-    padding: 0 3px 0 3px; }
-  #frameworkSummary .prep .section-header {
-    height: 236px;
-    background-image: url("../images/ss-header-1.png"); }
-  #frameworkSummary .imp .section-header {
-    height: 582px;
-    background-image: url("../images/ss-header-2.png"); }
-  #frameworkSummary .imp .summary-box {
-    height: 582px; }
-  #frameworkSummary .mes .section-header {
-    height: 582px;
-    background-image: url("../images/ss-header-3.png"); }
-  #frameworkSummary .mes .summary-box {
-    height: 582px; }
-  #frameworkSummary .section-header {
-    background-color: #8a8a8a;
-    width: 34px;
-    float: left;
-    padding-top: 160px;
-    background-position: 2px 0;
-    background-size: contain; }
-  #frameworkSummary .section-content {
-    margin-left: 42px; }
-    #frameworkSummary .section-content h5.summary-heading {
-      font-size: .8em;
-      height: 24px;
-      line-height: 24px;
-      color: #fff;
-      text-transform: uppercase;
-      text-align: center;
-      margin: 0 0 4px 0;
-      padding: 0; }
-      #frameworkSummary .section-content h5.summary-heading.joined {
-        margin-bottom: 0; }
-    #frameworkSummary .section-content .summary-box {
-      padding: 4px 8px;
-      min-height: 184px; }
-      #frameworkSummary .section-content .summary-box.first-row {
-        max-height: 200px; }
+#frameworkSummary .aif-p-page-break {
+  page-break-after: always; }
+#frameworkSummary .summary-section {
+  position: relative; }
+  #frameworkSummary .summary-section.prep {
+    height: 510px; }
+  #frameworkSummary .summary-section.imp {
+    height: 260px; }
+  #frameworkSummary .summary-section.mes {
+    height: 780px; }
+#frameworkSummary .low-pad-row {
+  margin-left: -3px;
+  margin-right: -3px; }
+#frameworkSummary .low-pad-cell {
+  padding: 0 3px 0 3px; }
+#frameworkSummary .summary-box {
+  color: #404040;
+  font-weight: 400; }
+#frameworkSummary .prep .section-header {
+  height: 512px;
+  background-image: url("../images/ss-header-1.png");
+  background-repeat: no-repeat;
+  background-position-y: 50%; }
+#frameworkSummary .imp .section-header {
+  height: 300px;
+  background-image: url("../images/ss-header-2.png");
+  background-repeat: no-repeat;
+  background-position-y: 50%; }
+#frameworkSummary .imp .summary-box {
+  height: 250px; }
+#frameworkSummary .imp .aif-p-12 .summary-box {
+  -webkit-columns: 200px 2;
+  /* Chrome, Safari, Opera */
+  -moz-columns: 200px 2;
+  /* Firefox */
+  columns: 200px 2; }
+#frameworkSummary .mes .section-header {
+  height: 976px;
+  background-image: url("../images/ss-header-3.png");
+  background-repeat: no-repeat;
+  background-position-y: 50%; }
+#frameworkSummary .mes .aif-p-taller .summary-box {
+  height: 400px; }
+#frameworkSummary .mes .aif-p-12 .summary-box {
+  -webkit-columns: 200px 2;
+  /* Chrome, Safari, Opera */
+  -moz-columns: 200px 2;
+  /* Firefox */
+  columns: 200px 2; }
+#frameworkSummary .section-header {
+  background-color: #8a8a8a;
+  width: 34px;
+  float: left;
+  padding-top: 160px;
+  background-position: 2px 0;
+  background-size: contain; }
+#frameworkSummary .section-content {
+  margin-left: 42px; }
+  #frameworkSummary .section-content h5.summary-heading {
+    font-size: .8em;
+    height: 24px;
+    line-height: 24px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 4px 0;
+    padding: 0; }
+    #frameworkSummary .section-content h5.summary-heading.joined {
+      margin-bottom: 0; }
+  #frameworkSummary .section-content .summary-box {
+    padding: 4px 8px;
+    min-height: 200px; }
+    #frameworkSummary .section-content .summary-box.first-row {
+      max-height: 200px; }
+    #frameworkSummary .section-content .summary-box .key {
+      margin-right: 8px;
+      font-weight: bold; }
 
 .background-red {
   background-color: #d50046; }

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amec Framework PDF</title>
+
+    <!--<link rel="stylesheet" href="css/aif-summary.css">-->
+
+    <!--<style>-->
+
+        <!--.aif-p-12,.aif-p-3,.aif-p-6,.row,.summary-section,h1{position:relative}.imp .section-header,.mes .section-header,.prep .section-header{background-repeat:no-repeat;background-position-y:50%}@page{size:A4;margin:0;padding:1cm;background:#fff}#frameworkSummary{font-family:lato,Roboto,Arial,sans-serif;font-size:14px;line-height:1.428571429;color:#fff;margin-left:10px;margin-right:10px;margin-top:10px}h1{color:#fffbfb;text-align:center;background-color:#b0c5d4;padding:10px;margin-bottom:10px;font-size:1.3em}h1 .em{font-style:italic}#frameworkSummary *{box-sizing:border-box}.row{margin:0 -3px}.aif-p-3{width:25%;float:left;max-width:25%}.aif-p-6{width:50%;float:left;max-width:50%}.aif-p-12{width:100%;float:left;max-width:100%}.outer-row>.aif-p-12{margin-bottom:10px}.aif-p-page-break{page-break-after:always}.summary-section.prep{height:510px}.summary-section.imp{height:260px}.summary-section.mes{height:780px}.low-pad-row{margin-left:-3px;margin-right:-3px}.low-pad-cell{padding:0 3px}.summary-box{color:#404040;font-weight:400}.prep .section-header{height:613px;background-image:url(images/ss-header-1.png)}.imp .section-header{height:301px;background-image:url(images/ss-header-2.png)}.imp .summary-box{height:250px}.imp .aif-p-12 .summary-box{-webkit-columns:200px 2;-moz-columns:200px 2;columns:200px 2}.mes .section-header{height:1015px;background-image:url(images/ss-header-3.png)}.mes .aif-p-taller .summary-box{height:340px}.mes .aif-p-12 .summary-box{-webkit-columns:200px 2;-moz-columns:200px 2;columns:200px 2}.section-header{background-color:#8a8a8a;width:34px;float:left;padding-top:160px;background-position:2px 0;background-size:contain}.section-content{margin-left:42px}.section-content h5.summary-heading{font-size:.8em;height:24px;line-height:24px;color:#fff;text-transform:uppercase;text-align:center;margin:0 0 4px;padding:0}.section-content h5.summary-heading.joined{margin-bottom:0}.section-content .summary-box{padding:4px 8px;min-height:250px}.section-content .summary-box .key{margin-right:8px;font-weight:700}.background-red{background-color:#d50046}.background-dark-red{background-color:#8e002f}.background-pale-red{background-color:#ffd5e3}.background-yellow{background-color:#ff9a31}.background-dark-yellow{background-color:#e97700}.background-pale-yellow{background-color:#fff2e4}.background-green{background-color:#00c394}.background-dark-green{background-color:#007c5e}.background-pale-green{background-color:#c3fff1}.background-light_blue{background-color:#0090ff}.background-dark-light_blue{background-color:#0068b8}.background-pale-light_blue{background-color:#cce9ff}.background-dark_blue{background-color:#0072af}.background-dark-dark_blue{background-color:#004368}.background-pale-dark_blue{background-color:#afe3ff}.background-purple{background-color:#8a00b6}.background-dark-purple{background-color:#54006f}.background-pale-purple{background-color:#edb6ff}-->
+
+    <!--</style>-->
+
+    <!--<style>-->
+
+
+        <!--@page {-->
+            <!--size: A4;-->
+            <!--margin: 0;-->
+            <!--padding: 1cm;-->
+            <!--background: #fff; }-->
+        <!--#frameworkSummary {-->
+            <!--font-family: lato, Roboto, Arial, sans-serif;-->
+            <!--font-size: 14px;-->
+            <!--line-height: 1.428571429;-->
+            <!--color: #fff;-->
+            <!--margin-left: 10px;-->
+            <!--margin-right: 10px;-->
+            <!--margin-top: 10px; }-->
+        <!--h1{-->
+            <!--color: #fffbfb;-->
+            <!--text-align: center;-->
+            <!--background-color: #b0c5d4;-->
+            <!--padding: 10px;-->
+            <!--position: relative;-->
+            <!--margin-bottom: 10px;-->
+            <!--font-size: 1.3em;-->
+        <!--}-->
+        <!--h1 .em {-->
+            <!--font-style: italic;-->
+        <!--}-->
+
+        <!--#frameworkSummary * {-->
+            <!--box-sizing: border-box; }-->
+         <!--.row {-->
+            <!--position: relative;-->
+            <!--margin: 0 -3px 0 -3px; }-->
+         <!--.aif-p-3 {-->
+            <!--width: 25%;-->
+            <!--float: left;-->
+            <!--max-width: 25%;-->
+            <!--position: relative; }-->
+         <!--.aif-p-6 {-->
+            <!--width: 50%;-->
+            <!--float: left;-->
+            <!--max-width: 50%;-->
+            <!--position: relative; }-->
+         <!--.aif-p-12 {-->
+            <!--width: 100%;-->
+            <!--float: left;-->
+            <!--max-width: 100%;-->
+            <!--position: relative; }-->
+         <!--.outer-row > .aif-p-12 {-->
+            <!--margin-bottom: 10px; }-->
+
+         <!--.aif-p-page-break {-->
+            <!--page-break-after: always; }-->
+         <!--.summary-section {-->
+            <!--position: relative; }-->
+         <!--.summary-section.prep {-->
+            <!--height: 510px; }-->
+         <!--.summary-section.imp {-->
+            <!--height: 260px; }-->
+         <!--.summary-section.mes {-->
+            <!--height: 780px; }-->
+         <!--.low-pad-row {-->
+            <!--margin-left: -3px;-->
+            <!--margin-right: -3px; }-->
+         <!--.low-pad-cell {-->
+            <!--padding: 0 3px 0 3px; }-->
+         <!--.summary-box {-->
+            <!--color: #404040;-->
+            <!--font-weight: 400; }-->
+         <!--.prep .section-header {-->
+            <!--height: 613px;-->
+            <!--background-image: url("images/ss-header-1.png");-->
+            <!--background-repeat: no-repeat;-->
+            <!--background-position-y: 50%; }-->
+         <!--.imp .section-header {-->
+            <!--height: 301px;-->
+            <!--background-image: url("images/ss-header-2.png");-->
+            <!--background-repeat: no-repeat;-->
+            <!--background-position-y: 50%; }-->
+         <!--.imp .summary-box {-->
+            <!--height: 250px; }-->
+         <!--.imp .aif-p-12 .summary-box {-->
+            <!-- -webkit-columns: 200px 2;-->
+            <!--/* Chrome, Safari, Opera */-->
+            <!-- -moz-columns: 200px 2;-->
+            <!--/* Firefox */-->
+            <!--columns: 200px 2; }-->
+         <!--.mes .section-header {-->
+            <!--height: 1015px;-->
+            <!--background-image: url("images/ss-header-3.png");-->
+            <!--background-repeat: no-repeat;-->
+            <!--background-position-y: 50%; }-->
+         <!--.mes .aif-p-taller .summary-box {-->
+            <!--height: 340px; }-->
+         <!--.mes .aif-p-12 .summary-box {-->
+            <!-- -webkit-columns: 200px 2;-->
+            <!--/* Chrome, Safari, Opera */-->
+            <!-- -moz-columns: 200px 2;-->
+            <!--/* Firefox */-->
+            <!--columns: 200px 2; }-->
+         <!--.section-header {-->
+            <!--background-color: #8a8a8a;-->
+            <!--width: 34px;-->
+            <!--float: left;-->
+            <!--padding-top: 160px;-->
+            <!--background-position: 2px 0;-->
+            <!--background-size: contain; }-->
+         <!--.section-content {-->
+            <!--margin-left: 42px; }-->
+         <!--.section-content h5.summary-heading {-->
+            <!--font-size: .8em;-->
+            <!--height: 24px;-->
+            <!--line-height: 24px;-->
+            <!--color: #fff;-->
+            <!--text-transform: uppercase;-->
+            <!--text-align: center;-->
+            <!--margin: 0 0 4px 0;-->
+            <!--padding: 0; }-->
+         <!--.section-content h5.summary-heading.joined {-->
+            <!--margin-bottom: 0; }-->
+         <!--.section-content .summary-box {-->
+            <!--padding: 4px 8px;-->
+            <!--min-height: 250px; }-->
+         <!--.section-content .summary-box .key {-->
+            <!--margin-right: 8px;-->
+            <!--font-weight: bold; }-->
+
+        <!--.background-red {-->
+            <!--background-color: #d50046; }-->
+
+        <!--.background-dark-red {-->
+            <!--background-color: #8e002f; }-->
+
+
+
+        <!--.background-pale-red {-->
+            <!--background-color: #ffd5e3; }-->
+
+
+
+        <!--.background-yellow {-->
+            <!--background-color: #ff9a31; }-->
+
+        <!--.background-dark-yellow {-->
+            <!--background-color: #e97700; }-->
+
+
+
+        <!--.background-pale-yellow {-->
+            <!--background-color: #fff2e4; }-->
+
+
+
+        <!--.background-green {-->
+            <!--background-color: #00c394; }-->
+
+        <!--.background-dark-green {-->
+            <!--background-color: #007c5e; }-->
+
+
+        <!--.background-pale-green {-->
+            <!--background-color: #c3fff1; }-->
+
+
+        <!--.background-light_blue {-->
+            <!--background-color: #0090ff; }-->
+
+        <!--.background-dark-light_blue {-->
+            <!--background-color: #0068b8; }-->
+
+
+
+        <!--.background-pale-light_blue {-->
+            <!--background-color: #cce9ff; }-->
+
+
+
+        <!--.background-dark_blue {-->
+            <!--background-color: #0072af; }-->
+
+        <!--.background-dark-dark_blue {-->
+            <!--background-color: #004368; }-->
+
+
+        <!--.background-pale-dark_blue {-->
+            <!--background-color: #afe3ff; }-->
+
+
+        <!--.background-purple {-->
+            <!--background-color: #8a00b6; }-->
+
+        <!--.background-dark-purple {-->
+            <!--background-color: #54006f; }-->
+
+
+        <!--.background-pale-purple {-->
+            <!--background-color: #edb6ff; }-->
+
+
+        <!--/*# sourceMappingURL=aif-summary.css.map */-->
+
+    <!--</style>-->
+
+    <script src="js/libs/jquery/jquery-3.2.1.min.js"></script>
+    <script src="js/generate-pdf.js"></script>
+
+
+</head>
+<body>
+
+
+
+        <div id="frameworkSummary" ng-controller="frameworkSummaryCtrl as fs" class="ng-scope">
+
+            <h1>AMEC Measurement Framework - <span class="em">Nike Campaign 2016</span></h1>
+
+            <div class="summary-row">
+                <div class="summary-section prep">
+                    <div class="section-header ">
+                        <!--<h4 class="rotate">-->
+                        <!--{{ fs.sectionOne.heading }}-->
+                        <!--</h4>-->
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <!-- ngRepeat: group in fs.sectionOne.groups -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
+                                 ng-class="fs.getWidthClass(group.steps.length, 4)">
+
+                                <h5 class="summary-heading ng-binding background-dark-red"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Align Objectives </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                        <h5 class="summary-heading joined ng-binding background-red"
+                                            ng-class="fs.getColorClass('background-', group.color)">Organisational
+                                            Objectives</h5>
+                                        <div class="summary-box ng-binding background-pale-red"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"><p
+                                                class="free-text">Test</p></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                        <h5 class="summary-heading joined ng-binding background-red"
+                                            ng-class="fs.getColorClass('background-', group.color)">Communication
+                                            Objectives</h5>
+                                        <div class="summary-box ng-binding background-pale-red"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
+                                 ng-class="fs.getWidthClass(group.steps.length, 4)">
+
+                                <h5 class="summary-heading ng-binding background-dark-yellow"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Inform &amp; Prepare
+                                    Communication </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                        <h5 class="summary-heading joined ng-binding background-yellow"
+                                            ng-class="fs.getColorClass('background-', group.color)">Target Audience</h5>
+                                        <div class="summary-box ng-binding background-pale-yellow"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"><span
+                                                class="key">1</span><span class="value">Test 2</span></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                        <h5 class="summary-heading joined ng-binding background-yellow"
+                                            ng-class="fs.getColorClass('background-', group.color)">Strategic
+                                            Inputs</h5>
+                                        <div class="summary-box ng-binding background-pale-yellow"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="summary-row">
+
+                <div class="summary-section imp aif-p-page-break">
+                    <div class="section-header">
+
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <!-- ngRepeat: group in fs.sectionTwo.groups -->
+                            <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="group in fs.sectionTwo.groups">
+
+                                <h5 class="summary-heading ng-binding background-dark-green"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Implement </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined ng-binding background-green"
+                                            ng-class="fs.getColorClass('background-', group.color)">Activities</h5>
+                                        <div class="summary-box ng-binding background-pale-green"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                    <!-- ngIf: group.steps.length == 0 -->
+
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionTwo.groups -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="summary-row">
+
+                <div class="summary-section mes">
+                    <div class="section-header prep">
+                        <!--<h4 class="rotate">-->
+                        <!--{{ fs.sectionTwo.heading }}-->
+                        <!--</h4>-->
+                    </div>
+
+                    <div class="section-content">
+                        <div class="row low-pad-row outer-row">
+
+                            <!-- ngRepeat: group in fs.sectionThree.groups -->
+                            <div class="low-pad-cell ng-scope col-md-3 aif-p-12"
+                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                                 ng-repeat="group in fs.sectionThree.groups">
+
+                                <h5 class="summary-heading ng-binding background-dark-light_blue"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Measure Activity </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                         ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined ng-binding background-light_blue"
+                                            ng-class="fs.getColorClass('background-', group.color)">Outputs</h5>
+                                        <div class="summary-box ng-binding background-pale-light_blue"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)">
+
+
+                                            Setting the foreground color to go with the background colors wasn’t absolutely necessary, but it’s always a good idea.  Now we have two non-floated elements (#wrapper, #content) with no visible background, and a page with a white background.
+
+                                            You might be worried that Navigator 4.x does terrible things with the value transparent, but be of good cheer: NN4.x only pays attention to style sheets that have a media value of screen.  Just like with @import, the styles in our print style sheet are forever hidden from Navigator 4’s rheumy eyes.  So no worries there.
+
+
+                                        </div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+
+                                    <!-- ngIf: group.steps.length == 0 -->
+
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12 aif-p-taller"
+                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                                 ng-repeat="group in fs.sectionThree.groups">
+
+                                <h5 class="summary-heading ng-binding background-dark-dark_blue"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Organisational &amp;
+                                    Stakeholder Effects </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6 "
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                         ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined ng-binding background-dark_blue"
+                                            ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
+                                        <div class="summary-box ng-binding background-pale-dark_blue"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                         ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined ng-binding background-dark_blue"
+                                            ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
+                                        <div class="summary-box ng-binding background-pale-dark_blue"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+
+                                    <!-- ngIf: group.steps.length == 0 -->
+
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                            <div class="low-pad-cell ng-scope aif-p-12"
+                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                                 ng-repeat="group in fs.sectionThree.groups">
+
+                                <h5 class="summary-heading ng-binding background-dark-purple"
+                                    ng-class="fs.getColorClass('background-dark-', group.color)">Organisation &amp;
+                                    Stakeholder Effects </h5>
+                                <div class="row low-pad-row">
+                                    <!-- ngRepeat: step in group.steps -->
+                                    <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
+                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                         ng-repeat="step in group.steps">
+                                        <h5 class="summary-heading joined ng-binding background-purple"
+                                            ng-class="fs.getColorClass('background-', group.color)">Organizational
+                                            Impact</h5>
+                                        <div class="summary-box ng-binding background-pale-purple"
+                                             ng-bind-html="fs.sanitize(step.html())"
+                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                                    </div><!-- end ngRepeat: step in group.steps -->
+
+                                    <!-- ngIf: group.steps.length == 0 -->
+
+                                </div>
+                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+</body>
+</html>

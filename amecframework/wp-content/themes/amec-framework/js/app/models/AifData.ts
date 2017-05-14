@@ -173,7 +173,7 @@ module aif {
             },
             "S6_L": {
                 description: "Step 4 Label",
-                en: "Out-takes",
+                en: "Outcomes",
                 translation: null
             },
             "S6_I1_SH": {
