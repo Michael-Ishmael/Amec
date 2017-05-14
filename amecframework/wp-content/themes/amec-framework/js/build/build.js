@@ -1029,11 +1029,15 @@ var aif;
             this.frameworkService = service;
         };
         UserRepository.prototype.get = function () {
-            var _this = this;
             var loggedIn = this.$cookies.get("aifloggedin");
             if (!loggedIn) {
+                this.getUser(); //Attempt a get user anyway as might have cleared cookie
                 return this.$q.when(null);
             }
+            return this.getUser();
+        };
+        UserRepository.prototype.getUser = function () {
+            var _this = this;
             var regUrl = ajax_auth_object.ajaxurl;
             var restUrl = ajax_auth_object.resturl + "aif/v1/userframeworks";
             var data = {
@@ -1069,30 +1073,6 @@ var aif;
             }).then(function (response) {
                 return user;
             });
-            //this.$cookies.put("aifcurrentframework", framework.id.toString());
-            // return this.$timeout(() => {
-            //   let cUser = this.$cookies.getObject("aifUser");
-            //   if (cUser && cUser.email) {
-            //     let matches = users.filter(u => u.email == cUser.email);
-            //     if (matches.length) {
-            //       let user = AifUser.createFromData(matches[0]);
-            //       if (user.email === "mail@michaelishmael.com") {
-            //         user.frameworks = userFrameworks;
-            //         if(cUser.currentFrameworkId){
-            //           user.setExistingFramework(cUser.currentFrameworkId);
-            //         }
-            //
-            //       }
-            //       this.currentUser = user;
-            //       return user;
-            //
-            //   }
-            //   else {
-            //     return null;
-            //   }
-            // }
-            // }
-            // , 200);
         };
         UserRepository.prototype.save = function () {
             var _this = this;
@@ -1215,8 +1195,8 @@ var aif;
                     }
                     else {
                         if (r.data == "0") {
-                            return _this.logout().then(function (r) {
-                                return _this.login(email, password);
+                            _this.logout().then(function (r) {
+                                window.location.href = window.location.href;
                             });
                         }
                         if (r.data.message && r.data.message.toLowerCase().indexOf('wrong username or password') > -1) {

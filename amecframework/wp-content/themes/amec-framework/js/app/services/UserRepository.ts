@@ -108,8 +108,15 @@ module aif {
 
             let loggedIn = this.$cookies.get("aifloggedin");
             if(!loggedIn){
+                this.getUser(); //Attempt a get user anyway as might have cleared cookie
                 return this.$q.when(null);
             }
+
+            return this.getUser();
+
+        }
+
+        private getUser():ng.IPromise<AifUser> {
 
             let regUrl: string = ajax_auth_object.ajaxurl;
             let restUrl: string = ajax_auth_object.resturl + "aif/v1/userframeworks";
@@ -160,33 +167,6 @@ module aif {
 
                 return user;
             })
-
-
-            //this.$cookies.put("aifcurrentframework", framework.id.toString());
-
-            // return this.$timeout(() => {
-            //   let cUser = this.$cookies.getObject("aifUser");
-            //   if (cUser && cUser.email) {
-            //     let matches = users.filter(u => u.email == cUser.email);
-            //     if (matches.length) {
-            //       let user = AifUser.createFromData(matches[0]);
-            //       if (user.email === "mail@michaelishmael.com") {
-            //         user.frameworks = userFrameworks;
-            //         if(cUser.currentFrameworkId){
-            //           user.setExistingFramework(cUser.currentFrameworkId);
-            //         }
-            //
-            //       }
-            //       this.currentUser = user;
-            //       return user;
-            //
-            //   }
-            //   else {
-            //     return null;
-            //   }
-            // }
-            // }
-            // , 200);
         }
 
         save(): ng.IPromise<SaveFrameworkResult> {
@@ -342,8 +322,8 @@ module aif {
                             return new LoginResult(true, newUser, null);
                         } else {
                             if(r.data == "0"){
-                                return this.logout().then(r => {
-                                    return this.login(email, password)
+                                this.logout().then(r => {
+                                    window.location.href = window.location.href;
                                 })
                             }
                             if(r.data.message && r.data.message.toLowerCase().indexOf('wrong username or password') > -1){
