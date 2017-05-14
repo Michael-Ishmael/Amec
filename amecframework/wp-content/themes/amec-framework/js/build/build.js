@@ -1214,7 +1214,12 @@ var aif;
                         return new aif.LoginResult(true, newUser, null);
                     }
                     else {
-                        if (r.data.message.toLowerCase().indexOf('wrong username or password') > -1) {
+                        if (r.data == "0") {
+                            return _this.logout().then(function (r) {
+                                return _this.login(email, password);
+                            });
+                        }
+                        if (r.data.message && r.data.message.toLowerCase().indexOf('wrong username or password') > -1) {
                             return new aif.LoginResult(false, null, r.data.message);
                         }
                     }

@@ -326,7 +326,7 @@ module aif {
             };
 
             return this.$http.post(regUrl, regUser,
-            ).then((r: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse>) => {
+            ).then((r: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse | any>) => {
 
                     if (r.data) {
                         if (r.data.loggedIn) {
@@ -341,7 +341,12 @@ module aif {
                             this.$rootScope.$broadcast("user:loggedIn", newUser);
                             return new LoginResult(true, newUser, null);
                         } else {
-                            if(r.data.message.toLowerCase().indexOf('wrong username or password') > -1){
+                            if(r.data == "0"){
+                                return this.logout().then(r => {
+                                    return this.login(email, password)
+                                })
+                            }
+                            if(r.data.message && r.data.message.toLowerCase().indexOf('wrong username or password') > -1){
                                 return new LoginResult(false, null, r.data.message);
                             }
                         }
