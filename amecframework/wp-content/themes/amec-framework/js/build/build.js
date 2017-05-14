@@ -1058,8 +1058,10 @@ var aif;
                         _this.$cookies.remove("justloggedin");
                     }
                     _this.currentUser = user;
-                    if (broadcastLogin)
+                    if (broadcastLogin) {
+                        _this.$cookies.put("aifloggedin", "true");
                         _this.$rootScope.$broadcast("user:loggedIn", user);
+                    }
                     currentFrameworkId = _this.getFrameworkCookie() || -1;
                     return _this.$http.get(restUrl);
                 }

@@ -146,7 +146,10 @@ module aif {
                         this.$cookies.remove("justloggedin");
                     }
                     this.currentUser = user;
-                    if(broadcastLogin) this.$rootScope.$broadcast("user:loggedIn", user);
+                    if(broadcastLogin){
+                        this.$cookies.put("aifloggedin", "true");
+                        this.$rootScope.$broadcast("user:loggedIn", user);
+                    }
                     currentFrameworkId = this.getFrameworkCookie() || -1;
                     return this.$http.get(restUrl);
                 }
