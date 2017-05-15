@@ -2976,7 +2976,8 @@
     #aif-app .aif-input .header {
       padding: 8px 0 0 15px;
       height: 50px;
-      margin-bottom: 4px; }
+      margin-bottom: 4px;
+      cursor: pointer; }
       #aif-app .aif-input .header h3 {
         display: inline-block;
         font-size: 25px;
@@ -3062,26 +3063,46 @@
         #aif-app .aif-input .section textarea.tall {
           height: 468px; }
   #aif-app .info {
-    background-color: #eaeaea;
-    padding: 14px 16px;
-    font-size: 14px;
-    color: #8a8a8a;
     position: absolute;
     left: 0;
     right: 0;
     top: 0; }
-    #aif-app .info .lead-in {
-      text-transform: capitalize;
-      font-weight: bold; }
-    #aif-app .info .bold {
-      font-weight: bold; }
-    #aif-app .info p {
-      padding: 0; }
-    #aif-app .info a.further-info-link {
-      text-decoration: underline; }
-    #aif-app .info ul {
-      list-style: disc;
+    #aif-app .info .main-info {
+      background-color: #eaeaea;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #8a8a8a;
+      position: relative; }
+      #aif-app .info .main-info .lead-in {
+        text-transform: capitalize;
+        font-weight: bold; }
+      #aif-app .info .main-info .bold {
+        font-weight: bold; }
+      #aif-app .info .main-info p {
+        padding: 0; }
+      #aif-app .info .main-info a.further-info-link {
+        text-decoration: underline; }
+      #aif-app .info .main-info ul {
+        list-style: disc;
+        margin-top: 10px;
+        padding-left: 10px; }
+    #aif-app .info .further-info {
       margin-top: 10px;
-      padding-left: 10px; }
+      width: 350px;
+      height: 450px;
+      position: relative;
+      display: none; }
+      #aif-app .info .further-info.further-info-1 {
+        background-image: url("../images/Taxonomy-updated-design-1.jpg"); }
+      #aif-app .info .further-info.further-info-2 {
+        background-image: url("../images/Taxonomy-updated-design-2.jpg"); }
+      #aif-app .info .further-info.further-info-3 {
+        background-image: url("../images/Taxonomy-updated-design-3.jpg"); }
+      #aif-app .info .further-info.further-info-4 {
+        background-image: url("../images/Taxonomy-updated-design-4.jpg"); }
+      #aif-app .info .further-info.further-info-5 {
+        background-image: url("../images/Taxonomy-updated-design-5.jpg"); }
+      #aif-app .info .further-info.further-info-6 {
+        background-image: url("../images/Taxonomy-updated-design-6.jpg"); }
 
 /*# sourceMappingURL=aif-app.css.map */

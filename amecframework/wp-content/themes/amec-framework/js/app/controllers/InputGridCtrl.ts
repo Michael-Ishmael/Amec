@@ -67,6 +67,11 @@ module aif {
             this.infoText = this.$sce.trustAsHtml(input.info);
         }
 
+        public sanitize(text:string):any {
+            if(!text) return null;
+            return this.$sce.trustAsHtml(text);
+        }
+
         public close() {
             this.vs.resetView();
         }

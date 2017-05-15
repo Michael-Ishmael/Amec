@@ -18,18 +18,23 @@
                     <div class="empty full-size-child" ng-if="cell.isEmpty() || !ig.infoText"
                          ng-click="ig.close()"></div>
                     <div class="info" ng-if="cell.isInfo() && ig.infoText">
-                        <p ng-bind-html="ig.infoText">
 
-                        <p>
-                            For further information <a class="further-info-link">click here</a>
-                        </p>
+                        <div class="main-info">
+                            <p ng-bind-html="ig.infoText">
+
+                            <p>
+                                For further information <a class="further-info-link">click here</a>
+                            </p>
+                        </div>
+
+                        <div  class="further-info further-info-1"></div>
                     </div>
                     <div class="aif-input" ng-if="cell.isInput()"
                          ng-class="ig.getColorClass('background')">
 
-                        <div class="header" ng-class="ig.getColorClass('background-light')">
+                        <div class="header" ng-class="ig.getColorClass('background-light')" ng-click="ig.close()">
                             <h3>{{ ig.step.heading }}</h3>
-                            <div class="border-caret" ng-click="ig.close()">
+                            <div class="border-caret" >
                                 <div class="caret-left"></div>
                                 <div class="caret-right"></div>
                             </div>
@@ -37,8 +42,7 @@
                         <div class="section" ng-repeat="input in ig.step.inputs"
                              ng-class="{'demi' : ig.step.inputs.length > 1 && ig.step.colSpan > 1  }">
                             <h4 ng-if="input.heading">{{ input.heading }} </h4>
-                            <p class="sub-heading" ng-if="input.subHeading">
-                                {{ input.subHeading }}
+                            <p class="sub-heading" ng-bind-html="ig.sanitize(input.subHeading)" ng-if="input.subHeading">
                             </p>
 
 

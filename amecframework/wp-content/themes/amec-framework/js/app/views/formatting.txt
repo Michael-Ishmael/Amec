@@ -1,14 +1,1 @@
- .key {
-      font-weight: bold;
-      float: left;
-
-    }
-
-    .value{
-      margin-left: 14px;
-
-      &:after {
-        clear:both;
-      }
-
-    }
+<ul><li><span class=\"bold\">Reputation</span> improvement (recognised as an intangible asset)</li><li><span class=\"bold\">Relationships</span> established or improved (also recognised as an intangible asset by the International Integrated Reporting Council)</li><li><span class=\"bold\">Reaching targets</span> – e.g., sales revenue, fundraising or membership targets, health campaign targets such as smoking reduction, etc.</li><li><span class=\"bold\">Increased staff loyalty and retention</span> - i.e., reduced staff turnover and recruitment costs</li><li><span class=\"bold\">Organizational change</span> – e.g., insights to inform future strategy, realignment of policies to stakeholders</li><li><span class=\"bold\">Social change</span> – e.g., improved health and well-being, increased access to information, etc.</li></ul>

@@ -605,6 +605,7 @@ $color-list: (
       padding: 8px 0 0 15px;
       height: 50px;
       margin-bottom: 4px;
+      cursor: pointer;
 
       h3 {
         display: inline-block;
@@ -758,37 +759,64 @@ $color-list: (
   }
 
   .info {
-    background-color: rgb(234, 234, 234);
-    padding: 14px 16px;
-    font-size: 14px;
-    color: rgb(138, 138, 138);
+
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
 
-    .lead-in {
-      text-transform: capitalize;
-      font-weight: bold;
+    .main-info{
+      background-color: rgb(234, 234, 234);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: rgb(138, 138, 138);
+      position: relative;
+
+
+      .lead-in {
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      p {
+        padding: 0;
+      }
+
+      a.further-info-link {
+        text-decoration: underline;
+      }
+
+      ul {
+        list-style: disc;
+        margin-top: 10px;
+        padding-left: 10px;
+      }
     }
 
-    .bold {
-      font-weight: bold;
-    }
 
-    p {
-      padding: 0;
-    }
 
-    a.further-info-link {
-      text-decoration: underline;
-    }
+    .further-info{
 
-    ul {
-      list-style: disc;
       margin-top: 10px;
-      padding-left: 10px;
+      width: 350px;
+      height: 450px;
+      position: relative;
+      display: none;
+
+      &.further-info-1 { background-image: url('../images/Taxonomy-updated-design-1.jpg'); }
+      &.further-info-2 { background-image: url('../images/Taxonomy-updated-design-2.jpg'); }
+      &.further-info-3 { background-image: url('../images/Taxonomy-updated-design-3.jpg'); }
+      &.further-info-4 { background-image: url('../images/Taxonomy-updated-design-4.jpg'); }
+      &.further-info-5 { background-image: url('../images/Taxonomy-updated-design-5.jpg'); }
+      &.further-info-6 { background-image: url('../images/Taxonomy-updated-design-6.jpg'); }
+
     }
+
+
 
   }
 

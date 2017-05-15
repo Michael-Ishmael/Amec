@@ -103,7 +103,7 @@ module aif {
             },
             "S2_I1_SH": {
                 description: "Step 2 Input 1 Sub heading",
-                en: "Define your key target audiences",
+                en: "Define your key target audiences<br><br>",
                 translation: null
             },
             "S2_I1_I": {
@@ -168,7 +168,7 @@ module aif {
             },
             "S5_I1_I": {
                 description: "Step 2 Input 1 Info",
-                en: "<span class=\"lead-in\" >Out-takes</span> are your ...",
+                en: "<span class=\"lead-in\" >Out-takes</span> are your target audiences’ initial responses and reactions to your communication. These may be interim steps towards your objectives, not necessarily achievement of your objectives. Out-takes may include evidence of: <ul><li><span class=\"bold\">Audience attention</span> – e.g., unique visitors, views, clickthroughs</li><li><span class=\"bold\">Awareness</span> – e.g., recall</li><li><span class=\"bold\">Understanding</span> – e.g., comments, post-campaign survey data</li><li><span class=\"bold\">Interest and liking</span> – e.g., likes, follows, shares, retweets, pins, etc.</li><li><span class=\"bold\">Engagement</span> – e.g., return visits, subscribing, positive comments</li><li><span class=\"bold\">Consideration</span> – e.g., comments, subscribing, registering, etc.</li></ul>",
                 translation: null
             },
             "S6_L": {
@@ -183,7 +183,7 @@ module aif {
             },
             "S6_I1_I": {
                 description: "Step 2 Input 1 Info",
-                en: "<span class=\"lead-in\" >Outcomes</span> are the effects ...",
+                en: "<span class=\"lead-in\" >Outcomes</span> are the effects that your communication had on your target audiences that align to your objectives. Examples of outcomes of communication can include: <ul><li><span class=\"bold\">Learning/knowledge</span> – e.g., through survey or interview data, quizzes, tests</li><li><span class=\"bold\">Trust</span> – e.g., increased trust ratings in surveys</li><li><span class=\"bold\">Preference</span> – e.g., stated preference in surveys, social media comments</li><li><span class=\"bold\">Intention</span> – e.g., through inquiries, registrations, trialling, survey data</li><li><span class=\"bold\">Attitude change</span> – e.g., through survey or interview data</li><li><span class=\"bold\">Complying behaviour</span> - e.g., sales, donations, driving safely; voting, etc</li><li><span class=\"bold\">Advocacy</span> – e.g., endorsements in online comments</li></ul>",
                 translation: null
             },
             "S7_L": {
@@ -198,7 +198,7 @@ module aif {
             },
             "S7_I1_I": {
                 description: "Step 2 Input 1 Info",
-                en: "<span class=\"lead-in\" >Impact</span> is the ultimate ...",
+                en: "<span class=\"lead-in\" >Impact</span> is the ultimate  flow-on results related to your objectives which your communication achieved or contributed to. Impact can include: <ul><li><span class=\"bold\">Reputation</span> improvement (recognised as an intangible asset)</li><li><span class=\"bold\">Relationships</span> established or improved (also recognised as an intangible asset by the International Integrated Reporting Council)</li><li><span class=\"bold\">Reaching targets</span> – e.g., sales revenue, fundraising or membership targets, health campaign targets such as smoking reduction, etc.</li><li><span class=\"bold\">Increased staff loyalty and retention</span> - i.e., reduced staff turnover and recruitment costs</li><li><span class=\"bold\">Organizational change</span> – e.g., insights to inform future strategy, realignment of policies to stakeholders</li><li><span class=\"bold\">Social change</span> – e.g., improved health and well-being, increased access to information, etc.</li></ul>",
                 translation: null
             }
 
@@ -249,7 +249,7 @@ module aif {
                         subHeadingKey: "S2_I1_SH",
                         infoKey: "S2_I1_I",
                         textLimit: 200,
-                        valueCount: 10,
+                        valueCount: 5,
                         valuesKey: "S2_I1_V"
                     },
                     {
