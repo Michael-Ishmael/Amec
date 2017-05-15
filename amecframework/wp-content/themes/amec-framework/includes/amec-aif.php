@@ -4,21 +4,21 @@
 
         </div>
         <div   class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
-            <div  class="low-pad-cell"  ng-if="ac.vs.displayGrid" ng-class="{'col-md-4': !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn()}">
+            <div  class="low-pad-cell"  ng-class="{'col-md-4': ac.vs.displayGrid && !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn() && ac.vs.displayGrid, 'col-md-1' : ac.vs.displaySummary}">
                 <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
                      ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised">
                     Login
                 </div>
                 <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
-                     ng-click="ac.showRegister()"  ng-if="!ac.isLoggedIn() && ac.initialised">
+                     ng-click="ac.showRegister()"  ng-if="!ac.isLoggedIn() && ac.initialised && ac.vs.displayGrid">
                     Register
                 </div>
                 <div ng-if="ac.isLoggedIn() && ac.initialised" >
                     <h4 ng-click="ac.viewAccount()" class="welcome text-elip">
-                        <a class="account-button"></a> Welcome {{ ac.currentUser.firstName }}</h4>
+                        <a class="account-button"></a><span ng-if="ac.vs.displayGrid">Welcome {{ ac.currentUser.firstName }}</span> </h4>
                 </div>
             </div>
-            <div class="col-md-6 low-pad-cell text-center" ng-if="ac.vs.displayGrid">
+            <div class="low-pad-cell text-center" ng-class="{'col-md-6': (ac.vs.displayGrid && ac.isLoggedIn()) || ac.vs.displaySummary, 'col-md-5' : ac.vs.displayGrid && !ac.isLoggedIn()}">
                 <div class="framework-name" ng-if="ac.currentFramework" ng-click="ac.viewAccount()">
                     <h4 title="{{ ac.currentFramework.name }}" class="text-elip"> {{ ac.currentFramework.name }}</h4>
                 </div>
@@ -36,9 +36,13 @@
                 </div>
 
             </div>
-            <div class="col-md-12 low-pad-cell text-right" ng-if="ac.vs.displaySummary" >
+            <div class="col-md-5 low-pad-cell text-right" ng-if="ac.vs.displaySummary" >
+                <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
+                     class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
+                    Save Progress
+                </div>
                 <div ng-click="ac.vs.showGrid()"
-                     class="aif-button background-bright_green bottom-dark-border-bright_green">Edit
+                     class="aif-button background-yellow bottom-dark-border-yellow">Edit
                 </div>
                 <div ng-click="ac.downloadAifPdf()"
                      class="aif-button background-red bottom-dark-border-red">Download Pdf

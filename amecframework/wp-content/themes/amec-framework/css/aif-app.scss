@@ -178,7 +178,7 @@ $color-list: (
         margin-right: 0;
       }
 
-      &.save-button{
+      &.save-button {
         background-image: url('../images/save.png');
         background-repeat: no-repeat;
         background-position: 7px 3px;
@@ -514,10 +514,24 @@ $color-list: (
 
     .choose-fw-tile {
 
+      .fw-main {
+        margin-right: 32px;
+        padding: 10px;
+        height: 90px;
+      }
+
+      .fw-controls {
+        width: 32px;
+        float: right;
+        height: 90px;
+        position: relative;
+        border-left: solid 1px rgba(255, 255, 255, .6);
+      }
+
       position: relative;
-      padding: 10px;
+
       width: 100%;
-      height: 90px;
+
       cursor: pointer;
 
       a {
@@ -530,16 +544,32 @@ $color-list: (
 
       &.selected {
         border: 2px solid #fff;
-        padding: 8px;
+
+        .fw-main {
+          margin-right: 30px;
+          padding: 8px;
+          height: 86px;
+        }
+
+        .fw-controls {
+          height: 86px;
+          width: 30px;
+        }
 
         .trash-icon {
-          bottom: 4px;
-          right: 4px;
+          bottom: 3px;
+          right: 1px;
         }
 
         .edit-icon {
           top: 5px;
-          right: 6px;
+          right: 3px;
+        }
+      }
+
+      &.save-as, &.save-as.selected {
+        .fw-main {
+          margin-right: 0;
         }
       }
 
@@ -556,8 +586,9 @@ $color-list: (
         height: 26px;
         width: 26px;
         position: absolute;
-        bottom: 6px;
-        right: 6px;
+        bottom: 5px;
+        right: 3px;
+        display: inline-block;
       }
 
       .edit-icon {
@@ -567,7 +598,8 @@ $color-list: (
         width: 20px;
         position: absolute;
         top: 7px;
-        right: 8px;
+        right: 5px;
+        display: inline-block;
       }
 
       .text-link.sml {
@@ -610,6 +642,7 @@ $color-list: (
     color: #fff;
     font-family: lato, sans-serif;
     position: absolute;
+    z-index: 3;
     left: 0;
     top: 0;
     right: 0;
@@ -628,6 +661,7 @@ $color-list: (
       line-height: 25px;
       margin: 6px;
       float: right;
+      cursor: pointer;
     }
 
     .header {
@@ -676,9 +710,10 @@ $color-list: (
           position: absolute;
           right: 0;
           top: -38px;
-        };
+        }
+      ;
 
-        .peso-header{
+        .peso-header {
           margin-left: 20px;
           margin-bottom: 10px;
 
@@ -697,7 +732,7 @@ $color-list: (
 
           }
 
-          .peso-desc{
+          .peso-desc {
             margin-left: 152px;
             line-height: 32px;
           }
@@ -735,7 +770,6 @@ $color-list: (
           .peso-input {
             margin-left: 158px;
 
-
             > input {
               margin: 0;
               height: 32px;
@@ -770,12 +804,13 @@ $color-list: (
         color: black;
         font-size: 16px;
         width: 100%;
-        height: 155px;
+        height: 176px;
         resize: none;
         border: none;
 
         &.medium {
-          height: 258px;
+          height: 220px;
+          margin-bottom: 29px;
         }
 
         &.tall {
@@ -790,16 +825,27 @@ $color-list: (
   .info {
 
     position: absolute;
+    z-index: 3;
     left: 0;
     right: 0;
     top: 0;
 
-    .main-info{
+    .close-button {
+      font-size: 0.8em;
+      font-size: 0.8em;
+      font-weight: bold;
+      position: absolute;
+      right: 6px;
+      top: 4px;
+    }
+
+    .main-info {
       background-color: rgb(234, 234, 234);
       padding: 14px 16px;
       font-size: 14px;
       color: rgb(138, 138, 138);
       position: relative;
+
 
 
       .lead-in {
@@ -826,26 +872,35 @@ $color-list: (
       }
     }
 
-
-
-    .further-info{
+    .further-info {
 
       margin-top: 10px;
-      width: 350px;
-      height: 450px;
+      width: 100%;
+      height: 800px;
       position: relative;
-      display: none;
+      background-repeat: no-repeat;
+      background-size: 100%;
 
-      &.further-info-1 { background-image: url('../images/Taxonomy-updated-design-1.jpg'); }
-      &.further-info-2 { background-image: url('../images/Taxonomy-updated-design-2.jpg'); }
-      &.further-info-3 { background-image: url('../images/Taxonomy-updated-design-3.jpg'); }
-      &.further-info-4 { background-image: url('../images/Taxonomy-updated-design-4.jpg'); }
-      &.further-info-5 { background-image: url('../images/Taxonomy-updated-design-5.jpg'); }
-      &.further-info-6 { background-image: url('../images/Taxonomy-updated-design-6.jpg'); }
+      &.further-info-1 {
+        background-image: url('../images/Taxonomy-updated-design-1.jpg');
+      }
+      &.further-info-2 {
+        background-image: url('../images/Taxonomy-updated-design-2.jpg');
+      }
+      &.further-info-3 {
+        background-image: url('../images/Taxonomy-updated-design-3.jpg');
+      }
+      &.further-info-4 {
+        background-image: url('../images/Taxonomy-updated-design-4.jpg');
+      }
+      &.further-info-5 {
+        background-image: url('../images/Taxonomy-updated-design-5.jpg');
+      }
+      &.further-info-6 {
+        background-image: url('../images/Taxonomy-updated-design-6.jpg');
+      }
 
     }
-
-
 
   }
 

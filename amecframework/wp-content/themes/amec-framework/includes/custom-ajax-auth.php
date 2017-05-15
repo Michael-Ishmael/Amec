@@ -122,12 +122,27 @@ function ajax_register()
         add_user_meta($user_signon->ID, "jobTitle", sanitize_text_field($_POST['jobTitle']), true);
         add_user_meta($user_signon->ID, "contactNumber", sanitize_text_field($_POST['contactNumber']), true);
 
+        $draft_framework_id = -1;
+        if(!empty($_POST['tempFramework'])){
+            $post_id = wp_insert_post(array(
+                'post_id' => 0,
+                'post_content' => $_POST['tempFramework'],
+                'post_title' => "Aif##Temp_" . $user_signon->ID,
+                'post_excerpt' => "Pre-save framework",
+                'post_status' => "draft",
+                'post_type' => "aif_workflow"
+            ), true);
+            if (!is_wp_error($post_id)){
+                $draft_framework_id = $post_id;
+            }
+        }
+
         echo json_encode(array('loggedIn' => true,
             'message' => __('user logged in'),
             'userId' => $user_signon->ID,
             'email' => $email,
             'displayName' => $firstName,
-            'logOutNonce' => wp_create_nonce('ajax-logout-nonce')
+            'draftFrameworkId' => $draft_framework_id
         ));
 
     }
@@ -147,11 +162,26 @@ function auth_user_login($user_login, $password, $login)
         echo json_encode(array('loggedIn' => false, 'message' => __('Wrong username or password.')));
     } else {
         wp_set_current_user($user_signon->ID);
+        $draft_framework_id = -1;
+        if(!empty($_POST['tempFramework'])){
+            $post_id = wp_insert_post(array(
+                'post_id' => 0,
+                'post_content' => $_POST['tempFramework'],
+                'post_title' => "Aif##Temp_" . $user_signon->ID,
+                'post_excerpt' => "Pre-save framework",
+                'post_status' => "draft",
+                'post_type' => "aif_workflow"
+            ), true);
+            if (!is_wp_error($post_id)){
+                $draft_framework_id = $post_id;
+            }
+        }
+
         echo json_encode(array('loggedIn' => true,
             'message' => __($login . ' successful'),
             'userId' => $user_signon->ID,
             'displayName' => $user_signon->display_name,
-            'logOutNonce' => wp_create_nonce('ajax-logout-nonce')
+            'draftFrameworkId' => $draft_framework_id
         ));
     }
 

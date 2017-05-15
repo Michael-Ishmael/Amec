@@ -17,7 +17,7 @@ module aif {
     ];
 
     constructor(private $scope:ng.IScope,
-                private frameworkRepository: IFrameworkRepository, public vs:ViewService) {
+                private frameworkRepository: FrameworkRepository, public vs:ViewService) {
       this.init();
 
     }

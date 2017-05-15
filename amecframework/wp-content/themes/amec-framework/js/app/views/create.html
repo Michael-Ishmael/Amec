@@ -1,4 +1,4 @@
-<div class="row " >
+<div class="row ">
 
     <div class="col-md-8 low-pad-cell">
 
@@ -6,7 +6,10 @@
             <a class="btn btn-link close-button pull-right" ng-click="cf.vs.resetView()">X</a>
             <h2>{{ cf.title }}</h2>
             <h4 ng-if="cf.createMessage"> {{ cf.createMessage }} </h4>
-            <br>
+
+            <p class="account-layout" ng-if="cf.hasFrameworks">Or save over
+                <a ng-click="cf.showSaveAs()" >an existing framework</a>
+                 </p>
             <div class="login-box-group">
 
                 <form name="formCreate" novalidate class="css-form" ng-submit="cf.submitAction(formCreate)">
@@ -32,9 +35,11 @@
 
 
                     <div class="form-group">
-                        <input ng-if="!cf.editMode" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                        <input ng-if="!cf.editMode"
+                               class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
                                type="submit" value="Create">
-                        <input ng-if="cf.editMode" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                        <input ng-if="cf.editMode"
+                               class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
                                type="submit" value="Save">
                         <a class="text-link lge" ng-click="cf.vs.resetView()"
                            title="You can click save progress to come back at any time"
@@ -47,9 +52,7 @@
             </div>
 
 
-
         </div>
-
 
 
     </div>

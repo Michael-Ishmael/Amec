@@ -7,7 +7,8 @@ module aif {
     FromLogin = 0,
     FromSave = 1,
     FromViewAccount = 2,
-    FromEdit = 3
+    FromEdit = 3,
+    FromDetectUnsaved = 4
   }
 
   export class ViewService {
@@ -100,10 +101,17 @@ module aif {
       this.reset();
     }
 
-    public showRegister(){
+    public showRegister(route:AccountDisplayRoute = null){
       this.reset();
       this.fadeBg = true;
       this.displayRegister = true;
+      if(route !== null) this.accountDisplayRoute = route;
+    }
+
+    public showSaveAs(){
+      this.reset();
+      this.fadeBg = true;
+      this.displaySaveAs = true;
     }
 
     public attemptSave(loggedIn:boolean, hasExisting:boolean = false){
@@ -151,6 +159,7 @@ module aif {
 
       this.displayControls = true;
       this.displayGrid = true;
+      this.displaySummary = false;
       this.displayLoading = false;
   }
 

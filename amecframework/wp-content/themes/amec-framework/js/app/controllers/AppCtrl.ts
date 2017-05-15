@@ -38,12 +38,24 @@ module aif {
           this.vs.resetView();
           if(user){
             this.currentUser = user;
+            if(user.loggedInFromSave){
+              this.initialised = true;
+              this.vs.showCreateFramework(AccountDisplayRoute.FromSave, user.hasFrameworks());
+              return;
+            }
             if(!user.currentFramework){
               this.initialised = true;
+
+              if(this.userRepository.currentUserFramework && this.userRepository.currentUserFramework.isDraft){
+
+                this.vs.showCreateFramework(AccountDisplayRoute.FromDetectUnsaved, user.hasFrameworks());
+                return
+              }
+
               if(user.hasExistingFrameworks())
                 this.vs.showAccount(AccountDisplayRoute.FromLogin);
               else {
-                this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, false);
+                this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, user.hasFrameworks());
               }
             }
             if(user.currentFramework) this.currentFramework = user.currentFramework;

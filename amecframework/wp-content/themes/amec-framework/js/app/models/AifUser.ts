@@ -133,7 +133,7 @@ module aif {
     }
 
     public id?:number;
-    public justLoggedIn?:boolean;
+    public loggedInFromSave?:boolean;
 
     constructor(
         public email:string,

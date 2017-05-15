@@ -54,8 +54,10 @@ module aif {
         public rows: Array<InputRow> = [];
 
         public infoText = null;
+        public visInfoInput = null;
+        public showFurtherInfo: boolean = null;
 
-        constructor(private $scope: ng.IScope, private $sce:ng.ISCEService, public vs: ViewService) {
+        constructor(private $scope: ng.IScope, private $sce: ng.ISCEService, public vs: ViewService) {
             this.init();
         }
 
@@ -64,11 +66,25 @@ module aif {
         }
 
         public showInfo(input: AifStepInput) {
-            this.infoText = this.$sce.trustAsHtml(input.info);
+            if(this.visInfoInput == input){
+                this.hideInfo()
+            } else {
+                this.visInfoInput = input;
+                this.infoText = this.$sce.trustAsHtml(input.info);
+                this.showFurtherInfo = false;
+
+            }
+
         }
 
-        public sanitize(text:string):any {
-            if(!text) return null;
+        public hideInfo(){
+            this.visInfoInput = null;
+            this.infoText = null;
+            this.showFurtherInfo = false;
+        }
+
+        public sanitize(text: string): any {
+            if (!text) return null;
             return this.$sce.trustAsHtml(text);
         }
 
@@ -76,11 +92,16 @@ module aif {
             this.vs.resetView();
         }
 
+        public toggleFurtherInfo() {
+            this.showFurtherInfo = !this.showFurtherInfo;
+        }
+
         public init(): void {
             this.infoText = null;
+            this.showFurtherInfo = false;
             if (this.step) {
 
-                for (let i = 1; i <= this.step.row; i++) {
+                for (let i = 1; i <= 3; i++) {
 
                     let row = new InputRow();
                     if (i == this.step.row) {

@@ -212,7 +212,7 @@ module aif {
                 baseColor: "red",
                 row: 1,
                 colSpan: 1,
-                cellOrder: [AifInputCellType.Input, AifInputCellType.Info],
+                cellOrder: [AifInputCellType.Input, AifInputCellType.Info, AifInputCellType.Empty],
                 inputs: [
                     {
                         inputStyle: AifStepInputStyle.FreeText,

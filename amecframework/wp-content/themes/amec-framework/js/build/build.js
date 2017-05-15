@@ -178,7 +178,7 @@ var aif;
             baseColor: "red",
             row: 1,
             colSpan: 1,
-            cellOrder: [AifInputCellType.Input, AifInputCellType.Info],
+            cellOrder: [AifInputCellType.Input, AifInputCellType.Info, AifInputCellType.Empty],
             inputs: [
                 {
                     inputStyle: AifStepInputStyle.FreeText,
@@ -673,7 +673,20 @@ var aif;
             this.frameworkId = frameworkId;
             this.userData = userData;
             this.inputs = {};
+            this.isDraft = false;
         }
+        AifUserFramework.prototype.hasValues = function () {
+            if (this.inputs) {
+                for (var prop in this.inputs) {
+                    if (this.inputs.hasOwnProperty(prop)) {
+                        var values = this.inputs[prop].some(function (v) { return v.hasValue(); });
+                        if (values)
+                            return true;
+                    }
+                }
+            }
+            return false;
+        };
         AifUserFramework.prototype.addInputOrEmpty = function (key, inputStyle, valueCount) {
             var inputs = [];
             if (inputStyle == aif.AifStepInputStyle.KeyedValues) {
@@ -879,6 +892,7 @@ var aif;
         AccountDisplayRoute[AccountDisplayRoute["FromSave"] = 1] = "FromSave";
         AccountDisplayRoute[AccountDisplayRoute["FromViewAccount"] = 2] = "FromViewAccount";
         AccountDisplayRoute[AccountDisplayRoute["FromEdit"] = 3] = "FromEdit";
+        AccountDisplayRoute[AccountDisplayRoute["FromDetectUnsaved"] = 4] = "FromDetectUnsaved";
     })(AccountDisplayRoute = aif.AccountDisplayRoute || (aif.AccountDisplayRoute = {}));
     var ViewService = (function () {
         function ViewService($sce) {
@@ -952,10 +966,18 @@ var aif;
         ViewService.prototype.resetView = function () {
             this.reset();
         };
-        ViewService.prototype.showRegister = function () {
+        ViewService.prototype.showRegister = function (route) {
+            if (route === void 0) { route = null; }
             this.reset();
             this.fadeBg = true;
             this.displayRegister = true;
+            if (route !== null)
+                this.accountDisplayRoute = route;
+        };
+        ViewService.prototype.showSaveAs = function () {
+            this.reset();
+            this.fadeBg = true;
+            this.displaySaveAs = true;
         };
         ViewService.prototype.attemptSave = function (loggedIn, hasExisting) {
             if (hasExisting === void 0) { hasExisting = false; }
@@ -1001,6 +1023,7 @@ var aif;
             this.displaySave = false;
             this.displayControls = true;
             this.displayGrid = true;
+            this.displaySummary = false;
             this.displayLoading = false;
         };
         return ViewService;
@@ -1031,7 +1054,7 @@ var aif;
             this.frameworkService = service;
         };
         UserRepository.prototype.get = function () {
-            var loggedIn = this.$cookies.get("aifloggedin");
+            var loggedIn = this.getCookieValue("isLoggedIn");
             if (!loggedIn) {
                 this.getUser(true); //Attempt a get user anyway as might have cleared cookie
                 return this.$q.when(null);
@@ -1054,25 +1077,25 @@ var aif;
                     var d = response.data;
                     user = new aif.AifUser(d.email, d.displayName, null, null, null, null, null);
                     user.id = d.userId;
-                    var loggedC = _this.$cookies.get("justloggedin");
-                    if (loggedC && loggedC.toString().toLowerCase() === "true") {
-                        user.justLoggedIn = true;
-                        _this.$cookies.remove("justloggedin");
-                    }
                     _this.currentUser = user;
-                    _this.$cookies.put("aifloggedin", "true");
-                    currentFrameworkId = _this.getFrameworkCookie() || -1;
+                    _this.setLoggedInCookieStatus();
+                    currentFrameworkId = _this.getCookieValue("currentFrameworkId") || -1;
                     return _this.$http.get(restUrl);
                 }
                 return null;
             }, function (e) {
                 return null;
             }).then(function (response) {
-                if (user) {
-                    user.frameworks = response.data.map(function (f) { return new aif.AifFramework(f.id, f.title, f.excerpt); });
+                var currentIsDraft = false;
+                if (user && response && response.data) {
+                    user.frameworks = response.data.filter(function (f) { return f.status.toLowerCase() != 'draft'; }).map(function (f) { return new aif.AifFramework(f.id, f.title, f.excerpt); });
+                    var draftFrameworks = response.data.filter(function (f) { return f.status.toLowerCase() == 'draft'; });
+                    if (draftFrameworks.length) {
+                        currentIsDraft = draftFrameworks.some(function (f) { return f.id == currentFrameworkId; });
+                    }
                 }
                 if (currentFrameworkId > -1)
-                    return _this.loadFramework(currentFrameworkId);
+                    return _this.loadFramework(currentFrameworkId, currentIsDraft);
                 return null;
             }).then(function (response) {
                 if (broadcastLogin) {
@@ -1080,6 +1103,34 @@ var aif;
                 }
                 return user;
             });
+        };
+        UserRepository.prototype.setLoggedInCookieStatus = function () {
+            if (this.currentUser) {
+                var loggedC = this.getCookieValue("loggedInFromSave");
+                if (loggedC && loggedC.toString().toLowerCase() === "true") {
+                    this.currentUser.loggedInFromSave = true;
+                    this.setCookieValue("loggedInFromSave", false);
+                }
+                this.setCookieValue("isLoggedIn", true);
+                this.setCookieValue("userId", this.currentUser.id);
+            }
+        };
+        UserRepository.prototype.setPreLoginRefreshCookieStatus = function (userId, loggedInFromSave, currentFrameworkId) {
+            if (loggedInFromSave === void 0) { loggedInFromSave = false; }
+            if (currentFrameworkId === void 0) { currentFrameworkId = null; }
+            var cookieHash = {
+                userId: userId,
+                isLoggedIn: true,
+                loggedInFromSave: loggedInFromSave
+            };
+            if (currentFrameworkId && currentFrameworkId > 0) {
+                cookieHash.currentFrameworkId = currentFrameworkId;
+            }
+            else {
+                if (loggedInFromSave)
+                    this.setCookieValue("currentFrameworkId", null);
+            }
+            this.setCookieObject(cookieHash);
         };
         UserRepository.prototype.save = function () {
             var _this = this;
@@ -1108,8 +1159,9 @@ var aif;
                 });
             }
         };
-        UserRepository.prototype.registerNewUser = function (user) {
+        UserRepository.prototype.registerNewUser = function (user, fromSave) {
             var _this = this;
+            if (fromSave === void 0) { fromSave = false; }
             var regUrl = ajax_auth_object.ajaxurl;
             var regUser = {
                 action: 'ajaxregister',
@@ -1124,13 +1176,20 @@ var aif;
                 contactNumber: user.contactNumber,
                 locale: user.language
             };
+            var hasUnsavedWork = false;
+            if (this.currentUserFramework && this.currentUserFramework.frameworkId == -1) {
+                if (this.currentUserFramework.hasValues()) {
+                    regUser.tempFramework = JSON.stringify(this.currentUserFramework.asJsonObj());
+                    hasUnsavedWork = true;
+                }
+            }
             return this.$http.post(regUrl, regUser).then(function (r) {
                 if (r.data && r.data.loggedIn) {
                     var newUser = new aif.AifUser(user.email, user.firstName, user.lastName, user.organisation, user.jobTitle, user.language, user.contactNumber);
                     newUser.id = r.data.userId;
-                    _this.$cookies.put("aifloggedin", "true");
                     _this.currentUser = newUser;
-                    _this.$cookies.put("justloggedin", "true");
+                    var draftFrameworkId = (!r.data.draftFrameworkId || r.data.draftFrameworkId == -1) ? null : r.data.draftFrameworkId;
+                    _this.setPreLoginRefreshCookieStatus(newUser.id, fromSave, draftFrameworkId);
                     _this.$rootScope.$broadcast("user:loggedIn", newUser);
                     return new aif.LoginResult(true, newUser, null);
                 }
@@ -1148,7 +1207,7 @@ var aif;
                 security: ajax_auth_object.logout_nonce
             };
             return this.$http.post(regUrl, regUser).then(function (response) {
-                _this.$cookies.remove("aifloggedin");
+                _this.setCookieValue("isLoggedIn", false);
                 _this.currentUser = null;
                 _this.$rootScope.$broadcast("user:loggedOut");
                 return !(response.data && !response.data.loggedOut);
@@ -1162,8 +1221,9 @@ var aif;
                 return true;
             });
         };
-        UserRepository.prototype.login = function (email, password) {
+        UserRepository.prototype.login = function (email, password, fromSave) {
             var _this = this;
+            if (fromSave === void 0) { fromSave = false; }
             var regUrl = ajax_auth_object.ajaxurl;
             var regUser = {
                 action: 'ajaxlogin',
@@ -1171,14 +1231,20 @@ var aif;
                 password: password,
                 security: ajax_auth_object.login_nonce
             };
+            var hasUnsavedWork = false;
+            if (this.currentUserFramework && this.currentUserFramework.frameworkId == -1) {
+                if (this.currentUserFramework.hasValues()) {
+                    regUser.tempFramework = JSON.stringify(this.currentUserFramework.asJsonObj());
+                    hasUnsavedWork = true;
+                }
+            }
             return this.$http.post(regUrl, regUser).then(function (r) {
                 if (r.data) {
                     if (r.data.loggedIn) {
-                        _this.$cookies.put("aifloggedin", "true");
                         var newUser = new aif.AifUser(email, r.data.displayName, null, null, null, null, null);
-                        _this.currentUser = newUser;
-                        ajax_auth_object.logout_nonce = r.data.logOutNonce;
-                        _this.$cookies.put("justloggedin", "true");
+                        newUser.id = r.data.userId;
+                        var draftFrameworkId = (!r.data.draftFrameworkId || r.data.draftFrameworkId == -1) ? null : r.data.draftFrameworkId;
+                        _this.setPreLoginRefreshCookieStatus(newUser.id, fromSave, draftFrameworkId);
                         _this.$rootScope.$broadcast("user:loggedIn", newUser);
                         return new aif.LoginResult(true, newUser, null);
                     }
@@ -1217,7 +1283,7 @@ var aif;
                 framework.current = true;
                 _this.currentUser.frameworks.push(framework);
                 _this.currentUser.currentFramework = framework;
-                _this.setFrameworkCookie(framework.id);
+                _this.setCookieValue("currentFrameworkId", framework.id);
                 _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
                 return new aif.SaveFrameworkResult(true, framework, null);
             }, function (e) {
@@ -1267,7 +1333,7 @@ var aif;
                     this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
                     framework_1.current = true;
                     this.currentUser.currentFramework = framework_1;
-                    this.setFrameworkCookie(framework_1.id);
+                    this.setCookieValue("currentFrameworkId", framework_1.id);
                     return this.save().then(function (s) {
                         if (s.success) {
                             _this.$rootScope.$broadcast("framework:frameworkSwitched", framework_1);
@@ -1286,59 +1352,69 @@ var aif;
                     var result = new aif.SaveFrameworkResult(false, null, "No matching frameworks found");
                     return this.$q.when(result);
                 }
-                /*
-                
-                 let restUrl: string = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
-                 return this.$http.get(restUrl)
-                 .then((response: ng.IHttpPromiseCallbackArg<IWpRestFrameworkResponse>) => {
-                
-                 let data:IAifUserFramework;
-                 try {
-                 data = JSON.parse(response.data.content_json);
-                 } catch(ex) {
-                 data = { "inputs" : {} }
-                 }
-                
-                 this.currentUserFramework = new AifUserFramework(id, data);
-                 if(this.frameworkService) this.frameworkService.onFrameworkLoaded();
-                 this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-                 this.storeUser();
-                 return new SaveFrameworkResult(true, framework, "Framework selected")
-                 });
-                * */
             }
         };
-        UserRepository.prototype.setFrameworkCookie = function (frameworkId) {
-            if (this.currentUser) {
-                this.$cookies.put("aifcurrentframework_" + this.currentUser.id, frameworkId.toString());
+        UserRepository.prototype.setCookieObject = function (cookieHash) {
+            var cookie = this.$cookies.getObject("aifStatus");
+            if (!cookie) {
+                cookie = {
+                    userId: cookieHash["userId"],
+                    currentFrameworkId: cookieHash["currentFrameworkId"],
+                    isLoggedIn: cookieHash["isLoggedIn"],
+                    loggedInFromSave: cookieHash["loggedInFromSave"]
+                };
+                this.$cookies.putObject("aifStatus", cookie);
+                return;
             }
-        };
-        UserRepository.prototype.getFrameworkCookie = function () {
-            if (this.currentUser) {
-                var cookieString = this.$cookies.get("aifcurrentframework_" + this.currentUser.id);
-                try {
-                    return parseInt(cookieString);
-                }
-                catch (ex) {
-                    return null;
+            for (var key in cookieHash) {
+                if (cookie.hasOwnProperty(key)) {
+                    cookie[key] = cookieHash[key];
                 }
             }
-            return null;
+            this.$cookies.putObject("aifStatus", cookie);
         };
-        UserRepository.prototype.loadFramework = function (id) {
+        UserRepository.prototype.setCookieValue = function (key, value) {
+            var cookie = this.$cookies.getObject("aifStatus");
+            if (!cookie) {
+                cookie = {
+                    userId: this.currentUser ? this.currentUser.id : null,
+                    currentFrameworkId: this.currentUser.currentFramework ? this.currentUser.currentFramework.id : null,
+                    isLoggedIn: !!this.currentUser,
+                    loggedInFromSave: false
+                };
+            }
+            if (cookie.hasOwnProperty(key)) {
+                cookie[key] = value;
+            }
+            this.$cookies.putObject("aifStatus", cookie);
+        };
+        UserRepository.prototype.getCookieValue = function (key) {
+            var cookie = this.$cookies.getObject("aifStatus");
+            if (!cookie) {
+                return null;
+            }
+            if (cookie.hasOwnProperty(key)) {
+                return cookie[key];
+            }
+        };
+        UserRepository.prototype.loadFramework = function (id, isDraft) {
             var _this = this;
+            if (isDraft === void 0) { isDraft = false; }
             var hasUser = !!this.currentUser;
             if (!hasUser) {
                 return this.$q.when(new aif.SaveFrameworkResult(false, null, "User not logged in"));
             }
             else {
                 var matches = this.currentUser.frameworks.filter(function (f) { return f.id === id; });
-                if (matches.length) {
-                    var framework_2 = matches[0];
-                    this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
-                    framework_2.current = true;
-                    this.setFrameworkCookie(framework_2.id);
-                    this.currentUser.currentFramework = framework_2;
+                if (matches.length || isDraft) {
+                    var framework_2 = null;
+                    if (!isDraft) {
+                        framework_2 = matches[0];
+                        this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                        framework_2.current = true;
+                        this.setCookieValue("currentFrameworkId", framework_2.id);
+                        this.currentUser.currentFramework = framework_2;
+                    }
                     var restUrl = ajax_auth_object.resturl + "wp/v2/aifworkflows-api/" + id;
                     return this.$http.get(restUrl)
                         .then(function (response) {
@@ -1350,10 +1426,16 @@ var aif;
                             data = { "inputs": {} };
                         }
                         _this.currentUserFramework = new aif.AifUserFramework(id, data);
+                        _this.currentUserFramework.isDraft = true;
                         if (_this.frameworkService)
                             _this.frameworkService.onFrameworkLoaded();
-                        _this.$rootScope.$broadcast("framework:frameworkUpdated", framework_2);
-                        return new aif.SaveFrameworkResult(true, framework_2, "Framework selected");
+                        if (!isDraft) {
+                            _this.$rootScope.$broadcast("framework:frameworkUpdated", framework_2);
+                            return new aif.SaveFrameworkResult(true, framework_2, "Framework loaded");
+                        }
+                        else {
+                            return new aif.SaveFrameworkResult(true, null, "Draft framework loaded");
+                        }
                     });
                 }
                 else {
@@ -1400,7 +1482,6 @@ var aif;
         };
         return UserRepository;
     }());
-    //wp_lostpassword_url()
     UserRepository.$inject = ["$timeout", "$rootScope", '$cookies', '$http', '$q'];
     aif.UserRepository = UserRepository;
     var users = [
@@ -1903,7 +1984,8 @@ var aif;
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
     var AifInputGrid = (function () {
-        function AifInputGrid() {
+        function AifInputGrid($timeout) {
+            this.$timeout = $timeout;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/inputGrid.html';
             this.restrict = 'E';
             this.scope = {
@@ -1914,18 +1996,43 @@ var aif;
             this.bindToController = true;
         }
         AifInputGrid.prototype.link = function (scope, element, attributes, ctrl) {
+            var handler = null;
             if (ctrl) {
+                handler = "click.outsideHandler" + ctrl.step.stepIndex.toString();
+                var self_1 = this;
+                jQuery(element).on(handler, function (e) {
+                    console.log(handler);
+                    e.stopPropagation();
+                });
+                var allowFirst_1 = true;
+                jQuery(document).on(handler, function (e) {
+                    if (allowFirst_1) {
+                        allowFirst_1 = false;
+                    }
+                    else {
+                        self_1.$timeout(function () {
+                            ctrl.close();
+                        });
+                    }
+                });
                 ctrl.init();
             }
+            scope.$on('$destroy', function (e) {
+                console.log('off ' + handler);
+                if (element)
+                    jQuery(element).off(handler);
+                if (handler)
+                    jQuery(document).off(handler);
+            });
         };
         AifInputGrid.factory = function () {
-            var directive = function () { return new AifInputGrid(); };
-            //directive.$inject = ['$location'];
+            var directive = function ($timeout) { return new AifInputGrid($timeout); };
+            directive.$inject = ['$timeout'];
             return directive;
         };
         return AifInputGrid;
     }());
-    AifInputGrid.$inject = [''];
+    AifInputGrid.$inject = ['$timeout'];
     aif.AifInputGrid = AifInputGrid;
     var AifListInputTile = (function () {
         function AifListInputTile() {
@@ -2073,9 +2180,9 @@ var aif;
         }
         RegisterCtrl.prototype.init = function () {
             this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
-            //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
-            //this.userModel.password = "Crumpet1";
-            ///this.userModel.passwordConfirmation = "Crumpet1";
+            this.userModel = new aif.AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
+            this.userModel.password = "Crumpet1";
+            this.userModel.passwordConfirmation = "Crumpet1";
         };
         RegisterCtrl.prototype.registerNewUser = function (form) {
             var _this = this;
@@ -2084,7 +2191,7 @@ var aif;
             if (this.userModel.password != this.userModel.passwordConfirmation)
                 return;
             this.waiting = true;
-            this.userRepository.registerNewUser(this.userModel).then(function (r) {
+            this.userRepository.registerNewUser(this.userModel, this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave).then(function (r) {
                 _this.waiting = false;
                 if (r.success) {
                     _this.loginFailure = false;
@@ -2185,6 +2292,7 @@ var aif;
             this.cancelButtonText = "Cancel";
             this.saveUnsuccessful = false;
             this.saveFailMessage = null;
+            this.hasFrameworks = false;
             this.editMode = false;
             this.submitAction = this.createNewFramework;
             this.init();
@@ -2194,22 +2302,30 @@ var aif;
                 this.vs.showLogin();
                 return;
             }
+            this.user = this.userRepository.currentUser;
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromEdit && this.userRepository.tempFramework) {
                 this.editMode = true;
                 this.title = "Edit " + this.userRepository.tempFramework.name;
                 this.submitAction = this.renameFramework;
                 this.newFrameworkName = this.userRepository.tempFramework.name;
                 this.newFrameworkDescription = this.userRepository.tempFramework.description;
+                return;
             }
+            this.hasFrameworks = this.user.hasFrameworks();
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
                 this.createMessage = "Create a new framework to save your progress.";
             }
-            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromLogin) {
-                this.title = "Create your first framework";
-                this.createMessage = "Create a new framework to store your progress.";
-                this.cancelButtonText = "Skip for now";
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromDetectUnsaved) {
+                this.title = "Save your work";
+                this.createMessage = "Create a new framework to save your progress.";
             }
-            this.user = this.userRepository.currentUser;
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromLogin) {
+                if (!this.hasFrameworks) {
+                    this.title = "Create your first framework";
+                    this.createMessage = "Create a new framework to store your progress.";
+                    this.cancelButtonText = "Skip for now";
+                }
+            }
         };
         CreateFrameworkCtrl.prototype.createNewFramework = function (form) {
             var _this = this;
@@ -2227,6 +2343,9 @@ var aif;
                     }
                 });
             }
+        };
+        CreateFrameworkCtrl.prototype.showSaveAs = function () {
+            this.vs.showSaveAs();
         };
         CreateFrameworkCtrl.prototype.renameFramework = function (form) {
             var _this = this;
@@ -2353,13 +2472,27 @@ var aif;
             this.vs = vs;
             this.rows = [];
             this.infoText = null;
+            this.visInfoInput = null;
+            this.showFurtherInfo = null;
             this.init();
         }
         InputGridCtrl.prototype.getColorClass = function (prefix) {
             return prefix + "-" + this.step.baseColor + " ";
         };
         InputGridCtrl.prototype.showInfo = function (input) {
-            this.infoText = this.$sce.trustAsHtml(input.info);
+            if (this.visInfoInput == input) {
+                this.hideInfo();
+            }
+            else {
+                this.visInfoInput = input;
+                this.infoText = this.$sce.trustAsHtml(input.info);
+                this.showFurtherInfo = false;
+            }
+        };
+        InputGridCtrl.prototype.hideInfo = function () {
+            this.visInfoInput = null;
+            this.infoText = null;
+            this.showFurtherInfo = false;
         };
         InputGridCtrl.prototype.sanitize = function (text) {
             if (!text)
@@ -2369,9 +2502,13 @@ var aif;
         InputGridCtrl.prototype.close = function () {
             this.vs.resetView();
         };
+        InputGridCtrl.prototype.toggleFurtherInfo = function () {
+            this.showFurtherInfo = !this.showFurtherInfo;
+        };
         InputGridCtrl.prototype.init = function () {
             var _this = this;
             this.infoText = null;
+            this.showFurtherInfo = false;
             if (this.step) {
                 var _loop_1 = function (i) {
                     var row = new InputRow();
@@ -2388,7 +2525,7 @@ var aif;
                     this_1.rows.push(row);
                 };
                 var this_1 = this;
-                for (var i = 1; i <= this.step.row; i++) {
+                for (var i = 1; i <= 3; i++) {
                     _loop_1(i);
                 }
             }
@@ -2529,12 +2666,21 @@ var aif;
                 _this.vs.resetView();
                 if (user) {
                     _this.currentUser = user;
+                    if (user.loggedInFromSave) {
+                        _this.initialised = true;
+                        _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, user.hasFrameworks());
+                        return;
+                    }
                     if (!user.currentFramework) {
                         _this.initialised = true;
+                        if (_this.userRepository.currentUserFramework && _this.userRepository.currentUserFramework.isDraft) {
+                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromDetectUnsaved, user.hasFrameworks());
+                            return;
+                        }
                         if (user.hasExistingFrameworks())
                             _this.vs.showAccount(aif.AccountDisplayRoute.FromLogin);
                         else {
-                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, false);
+                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, user.hasFrameworks());
                         }
                     }
                     if (user.currentFramework)
@@ -2620,8 +2766,8 @@ var aif;
             if (!form.$valid)
                 return;
             if (this.savedFrameworkModel.existingFrameworkId > -1) {
-                var self_1 = this;
-                var matches = this.app.user.frameworks.filter(function (f) { return f.id === self_1.savedFrameworkModel.existingFrameworkId; });
+                var self_2 = this;
+                var matches = this.app.user.frameworks.filter(function (f) { return f.id === self_2.savedFrameworkModel.existingFrameworkId; });
                 if (matches.length)
                     this.currentFramework = matches[0];
             }
@@ -2866,7 +3012,7 @@ var aif;
                 return;
             }
             this.waiting = true;
-            this.userRepository.login(this.email, this.password).then(function (r) {
+            this.userRepository.login(this.email, this.password, this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave).then(function (r) {
                 _this.waiting = false;
                 if (!r.success) {
                     _this.loginFailure = true;
@@ -2888,6 +3034,10 @@ var aif;
                 _this.loginFailure = true;
                 _this.loginMessage = r.message;
             });
+        };
+        LoginCtrl.prototype.switchToRegister = function () {
+            var route = this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave ? this.vs.accountDisplayRoute : null;
+            this.vs.showRegister(route);
         };
         LoginCtrl.prototype.showForgottenDetails = function () {
             this.vs.showForgottenDetails();

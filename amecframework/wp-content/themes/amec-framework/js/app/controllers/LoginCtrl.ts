@@ -13,7 +13,7 @@ module aif {
     public showNeedMessage:boolean = false;
     public waiting:boolean = false;
 
-    constructor(public vs:ViewService, private userRepository: IUserRepository) {
+    constructor(public vs:ViewService, private userRepository: UserRepository) {
       this.init();
     }
 
@@ -34,7 +34,7 @@ module aif {
 
       this.waiting = true;
 
-      this.userRepository.login(this.email, this.password).then((r) => {
+      this.userRepository.login(this.email, this.password, this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave).then((r) => {
         this.waiting = false;
           if(!r.success){
 
@@ -58,6 +58,11 @@ module aif {
         this.loginMessage = r.message;
       });
 
+    }
+
+    public switchToRegister(){
+      let route = this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave ? this.vs.accountDisplayRoute : null;
+      this.vs.showRegister(route);
     }
 
     public showForgottenDetails(){

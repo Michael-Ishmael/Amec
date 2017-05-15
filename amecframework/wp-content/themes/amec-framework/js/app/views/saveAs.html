@@ -6,9 +6,6 @@
             <a class="btn btn-link close-button pull-right" ng-click="sa.vs.resetView()">X</a>
             <h2 class="d-inline-block">{{ sa.title }}</h2>
 
-
-            <h3 class="login-message">&nbsp;</h3>
-
             <div ng-if="sa.currentFramework">
 
                 <p>
@@ -20,9 +17,9 @@
                         <div class="col-md-6 col-xs-12 low-pad-cell">
 
                             <div class="choose-fw-tile"
-                                 ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"
-                                 ng-click="sa.selectFramework(sa.currentFramework)"
-                            >
+                                 ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"  >
+                                <div class="fw-main" ng-click="sa.selectFramework(sa.currentFramework)">
+
                                 <h5> {{ sa.currentFramework.name }} </h5>
                                 <p> {{ sa.currentFramework.description | limitTo:100 }} <span
                                         ng-if="sa.currentFramework.description.length>100">...</span></p>
@@ -46,24 +43,34 @@
                     <div class="col-md-6 col-xs-12 low-pad-cell"
                          ng-repeat="fw in sa.user.frameworks" ng-if="fw !== sa.currentFramework">
 
-                        <div class="choose-fw-tile" ng-if="!fw.flaggedDelete"
-                             ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]"
-                             ng-click="sa.toggleSaveOver(fw)"
-                        >
-                            <h5 class="text-elip"> {{ fw.name }} </h5>
-                            <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
-                            </p>
+                        <div class="choose-fw-tile save-as" ng-if="!fw.flaggedDelete"
+                             ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]" >
+
+                            <!--<div class="fw-controls">-->
+
+                                <!--<a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>-->
+                                <!--<a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>-->
+                            <!--</div>-->
+
+                            <div class="fw-main" ng-click="sa.toggleSaveOver(fw)">
+
+                                <h5 class="text-elip"> {{ fw.name }} </h5>
+                                <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
+                                </p>
+                            </div>
+
 
                         </div>
 
                         <div class="choose-fw-tile shake" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" ng-if="fw.flaggedDelete">
 
+                            <div class="fw-main" >
                             <p class="text-elip">Are you sure you want to save over {{ fw.name }}?</p>
                             <span class="text-link sml">
                                         <a ng-click="sa.selectFramework(fw)">Yes</a>
                                         <a  ng-click="sa.toggleSaveOver(fw)">No</a>
                                     </span>
-
+                            </div>
                         </div>
 
 

@@ -3,7 +3,7 @@
 
     <div ng-repeat="row in ig.rows">
 
-        <div class="row" ng-if="row.isEmpty()">
+        <div class="row" ng-if="row.isEmpty()" ng-click="ig.close()">
             <div class="col-md-12 low-pad-cell">
                 <div class="aif-tile"></div>
             </div>
@@ -20,14 +20,19 @@
                     <div class="info" ng-if="cell.isInfo() && ig.infoText">
 
                         <div class="main-info">
+                            <div class="close-button" ng-click="ig.hideInfo()">X</div>
                             <p ng-bind-html="ig.infoText">
 
                             <p>
-                                For further information <a class="further-info-link">click here</a>
+                                For further information <a ng-click="ig.toggleFurtherInfo()" class="further-info-link">click here</a>
                             </p>
                         </div>
 
-                        <div  class="further-info further-info-1"></div>
+                        <div ng-show="ig.showFurtherInfo"  class="further-info" ng-class="'further-info-' + ig.step.stepIndex">
+                            <div class="close-button" ng-click="ig.toggleFurtherInfo()">X</div>
+
+
+                        </div>
                     </div>
                     <div class="aif-input" ng-if="cell.isInput()"
                          ng-class="ig.getColorClass('background')">

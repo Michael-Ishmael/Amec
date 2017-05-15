@@ -15,22 +15,23 @@ module aif {
     public waiting:boolean = false;
     public userModel:AppUser = null;
 
-    constructor(public vs:ViewService, private userRepository: IUserRepository) {
+    constructor(public vs:ViewService, private userRepository: UserRepository) {
       this.init();
     }
 
     private init(): void {
       this.userModel = new AppUser(null, null, null, null, null, null, null);
-      //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
-      //this.userModel.password = "Crumpet1";
-      ///this.userModel.passwordConfirmation = "Crumpet1";
+
+      this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
+      this.userModel.password = "Crumpet1";
+      this.userModel.passwordConfirmation = "Crumpet1";
     }
 
     public registerNewUser(form:ng.IFormController){
       if(!form.$valid) return;
       if(this.userModel.password != this.userModel.passwordConfirmation) return;
       this.waiting = true;
-      this.userRepository.registerNewUser(this.userModel).then(r => {
+      this.userRepository.registerNewUser(this.userModel, this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave).then(r => {
         this.waiting = false;
         if(r.success){
           this.loginFailure = false;

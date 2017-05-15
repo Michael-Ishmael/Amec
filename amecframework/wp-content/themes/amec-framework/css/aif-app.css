@@ -2918,23 +2918,39 @@
       padding: 5px; }
     #aif-app .choose-fw-layout .choose-fw-tile {
       position: relative;
-      padding: 10px;
       width: 100%;
-      height: 90px;
       cursor: pointer; }
+      #aif-app .choose-fw-layout .choose-fw-tile .fw-main {
+        margin-right: 32px;
+        padding: 10px;
+        height: 90px; }
+      #aif-app .choose-fw-layout .choose-fw-tile .fw-controls {
+        width: 32px;
+        float: right;
+        height: 90px;
+        position: relative;
+        border-left: solid 1px rgba(255, 255, 255, 0.6); }
       #aif-app .choose-fw-layout .choose-fw-tile a {
         color: #fff; }
       #aif-app .choose-fw-layout .choose-fw-tile h5, #aif-app .choose-fw-layout .choose-fw-tile p {
         max-width: 300px; }
       #aif-app .choose-fw-layout .choose-fw-tile.selected {
-        border: 2px solid #fff;
-        padding: 8px; }
+        border: 2px solid #fff; }
+        #aif-app .choose-fw-layout .choose-fw-tile.selected .fw-main {
+          margin-right: 30px;
+          padding: 8px;
+          height: 86px; }
+        #aif-app .choose-fw-layout .choose-fw-tile.selected .fw-controls {
+          height: 86px;
+          width: 30px; }
         #aif-app .choose-fw-layout .choose-fw-tile.selected .trash-icon {
-          bottom: 4px;
-          right: 4px; }
+          bottom: 3px;
+          right: 1px; }
         #aif-app .choose-fw-layout .choose-fw-tile.selected .edit-icon {
           top: 5px;
-          right: 6px; }
+          right: 3px; }
+      #aif-app .choose-fw-layout .choose-fw-tile.save-as .fw-main, #aif-app .choose-fw-layout .choose-fw-tile.save-as.selected .fw-main {
+        margin-right: 0; }
       #aif-app .choose-fw-layout .choose-fw-tile.shake {
         animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
         transform: translate3d(0, 0, 0);
@@ -2946,8 +2962,9 @@
         height: 26px;
         width: 26px;
         position: absolute;
-        bottom: 6px;
-        right: 6px; }
+        bottom: 5px;
+        right: 3px;
+        display: inline-block; }
       #aif-app .choose-fw-layout .choose-fw-tile .edit-icon {
         background: url("../images/edit-icon.png") no-repeat;
         background-size: contain;
@@ -2955,7 +2972,8 @@
         width: 20px;
         position: absolute;
         top: 7px;
-        right: 8px; }
+        right: 5px;
+        display: inline-block; }
       #aif-app .choose-fw-layout .choose-fw-tile .text-link.sml {
         position: absolute;
         bottom: 6px;
@@ -2977,6 +2995,7 @@
     color: #fff;
     font-family: lato, sans-serif;
     position: absolute;
+    z-index: 3;
     left: 0;
     top: 0;
     right: 0;
@@ -2993,7 +3012,8 @@
       text-align: center;
       line-height: 25px;
       margin: 6px;
-      float: right; }
+      float: right;
+      cursor: pointer; }
     #aif-app .aif-input .header {
       padding: 8px 0 0 15px;
       height: 50px;
@@ -3076,18 +3096,27 @@
         color: black;
         font-size: 16px;
         width: 100%;
-        height: 155px;
+        height: 176px;
         resize: none;
         border: none; }
         #aif-app .aif-input .section textarea.medium {
-          height: 258px; }
+          height: 220px;
+          margin-bottom: 29px; }
         #aif-app .aif-input .section textarea.tall {
           height: 468px; }
   #aif-app .info {
     position: absolute;
+    z-index: 3;
     left: 0;
     right: 0;
     top: 0; }
+    #aif-app .info .close-button {
+      font-size: 0.8em;
+      font-size: 0.8em;
+      font-weight: bold;
+      position: absolute;
+      right: 6px;
+      top: 4px; }
     #aif-app .info .main-info {
       background-color: #eaeaea;
       padding: 14px 16px;
@@ -3109,10 +3138,11 @@
         padding-left: 10px; }
     #aif-app .info .further-info {
       margin-top: 10px;
-      width: 350px;
-      height: 450px;
+      width: 100%;
+      height: 800px;
       position: relative;
-      display: none; }
+      background-repeat: no-repeat;
+      background-size: 100%; }
       #aif-app .info .further-info.further-info-1 {
         background-image: url("../images/Taxonomy-updated-design-1.jpg"); }
       #aif-app .info .further-info.further-info-2 {

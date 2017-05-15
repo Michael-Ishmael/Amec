@@ -37,12 +37,26 @@ module aif {
   export class AifUserFramework   {
 
     public inputs: {[id: string]: Array<IAifStepInputValue> } = {};
-
+    public isDraft:boolean = false;
 
     constructor(public frameworkId:number, private userData:IAifUserFramework){
 
     }
 
+    public hasValues():boolean{
+      if(this.inputs){
+
+        for (let prop in this.inputs) {
+          if(this.inputs.hasOwnProperty(prop)){
+
+            let values = this.inputs[prop].some(v => v.hasValue());
+            if(values) return true;
+          }
+        }
+
+      }
+      return false;
+    }
 
     public addInputOrEmpty(key:string, inputStyle:AifStepInputStyle, valueCount:number){
 

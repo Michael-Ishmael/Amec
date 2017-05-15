@@ -19,23 +19,34 @@
                             <div class="col-md-6 col-xs-12 low-pad-cell"
                                   ng-repeat="fw in av.user.frameworks">
 
-                                <div class="choose-fw-tile" ng-if="!fw.flaggedDelete" ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"
-                                    ng-click="av.toggleSelectFramework(fw)"
-                                    >
-                                    <h5 class="text-elip"> {{ fw.name }} </h5>
-                                    <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span> </p>
+                                <div class="choose-fw-tile" ng-if="!fw.flaggedDelete"
+                                     ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"  >
 
-                                    <a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>
-                                    <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>
+                                    <div class="fw-controls">
+
+                                        <a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>
+                                        <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>
+                                    </div>
+
+                                    <div class="fw-main" ng-click="av.toggleSelectFramework(fw)">
+                                        <h5 class="text-elip"> {{ fw.name }} </h5>
+                                        <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span> </p>
+
+                                    </div>
+
                                 </div>
 
                                 <div class="choose-fw-tile shake" ng-class="av.getColorClass('background-dark', $index)" ng-if="fw.flaggedDelete">
 
-                                    <p>Are you sure you want to delete {{ fw.name }}?</p>
-                                    <span class="text-link sml">
+                                    <div class="fw-main" >
+                                        <p>Are you sure you want to delete {{ fw.name }}?</p>
+                                        <span class="text-link sml">
                                         <a ng-click="av.deleteFramework($event, fw)">Yes</a>
                                         <a  ng-click="av.toggleFlagDeleteFramework($event, fw)">No</a>
                                     </span>
+                                    </div>
+
+
 
                                 </div>
 

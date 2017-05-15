@@ -114,6 +114,7 @@ function dt_get_user_frameworks() {
             'numberposts' => -1,
             'post_type'   => 'aif_workflow',
             'fields'      => 'title',
+            'post_status'      =>  array('publish', 'draft'),
         ) );
 
         foreach($all_posts as $post) {
@@ -121,6 +122,7 @@ function dt_get_user_frameworks() {
             $newPost['id'] = $post->ID;
             $newPost['title'] = $post->post_title;
             $newPost['excerpt'] = $post->post_excerpt;
+            $newPost['status'] = $post->post_status;
             $return[] = $newPost;
         }
 
