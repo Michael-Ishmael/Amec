@@ -4,9 +4,9 @@
 
 
 /* Custom class for Measurement Wheel Image */
-.avia-image-container.framework-wheel {
+.framework-wheel {
 
-    width: 60%;
+    width: 60% !important;
 
 }
 
