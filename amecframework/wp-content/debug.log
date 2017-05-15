@@ -23403,3 +23403,231 @@ Stack trace:
 [15-May-2017 22:15:26 UTC] PHP  13. WP_REST_Posts_Controller->prepare_item_for_response() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:469
 [15-May-2017 22:15:26 UTC] PHP  14. WP_REST_Controller->add_additional_fields_to_object() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1555
 [15-May-2017 22:15:26 UTC] PHP  15. aif_add_content_json_field() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-controller.php:403
+[15-May-2017 22:55:50 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 22:55:50 UTC] PHP Stack trace:
+[15-May-2017 22:55:50 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:55:50 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:55:50 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:55:50 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:55:50 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:55:50 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:55:50 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:55:50 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 22:55:50 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 22:55:50 UTC] PHP Stack trace:
+[15-May-2017 22:55:50 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:55:50 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:55:50 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:55:50 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:55:50 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:55:50 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:55:50 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:55:50 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 22:55:59 UTC] PHP Notice:  Trying to get property of non-object in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/functions.php on line 100
+[15-May-2017 22:55:59 UTC] PHP Stack trace:
+[15-May-2017 22:55:59 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:55:59 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:55:59 UTC] PHP   3. wp() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:16
+[15-May-2017 22:55:59 UTC] PHP   4. WP->main() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/functions.php:955
+[15-May-2017 22:55:59 UTC] PHP   5. WP->parse_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:733
+[15-May-2017 22:55:59 UTC] PHP   6. do_action_ref_array() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:386
+[15-May-2017 22:55:59 UTC] PHP   7. WP_Hook->do_action() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[15-May-2017 22:55:59 UTC] PHP   8. WP_Hook->apply_filters() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[15-May-2017 22:55:59 UTC] PHP   9. rest_api_loaded() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[15-May-2017 22:55:59 UTC] PHP  10. WP_REST_Server->serve_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api.php:271
+[15-May-2017 22:55:59 UTC] PHP  11. WP_REST_Server->dispatch() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:323
+[15-May-2017 22:55:59 UTC] PHP  12. WP_REST_Posts_Controller->get_item() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:927
+[15-May-2017 22:55:59 UTC] PHP  13. WP_REST_Posts_Controller->prepare_item_for_response() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:469
+[15-May-2017 22:55:59 UTC] PHP  14. WP_REST_Controller->add_additional_fields_to_object() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1555
+[15-May-2017 22:55:59 UTC] PHP  15. aif_add_content_json_field() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-controller.php:403
+[15-May-2017 22:56:17 UTC] PHP Notice:  Trying to get property of non-object in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/functions.php on line 100
+[15-May-2017 22:56:17 UTC] PHP Stack trace:
+[15-May-2017 22:56:17 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:56:17 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:56:17 UTC] PHP   3. wp() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:16
+[15-May-2017 22:56:17 UTC] PHP   4. WP->main() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/functions.php:955
+[15-May-2017 22:56:17 UTC] PHP   5. WP->parse_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:733
+[15-May-2017 22:56:17 UTC] PHP   6. do_action_ref_array() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:386
+[15-May-2017 22:56:17 UTC] PHP   7. WP_Hook->do_action() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[15-May-2017 22:56:17 UTC] PHP   8. WP_Hook->apply_filters() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[15-May-2017 22:56:17 UTC] PHP   9. rest_api_loaded() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[15-May-2017 22:56:17 UTC] PHP  10. WP_REST_Server->serve_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api.php:271
+[15-May-2017 22:56:17 UTC] PHP  11. WP_REST_Server->dispatch() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:323
+[15-May-2017 22:56:17 UTC] PHP  12. WP_REST_Posts_Controller->update_item() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:927
+[15-May-2017 22:56:17 UTC] PHP  13. WP_REST_Posts_Controller->prepare_item_for_response() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:737
+[15-May-2017 22:56:17 UTC] PHP  14. WP_REST_Controller->add_additional_fields_to_object() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1555
+[15-May-2017 22:56:17 UTC] PHP  15. aif_add_content_json_field() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-controller.php:403
+[15-May-2017 22:56:17 UTC] PHP Notice:  Trying to get property of non-object in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/functions.php on line 100
+[15-May-2017 22:56:17 UTC] PHP Stack trace:
+[15-May-2017 22:56:17 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:56:17 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:56:17 UTC] PHP   3. wp() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:16
+[15-May-2017 22:56:17 UTC] PHP   4. WP->main() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/functions.php:955
+[15-May-2017 22:56:17 UTC] PHP   5. WP->parse_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:733
+[15-May-2017 22:56:17 UTC] PHP   6. do_action_ref_array() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:386
+[15-May-2017 22:56:17 UTC] PHP   7. WP_Hook->do_action() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[15-May-2017 22:56:17 UTC] PHP   8. WP_Hook->apply_filters() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[15-May-2017 22:56:17 UTC] PHP   9. rest_api_loaded() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[15-May-2017 22:56:17 UTC] PHP  10. WP_REST_Server->serve_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api.php:271
+[15-May-2017 22:56:17 UTC] PHP  11. WP_REST_Server->dispatch() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:323
+[15-May-2017 22:56:17 UTC] PHP  12. WP_REST_Posts_Controller->update_item() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:927
+[15-May-2017 22:56:17 UTC] PHP  13. WP_REST_Posts_Controller->prepare_item_for_response() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:737
+[15-May-2017 22:56:17 UTC] PHP  14. WP_REST_Controller->add_additional_fields_to_object() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1555
+[15-May-2017 22:56:17 UTC] PHP  15. aif_add_content_json_field() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-controller.php:403
+[15-May-2017 22:58:04 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 22:58:04 UTC] PHP Stack trace:
+[15-May-2017 22:58:04 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:58:04 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:58:04 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:58:04 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:58:04 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:58:04 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:58:04 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:58:04 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 22:58:04 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 22:58:04 UTC] PHP Stack trace:
+[15-May-2017 22:58:04 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:58:04 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:58:04 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:58:04 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:58:04 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:58:04 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:58:04 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:58:04 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 22:58:06 UTC] PHP Notice:  Trying to get property of non-object in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/functions.php on line 100
+[15-May-2017 22:58:06 UTC] PHP Stack trace:
+[15-May-2017 22:58:06 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:58:06 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:58:06 UTC] PHP   3. wp() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:16
+[15-May-2017 22:58:06 UTC] PHP   4. WP->main() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/functions.php:955
+[15-May-2017 22:58:06 UTC] PHP   5. WP->parse_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:733
+[15-May-2017 22:58:06 UTC] PHP   6. do_action_ref_array() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp.php:386
+[15-May-2017 22:58:06 UTC] PHP   7. WP_Hook->do_action() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/plugin.php:515
+[15-May-2017 22:58:06 UTC] PHP   8. WP_Hook->apply_filters() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:323
+[15-May-2017 22:58:06 UTC] PHP   9. rest_api_loaded() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/class-wp-hook.php:298
+[15-May-2017 22:58:06 UTC] PHP  10. WP_REST_Server->serve_request() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api.php:271
+[15-May-2017 22:58:06 UTC] PHP  11. WP_REST_Server->dispatch() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:323
+[15-May-2017 22:58:06 UTC] PHP  12. WP_REST_Posts_Controller->get_item() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/class-wp-rest-server.php:927
+[15-May-2017 22:58:06 UTC] PHP  13. WP_REST_Posts_Controller->prepare_item_for_response() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:469
+[15-May-2017 22:58:06 UTC] PHP  14. WP_REST_Controller->add_additional_fields_to_object() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1555
+[15-May-2017 22:58:06 UTC] PHP  15. aif_add_content_json_field() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/rest-api/endpoints/class-wp-rest-controller.php:403
+[15-May-2017 22:59:10 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 22:59:10 UTC] PHP Stack trace:
+[15-May-2017 22:59:10 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:59:10 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:59:10 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:59:10 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:59:10 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:59:10 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:59:10 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:59:10 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 22:59:10 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 22:59:10 UTC] PHP Stack trace:
+[15-May-2017 22:59:10 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 22:59:10 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 22:59:10 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 22:59:10 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 22:59:10 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 22:59:10 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 22:59:10 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 22:59:10 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:04:32 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 23:04:32 UTC] PHP Stack trace:
+[15-May-2017 23:04:32 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:04:32 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:04:32 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:04:32 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:04:32 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:04:32 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:04:32 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:04:32 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:04:32 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 23:04:32 UTC] PHP Stack trace:
+[15-May-2017 23:04:32 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:04:32 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:04:32 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:04:32 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:04:32 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:04:32 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:04:32 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:04:32 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:07:52 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 23:07:52 UTC] PHP Stack trace:
+[15-May-2017 23:07:52 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:07:52 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:07:52 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:07:52 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:07:52 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:07:52 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:07:52 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:07:52 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:07:52 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 23:07:52 UTC] PHP Stack trace:
+[15-May-2017 23:07:52 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:07:52 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:07:52 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:07:52 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:07:52 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:07:52 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:07:52 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:07:52 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:09:31 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 23:09:31 UTC] PHP Stack trace:
+[15-May-2017 23:09:31 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:09:31 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:09:31 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:09:31 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:09:31 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:09:31 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:09:31 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:09:31 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:09:31 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 23:09:31 UTC] PHP Stack trace:
+[15-May-2017 23:09:31 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:09:31 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:09:31 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:09:31 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:09:31 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:09:31 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:09:31 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:09:31 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:09:53 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 23:09:53 UTC] PHP Stack trace:
+[15-May-2017 23:09:53 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:09:53 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:09:53 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:09:53 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:09:53 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:09:53 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:09:53 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:09:53 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:09:53 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 23:09:53 UTC] PHP Stack trace:
+[15-May-2017 23:09:53 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:09:53 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:09:53 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:09:53 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:09:53 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:09:53 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:09:53 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:09:53 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:10:24 UTC] PHP Notice:  Undefined variable: avia_config in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 19
+[15-May-2017 23:10:24 UTC] PHP Stack trace:
+[15-May-2017 23:10:24 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:10:24 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:10:24 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:10:24 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:10:24 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:10:24 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:10:24 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:10:24 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
+[15-May-2017 23:10:24 UTC] PHP Notice:  Undefined variable: post_loop_count in /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/includes/loop-page.php on line 46
+[15-May-2017 23:10:24 UTC] PHP Stack trace:
+[15-May-2017 23:10:24 UTC] PHP   1. {main}() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:0
+[15-May-2017 23:10:24 UTC] PHP   2. require() /Users/scorpio/Dev/Work/Amec/amecframework/index.php:17
+[15-May-2017 23:10:24 UTC] PHP   3. require_once() /Users/scorpio/Dev/Work/Amec/amecframework/wp-blog-header.php:19
+[15-May-2017 23:10:24 UTC] PHP   4. include() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template-loader.php:74
+[15-May-2017 23:10:24 UTC] PHP   5. get_template_part() /Users/scorpio/Dev/Work/Amec/amecframework/wp-content/themes/amec-framework/template-framework-page.php:39
+[15-May-2017 23:10:24 UTC] PHP   6. locate_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/general-template.php:167
+[15-May-2017 23:10:24 UTC] PHP   7. load_template() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:643
+[15-May-2017 23:10:24 UTC] PHP   8. require() /Users/scorpio/Dev/Work/Amec/amecframework/wp-includes/template.php:686
