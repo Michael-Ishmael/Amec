@@ -46,13 +46,6 @@ function getStyles() {
 
 }
 
-function getNewHtmlDoc(title){
-
-    title = title ? ' - ' + title : '';
-
-    return '<html lang="en"><head><meta charset="UTF-8"><title>Amec Measurement Framework' + title + '</title></head><body>Placeholder</body></html>'
-
-}
 
 function getEntireDom(title)
 {
