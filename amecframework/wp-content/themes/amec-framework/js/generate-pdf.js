@@ -48,6 +48,22 @@ function getStyles() {
 
 }
 
+function setPerfectPerfectScrollbar(elementId, update, destroy) {
+
+    if(destroy){
+        jQuery(elementId).perfectScrollbar('destroy');
+        return;
+    }
+
+    if(update){
+        jQuery(elementId).perfectScrollbar('update');
+        return;
+    }
+
+    jQuery(elementId).perfectScrollbar();
+
+
+}
 
 function getEntireDom(title)
 {

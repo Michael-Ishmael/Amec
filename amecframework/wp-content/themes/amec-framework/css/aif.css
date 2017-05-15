@@ -69,9 +69,9 @@
       #frameworkSummary .section-content h5.summary-heading.joined {
         margin-bottom: 0; }
   #frameworkSummary .summary-box {
-    padding: 4px 8px;
+    padding: 4px 15px 4px 8px;
     height: 184px;
-    overflow-y: scroll; }
+    overflow-y: auto; }
     #frameworkSummary .summary-box.first-row {
       max-height: 200px; }
     #frameworkSummary .summary-box .key {

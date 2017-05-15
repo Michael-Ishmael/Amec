@@ -14,7 +14,10 @@ function amec_adding_scripts() {
     wp_register_script( 'tether-js', get_stylesheet_directory_uri() . '/js/vendor/tether.min.js', array('jquery'), NULL, true );
 
     wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap.css', false, NULL, 'all' );
+    wp_register_style( 'perfect-scrollbar-css', get_stylesheet_directory_uri() . '/css/vendor/perfect-scrollbar.min.css', false, NULL, 'all' );
+
     wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/vendor/bootstrap.min.js', array('jquery'), NULL, true );
+    wp_register_script( 'perfect-scrollbar-js', get_stylesheet_directory_uri() . '/js/libs/perfect-scrollbar.jquery.min.js', array('jquery'), NULL, true );
 
 
     wp_register_script( 'angular-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular.min.js', array('jquery'), NULL, true );
@@ -31,6 +34,7 @@ function amec_adding_scripts() {
     wp_enqueue_style( 'bootstrap-css' );
     wp_enqueue_style( 'bootstrap-grid-css' );
     wp_enqueue_style( 'bootstrap-reboot-css' );
+    wp_enqueue_style( 'perfect-scrollbar-css' );
     wp_enqueue_style( 'aif-css', get_stylesheet_directory_uri() . '/css/aif-app.css');
 
 
@@ -38,6 +42,7 @@ function amec_adding_scripts() {
 //    wp_enqueue_script( 'bootstrap-js' );
     wp_enqueue_script( 'angular-js' );
     wp_enqueue_script( 'angular-cookies-js' );
+    wp_enqueue_script( 'perfect-scrollbar-js' );
     wp_enqueue_script( 'export-pdf' );
     wp_enqueue_script( 'aif-app' );
 }

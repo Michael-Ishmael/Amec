@@ -2522,9 +2522,9 @@
         #aif-app #frameworkSummary .section-content h5.summary-heading.joined {
           margin-bottom: 0; }
     #aif-app #frameworkSummary .summary-box {
-      padding: 4px 8px;
+      padding: 4px 15px 4px 8px;
       height: 184px;
-      overflow-y: scroll; }
+      overflow-y: auto; }
       #aif-app #frameworkSummary .summary-box.first-row {
         max-height: 200px; }
       #aif-app #frameworkSummary .summary-box .key {
@@ -2905,7 +2905,8 @@
     padding: 0 10px;
     position: relative;
     max-height: 220px;
-    overflow-y: scroll; }
+    overflow-y: auto;
+    padding-right: 15px; }
     #aif-app .choose-fw-layout .low-pad-cell {
       padding: 5px; }
     #aif-app .choose-fw-layout .choose-fw-tile {

@@ -496,7 +496,8 @@ $color-list: (
     padding: 0 10px;
     position: relative;
     max-height: 220px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding-right: 15px;
 
     .low-pad-cell {
       padding: 5px;
