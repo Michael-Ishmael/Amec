@@ -625,7 +625,7 @@ var aif;
             this.currentFramework = newFramework;
         };
         AifUser.prototype.hasFrameworks = function () {
-            return this.firstName.length > 0;
+            return this.frameworks.length > 0;
         };
         AifUser.prototype.asAppUser = function () {
             return new AppUser(this.email, this.firstName, this.lastName, this.organisation, this.jobTitle, this.language, this.contactNumber);

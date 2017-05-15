@@ -165,7 +165,7 @@ module aif {
     }
 
     hasFrameworks():boolean{
-          return this.firstName.length >0;
+          return this.frameworks.length >0;
     }
 
     asAppUser():AppUser {
