@@ -3,6 +3,12 @@
 /* General Custom CSS */
 
 
+/* Custom class for Measurement Wheel Image */
+.avia-image-container.framework-wheel {
+
+    width: 60%;
+
+}
 
 
 /*
@@ -26,3 +32,4 @@ Mobile Styles
   /* Add your Mobile Styles here */
 
 }
+
