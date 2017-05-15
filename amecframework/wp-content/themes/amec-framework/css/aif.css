@@ -74,8 +74,6 @@
     overflow-y: auto; }
     #frameworkSummary .summary-box.first-row {
       max-height: 200px; }
-    #frameworkSummary .summary-box .free-text {
-      white-space: pre-line; }
     #frameworkSummary .summary-box .key {
       font-weight: bold;
       float: left; }

@@ -832,7 +832,7 @@ var aif;
                 return "<div class=\"key\">" + index + "</div><div class=\"value\">" + this.text + "</div>";
             }
             else {
-                return "<p class='free-text'>" + this.text + "</p>";
+                return "<p class='free-text'>" + this.text.replace(/\n/g, '<br/>') + "</p>";
             }
         };
         AifStringInputValue.prototype.asJsonObj = function () {
