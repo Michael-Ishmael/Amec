@@ -2,11 +2,9 @@
     <div  class="container-fluid" ng-cloak ng-controller="appCtrl as ac">
         <div class="loader" ng-if="ac.vs.displayLoading">
 
-
-
         </div>
         <div   class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
-            <div  class="col-md-6 low-pad-cell"  ng-if="ac.vs.displayGrid">
+            <div  class="low-pad-cell"  ng-if="ac.vs.displayGrid" ng-class="{'col-md-4': !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn()}">
                 <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
                      ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised">
                     Login
@@ -16,21 +14,27 @@
                     Register
                 </div>
                 <div ng-if="ac.isLoggedIn() && ac.initialised" >
-                    <h4 ng-click="ac.viewAccount()">
+                    <h4 ng-click="ac.viewAccount()" class="welcome text-elip">
                         <a class="account-button"></a> Welcome {{ ac.currentUser.firstName }}</h4>
                 </div>
             </div>
-            <div class="col-md-6 low-pad-cell text-right" ng-if="ac.vs.displayGrid">
-                <span class="framework-name" ng-if="ac.currentFramework" ng-click="ac.viewAccount()">
-                    <h4> {{ ac.currentFramework.name }}</h4>
-                </span>
-                <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
-                     class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
-                    Save Progress
+            <div class="col-md-6 low-pad-cell text-center" ng-if="ac.vs.displayGrid">
+                <div class="framework-name" ng-if="ac.currentFramework" ng-click="ac.viewAccount()">
+                    <h4 title="{{ ac.currentFramework.name }}" class="text-elip"> {{ ac.currentFramework.name }}</h4>
                 </div>
-                <div ng-click="ac.submitFramework()"
-                     class="aif-button background-bright_green bottom-dark-border-bright_green">Submit
+            </div>
+            <div class="col-md-3 low-pad-cell text-right" ng-if="ac.vs.displayGrid">
+
+                <div class="d-inline-block">
+                    <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
+                         class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
+                        Save Progress
+                    </div>
+                    <div ng-click="ac.submitFramework()"
+                         class="aif-button background-bright_green bottom-dark-border-bright_green">Submit
+                    </div>
                 </div>
+
             </div>
             <div class="col-md-12 low-pad-cell text-right" ng-if="ac.vs.displaySummary" >
                 <div ng-click="ac.vs.showGrid()"

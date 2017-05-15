@@ -102,6 +102,12 @@ $color-list: (
     display: none;
   }
 
+  .text-elip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .pull-right {
     float: right !important;
   }
@@ -152,12 +158,16 @@ $color-list: (
     border-radius: 0;
     display: inline-block;
     padding: 2px 8px;
-    min-width: 90px;
+    min-width: 70px;
   }
 
   .control-row {
 
     line-height: 20px;
+
+    .welcome {
+      width: 220px;
+    }
 
     .aif-button {
       height: 30px;
@@ -199,14 +209,13 @@ $color-list: (
     .framework-name {
 
       h4 {
-        color: $green;
-        line-height: 20px;
-        vertical-align: middle;
+        line-height: 30px;
+        vertical-align: bottom;
+        width: 410px;
+        padding: 0 8px;
+        border-radius: 3px;
+        border: solid 1px lightgray;
       }
-      color: #9dea9a;
-      font-style: italic;
-      text-align: right;
-      margin-right: 6px;
       cursor: pointer;
       display: inline-block;
     }
@@ -515,6 +524,10 @@ $color-list: (
         color: #fff;
       }
 
+      h5, p {
+        max-width: 300px;
+      }
+
       &.selected {
         border: 2px solid #fff;
         padding: 8px;
@@ -522,6 +535,11 @@ $color-list: (
         .trash-icon {
           bottom: 4px;
           right: 4px;
+        }
+
+        .edit-icon {
+          top: 5px;
+          right: 6px;
         }
       }
 
@@ -540,6 +558,16 @@ $color-list: (
         position: absolute;
         bottom: 6px;
         right: 6px;
+      }
+
+      .edit-icon {
+        background: url('../images/edit-icon.png') no-repeat;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 7px;
+        right: 8px;
       }
 
       .text-link.sml {

@@ -57,8 +57,8 @@ module aif {
 
     interface IWpFrameworkPost {
         title: string;
-        content: string;
-        author: number;
+        content?: string;
+        author?: number;
         excerpt: string;
         type: string;
         status: string;
@@ -84,6 +84,7 @@ module aif {
 
         public currentUser: AifUser;
         public currentUserFramework: AifUserFramework;
+        public tempFramework: AifFramework;
         private frameworkService: IFrameworkRepository;
 
         constructor(private $timeout: ng.ITimeoutService, private $rootScope: ng.IRootScopeService,
@@ -251,24 +252,6 @@ module aif {
                 }
             );
 
-            /*      return this.$timeout(() => {
-
-             let newUser = new AifUser(
-             user.email,
-             user.firstName,
-             user.lastName,
-             user.organisation,
-             user.jobTitle,
-             user.language,
-             user.contactNumber
-             );
-
-             this.currentUser = newUser;
-             this.$rootScope.$broadcast("user:loggedIn", newUser);
-             this.storeUser();
-             return new LoginResult(true, newUser, null);
-
-             });*/
         }
 
         logout(): ng.IPromise<boolean> {
@@ -344,33 +327,6 @@ module aif {
                 }
             );
 
-
-            /*      return this.$timeout(() => {
-             let matches = users.filter(u => u.email == email);
-             if (matches.length) {
-             let user = AifUser.createFromData(matches[0]);
-             if (user.email === "mail@michaelishmael.com") {
-             user.frameworks = userFrameworks;
-             }
-             this.currentUser = user;
-             this.$rootScope.$broadcast("user:loggedIn", user);
-             this.storeUser();
-             return new LoginResult(true, user, null);
-             } else {
-             return new LoginResult(false, null, "Login failed")
-             }
-
-             }, 200);*/
-
-        }
-
-        private storeUser() {
-            // let userObj = {
-            //     email: this.currentUser.email,
-            //     currentFrameworkId: null
-            // };
-            // if (this.currentUser.currentFramework) userObj.currentFrameworkId = this.currentUser.currentFramework.id;
-            // this.$cookies.putObject("aifUser", userObj);
         }
 
 
@@ -403,20 +359,43 @@ module aif {
             }, e => {
                 return new SaveFrameworkResult(false, null, e.statusText);
             });
-            /*
-             return this.$timeout(() => {
-             if (!hasUser) return new SaveFrameworkResult(false, null, "User not logged in");
 
-             let newId = this.currentUser.frameworks == null ? 1 : this.currentUser.frameworks.length + 1;
-             let framework = new AifFramework(newId, name, description);
-             this.currentUser.frameworks.forEach(f => f.current = false);
-             framework.current = true;
-             this.currentUser.addNewFramework(framework);
-             this.storeUser();
-             this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-             return new SaveFrameworkResult(true, framework, "Framework created")
+        }
 
-             }, 200);*/
+        renameFramework(frameworkId:number, name: string, description: string): ng.IPromise<SaveFrameworkResult> {
+            let hasUser = !!this.currentUser;
+            let hasFramework = frameworkId && frameworkId > 0;
+
+            let regUrl: string = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/' + frameworkId;
+            let data: IWpFrameworkPost = {
+                title: name,
+                excerpt: description,
+                type: "aif_workflow",
+                status: "publish"
+            };
+
+            return this.$http.patch(regUrl, JSON.stringify(data),
+            ).then((response: ng.IHttpPromiseCallbackArg<IWpFramePostResponse>) => {
+
+                if(!hasUser) return new SaveFrameworkResult(false, null, "Not logged in");
+                if(!hasFramework) return new SaveFrameworkResult(false, null, "No framework specified");
+
+                let postId = response.data.id;
+                let framework = new AifFramework(postId, name, description);
+                this.currentUser.frameworks.forEach(f => {
+                    if(f.id == frameworkId){
+                        f.name = name;
+                        f.description = description
+                    }
+                });
+
+                this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+                return new SaveFrameworkResult(true, framework, null);
+
+            }, e => {
+                return new SaveFrameworkResult(false, null, e.statusText);
+            });
+
         }
 
         saveOverFramework(id: number): ng.IPromise<SaveFrameworkResult> {

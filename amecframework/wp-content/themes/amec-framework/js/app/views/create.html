@@ -4,15 +4,12 @@
 
         <div class="aif-tile account-screen long">
             <a class="btn btn-link close-button pull-right" ng-click="cf.vs.resetView()">X</a>
-            <h2>New Measurement Framework</h2>
-            <h3 class="login-message">&nbsp;</h3>
-
-
-            <h4> {{ cf.createMessage }} </h4>
+            <h2>{{ cf.title }}</h2>
+            <h4 ng-if="cf.createMessage"> {{ cf.createMessage }} </h4>
             <br>
             <div class="login-box-group">
 
-                <form name="formCreate" novalidate class="css-form" ng-submit="cf.createNewFramework(formCreate)">
+                <form name="formCreate" novalidate class="css-form" ng-submit="cf.submitAction(formCreate)">
 
                     <div class="form-group">
                         <label for="nFrameworkName">Name</label>
@@ -35,8 +32,10 @@
 
 
                     <div class="form-group">
-                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                        <input ng-if="!cf.editMode" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
                                type="submit" value="Create">
+                        <input ng-if="cf.editMode" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
+                               type="submit" value="Save">
                         <a class="text-link lge" ng-click="cf.vs.resetView()"
                            title="You can click save progress to come back at any time"
                         >{{ cf.cancelButtonText }}</a>

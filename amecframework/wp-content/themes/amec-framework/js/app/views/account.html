@@ -22,9 +22,10 @@
                                 <div class="choose-fw-tile" ng-if="!fw.flaggedDelete" ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"
                                     ng-click="av.toggleSelectFramework(fw)"
                                     >
-                                    <h5> {{ fw.name }} </h5>
-                                    <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span> </p>
+                                    <h5 class="text-elip"> {{ fw.name }} </h5>
+                                    <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span> </p>
 
+                                    <a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>
                                     <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>
                                 </div>
 

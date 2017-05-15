@@ -2643,6 +2643,10 @@
     border-bottom: 4px solid #999999; }
   #aif-app [ng-cloak] {
     display: none; }
+  #aif-app .text-elip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   #aif-app .pull-right {
     float: right !important; }
   #aif-app .clearfix {
@@ -2681,9 +2685,11 @@
     border-radius: 0;
     display: inline-block;
     padding: 2px 8px;
-    min-width: 90px; }
+    min-width: 70px; }
   #aif-app .control-row {
     line-height: 20px; }
+    #aif-app .control-row .welcome {
+      width: 220px; }
     #aif-app .control-row .aif-button {
       height: 30px;
       font-size: 13px;
@@ -2710,16 +2716,15 @@
         line-height: 20px;
         vertical-align: bottom; }
     #aif-app .control-row .framework-name {
-      color: #9dea9a;
-      font-style: italic;
-      text-align: right;
-      margin-right: 6px;
       cursor: pointer;
       display: inline-block; }
       #aif-app .control-row .framework-name h4 {
-        color: #00c394;
-        line-height: 20px;
-        vertical-align: middle; }
+        line-height: 30px;
+        vertical-align: bottom;
+        width: 410px;
+        padding: 0 8px;
+        border-radius: 3px;
+        border: solid 1px lightgray; }
   #aif-app .base-framework {
     position: relative;
     min-height: 1000px; }
@@ -2919,12 +2924,17 @@
       cursor: pointer; }
       #aif-app .choose-fw-layout .choose-fw-tile a {
         color: #fff; }
+      #aif-app .choose-fw-layout .choose-fw-tile h5, #aif-app .choose-fw-layout .choose-fw-tile p {
+        max-width: 300px; }
       #aif-app .choose-fw-layout .choose-fw-tile.selected {
         border: 2px solid #fff;
         padding: 8px; }
         #aif-app .choose-fw-layout .choose-fw-tile.selected .trash-icon {
           bottom: 4px;
           right: 4px; }
+        #aif-app .choose-fw-layout .choose-fw-tile.selected .edit-icon {
+          top: 5px;
+          right: 6px; }
       #aif-app .choose-fw-layout .choose-fw-tile.shake {
         animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
         transform: translate3d(0, 0, 0);
@@ -2938,6 +2948,14 @@
         position: absolute;
         bottom: 6px;
         right: 6px; }
+      #aif-app .choose-fw-layout .choose-fw-tile .edit-icon {
+        background: url("../images/edit-icon.png") no-repeat;
+        background-size: contain;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 7px;
+        right: 8px; }
       #aif-app .choose-fw-layout .choose-fw-tile .text-link.sml {
         position: absolute;
         bottom: 6px;

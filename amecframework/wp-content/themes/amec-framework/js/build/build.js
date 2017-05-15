@@ -878,6 +878,7 @@ var aif;
         AccountDisplayRoute[AccountDisplayRoute["FromLogin"] = 0] = "FromLogin";
         AccountDisplayRoute[AccountDisplayRoute["FromSave"] = 1] = "FromSave";
         AccountDisplayRoute[AccountDisplayRoute["FromViewAccount"] = 2] = "FromViewAccount";
+        AccountDisplayRoute[AccountDisplayRoute["FromEdit"] = 3] = "FromEdit";
     })(AccountDisplayRoute = aif.AccountDisplayRoute || (aif.AccountDisplayRoute = {}));
     var ViewService = (function () {
         function ViewService($sce) {
@@ -1138,24 +1139,6 @@ var aif;
             }, function (e) {
                 return new aif.LoginResult(false, null, "Registration error");
             });
-            /*      return this.$timeout(() => {
-
-             let newUser = new AifUser(
-             user.email,
-             user.firstName,
-             user.lastName,
-             user.organisation,
-             user.jobTitle,
-             user.language,
-             user.contactNumber
-             );
-
-             this.currentUser = newUser;
-             this.$rootScope.$broadcast("user:loggedIn", newUser);
-             this.storeUser();
-             return new LoginResult(true, newUser, null);
-
-             });*/
         };
         UserRepository.prototype.logout = function () {
             var _this = this;
@@ -1214,30 +1197,6 @@ var aif;
             }, function (e) {
                 return new aif.LoginResult(false, null, null);
             });
-            /*      return this.$timeout(() => {
-             let matches = users.filter(u => u.email == email);
-             if (matches.length) {
-             let user = AifUser.createFromData(matches[0]);
-             if (user.email === "mail@michaelishmael.com") {
-             user.frameworks = userFrameworks;
-             }
-             this.currentUser = user;
-             this.$rootScope.$broadcast("user:loggedIn", user);
-             this.storeUser();
-             return new LoginResult(true, user, null);
-             } else {
-             return new LoginResult(false, null, "Login failed")
-             }
-
-             }, 200);*/
-        };
-        UserRepository.prototype.storeUser = function () {
-            // let userObj = {
-            //     email: this.currentUser.email,
-            //     currentFrameworkId: null
-            // };
-            // if (this.currentUser.currentFramework) userObj.currentFrameworkId = this.currentUser.currentFramework.id;
-            // this.$cookies.putObject("aifUser", userObj);
         };
         UserRepository.prototype.createNewFramework = function (name, description) {
             var _this = this;
@@ -1264,20 +1223,36 @@ var aif;
             }, function (e) {
                 return new aif.SaveFrameworkResult(false, null, e.statusText);
             });
-            /*
-             return this.$timeout(() => {
-             if (!hasUser) return new SaveFrameworkResult(false, null, "User not logged in");
-
-             let newId = this.currentUser.frameworks == null ? 1 : this.currentUser.frameworks.length + 1;
-             let framework = new AifFramework(newId, name, description);
-             this.currentUser.frameworks.forEach(f => f.current = false);
-             framework.current = true;
-             this.currentUser.addNewFramework(framework);
-             this.storeUser();
-             this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
-             return new SaveFrameworkResult(true, framework, "Framework created")
-
-             }, 200);*/
+        };
+        UserRepository.prototype.renameFramework = function (frameworkId, name, description) {
+            var _this = this;
+            var hasUser = !!this.currentUser;
+            var hasFramework = frameworkId && frameworkId > 0;
+            var regUrl = ajax_auth_object.resturl + 'wp/v2/aifworkflows-api/' + frameworkId;
+            var data = {
+                title: name,
+                excerpt: description,
+                type: "aif_workflow",
+                status: "publish"
+            };
+            return this.$http.patch(regUrl, JSON.stringify(data)).then(function (response) {
+                if (!hasUser)
+                    return new aif.SaveFrameworkResult(false, null, "Not logged in");
+                if (!hasFramework)
+                    return new aif.SaveFrameworkResult(false, null, "No framework specified");
+                var postId = response.data.id;
+                var framework = new aif.AifFramework(postId, name, description);
+                _this.currentUser.frameworks.forEach(function (f) {
+                    if (f.id == frameworkId) {
+                        f.name = name;
+                        f.description = description;
+                    }
+                });
+                _this.$rootScope.$broadcast("framework:frameworkUpdated", framework);
+                return new aif.SaveFrameworkResult(true, framework, null);
+            }, function (e) {
+                return new aif.SaveFrameworkResult(false, null, e.statusText);
+            });
         };
         UserRepository.prototype.saveOverFramework = function (id) {
             var _this = this;
@@ -2206,16 +2181,25 @@ var aif;
             this.existingFrameworkId = null;
             this.newFrameworkName = null;
             this.newFrameworkDescription = null;
-            this.createMessage = " ";
+            this.createMessage = "";
             this.cancelButtonText = "Cancel";
             this.saveUnsuccessful = false;
             this.saveFailMessage = null;
+            this.editMode = false;
+            this.submitAction = this.createNewFramework;
             this.init();
         }
         CreateFrameworkCtrl.prototype.init = function () {
             if (!this.userRepository.currentUser) {
                 this.vs.showLogin();
                 return;
+            }
+            if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromEdit && this.userRepository.tempFramework) {
+                this.editMode = true;
+                this.title = "Edit " + this.userRepository.tempFramework.name;
+                this.submitAction = this.renameFramework;
+                this.newFrameworkName = this.userRepository.tempFramework.name;
+                this.newFrameworkDescription = this.userRepository.tempFramework.description;
             }
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
                 this.createMessage = "Create a new framework to save your progress.";
@@ -2236,6 +2220,28 @@ var aif;
                     .then(function (r) {
                     if (r.success) {
                         _this.vs.resetView();
+                    }
+                    else {
+                        _this.saveUnsuccessful = true;
+                        _this.saveFailMessage = r.message;
+                    }
+                });
+            }
+        };
+        CreateFrameworkCtrl.prototype.renameFramework = function (form) {
+            var _this = this;
+            if (!form.$valid)
+                return;
+            if (!this.userRepository.tempFramework)
+                return;
+            if (this.user) {
+                this.userRepository.renameFramework(this.userRepository.tempFramework.id, this.newFrameworkName, this.newFrameworkDescription)
+                    .then(function (r) {
+                    if (r.success) {
+                        if (_this.editMode) {
+                            _this.editMode = false;
+                            _this.vs.showAccount(aif.AccountDisplayRoute.FromEdit);
+                        }
                     }
                     else {
                         _this.saveUnsuccessful = true;
@@ -2557,7 +2563,12 @@ var aif;
             }
         };
         AppCtrl.prototype.setCurrentFramework = function (framework) {
-            this.currentFramework = framework;
+            if (this.currentUser) {
+                this.currentFramework = this.currentUser.currentFramework;
+            }
+            else {
+                this.currentFramework = framework;
+            }
         };
         AppCtrl.prototype.isLoggedIn = function () {
             return !!this.currentUser;
@@ -2727,6 +2738,7 @@ var aif;
             this.user = null;
             this.createMessage = "Use the fields below create a new framework.";
             this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
+            this.frameworkInEdit = null;
             this.init();
         }
         AccountViewCtrl.prototype.getColorClass = function (prefix, index) {
@@ -2814,6 +2826,10 @@ var aif;
         };
         AccountViewCtrl.prototype.toggleFlagDeleteFramework = function ($event, framework) {
             framework.flaggedDelete = !framework.flaggedDelete;
+        };
+        AccountViewCtrl.prototype.editFramework = function (framework) {
+            this.userRepository.tempFramework = framework;
+            this.vs.showCreateFramework(aif.AccountDisplayRoute.FromEdit, false);
         };
         return AccountViewCtrl;
     }());

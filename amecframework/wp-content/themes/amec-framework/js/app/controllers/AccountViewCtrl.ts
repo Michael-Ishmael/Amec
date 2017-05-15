@@ -13,7 +13,7 @@ module aif {
     public createMessage:string = "Use the fields below create a new framework.";
 
     private colors:Array<string> = [ "red", "yellow",  "green",  "light_blue",  "dark_blue",  "purple"];
-
+    public frameworkInEdit:AifFramework = null;
 
     constructor(private $scope: ng.IScope, private  userRepository:UserRepository, public vs:ViewService) {
       this.init();
@@ -126,6 +126,11 @@ module aif {
 
     public toggleFlagDeleteFramework($event:ng.IAngularEvent, framework:AifFramework){
       framework.flaggedDelete = !framework.flaggedDelete;
+    }
+
+    public editFramework(framework:AifFramework){
+      this.userRepository.tempFramework = framework;
+      this.vs.showCreateFramework(AccountDisplayRoute.FromEdit, false);
     }
 
   }

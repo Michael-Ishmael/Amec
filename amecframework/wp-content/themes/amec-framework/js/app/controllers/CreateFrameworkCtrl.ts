@@ -14,11 +14,15 @@ module aif {
     public newFrameworkName:string = null;
     public newFrameworkDescription:string = null;
 
-    public createMessage:string = " ";
+    public createMessage:string = "";
     public cancelButtonText:string = "Cancel";
 
     public saveUnsuccessful:boolean = false;
     public saveFailMessage:string = null;
+
+    public editMode:boolean = false;
+
+    public submitAction: (form:ng.IFormController) => void = this.createNewFramework;
 
     constructor(private $scope: ng.IScope, private  userRepository:UserRepository, public vs:ViewService) {
       this.init();
@@ -29,19 +33,26 @@ module aif {
         this.vs.showLogin();
         return;
       }
+      if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromEdit && this.userRepository.tempFramework){
+        this.editMode = true;
+        this.title = "Edit " + this.userRepository.tempFramework.name;
+        this.submitAction = this.renameFramework;
+        this.newFrameworkName = this.userRepository.tempFramework.name;
+        this.newFrameworkDescription = this.userRepository.tempFramework.description;
+      }
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave){
-        this.createMessage = "Create a new framework to save your progress."
+        this.createMessage = "Create a new framework to save your progress.";
       }
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromLogin){
         this.title = "Create your first framework";
-        this.createMessage = "Create a new framework to store your progress."
+        this.createMessage = "Create a new framework to store your progress.";
         this.cancelButtonText = "Skip for now";
       }
       this.user = this.userRepository.currentUser;
 
     }
 
-    public createNewFramework(form:ng.IFormController){
+    public createNewFramework(form:ng.IFormController):void{
       if(!form.$valid) return;
       if(this.user){
         this.userRepository.createNewFramework(this.newFrameworkName, this.newFrameworkDescription)
@@ -55,6 +66,28 @@ module aif {
           })
       }
     }
+
+    public renameFramework(form:ng.IFormController):void{
+      if(!form.$valid) return;
+      if(!this.userRepository.tempFramework) return;
+      if(this.user){
+        this.userRepository.renameFramework(this.userRepository.tempFramework.id, this.newFrameworkName, this.newFrameworkDescription)
+            .then((r) => {
+              if(r.success){
+                if(this.editMode){
+                  this.editMode = false;
+                  this.vs.showAccount(AccountDisplayRoute.FromEdit);
+                }
+
+              } else {
+                this.saveUnsuccessful = true;
+                this.saveFailMessage = r.message;
+              }
+            })
+      }
+    }
+
+
 
 
   }

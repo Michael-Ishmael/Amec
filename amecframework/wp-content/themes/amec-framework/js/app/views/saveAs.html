@@ -50,15 +50,15 @@
                              ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]"
                              ng-click="sa.toggleSaveOver(fw)"
                         >
-                            <h5> {{ fw.name }} </h5>
-                            <p> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
+                            <h5 class="text-elip"> {{ fw.name }} </h5>
+                            <p class="text-elip"> {{ fw.description | limitTo:100 }} <span ng-if="fw.description.length>100">...</span>
                             </p>
 
                         </div>
 
                         <div class="choose-fw-tile shake" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" ng-if="fw.flaggedDelete">
 
-                            <p>Are you sure you want to save over {{ fw.name }}?</p>
+                            <p class="text-elip">Are you sure you want to save over {{ fw.name }}?</p>
                             <span class="text-link sml">
                                         <a ng-click="sa.selectFramework(fw)">Yes</a>
                                         <a  ng-click="sa.toggleSaveOver(fw)">No</a>

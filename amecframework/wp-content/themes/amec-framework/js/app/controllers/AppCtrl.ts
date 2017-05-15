@@ -75,8 +75,12 @@ module aif {
     }
 
     private setCurrentFramework(framework:AifFramework):void{
+      if(this.currentUser){
+        this.currentFramework = this.currentUser.currentFramework;
+      } else {
+        this.currentFramework = framework;
+      }
 
-      this.currentFramework = framework;
 
     }
 

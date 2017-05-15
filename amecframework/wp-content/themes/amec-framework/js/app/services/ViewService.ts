@@ -6,7 +6,8 @@ module aif {
   export enum AccountDisplayRoute {
     FromLogin = 0,
     FromSave = 1,
-    FromViewAccount = 2
+    FromViewAccount = 2,
+    FromEdit = 3
   }
 
   export class ViewService {
