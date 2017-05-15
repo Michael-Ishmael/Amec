@@ -2181,9 +2181,9 @@ var aif;
         }
         RegisterCtrl.prototype.init = function () {
             this.userModel = new aif.AppUser(null, null, null, null, null, null, null);
-            this.userModel = new aif.AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
-            this.userModel.password = "Crumpet1";
-            this.userModel.passwordConfirmation = "Crumpet1";
+            //this.userModel = new AppUser("guyincognito@hamptons.com", "Guy", "Incognito", "Hamptons", "Boss", "en", "07931");
+            //this.userModel.password = "Crumpet1";
+            //this.userModel.passwordConfirmation = "Crumpet1";
         };
         RegisterCtrl.prototype.registerNewUser = function (form) {
             var _this = this;
