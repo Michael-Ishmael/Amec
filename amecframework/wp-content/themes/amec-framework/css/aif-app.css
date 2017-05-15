@@ -2527,6 +2527,8 @@
       overflow-y: auto; }
       #aif-app #frameworkSummary .summary-box.first-row {
         max-height: 200px; }
+      #aif-app #frameworkSummary .summary-box .free-text {
+        white-space: pre-wrap; }
       #aif-app #frameworkSummary .summary-box .key {
         font-weight: bold;
         float: left; }
