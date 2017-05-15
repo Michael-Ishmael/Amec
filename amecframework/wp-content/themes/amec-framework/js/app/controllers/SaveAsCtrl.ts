@@ -5,7 +5,7 @@ module aif {
 
         public static $inject = ["$scope", "userRepository", "viewService"];
 
-        public title: string = "Your account";
+        public title: string = "Save framework";
         public user: AifUser = null;
         public currentFramework: AifFramework = null;
 

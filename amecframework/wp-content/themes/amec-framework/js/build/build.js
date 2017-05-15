@@ -979,8 +979,9 @@ var aif;
             this.fadeBg = true;
             this.displaySaveAs = true;
         };
-        ViewService.prototype.attemptSave = function (loggedIn, hasExisting) {
+        ViewService.prototype.attemptSave = function (loggedIn, hasExisting, noCurrent) {
             if (hasExisting === void 0) { hasExisting = false; }
+            if (noCurrent === void 0) { noCurrent = false; }
             this.reset();
             this.fadeBg = true;
             this.accountDisplayRoute = AccountDisplayRoute.FromSave;
@@ -989,7 +990,7 @@ var aif;
                 return;
             }
             else {
-                if (hasExisting) {
+                if (hasExisting && !noCurrent) {
                     this.displaySaveAs = true;
                 }
                 else {
@@ -2543,7 +2544,7 @@ var aif;
             this.$scope = $scope;
             this.userRepository = userRepository;
             this.vs = vs;
-            this.title = "Your account";
+            this.title = "Save framework";
             this.user = null;
             this.currentFramework = null;
             this.altMessage = "S";
@@ -2741,7 +2742,8 @@ var aif;
         AppCtrl.prototype.saveProgress = function () {
             var loggedIn = this.isLoggedIn();
             var hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
-            this.vs.attemptSave(loggedIn, hasExisting);
+            var hasCurrent = loggedIn ? !!this.currentUser.currentFramework : false;
+            this.vs.attemptSave(loggedIn, hasExisting, !hasCurrent);
         };
         AppCtrl.prototype.downloadAifPdf = function () {
             var title = this.currentFramework ? this.currentFramework.name : null;

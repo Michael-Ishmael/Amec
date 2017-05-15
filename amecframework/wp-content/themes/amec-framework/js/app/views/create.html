@@ -7,9 +7,7 @@
             <h2>{{ cf.title }}</h2>
             <h4 ng-if="cf.createMessage"> {{ cf.createMessage }} </h4>
 
-            <p class="account-layout" ng-if="cf.hasFrameworks">Or save over
-                <a ng-click="cf.showSaveAs()" >an existing framework</a>
-                 </p>
+
             <div class="login-box-group">
 
                 <form name="formCreate" novalidate class="css-form" ng-submit="cf.submitAction(formCreate)">
@@ -51,6 +49,11 @@
 
             </div>
 
+<div class="clearfix"></div>
+
+            <p class="account-layout" ng-if="cf.hasFrameworks">Or save over
+                <a ng-click="cf.showSaveAs()" >an existing framework</a>
+            </p>
 
         </div>
 

@@ -114,7 +114,7 @@ module aif {
       this.displaySaveAs = true;
     }
 
-    public attemptSave(loggedIn:boolean, hasExisting:boolean = false){
+    public attemptSave(loggedIn:boolean, hasExisting:boolean = false, noCurrent:boolean = false){
       this.reset();
       this.fadeBg = true;
       this.accountDisplayRoute = AccountDisplayRoute.FromSave;
@@ -122,7 +122,7 @@ module aif {
         this.displayLogin = true;
         return;
       } else {
-        if(hasExisting){
+        if(hasExisting && !noCurrent){
           this.displaySaveAs = true;
         } else {
           this.displayCreate = true;

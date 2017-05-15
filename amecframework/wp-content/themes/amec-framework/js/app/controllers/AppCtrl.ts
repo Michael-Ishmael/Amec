@@ -131,7 +131,8 @@ module aif {
     public saveProgress(){
       let loggedIn = this.isLoggedIn();
       let hasExisting = loggedIn ? this.currentUser.hasExistingFrameworks() : false;
-      this.vs.attemptSave(loggedIn, hasExisting);
+      let hasCurrent = loggedIn ? !!this.currentUser.currentFramework : false;
+      this.vs.attemptSave(loggedIn, hasExisting, !hasCurrent);
     }
 
 
