@@ -33,6 +33,7 @@ module aif {
         return;
       }
       this.user = this.userRepository.currentUser;
+      this.hasFrameworks = this.user.hasFrameworks();
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromEdit && this.userRepository.tempFramework){
         this.editMode = true;
         this.title = "Edit " + this.userRepository.tempFramework.name;
@@ -42,7 +43,7 @@ module aif {
         return
 
       }
-      this.hasFrameworks = this.user.hasFrameworks();
+
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave){
         this.createMessage = "Create a new framework to save your progress.";
       }

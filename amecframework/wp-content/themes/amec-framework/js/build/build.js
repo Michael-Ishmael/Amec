@@ -2304,6 +2304,7 @@ var aif;
                 return;
             }
             this.user = this.userRepository.currentUser;
+            this.hasFrameworks = this.user.hasFrameworks();
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromEdit && this.userRepository.tempFramework) {
                 this.editMode = true;
                 this.title = "Edit " + this.userRepository.tempFramework.name;
@@ -2312,7 +2313,6 @@ var aif;
                 this.newFrameworkDescription = this.userRepository.tempFramework.description;
                 return;
             }
-            this.hasFrameworks = this.user.hasFrameworks();
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
                 this.createMessage = "Create a new framework to save your progress.";
             }
