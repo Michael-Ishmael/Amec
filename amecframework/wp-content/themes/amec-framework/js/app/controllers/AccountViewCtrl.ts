@@ -14,6 +14,7 @@ module aif {
 
     private colors:Array<string> = [ "red", "yellow",  "green",  "light_blue",  "dark_blue",  "purple"];
     public frameworkInEdit:AifFramework = null;
+    public loadingFramework:boolean = false;
 
     constructor(private $scope: ng.IScope, private  userRepository:UserRepository, public vs:ViewService) {
       this.init();
@@ -77,12 +78,13 @@ module aif {
 
     public loadSelectedFramework(){
       if(this.user && this.frameworkIsSelected()) {
-
+        this.loadingFramework = true;
         let selected = this.user.frameworks.filter(f => f.selected)[0];
 
         this.userRepository.loadFramework(selected.id).then(
           (r) => {
             if (r.success) {
+              this.loadingFramework = false;
               this.closeView();
             } else {
             }

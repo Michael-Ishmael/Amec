@@ -2904,6 +2904,7 @@ var aif;
             this.createMessage = "Use the fields below create a new framework.";
             this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
             this.frameworkInEdit = null;
+            this.loadingFramework = false;
             this.init();
         }
         AccountViewCtrl.prototype.getColorClass = function (prefix, index) {
@@ -2955,9 +2956,11 @@ var aif;
         AccountViewCtrl.prototype.loadSelectedFramework = function () {
             var _this = this;
             if (this.user && this.frameworkIsSelected()) {
+                this.loadingFramework = true;
                 var selected = this.user.frameworks.filter(function (f) { return f.selected; })[0];
                 this.userRepository.loadFramework(selected.id).then(function (r) {
                     if (r.success) {
+                        _this.loadingFramework = false;
                         _this.closeView();
                     }
                     else {

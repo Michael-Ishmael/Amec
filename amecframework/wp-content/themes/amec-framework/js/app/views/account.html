@@ -22,6 +22,11 @@
                                 <div class="choose-fw-tile" ng-if="!fw.flaggedDelete"
                                      ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"  >
 
+                                    <div class="fw-load" ng-class="[av.getColorClass('background-dark', $index), {'loading': av.loadingFramework}]" ng-click="av.loadSelectedFramework()">
+                                        <div class="load-text">Load</div>
+                                        <div class="loading-text">Loading...</div>
+                                    </div>
+
                                     <div class="fw-controls">
 
                                         <a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>
@@ -60,11 +65,11 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
-                               ng-disabled="!av.frameworkIsSelected()"
-                               type="button" value="Load" ng-click="av.loadSelectedFramework()">
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"-->
+                               <!--ng-disabled="!av.frameworkIsSelected()"-->
+                               <!--type="button" value="Load" ng-click="av.loadSelectedFramework()">-->
+                    <!--</div>-->
 
 
             </div>
