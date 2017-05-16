@@ -4,218 +4,161 @@
     <meta charset="UTF-8">
     <title>Amec Framework PDF</title>
 
-    <!--<link rel="stylesheet" href="css/aif-summary.css">-->
+    <!--<link rel="stylesheet" href="css/aif-table-summary.css">-->
 
-    <style>
+    <style id="pageStyles">.background-red{background-color:#d50046}.background-dark-red{background-color:#8e002f}.background-pale-red{background-color:#ffd5e3}.background-yellow{background-color:#ff9a31}.background-dark-yellow{background-color:#e97700}.background-pale-yellow{background-color:#fff2e4}.background-green{background-color:#00c394}.background-dark-green{background-color:#007c5e}.background-pale-green{background-color:#c3fff1}.background-light_blue{background-color:#0090ff}.background-dark-light_blue{background-color:#0068b8}.background-pale-light_blue{background-color:#cce9ff}.background-dark_blue{background-color:#0072af}.background-dark-dark_blue{background-color:#004368}.background-pale-dark_blue{background-color:#afe3ff}.background-purple{background-color:#8a00b6}.background-dark-purple{background-color:#54006f}.background-pale-purple{background-color:#edb6ff}@page{size:A4;margin:0;padding:1cm;background:#fff}#printableFrameworkSummaryTable{font-family:lato,Roboto,Arial,sans-serif;font-size:14px;line-height:1.428571429;color:#fff}#printableFrameworkSummaryTable *{box-sizing:border-box}.aif-p-page-break{page-break-after:always}table{width:100%}tr.spacer-row td{height:15px}h1{color:#fffbfb;text-align:center;background-color:#b0c5d4;padding:10px;position:relative;margin-bottom:10px;font-size:1.3em}h1 .em{font-style:italic}.section-header{width:49px;background-color:gray}.section-header .label{width:49px;background-repeat:no-repeat}.section-header .label.prep{background-image:url(/images/ss-header-1.png);height:377px}.section-header .label.imp{background-image:url(/images/ss-header-2.png);height:377px}.section-header .label.mes{background-image:url(/images/ss-header-3.png);height:434px}th{text-transform:uppercase}.summary-box{height:210px;padding:10px;vertical-align:top;color:#404040;font-weight:400}.summary-box.half{width:50%}.summary-box.columns{-webkit-columns:300px 2;-moz-columns:300px 2;columns:300px 2}.summary-box.imp{height:330px}.summary-box.out{height:380px}</style>
 
-        .aif-p-12,.aif-p-3,.aif-p-6,.row,.summary-section,h1{position:relative}.imp .section-header,.mes .section-header,.prep .section-header{background-repeat:no-repeat;background-position-y:50%}@page{size:A4;margin:0;padding:1cm;background:#fff}#frameworkSummary{font-family:lato,Roboto,Arial,sans-serif;font-size:14px;line-height:1.428571429;color:#fff;margin-left:10px;margin-right:10px;margin-top:10px}h1{color:#fffbfb;text-align:center;background-color:#b0c5d4;padding:10px;margin-bottom:10px;font-size:1.3em}h1 .em{font-style:italic}#frameworkSummary *{box-sizing:border-box}.row{margin:0 -3px}.aif-p-3{width:25%;float:left;max-width:25%}.aif-p-6{width:50%;float:left;max-width:50%}.aif-p-12{width:100%;float:left;max-width:100%}.outer-row>.aif-p-12{margin-bottom:10px}.aif-p-page-break{page-break-after:always}.summary-section.prep{height:510px}.summary-section.imp{height:260px}.summary-section.mes{height:780px}.low-pad-row{margin-left:-3px;margin-right:-3px}.low-pad-cell{padding:0 3px}.summary-box{color:#404040;font-weight:400}.prep .section-header{height:613px;background-image:url(images/ss-header-1.png)}.imp .section-header{height:301px;background-image:url(images/ss-header-2.png)}.imp .summary-box{height:250px}.imp .aif-p-12 .summary-box{-webkit-columns:200px 2;-moz-columns:200px 2;columns:200px 2}.mes .section-header{height:1015px;background-image:url(images/ss-header-3.png)}.mes .aif-p-taller .summary-box{height:340px}.mes .aif-p-12 .summary-box{-webkit-columns:200px 2;-moz-columns:200px 2;columns:200px 2}.section-header{background-color:#8a8a8a;width:34px;float:left;padding-top:160px;background-position:2px 0;background-size:contain}.section-content{margin-left:42px}.section-content h5.summary-heading{font-size:.8em;height:24px;line-height:24px;color:#fff;text-transform:uppercase;text-align:center;margin:0 0 4px;padding:0}.section-content h5.summary-heading.joined{margin-bottom:0}.section-content .summary-box{padding:4px 8px;min-height:250px}.section-content .summary-box .key{margin-right:8px;font-weight:700}.background-red{background-color:#d50046}.background-dark-red{background-color:#8e002f}.background-pale-red{background-color:#ffd5e3}.background-yellow{background-color:#ff9a31}.background-dark-yellow{background-color:#e97700}.background-pale-yellow{background-color:#fff2e4}.background-green{background-color:#00c394}.background-dark-green{background-color:#007c5e}.background-pale-green{background-color:#c3fff1}.background-light_blue{background-color:#0090ff}.background-dark-light_blue{background-color:#0068b8}.background-pale-light_blue{background-color:#cce9ff}.background-dark_blue{background-color:#0072af}.background-dark-dark_blue{background-color:#004368}.background-pale-dark_blue{background-color:#afe3ff}.background-purple{background-color:#8a00b6}.background-dark-purple{background-color:#54006f}.background-pale-purple{background-color:#edb6ff}
+    <!--
+<style id="pageStyles">
 
-    </style>
+    .background-red {
+        background-color: #d50046; }
 
-    <!--<style>-->
+    .background-dark-red {
+        background-color: #8e002f; }
 
+    .background-pale-red {
+        background-color: #ffd5e3; }
 
-        <!--@page {-->
-            <!--size: A4;-->
-            <!--margin: 0;-->
-            <!--padding: 1cm;-->
-            <!--background: #fff; }-->
-        <!--#frameworkSummary {-->
-            <!--font-family: lato, Roboto, Arial, sans-serif;-->
-            <!--font-size: 14px;-->
-            <!--line-height: 1.428571429;-->
-            <!--color: #fff;-->
-            <!--margin-left: 10px;-->
-            <!--margin-right: 10px;-->
-            <!--margin-top: 10px; }-->
-        <!--h1{-->
-            <!--color: #fffbfb;-->
-            <!--text-align: center;-->
-            <!--background-color: #b0c5d4;-->
-            <!--padding: 10px;-->
-            <!--position: relative;-->
-            <!--margin-bottom: 10px;-->
-            <!--font-size: 1.3em;-->
-        <!--}-->
-        <!--h1 .em {-->
-            <!--font-style: italic;-->
-        <!--}-->
+    .background-yellow {
+        background-color: #ff9a31; }
 
-        <!--#frameworkSummary * {-->
-            <!--box-sizing: border-box; }-->
-         <!--.row {-->
-            <!--position: relative;-->
-            <!--margin: 0 -3px 0 -3px; }-->
-         <!--.aif-p-3 {-->
-            <!--width: 25%;-->
-            <!--float: left;-->
-            <!--max-width: 25%;-->
-            <!--position: relative; }-->
-         <!--.aif-p-6 {-->
-            <!--width: 50%;-->
-            <!--float: left;-->
-            <!--max-width: 50%;-->
-            <!--position: relative; }-->
-         <!--.aif-p-12 {-->
-            <!--width: 100%;-->
-            <!--float: left;-->
-            <!--max-width: 100%;-->
-            <!--position: relative; }-->
-         <!--.outer-row > .aif-p-12 {-->
-            <!--margin-bottom: 10px; }-->
+    .background-dark-yellow {
+        background-color: #e97700; }
 
-         <!--.aif-p-page-break {-->
-            <!--page-break-after: always; }-->
-         <!--.summary-section {-->
-            <!--position: relative; }-->
-         <!--.summary-section.prep {-->
-            <!--height: 510px; }-->
-         <!--.summary-section.imp {-->
-            <!--height: 260px; }-->
-         <!--.summary-section.mes {-->
-            <!--height: 780px; }-->
-         <!--.low-pad-row {-->
-            <!--margin-left: -3px;-->
-            <!--margin-right: -3px; }-->
-         <!--.low-pad-cell {-->
-            <!--padding: 0 3px 0 3px; }-->
-         <!--.summary-box {-->
-            <!--color: #404040;-->
-            <!--font-weight: 400; }-->
-         <!--.prep .section-header {-->
-            <!--height: 613px;-->
-            <!--background-image: url("images/ss-header-1.png");-->
-            <!--background-repeat: no-repeat;-->
-            <!--background-position-y: 50%; }-->
-         <!--.imp .section-header {-->
-            <!--height: 301px;-->
-            <!--background-image: url("images/ss-header-2.png");-->
-            <!--background-repeat: no-repeat;-->
-            <!--background-position-y: 50%; }-->
-         <!--.imp .summary-box {-->
-            <!--height: 250px; }-->
-         <!--.imp .aif-p-12 .summary-box {-->
-            <!-- -webkit-columns: 200px 2;-->
-            <!--/* Chrome, Safari, Opera */-->
-            <!-- -moz-columns: 200px 2;-->
-            <!--/* Firefox */-->
-            <!--columns: 200px 2; }-->
-         <!--.mes .section-header {-->
-            <!--height: 1015px;-->
-            <!--background-image: url("images/ss-header-3.png");-->
-            <!--background-repeat: no-repeat;-->
-            <!--background-position-y: 50%; }-->
-         <!--.mes .aif-p-taller .summary-box {-->
-            <!--height: 340px; }-->
-         <!--.mes .aif-p-12 .summary-box {-->
-            <!-- -webkit-columns: 200px 2;-->
-            <!--/* Chrome, Safari, Opera */-->
-            <!-- -moz-columns: 200px 2;-->
-            <!--/* Firefox */-->
-            <!--columns: 200px 2; }-->
-         <!--.section-header {-->
-            <!--background-color: #8a8a8a;-->
-            <!--width: 34px;-->
-            <!--float: left;-->
-            <!--padding-top: 160px;-->
-            <!--background-position: 2px 0;-->
-            <!--background-size: contain; }-->
-         <!--.section-content {-->
-            <!--margin-left: 42px; }-->
-         <!--.section-content h5.summary-heading {-->
-            <!--font-size: .8em;-->
-            <!--height: 24px;-->
-            <!--line-height: 24px;-->
-            <!--color: #fff;-->
-            <!--text-transform: uppercase;-->
-            <!--text-align: center;-->
-            <!--margin: 0 0 4px 0;-->
-            <!--padding: 0; }-->
-         <!--.section-content h5.summary-heading.joined {-->
-            <!--margin-bottom: 0; }-->
-         <!--.section-content .summary-box {-->
-            <!--padding: 4px 8px;-->
-            <!--min-height: 250px; }-->
-         <!--.section-content .summary-box .key {-->
-            <!--margin-right: 8px;-->
-            <!--font-weight: bold; }-->
+    .background-pale-yellow {
+        background-color: #fff2e4; }
 
-        <!--.background-red {-->
-            <!--background-color: #d50046; }-->
+    .background-green {
+        background-color: #00c394; }
 
-        <!--.background-dark-red {-->
-            <!--background-color: #8e002f; }-->
+    .background-dark-green {
+        background-color: #007c5e; }
+
+    .background-pale-green {
+        background-color: #c3fff1; }
+
+    .background-light_blue {
+        background-color: #0090ff; }
+
+    .background-dark-light_blue {
+        background-color: #0068b8; }
+
+    .background-pale-light_blue {
+        background-color: #cce9ff; }
+
+    .background-dark_blue {
+        background-color: #0072af; }
+
+    .background-dark-dark_blue {
+        background-color: #004368; }
 
 
+    .background-pale-dark_blue {
+        background-color: #afe3ff; }
 
-        <!--.background-pale-red {-->
-            <!--background-color: #ffd5e3; }-->
+    .background-purple {
+        background-color: #8a00b6; }
 
-
-
-        <!--.background-yellow {-->
-            <!--background-color: #ff9a31; }-->
-
-        <!--.background-dark-yellow {-->
-            <!--background-color: #e97700; }-->
+    .background-dark-purple {
+        background-color: #54006f; }
 
 
+    .background-pale-purple {
+        background-color: #edb6ff; }
 
-        <!--.background-pale-yellow {-->
-            <!--background-color: #fff2e4; }-->
+    @page {
+        size: A4;
+        margin: 0;
+        padding: 1cm;
+        background: #fff; }
+    #printableFrameworkSummaryTable {
+        font-family: lato, Roboto, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #fff;
+ }
+    #printableFrameworkSummaryTable * {
+        box-sizing: border-box; }
+
+    .aif-p-page-break {
+        page-break-after: always; }
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    tr.spacer-row td {
+        height: 15px;
+    }
+
+    h1 {
+        color: #fffbfb;
+        text-align: center;
+        background-color: #b0c5d4;
+        padding: 10px;
+        position: relative;
+        margin-bottom: 10px;
+        font-size: 1.3em; }
+
+    h1 .em {
+        font-style: italic; }
+
+    .section-header {
+        width: 49px;
+        background-color: gray; }
+    .section-header .label {
+        width: 49px;
+        background-repeat: no-repeat; }
+    .section-header .label.prep {
+
+        background-image: url("/images/ss-header-1.png");
+        height: 377px; }
+    .section-header .label.imp {
+        background-image: url("/images/ss-header-2.png");
+        height: 377px; }
+    .section-header .label.mes {
+        background-image: url("/images/ss-header-3.png");
+        height: 434px; }
+
+    th {
+        text-transform: uppercase; }
+
+    .summary-box {
+        height: 210px;
+        padding: 10px;
+        vertical-align: top;
+        color: #404040;
+        font-weight: 400;}
+    .summary-box.half {
+        width: 50%; }
+    .summary-box.columns {
+        -webkit-columns: 300px 2;
+        -moz-columns: 300px 2;
+        columns: 300px 2; }
+    .summary-box.imp {
+        height: 330px; }
+    .summary-box.out {
+        height: 380px; }
+
+  th, td {
+        border: solid 1px #fff;
+    }
+
+    .section-row table tr:first-child th {
+        border-top: none;
+    }
+
+    .section-row table tr:last-child td {
+        border-bottom: none;
+    }
 
 
+</style>
 
-        <!--.background-green {-->
-            <!--background-color: #00c394; }-->
-
-        <!--.background-dark-green {-->
-            <!--background-color: #007c5e; }-->
-
-
-        <!--.background-pale-green {-->
-            <!--background-color: #c3fff1; }-->
-
-
-        <!--.background-light_blue {-->
-            <!--background-color: #0090ff; }-->
-
-        <!--.background-dark-light_blue {-->
-            <!--background-color: #0068b8; }-->
-
-
-
-        <!--.background-pale-light_blue {-->
-            <!--background-color: #cce9ff; }-->
-
-
-
-        <!--.background-dark_blue {-->
-            <!--background-color: #0072af; }-->
-
-        <!--.background-dark-dark_blue {-->
-            <!--background-color: #004368; }-->
-
-
-        <!--.background-pale-dark_blue {-->
-            <!--background-color: #afe3ff; }-->
-
-
-        <!--.background-purple {-->
-            <!--background-color: #8a00b6; }-->
-
-        <!--.background-dark-purple {-->
-            <!--background-color: #54006f; }-->
-
-
-        <!--.background-pale-purple {-->
-            <!--background-color: #edb6ff; }-->
-
-
-        <!--/*# sourceMappingURL=aif-summary.css.map */-->
-
-    <!--</style>-->
-
+-->
     <script src="js/libs/jquery/jquery-3.2.1.min.js"></script>
     <script src="js/generate-pdf.js"></script>
 
@@ -224,227 +167,500 @@
 <body>
 
 
+<div id="printableFrameworkSummaryTable" ng-controller="frameworkSummaryCtrl as fs" style="position: relative">
 
-        <div id="printableFrameworkSummary" ng-controller="frameworkSummaryCtrl as fs" class="ng-scope">
+    <h1>AMEC Measurement Framework <div class="em">Nike Campaign 2016</div></h1>
 
-            <h1>AMEC Measurement Framework - <span class="em">Nike Campaign 2016</span></h1>
+    <table class="table">
+        <tr class="section-row">
+            <td class="section-header">
+                <div class="label prep"></div>
+            </td>
+            <td>
 
-            <div class="summary-row">
-                <div class="summary-section prep">
-                    <div class="section-header ">
-                        <!--<h4 class="rotate">-->
-                        <!--{{ fs.sectionOne.heading }}-->
-                        <!--</h4>-->
-                    </div>
+                <table class="table">
 
-                    <div class="section-content">
-                        <div class="row low-pad-row outer-row">
+                    <thead>
+                    <tr>
 
-                            <!-- ngRepeat: group in fs.sectionOne.groups -->
-                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
-                                 ng-class="fs.getWidthClass(group.steps.length, 4)">
+                        <th colspan="2" class="background-dark-red">
+                            Align Objectives
+                        </th>
+                    </tr>
+                    <tr>
 
-                                <h5 class="summary-heading ng-binding background-dark-red"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Align Objectives </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
-                                        <h5 class="summary-heading joined ng-binding background-red"
-                                            ng-class="fs.getColorClass('background-', group.color)">Organisational
-                                            Objectives</h5>
-                                        <div class="summary-box ng-binding background-pale-red"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"><p
-                                                class="free-text">Test</p></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
-                                        <h5 class="summary-heading joined ng-binding background-red"
-                                            ng-class="fs.getColorClass('background-', group.color)">Communication
-                                            Objectives</h5>
-                                        <div class="summary-box ng-binding background-pale-red"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
-                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
-                                 ng-class="fs.getWidthClass(group.steps.length, 4)">
-
-                                <h5 class="summary-heading ng-binding background-dark-yellow"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Inform &amp; Prepare
-                                    Communication </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
-                                        <h5 class="summary-heading joined ng-binding background-yellow"
-                                            ng-class="fs.getColorClass('background-', group.color)">Target Audience</h5>
-                                        <div class="summary-box ng-binding background-pale-yellow"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"><span
-                                                class="key">1</span><span class="value">Test 2</span></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
-                                        <h5 class="summary-heading joined ng-binding background-yellow"
-                                            ng-class="fs.getColorClass('background-', group.color)">Strategic
-                                            Inputs</h5>
-                                        <div class="summary-box ng-binding background-pale-yellow"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
-                        </div>
-                    </div>
-
-                </div>
+                        <th class="background-red">
+                            Organisational Objectives
+                        </th>
+                        <th class="background-red">
+                            Communication Objectives
+                        </th>
+                    </tr>
+                    </thead>
 
 
+                    <tr>
+
+                        <td class="background-pale-red summary-box half">
+                            Organisational Objectives
+                        </td>
+                        <td class="background-pale-red summary-box half">
+                            Communication Objectives
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-yellow">
+                            INFORM & PREPARE COMMUNICATION
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th class="background-yellow">
+                            Organisational Objectives
+                        </th>
+                        <th class="background-yellow">
+                            Communication Objectives
+                        </th>
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td class="background-pale-yellow summary-box half">
+                            Organisational Objectives
+                        </td>
+                        <td class="background-pale-yellow summary-box half">
+<!--
+                            Organisational Objectives To adapt Dorothy Parker, the PM ran
+                            <br><br>
+                            the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s. On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn
+                            <br><br>
+                            their teardrop tattoos. To adapt Dorothy Parker, the
+-->
+
+                        </td>
+                    </tr>
+
+
+                </table>
+            </td>
+
+        </tr>
+        <tr class="spacer-row">
+            <td colspan="2"></td>
+        </tr>
+        <tr class="section-row imp">
+            <td class="section-header">
+                <div class="label imp"></div>
+            </td>
+
+            <td>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-green">
+                            Align Objectives
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-green">
+                            Organisational Objectives
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" style="column-fill: auto" class="background-pale-green summary-box imp columns">
+
+                                     Organisational Objectives
+
+                                 To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                                 On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+
+
+                                 To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                                 On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+
+                        </td>
+
+                    </tr>
+                </table>
+
+            </td>
+
+        </tr>
+<tr class="spacer-row">
+    <td colspan="2"></td>
+</tr>
+        <tr class="section-row  imp">
+            <td class="section-header">
+                <div class="label mes"></div>
+            </td>
+
+            <td>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-light_blue">
+                            Measure activity
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-light_blue">
+                            Organisational Objectives
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" class="background-pale-light_blue summary-box columns">
+<!--
+                                Organisational Objectives
+
+                            To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                            On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+
+
+                            To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                            On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+                       -->
+                        </td>
+
+                    </tr>
+                </table>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-dark_blue">
+                            Audience Response & Effects
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th class="background-dark_blue">
+                            Organisational Objectives
+                        </th>
+                        <th class="background-dark_blue">
+                            Communication Objectives
+                        </th>
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td class="background-pale-dark_blue summary-box half">
+
+<!--
+                            To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                            On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+
+
+                            To adapt Dorothy Parker, the PM ran the full gamut of emotion from strong to stable. Her primary means of showing solidarity with workers is to deliver answers so robotic that they suggest even her own job has already been automated. What was she going to do about rising food prices, someone wanted to know? “We need to make sure we get that Brexit deal right.” What about Labour’s manifesto policies polling well? “Ordinary working families will suffer from a coalition of chaos.” What does she think about reports that Donald Trump disclosed highly sensitive intelligence to the Russians? “It is not up to me what President Trump says to anybody that he is meeting and talking to.” Life insurers now insist that you declare if you have been exposed to a Theresa May response, with failure to disclose the fact liable to render your policy void. Outside the Screwfix gates, even the Mirror chicken looked like it wanted to turn itself in to the nearest Nando’s.
+
+                            On Monday, and apparently for the first time this campaign, Theresa May was accosted by an unscreened, unvetted, unscripted member of the public in Oxfordshire’s Abingdon market. Tuesday’s event sent a clear message: LOL if you think I’m doing that again. The encounter in Abingdon, you may have seen, saw the prime minster confronted by a woman wanting to know what she was going to do for people with learning disabilities, only for May to reply: “We have got a lot of plans for mental health.” Impressive that the PM should contrive to imagine learning disabilities and mental health are the same thing – then again, she was once shadow secretary of state for the work and pensions, the department where the Tories traditionally earn their teardrop tattoos.
+                       -->
+                        </td>
+                        <td class="background-pale-dark_blue summary-box half">
+                                Communication Objectives
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-purple">
+                            ORGANISATIONAL & STAKEHOLDER EFFECTS
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-purple">
+                            Organisational Objectives
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" class="background-pale-purple summary-box">
+
+                                Organisational Objectives
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+            </td>
+
+        </tr>
+
+    </table>
+
+
+</div>
+
+
+<div id="printableFrameworkSummary" style="display: none" ng-controller="frameworkSummaryCtrl as fs" class="ng-scope">
+
+    <h1>AMEC Measurement Framework - <span class="em">Nike Campaign 2016</span></h1>
+
+    <div class="summary-row">
+        <div class="summary-section prep">
+            <div class="section-header ">
+                <!--<h4 class="rotate">-->
+                <!--{{ fs.sectionOne.heading }}-->
+                <!--</h4>-->
             </div>
 
-            <div class="summary-row">
+            <div class="section-content">
+                <div class="row low-pad-row outer-row">
 
-                <div class="summary-section imp aif-p-page-break">
-                    <div class="section-header">
+                    <!-- ngRepeat: group in fs.sectionOne.groups -->
+                    <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
+                         ng-class="fs.getWidthClass(group.steps.length, 4)">
 
-                    </div>
-
-                    <div class="section-content">
-                        <div class="row low-pad-row outer-row">
-
-                            <!-- ngRepeat: group in fs.sectionTwo.groups -->
-                            <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="group in fs.sectionTwo.groups">
-
-                                <h5 class="summary-heading ng-binding background-dark-green"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Implement </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="step in group.steps">
-                                        <h5 class="summary-heading joined ng-binding background-green"
-                                            ng-class="fs.getColorClass('background-', group.color)">Activities</h5>
-                                        <div class="summary-box ng-binding background-pale-green"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                    <!-- ngIf: group.steps.length == 0 -->
-
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionTwo.groups -->
+                        <h5 class="summary-heading ng-binding background-dark-red"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Align Objectives </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                <h5 class="summary-heading joined ng-binding background-red"
+                                    ng-class="fs.getColorClass('background-', group.color)">Organisational
+                                    Objectives</h5>
+                                <div class="summary-box ng-binding background-pale-red"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"><p
+                                        class="free-text">Test</p></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                <h5 class="summary-heading joined ng-binding background-red"
+                                    ng-class="fs.getColorClass('background-', group.color)">Communication
+                                    Objectives</h5>
+                                <div class="summary-box ng-binding background-pale-red"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
                         </div>
-                    </div>
+                    </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
+                    <div class="low-pad-cell ng-scope col-md-6 aif-p-12" ng-repeat="group in fs.sectionOne.groups"
+                         ng-class="fs.getWidthClass(group.steps.length, 4)">
 
-                </div>
-
-            </div>
-            <div class="summary-row">
-
-                <div class="summary-section mes">
-                    <div class="section-header prep">
-                        <!--<h4 class="rotate">-->
-                        <!--{{ fs.sectionTwo.heading }}-->
-                        <!--</h4>-->
-                    </div>
-
-                    <div class="section-content">
-                        <div class="row low-pad-row outer-row">
-
-                            <!-- ngRepeat: group in fs.sectionThree.groups -->
-                            <div class="low-pad-cell ng-scope col-md-3 aif-p-12"
-                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
-                                 ng-repeat="group in fs.sectionThree.groups">
-
-                                <h5 class="summary-heading ng-binding background-dark-light_blue"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Measure Activity </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
-                                         ng-repeat="step in group.steps">
-                                        <h5 class="summary-heading joined ng-binding background-light_blue"
-                                            ng-class="fs.getColorClass('background-', group.color)">Outputs</h5>
-                                        <div class="summary-box ng-binding background-pale-light_blue"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)">
-
-
-                                            Setting the foreground color to go with the background colors wasn’t absolutely necessary, but it’s always a good idea.  Now we have two non-floated elements (#wrapper, #content) with no visible background, and a page with a white background.
-
-                                            You might be worried that Navigator 4.x does terrible things with the value transparent, but be of good cheer: NN4.x only pays attention to style sheets that have a media value of screen.  Just like with @import, the styles in our print style sheet are forever hidden from Navigator 4’s rheumy eyes.  So no worries there.
-
-
-                                        </div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-
-                                    <!-- ngIf: group.steps.length == 0 -->
-
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
-                            <div class="low-pad-cell ng-scope col-md-6 aif-p-12 aif-p-taller"
-                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
-                                 ng-repeat="group in fs.sectionThree.groups">
-
-                                <h5 class="summary-heading ng-binding background-dark-dark_blue"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Organisational &amp;
-                                    Stakeholder Effects </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6 "
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
-                                         ng-repeat="step in group.steps">
-                                        <h5 class="summary-heading joined ng-binding background-dark_blue"
-                                            ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
-                                        <div class="summary-box ng-binding background-pale-dark_blue"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-6 aif-p-6"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
-                                         ng-repeat="step in group.steps">
-                                        <h5 class="summary-heading joined ng-binding background-dark_blue"
-                                            ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
-                                        <div class="summary-box ng-binding background-pale-dark_blue"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-
-                                    <!-- ngIf: group.steps.length == 0 -->
-
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
-                            <div class="low-pad-cell ng-scope aif-p-12"
-                                 ng-class="fs.getWidthClass(group.steps.length, 4, false)"
-                                 ng-repeat="group in fs.sectionThree.groups">
-
-                                <h5 class="summary-heading ng-binding background-dark-purple"
-                                    ng-class="fs.getColorClass('background-dark-', group.color)">Organisation &amp;
-                                    Stakeholder Effects </h5>
-                                <div class="row low-pad-row">
-                                    <!-- ngRepeat: step in group.steps -->
-                                    <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
-                                         ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
-                                         ng-repeat="step in group.steps">
-                                        <h5 class="summary-heading joined ng-binding background-purple"
-                                            ng-class="fs.getColorClass('background-', group.color)">Organizational
-                                            Impact</h5>
-                                        <div class="summary-box ng-binding background-pale-purple"
-                                             ng-bind-html="fs.sanitize(step.html())"
-                                             ng-class="fs.getColorClass('background-pale-', group.color)"></div>
-                                    </div><!-- end ngRepeat: step in group.steps -->
-
-                                    <!-- ngIf: group.steps.length == 0 -->
-
-                                </div>
-                            </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                        <h5 class="summary-heading ng-binding background-dark-yellow"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Inform &amp; Prepare
+                            Communication </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                <h5 class="summary-heading joined ng-binding background-yellow"
+                                    ng-class="fs.getColorClass('background-', group.color)">Target Audience</h5>
+                                <div class="summary-box ng-binding background-pale-yellow"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"><span
+                                        class="key">1</span><span class="value">Test 2</span></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6" ng-repeat="step in group.steps"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)">
+                                <h5 class="summary-heading joined ng-binding background-yellow"
+                                    ng-class="fs.getColorClass('background-', group.color)">Strategic
+                                    Inputs</h5>
+                                <div class="summary-box ng-binding background-pale-yellow"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
                         </div>
-                    </div>
+                    </div><!-- end ngRepeat: group in fs.sectionOne.groups -->
                 </div>
             </div>
 
         </div>
 
+
+    </div>
+
+    <div class="summary-row">
+
+        <div class="summary-section imp aif-p-page-break">
+            <div class="section-header">
+
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row outer-row">
+
+                    <!-- ngRepeat: group in fs.sectionTwo.groups -->
+                    <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="group in fs.sectionTwo.groups">
+
+                        <h5 class="summary-heading ng-binding background-dark-green"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Implement </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="col-md-12 aif-p-12 low-pad-cell ng-scope" ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined ng-binding background-green"
+                                    ng-class="fs.getColorClass('background-', group.color)">Activities</h5>
+                                <div class="summary-box ng-binding background-pale-green"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+                            <!-- ngIf: group.steps.length == 0 -->
+
+                        </div>
+                    </div><!-- end ngRepeat: group in fs.sectionTwo.groups -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="summary-row">
+
+        <div class="summary-section mes">
+            <div class="section-header prep">
+                <!--<h4 class="rotate">-->
+                <!--{{ fs.sectionTwo.heading }}-->
+                <!--</h4>-->
+            </div>
+
+            <div class="section-content">
+                <div class="row low-pad-row outer-row">
+
+                    <!-- ngRepeat: group in fs.sectionThree.groups -->
+                    <div class="low-pad-cell ng-scope col-md-3 aif-p-12"
+                         ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                         ng-repeat="group in fs.sectionThree.groups">
+
+                        <h5 class="summary-heading ng-binding background-dark-light_blue"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Measure Activity </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                 ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined ng-binding background-light_blue"
+                                    ng-class="fs.getColorClass('background-', group.color)">Outputs</h5>
+                                <div class="summary-box ng-binding background-pale-light_blue"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)">
+
+
+                                    Setting the foreground color to go with the background colors wasn’t absolutely
+                                    necessary, but it’s always a good idea. Now we have two non-floated elements
+                                    (#wrapper, #content) with no visible background, and a page with a white background.
+
+                                    You might be worried that Navigator 4.x does terrible things with the value
+                                    transparent, but be of good cheer: NN4.x only pays attention to style sheets that
+                                    have a media value of screen. Just like with @import, the styles in our print style
+                                    sheet are forever hidden from Navigator 4’s rheumy eyes. So no worries there.
+
+
+                                </div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+
+                            <!-- ngIf: group.steps.length == 0 -->
+
+                        </div>
+                    </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                    <div class="low-pad-cell ng-scope col-md-6 aif-p-12 aif-p-taller"
+                         ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                         ng-repeat="group in fs.sectionThree.groups">
+
+                        <h5 class="summary-heading ng-binding background-dark-dark_blue"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Organisational &amp;
+                            Stakeholder Effects </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6 "
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                 ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined ng-binding background-dark_blue"
+                                    ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
+                                <div class="summary-box ng-binding background-pale-dark_blue"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-6 aif-p-6"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                 ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined ng-binding background-dark_blue"
+                                    ng-class="fs.getColorClass('background-', group.color)">Out-takes</h5>
+                                <div class="summary-box ng-binding background-pale-dark_blue"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+
+                            <!-- ngIf: group.steps.length == 0 -->
+
+                        </div>
+                    </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                    <div class="low-pad-cell ng-scope aif-p-12"
+                         ng-class="fs.getWidthClass(group.steps.length, 4, false)"
+                         ng-repeat="group in fs.sectionThree.groups">
+
+                        <h5 class="summary-heading ng-binding background-dark-purple"
+                            ng-class="fs.getColorClass('background-dark-', group.color)">Organisation &amp;
+                            Stakeholder Effects </h5>
+                        <div class="row low-pad-row">
+                            <!-- ngRepeat: step in group.steps -->
+                            <div class="low-pad-cell ng-scope col-md-12 aif-p-12"
+                                 ng-class="fs.getWidthClass(group.steps.length, group.steps.length, true)"
+                                 ng-repeat="step in group.steps">
+                                <h5 class="summary-heading joined ng-binding background-purple"
+                                    ng-class="fs.getColorClass('background-', group.color)">Organizational
+                                    Impact</h5>
+                                <div class="summary-box ng-binding background-pale-purple"
+                                     ng-bind-html="fs.sanitize(step.html())"
+                                     ng-class="fs.getColorClass('background-pale-', group.color)"></div>
+                            </div><!-- end ngRepeat: step in group.steps -->
+
+                            <!-- ngIf: group.steps.length == 0 -->
+
+                        </div>
+                    </div><!-- end ngRepeat: group in fs.sectionThree.groups -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 </body>

@@ -1,0 +1,846 @@
+/*
+ Theme Name:   AMEC Framework
+ Theme URI:    http://blazeconcepts.co.uk
+ Description:  Cutsom theme for AMEC for the Evaluation Framework
+ Author:       John Doe
+ Author URI:   http://blazeconcepts.co.uk
+ Template:     amec-parent
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  amec
+*/
+
+/* HTML Resets */
+
+body#top{
+	font-family: 'Roboto',  Arial, sans-serif;
+	font-weight: 300;
+}
+
+#top .main_color a:hover {
+	color: #001854;
+	text-decoration: none;
+}
+
+.download-button{
+	background-color: #39b54a;
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 10px 25px;
+	border-bottom: 5px solid #009245 !important;
+	font-weight: 900;
+	display : block;
+	text-align: center;
+	width: 50%;
+}
+
+
+.download-button:hover {
+    background-color: #009245 !important;
+    color: #FFF !important;
+}
+
+#footer {
+	padding: 0 !important;
+}
+
+.av-main-nav>li.current-menu-item>a>.avia-menu-text,.av-main-nav>li>.current-page-item>a>.avia-menu-text {
+  color: #fff!important;
+}
+
+.header_color .sub-menu > li.current-menu-item > a,
+.header_color .sub-menu > li.current_page_item > a {  
+	color:#fff !important;
+	}
+
+
+/* END- HTML Resets */
+
+/* Top bar - Header */
+
+.sub_menu {
+	top : 0;
+}
+
+.sub-menu>* {
+	display : inline-block;
+}
+
+#top #avia-menu .sub-menu a {
+	text-align: center;	
+}
+
+.header_color .sub_menu ul li {
+	background-color: transparent;
+	border-right-width: 0px;
+}
+
+.header_color span {
+	color : #9b9b9b;
+}
+
+/* END - Top bar - Header */
+
+/*Home page */
+
+#top .home-banner.main_color h1,
+#top .home-banner.main_color strong {	
+	color: #fff;
+	
+}
+.home-banner h1 span{
+	font-size: 60px;
+	border-bottom: 3px solid #fff;
+	padding-bottom: 15px;
+	
+}
+.home-banner h1{
+	padding-bottom: 15px;	
+}
+
+.avia-team-member .team-img-container {
+    display: inline-block;
+    float: left;
+    padding-right: 30px;
+}
+
+.avia-team-member .team-member-name {
+	font-size : 0.8em;
+	font-weight : 900;
+}
+
+.team-member-description{
+	font-size: 14px;
+	line-height: 20px
+}
+
+.avia-team-member .team-social {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+	border-color : transparent;
+	background : transparent;
+	display : inline;
+}
+
+.avia-team-member .team-social a{
+	background : transparent;
+}
+
+.avia-team-member .team-social-inner{
+	padding : 0;
+}
+
+.objectives, .inputs, .activities, .out-takes, .outcomes, .outputs, .impact {
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
+	margin: 15px 0;
+}
+
+.objectives h3, .inputs h3, .activities h3, .out-takes h3, .outcomes h3, .outputs h3, .impact h3 {
+    color: white;
+}
+
+.objectives{
+	background-color: #d50046;
+	border-bottom-color: #7e0046 !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+	
+}
+
+
+.inputs{
+	background-color: #ff9a31;
+	border-bottom-color: #be7331 !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+.activities{
+	background-color: #00c394;
+	border-bottom-color: #00957f !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+.out-takes{
+	background-color: #0072af;
+	border-bottom-color: #003e7a !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+.outcomes{
+	background-color: #0072af;
+	border-bottom-color: #003e7a !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+.outputs{
+	background-color: #0590ff;
+	border-bottom-color: #0558ba !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+.impact{
+	background-color: #8a00b6;
+	border-bottom-color: #573d8e !important;
+	border-bottom-width: 5px;
+    border-style: solid;
+}
+
+@media (min-width : 768px) {
+
+	#explanation-blocks .av_two_third{
+		margin-left: 2%;
+		width: 68.666667%;
+	}
+
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(1),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(2),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(3),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(4) {
+		width : 48.64%;
+		display : inline-block;
+		vertical-align : top;
+	}
+
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(2),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(4) {
+		margin-left : 2%;
+	}
+
+}
+
+@media (max-width : 989px) and (min-width : 768px) {
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(1),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(2),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(3),
+	#explanation-blocks .av_two_third .av_textblock_section:nth-child(4) {
+		width : 48.5%;
+	}
+
+}
+
+.container_wrap{
+	border-top-width: 0;
+}
+
+#top .av_inherit_color .framework-button,
+#top .framework-button{
+	background-color: #39b54a;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 10px 25px;
+	border-bottom: 5px solid #009245 !important;
+	font-weight: 900;
+	display : block;
+}
+
+
+#top .av_inherit_color .framework-button:hover,
+#top .framework-button:hover{
+	background-color: #009245;
+	color: #fff !important;
+}
+
+.please-note{
+	font-size: 12px;
+	line-height: 18px
+}
+
+#footer{
+	color: #fff;
+	
+	font-size: 12px;
+	line-height: 14px;
+	}
+
+#footer .widgettitle{
+	color: #fff;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+#footer #text-3{
+	text-align: right;
+}
+
+footer.socket_color{
+	text-align: center;
+}
+
+#socket .copyright {
+    float: none !important;
+	color: #7F7F7F;
+}
+
+#socket .copyright a {
+    float: none !important;
+	color: #7F7F7F;
+}
+
+#scroll-top-link{
+	display: none;
+}
+
+.avia-menu-fx{
+	display: none;
+}
+
+.main_menu{
+	text-transform: uppercase;
+}
+
+.av-main-nav .sub-menu{
+	border-top-width: 0 !important;
+	left : -20px;
+}
+
+.av-main-nav .nav-menu-framework .sub-menu{
+	left: -55px;
+	text-align: center;
+}
+
+.special-heading-inner-border{
+	display: none;
+}
+
+
+/*END- Home page */
+
+
+/* Framework page */
+
+.integrated-evaluation{
+	width: 18%;
+}
+
+.hr-custom .hr-inner.inner-border-av-border-fat {
+    border-top-width: 3px;
+}
+
+.hr-custom.hr-center {
+	margin-top: -6px !important;
+	margin-bottom: 11px !important;
+}
+
+.introduction{
+	color: #fff ;
+	padding: 60px 0px;
+	border-bottom: 5px solid #19839E !important;
+	background-color: #22B2D6;
+	margin-top: -68px;
+}
+
+.introduction strong{
+	color: #fff !important;
+}
+
+.framework-tool{
+	color: #fff ;
+	padding: 60px 0px;
+	border-bottom: 5px solid #19839E !important;
+	background-color: #22B2D6;
+	
+}
+
+.framework-tool strong{
+	color: #fff !important;
+}
+
+
+#top strong {
+	font-weight: 700; 
+	color: #4b4b4b;
+}
+
+#top .av_inherit_color .framework-button, #top .framework-button{
+	background-color:; 
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 10px 25px;
+	border-bottom: #009245;
+	font-weight: 900;
+}
+
+
+#top .av_inherit_color .framework-button:hover{
+	background-color: #009245;
+	color: #fff !important;
+
+}
+
+#top .framework-page {
+    background-color: #4c4c4c;
+}
+
+#top .framework-page .container {
+	max-width : 1400px;
+	padding : 0;
+}
+
+body .column-top-margin {
+    margin-top: 20px;
+}
+
+#top .framework-page .flex_column {
+	max-width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+	float: none;
+	padding: 0 50px;
+}
+
+#top .framework-page.main_color section p ,
+#top .framework-page.main_color section p strong {
+	color : #f0f0f0;
+}
+
+/* END- Framework page */
+
+
+/* Contact page */
+
+.contact p{
+	line-height: 26px;
+}
+
+/* END- Contact page */
+
+
+/*Supporting material page*/
+
+.taxonomy, .expert-opinion, .endorsements, .resources, .downloads{
+	color: #fff ;
+	padding: 60px 0;
+	border-bottom: 5px solid #19839E !important;
+	background-color: #22B2D6;
+	
+}
+
+.taxonomy strong, .expert-opinion strong, .endorsements strong, .resources strong, .downloads strong{
+	color: #fff !important;
+}
+
+.resources-column, .downloads-column{
+	margin-top: 5px !important;
+}
+
+.taxonomy-column, .expert-opinion-column, .endorsements-column{
+    
+}
+
+#top .no_margin.av_one_fifth.sixth {
+    width: 16.666667%;
+}
+
+#big_boxed_buttons  .flex_column {
+	padding : 10px 10px 5px 10px !important;
+}
+
+#big_boxed_buttons  .container {
+	width : 80%;
+}
+
+.taxonomy, .expert-opinion, .endorsements {
+//	width: 110%;
+}
+
+.taxonomy, .expert-opinion, .endorsements, .resources, .downloads{
+	width: 100%;
+    display: block;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.narrow-page .container {
+	max-width : 600px;
+}
+
+
+/* END- Supporting material page */
+
+
+/* Taxonomy page */
+
+.taxonomy-of-evaluation{
+	font-weight: 900;
+	margin-bottom: -125px;
+}
+.jump-button a {
+	color: black;
+	background-color: #fff;
+	padding : 10px;
+	display : block;
+	font-weight: 300 !important;
+}
+
+.jump-button{
+
+}
+
+/*
+.jump-button:hover {
+	background-color: #0590FF !important;
+}
+*/
+.jump-button a:hover {
+	background-color: #22B2D6 !important;
+}
+
+#top .main_color tr:nth-child(odd), .main_color .pricing-table>li:nth-child(odd), .main_color .pricing-extra {
+	background : transparent;
+}
+
+#top .taxonomy-table  tr th,
+#top .taxonomy-table  tr td {
+	border : 1px solid #fff !important;
+	padding: 5px;
+	line-height: 1em;
+	
+	vertical-align: top;
+	}
+
+
+#top .taxonomy-table  tr:nth-child(1),
+#top .taxonomy-table  tr:nth-child(1) b,
+#top .main_color .taxonomy-table th ,
+#top .main_color .taxonomy-table.avia-table tr {
+	color : #fff;
+}
+
+#top .taxonomy-table tr th:nth-child(1) {
+	background : #A3A3A3;
+	font-weight : 300;
+}
+
+#top .taxonomy-table tr td:nth-child(1) {
+	background : #d3d3d3;
+}
+
+
+
+#top .taxonomy-table tr th:nth-child(2) {
+	background : #FF9A31;
+}
+
+#top .taxonomy-table tr td:nth-child(2) {
+	background : #FFDAB5;
+}
+
+#top .taxonomy-table tr th:nth-child(3) {
+	background : #00C394;
+}
+
+#top .taxonomy-table tr td:nth-child(3) {
+	background : #D0EFE6;
+}
+#top .taxonomy-table tr th:nth-child(4) {
+	background : #0590FF;
+}
+
+#top .taxonomy-table tr td:nth-child(4) {
+	background : #C1E4FF;
+}
+
+
+#top .taxonomy-table tr th:nth-child(5) {
+	background : #0072AF;
+}
+
+#top .taxonomy-table tr td:nth-child(5) {
+	background : #CEE1FF;
+}
+#top .taxonomy-table tr th:nth-child(6) {
+	background : #0072AF;
+}
+
+#top .taxonomy-table tr td:nth-child(6) {
+	background : #CEE1FF;
+}
+
+#top .taxonomy-table tr th:nth-child(7) {
+	background : #8A00B6;
+}
+
+#top .taxonomy-table tr td:nth-child(7) {
+	background : #F1DBFF;
+}
+
+#top .taxonomy-table tr td b{
+	color: #4b4b4b;
+}
+
+#top .taxonomy-table tr td{
+	color: #4b4b4b;
+	font-size: 13px;
+	line-height: 20px;
+
+}
+
+#top .taxonomy-table th sup{
+	position: absolute;
+	font-size: 0.8em;
+	top: 2px;
+}
+
+/*  ....  */
+
+.supporting-footnotes-taxonomy{
+	font-size: 14px;
+	line-height: 21px;
+}
+
+ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+
+ol > li {
+  margin: 0;
+  padding: 0 0 0 2em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
+ol {
+    counter-reset: foo;
+    display: table;
+}
+
+ol > li {
+    counter-increment: foo;
+    display: table-row;
+}
+
+ol > li::before {
+    content: counter(foo) ".";
+    display: table-cell;
+    text-align: right;
+}
+
+.abbreviations{
+	line-height: 26px;
+}
+
+.references{
+	line-height: 26px;
+	margin-bottom: 85px;
+}
+
+.supporting-footnotes-taxonomy, .abbreviations-taxonomy, .references-taxonomy{
+	color: #4b4b4b;
+}
+
+#top a ,
+#top .main_color a {
+	color: #4b4b4b;
+	font-weight: 700;
+	}#top b ,#top .main_color b {	color: #4b4b4b;	font-weight: 700;	}
+
+@media only screen and (max-width: 989px) {
+	.responsive  #top .avia-team-member .team-social, 
+	.responsive .team-social a {
+		border : none;
+	}
+	.responsive .team-social a {
+		margin-top : 16px;
+	}
+
+}
+
+#top .av-submenu-container.side-menu {
+	width : 30%;
+	position : fixed;
+	border-bottom: none;
+	padding-right: 1px;
+}
+
+#top .main_color.side-menu .av-subnav-menu>li>a{
+	background: #fff;
+	padding: 10px;
+	border: none;
+}
+
+#top .main_color.side-menu .av-subnav-menu>li>a.active {
+	background-color : #f2f2f2;
+	background-image: url(http://amecorg.com/amecframework-wp/wp-content/uploads/2016/08/right-arrow.png);
+	background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+
+@media (max-width : 767px) {
+	#top .av-submenu-container.side-menu {
+		display : none;
+	}
+
+}
+
+.sticky_placeholder{
+	display: none;
+}
+
+#top .side-menu .av-submenu-pos-center {
+		text-align: left;
+		margin-top: 14px;
+}
+
+#top .side-menu .av-subnav-menu   li{
+	padding: 2px;
+	    width: 312px;
+}
+
+.side-menu .avia-menu-text{
+	padding: 0 5px;
+	display: inline-block;
+}
+
+#top .main_color.side-menu .av-subnav-menu>li>a:hover{
+	background-color: #22B2D6;
+}
+
+/* END- Taxonomy page */
+
+
+/* Endorsements Page */
+
+.avia-team-member.vertical  .team-img-container {
+	display : block;
+	float : none;
+	padding-right : 0;
+}
+
+.avia-team-member.vertical  .team-member-name {
+	text-align : center;
+}
+
+.avia-team-member.vertical  .team-member-job-title {
+	text-align : center;
+}
+.avia-team-member.vertical  .team-member-description  {
+	text-align: center;
+	width: 304px;
+	margin-left: auto;
+	margin-right : auto;
+}
+
+
+ .main_color .resources-table  b{
+	color: #4b4b4b !important;
+}
+.resources-table{
+	line-height:20px;
+}
+
+#top .main_color .resources-table th:nth-child(1) {
+	width: 18%;
+}
+
+#top .main_color .resources-table th:nth-child(3) {
+	width: 32%;
+}
+
+/* END- Endorsements Page */
+
+
+
+/*  */
+
+#top .main_color .avia-table ,
+#top .main_color .avia-table tr ,
+#top .main_color .avia-table td ,
+#top .main_color .avia-table th.avia-highlight-col {
+	background : transparent;
+	border : 0px solid #cccccc;
+	color : #606060;
+}
+
+#top .main_color .resources-table th ,
+#top .main_color .resources-table th.avia-highlight-col ,
+#top .main_color .resources-table td {
+	border-left : 0px solid #cccccc;
+	border-right : 0px solid #cccccc;
+	border-top : 1px solid #cccccc;
+	border-bottom : 1px solid #cccccc;
+}
+
+#top .main_color .resources-table td:nth-child(1) {
+	border-top : 0px;
+	border-bottom : 0px;
+}
+
+
+.framework-case-studies {
+	position : relative;
+	min-height : 4em;
+}
+
+.framework-case-studies .framework-button {
+	position : absolute;
+	right : 0;
+	top : -5px;
+}
+
+
+.academic-books{
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: 300;
+}
+
+@media only screen and (min-width: 990px) {
+    #case-studies .flex_column {
+		padding-left : 0;
+	}
+}
+
+.avia_textblock, .av_textblock_section, .avia-section, .main_color, .avia-section-default, .avia-no-shadow, .avia-bg-style-scroll, .avia-builder-el-31,  .el_after_av_section , .avia-builder-el-last ,  .container_wrap fullsize{
+	word-wrap: break-word;
+}
+
+.contact{
+	line-height: 10px;
+	margin-top: 45px;
+	}
+
+.contact-title{
+	margin-top: 70px;
+}
+
+
+
+
+
+#header_meta .sub_menu {
+	padding-top: 20px
+}
+
+
+
+
+
+
