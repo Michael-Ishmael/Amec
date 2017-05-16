@@ -1,4 +1,5 @@
 declare var aif_constants: any;
+declare var Spinner: any;
 
 module aif {
     'use strict';
@@ -211,6 +212,63 @@ module aif {
             //directive.$inject = ['$location'];
             return directive;
         }
+    }
+
+    export class AifLoadingSpinner implements ng.IDirective {
+
+        restrict: string = 'A';
+        scope: { [key: string]: string } = {
+            loading: '='
+        };
+
+        link(scope, element, attributes, ctrl: InputGridCtrl): void {
+
+            if(!Spinner) return;
+
+            let opts = {
+                lines: 8 // The number of lines to draw
+                , length: 0 // The length of each line
+                , width: 6 // The line thickness
+                , radius: 14 // The radius of the inner circle
+                , scale: 1 // Scales overall size of the spinner
+                , corners: 1 // Corner roundness (0..1)
+                , color: '#fff' // #rgb or #rrggbb or array of colors
+                , opacity: 0.25 // Opacity of the lines
+                , rotate: 12 // The rotation offset
+                , direction: 1 // 1: clockwise, -1: counterclockwise
+                , speed: 1.5 // Rounds per second
+                , trail: 64 // Afterglow percentage
+                , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+                , zIndex: 2e9 // The z-index (defaults to 2000000000)
+                , className: 'spinner' // The CSS class to assign to the spinner
+                , top: '50%' // Top position relative to parent
+                , left: '50%' // Left position relative to parent
+                , shadow: false // Whether to render a shadow
+                , hwaccel: false // Whether to use hardware acceleration
+                , position: 'absolute' // Element positioning
+            };
+
+            let spinner = new Spinner(opts).spin(element[0]);
+            let jSpinner = jQuery(spinner.el);
+            if(!scope.loading) jSpinner.hide();
+
+            scope.$watch('loading', function (newValue, oldValue) {
+                if(newValue){
+                    jQuery(element).children().hide();
+                    jSpinner.show();
+
+                } else {
+                    jQuery(element).children().show();
+                    jSpinner.hide();
+                }
+            });
+        }
+
+        static factory(): ng.IDirectiveFactory {
+            const directive = () => new AifLoadingSpinner();
+            return directive;
+        }
+
     }
 
     export class AifInputGrid implements ng.IDirective {

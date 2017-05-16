@@ -52,43 +52,43 @@
 
         <div class="base-framework" ng-cloak ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
             <div class="row ng-scope">
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-red" 
                          ng-click="ctrl.handleStepClick(1)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Objectives</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-red">
-                            <div class="start-message ng-scope background-dark-red">
-                                Start Here
+                        <h2 >{{ ctrl.getStepTitle(1, "Objectives") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-red">
+                            <div class="start-message background-dark-red">
+                                {{  ctrl.getStepTitle(-1, "START HERE") }}
                             </div>
-                            <div class="circle-border ng-binding background-dark-red">
+                            <div class="circle-border background-dark-red">
                                 1
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-yellow" 
                          ng-click="ctrl.handleStepClick(2)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Inputs</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-yellow">
-                            <div class="circle-border ng-binding background-dark-yellow">
+                        <h2 >{{ ctrl.getStepTitle(2, "Inputs") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-yellow">
+                            <div class="circle-border background-dark-yellow">
                                 2
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-green" 
                          ng-click="ctrl.handleStepClick(3)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Activities</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-green">
-                            <div class="circle-border ng-binding background-dark-green">
+                        <h2 >{{ ctrl.getStepTitle(3, "Activities") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-green">
+                            <div class="circle-border background-dark-green">
                                 3
                             </div>
                         </div>
@@ -96,40 +96,40 @@
                 </div>
             </div>
             <div class="row ng-scope">
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-light_blue" 
                          ng-click="ctrl.handleStepClick(4)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Outputs</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-light_blue">
-                            <div class="circle-border ng-binding background-dark-light_blue">
+                        <h2 >{{ ctrl.getStepTitle(4, "Outputs") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-light_blue">
+                            <div class="circle-border background-dark-light_blue">
                                 4
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-dark_blue" 
                          ng-click="ctrl.handleStepClick(5)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Out-takes</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-dark_blue">
-                            <div class="circle-border ng-binding background-dark-dark_blue">
+                        <h2 >{{ ctrl.getStepTitle(5, "Out-takes") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-dark_blue">
+                            <div class="circle-border background-dark-dark_blue">
                                 5
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-dark_blue" 
                          ng-click="ctrl.handleStepClick(6)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Outcomes</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-dark_blue">
-                            <div class="circle-border ng-binding background-dark-dark_blue">
+                        <h2 >{{ ctrl.getStepTitle(6, "Outcomes") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-dark_blue">
+                            <div class="circle-border background-dark-dark_blue">
                                 6
                             </div>
                         </div>
@@ -137,30 +137,30 @@
                 </div>
             </div>
             <div class="row ng-scope">
-                <div class="low-pad-cell ng-scope col-md-8">
+                <div class="low-pad-cell col-md-8">
                     <div class="aif-tile background-purple" 
                          ng-click="ctrl.handleStepClick(7)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
-                        <h2 class="ng-binding ng-scope">Impact</h2>
-                        <div class="anchor-bottom ng-scope bottom-dark-border-purple">
-                            <div class="circle-border ng-binding background-dark-purple">
+                        <h2 >{{ ctrl.getStepTitle(7, "Impact") }}</h2>
+                        <div class="anchor-bottom bottom-dark-border-purple">
+                            <div class="circle-border background-dark-purple">
                                 7
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="low-pad-cell ng-scope col-md-4">
+                <div class="low-pad-cell col-md-4">
                     <div class="aif-tile background-black" 
                          ng-click="ac.submitFramework()">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
                         <p class="submit-text ng-scope">
-                            Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
+                            {{ ctrl.getStepTitle(-3, "Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.") }}
                         </p>
                         <div
                              class="anchor-bottom background-bright_green bottom-dark-border-bright_green ng-scope">
-                            <span class="button-label" data-bind="text: title">SUBMIT</span>
+                            <span class="button-label" data-bind="text: title">{{ ctrl.getStepTitle(-2, "SUBMIT") }}</span>
                         </div>
                     </div>
                 </div>

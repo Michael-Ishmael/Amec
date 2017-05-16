@@ -20,34 +20,16 @@ if ( ! defined( 'AIF_PLUGIN_URL' ) ) {
     define( 'AIF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
+require_once( plugin_dir_path(__FILE__). 'includes/custom-ajax-auth.php' );
 
 function aif_init(){
-    //aif_set_taxonomy();
     aif_custom_post_type();
 }
 
-function aif_set_taxonomy()
-{
-    register_taxonomy(
-        'aif_workflow_entry_type',
-        'aif_workflow',
-        [
-            'hierarchical' => true,
-            'label' => 'Entry Type',
-            'query_var' => true,
-            'rewrite' => [
-                'slug' => 'aifw',
-                'with_front' => false
-            ]
-        ]
-    );
-
-
-}
-
-
 function aif_custom_post_type()
 {
+    register_taxonomy_for_object_type('post_tag', 'page');
+
     register_post_type('aif_workflow',
         [
             'labels'      => [
@@ -65,15 +47,109 @@ function aif_custom_post_type()
         ]
     );
 }
+
 add_action('init', 'aif_init');
+
+
+function aif_register_api_hooks( ) {
+
+    register_rest_field(
+        'aif_workflow',
+        'content_json',
+        array(
+            'get_callback'    => 'aif_add_content_json_field',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+
+
+    register_rest_route( 'aif/v1', '/userframeworks/', array(
+        'methods' => 'GET',
+        'callback' => 'aif_rest_get_user_frameworks',
+    ) );
+
+
+}
+add_action( 'rest_api_init', 'aif_register_api_hooks');
+
+
+function aif_add_content_json_field( $object, $field_name, $request )
+{
+
+    //global $post;
+    //$post = get_post ($object['id']);
+
+    $raw = get_the_content($object->ID);
+
+    return $raw;
+}
+
+function aif_rest_get_user_frameworks() {
+
+
+    $user_id = get_current_user_id();
+    $return = array();
+
+    $all_posts = get_posts( array(
+        'author' => $user_id,
+        'numberposts' => -1,
+        'post_type'   => 'aif_workflow',
+        'fields'      => 'title',
+        'post_status'      =>  array('publish', 'draft'),
+    ) );
+
+    foreach($all_posts as $post) {
+        $newPost = array();
+        $newPost['id'] = $post->ID;
+        $newPost['title'] = $post->post_title;
+        $newPost['excerpt'] = $post->post_excerpt;
+        $newPost['status'] = $post->post_status;
+        $return[] = $newPost;
+    }
+
+
+
+    return $return;
+}
+
+
+
+function load_framework_for_user_filter( $content ) {
+
+    //$content = " " . $content;
+
+    global $post;
+
+    if (is_single() && $post->post_type == 'aif_workflow' ){
+        remove_filter('the_content', 'wpautop');
+    }
+    else {
+        $posttags = get_the_tags();
+        foreach($posttags as $tag) {
+            if($tag->name == 'AifPageCopy'){
+                remove_filter('the_content', 'wpautop');
+                break;
+            };
+        }
+    }
+
+    return $content;
+}
+
+//remove_filter( 'the_content', 'wpautop' );
+add_filter('the_content', 'load_framework_for_user_filter');
 
 
 /*
  * Automatically create framwork page on activation
  *
+ *
  */
 function aif_create_framework_page() {
-    //Check to see if the framwork page has been created
+
+
+    //Check to see if the framework page has been created
 //    $more_info_page = get_option ( 'ctcc_more_info_page' );
 //    if ( empty ( $more_info_page ) ) { // The page hasn't been set yet
 //        // Create the page parameters
@@ -101,20 +177,28 @@ function aif_create_framework_page() {
 
 }
 
-register_activation_hook ( __FILE__, 'aif_create_framework_page' );
+//register_activation_hook ( __FILE__, 'aif_create_framework_page' );
 
 
-function load_framework_for_user_filter( $content ) {
-
-    //$content = " " . $content;
-
-    global $post;
-
-    // Check for single page and image post type and remove
-    if ( is_single() && $post->post_type == 'aif_workflow' )
-        remove_filter('the_content', 'wpautop');
-
-    return $content;
+function aif_hide_admin_bar_settings()
+{
+    ?>
+    <style type="text/css">
+        .show-admin-bar {
+            display: none;
+        }
+    </style>
+    <?php
 }
 
-add_filter('the_content', 'load_framework_for_user_filter');
+function aif_disable_admin_bar()
+{
+    if (!current_user_can('administrator')) {
+        add_filter('show_admin_bar', '__return_false');
+        add_action('admin_print_scripts-profile.php', 'aif_hide_admin_bar_settings');
+    }
+}
+
+add_action('init', 'aif_disable_admin_bar', 9);
+
+

@@ -39,6 +39,7 @@ module aif {
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
                 this.selectFramework(this.currentFramework);
+                this.user.frameworks.forEach(s => s.saving = false);
                 if(this.user.frameworks.length > 1){
                     this.altMessage = "Alternatively, save as an existing framework or";
                 } else {
@@ -51,6 +52,10 @@ module aif {
             }
 
             this.setTitle(this.vs.accountDisplayRoute)
+        }
+
+        public toggleSave(){
+            this.waiting = !this.waiting;
         }
 
         private setTitle(displayRoute: AccountDisplayRoute): void {
@@ -92,14 +97,10 @@ module aif {
         public saveFramework(frameWork:AifFramework){
 
             frameWork.saving = true;
-
             this.userRepository.saveOverFramework(frameWork.id).then(s => {
                 if (s) {
-                    this.userRepository.save().then(s => {
 
-                        //console.log(s.success)
-                        frameWork.saving = false;
-                    });
+                    frameWork.saving = false;
                     this.vs.resetView();
                 }
             });

@@ -89,7 +89,8 @@
                         <div class="low-pad-cell" ng-class="fs.getWidthClass(group.steps.length, 4, false)"
                              ng-repeat="group in fs.sectionThree.groups">
 
-                            <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">{{
+                            <h5 class="summary-heading" ng-class="fs.getColorClass('background-dark-', group.color)">
+                                {{
                                 group.heading }} </h5>
                             <div class="row low-pad-row">
                                 <div class="low-pad-cell"
@@ -124,7 +125,244 @@
 
     <div class="print-summary-wrapper">
 
-        <div id="printableFrameworkSummary" class="ng-scope">
+
+<div id="printableFrameworkSummary">
+
+    <h1>AMEC Measurement Framework
+        <br ng-if="fs.summary.title.length">
+        <span ng-if="fs.summary.title.length" class="em">{{ fs.summary.title }}</span></h1>
+
+    <table class="table">
+        <tr class="section-row">
+            <td class="section-header">
+                <div class="label prep"></div>
+            </td>
+            <td>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-red">
+                            {{ fs.sectionOne.groups[0].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th class="background-red">
+                            {{ fs.sectionOne.groups[0].steps[0].summaryHeading }}
+                        </th>
+                        <th class="background-red">
+                            {{ fs.sectionOne.groups[0].steps[1].summaryHeading }}
+                        </th>
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td class="background-pale-red summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionOne.groups[0].steps[0].html())" >
+
+                        </td>
+                        <td class="background-pale-red summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionOne.groups[0].steps[1].html())" >
+
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-yellow">
+                            {{ fs.sectionOne.groups[1].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th class="background-yellow">
+                           {{ fs.sectionOne.groups[1].steps[0].summaryHeading  }}
+                        </th>
+                        <th class="background-yellow">
+                            {{ fs.sectionOne.groups[1].steps[1].summaryHeading}}
+                        </th>
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td class="background-pale-yellow summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionOne.groups[1].steps[0].html())" >
+
+                        </td>
+                        <td class="background-pale-yellow summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionOne.groups[1].steps[1].html())" >
+
+                        </td>
+                    </tr>
+
+
+                </table>
+            </td>
+
+        </tr>
+        <tr class="spacer-row">
+            <td colspan="2"></td>
+        </tr>
+        <tr class="section-row imp">
+            <td class="section-header">
+                <div class="label imp"></div>
+            </td>
+
+            <td>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-green">
+                            {{ fs.sectionTwo.groups[0].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-green">
+                            {{ fs.sectionTwo.groups[0].steps[0].summaryHeading }}
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" class="background-pale-green summary-box imp columns"
+                            ng-bind-html="fs.sanitize(fs.sectionTwo.groups[0].steps[0].html())" >
+
+                        </td>
+
+                    </tr>
+                </table>
+
+            </td>
+
+        </tr>
+        <tr class="spacer-row">
+            <td colspan="2"></td>
+        </tr>
+        <tr class="section-row  imp">
+            <td class="section-header">
+                <div class="label mes"></div>
+            </td>
+
+            <td>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-light_blue">
+                            {{ fs.sectionThree.groups[0].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-light_blue">
+                            {{ fs.sectionThree.groups[0].steps[0].summaryHeading }}
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" class="background-pale-light_blue summary-box columns"
+                            ng-bind-html="fs.sanitize(fs.sectionThree.groups[0].steps[0].html())" >
+                        </td>
+
+                    </tr>
+                </table>
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-dark_blue">
+                            {{ fs.sectionThree.groups[1].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th class="background-dark_blue">
+                            {{ fs.sectionThree.groups[1].steps[0].summaryHeading }}
+                        </th>
+                        <th class="background-dark_blue">
+                            {{ fs.sectionThree.groups[1].steps[1].summaryHeading }}
+                        </th>
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td class="background-pale-dark_blue summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionThree.groups[1].steps[0].html())" >
+                        </td>
+                        <td class="background-pale-dark_blue summary-box half"
+                            ng-bind-html="fs.sanitize(fs.sectionThree.groups[1].steps[1].html())" >
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table class="table">
+
+                    <thead>
+                    <tr>
+
+                        <th colspan="2" class="background-dark-purple">
+                            {{ fs.sectionThree.groups[2].heading }}
+                        </th>
+                    </tr>
+                    <tr>
+
+                        <th colspan="2" class="background-purple">
+                            {{ fs.sectionThree.groups[2].steps[0].summaryHeading }}
+                        </th>
+
+                    </tr>
+                    </thead>
+
+
+                    <tr>
+
+                        <td colspan="2" class="background-pale-purple summary-box"
+                            ng-bind-html="fs.sanitize(fs.sectionThree.groups[0].steps[0].html())" >
+
+                        </td>
+
+                    </tr>
+                </table>
+
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+
+        <div id="printableFrameworkSummary_old" style="display: none" class="ng-scope">
 
             <h1>AMEC Measurement Framework
                 <br ng-if="fs.summary.title.length">
@@ -274,5 +512,9 @@
             </div>
 
         </div>
+
+
+
+
     </div>
 </div>

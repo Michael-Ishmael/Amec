@@ -35,6 +35,7 @@ module aif {
     .directive('aifListInputTile', AifListInputTile.factory())
     .directive('aifUserScreens', AifUserScreens.factory())
     .directive('aifInputGrid', AifInputGrid.factory())
+    .directive('aifLoadingSpinner', AifLoadingSpinner.factory())
       .config(['$httpProvider', (_$httpProvider:ng.IHttpProvider) => {
           _$httpProvider.interceptors.push(AifHttpInterceptor.factory())
       } ])

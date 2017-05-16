@@ -1,5 +1,7 @@
 /// <reference path="../_all.ts" />
 
+let AifPageData:any ;
+
 module aif {
   'use strict';
 
@@ -30,7 +32,13 @@ module aif {
     private createEditView():void{
 
       let structureSteps = AifData.stepStructure;
-      let copy = AifData.baseCopy;
+      let remoteCopy = null;
+      try{
+        remoteCopy = AifPageData && AifPageData.remoteCopy ? AifPageData.remoteCopy : null;
+      } catch(ex){
+        remoteCopy = null;
+      }
+      let copy = remoteCopy || AifData.baseCopy;
 
       let steps:Array<AifFrameworkStep> = structureSteps.map(s => {
 
@@ -64,6 +72,9 @@ module aif {
 
       this.editView = new AifFrameworkEditView();
       this.editView.steps = steps;
+      this.editView.startHereText = this.resolveTranslation(copy["ST"])
+      this.editView.submitText = this.resolveTranslation(copy["SB"])
+      this.editView.submitDescription = this.resolveTranslation(copy["SB_D"])
 
     }
 
@@ -242,7 +253,7 @@ module aif {
                   ]
                 },
                 {
-                  heading: "Organisational & Stakeholder Effects",
+                  heading: "Audience Response & Effects",
                   color: "dark_blue",
                   entries: [
                     {

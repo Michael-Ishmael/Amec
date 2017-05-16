@@ -43,6 +43,25 @@ module aif {
       return
     }
 
+    public getStepTitle(stepIndex:number, defaultTitle:string):string{
+      let text:string = null;
+      if(stepIndex == -1){
+        text = this.editView.startHereText.trim();
+      }
+      if(stepIndex == -2){
+        text = this.editView.submitText.trim();
+      }
+      if(stepIndex == -3){
+        text = this.editView.submitDescription.trim();
+      }
+      let matches = this.editView.steps.filter(s => s.stepIndex === stepIndex);
+      if(matches.length){
+        text =  matches[0].heading;
+      }
+      return text ? text : defaultTitle;
+    }
+
+
 
     private switchToEditMode(step:AifFrameworkStep):void{
       this.editMode = true;

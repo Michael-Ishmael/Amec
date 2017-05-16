@@ -26,7 +26,6 @@ if (have_posts()) :
 /*                echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
                 the_content(__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span>');
                 echo '</div>';*/
-
                 get_template_part("includes/amec", "aif");
 
                 echo '<footer class="entry-footer">';
@@ -35,6 +34,19 @@ if (have_posts()) :
                     'pagelink' => '<span>%</span>'
                 ));
                 echo '</footer>';
+
+        ?>
+        <script id="aif-copy">
+
+            var AifPageData =  { remoteCopy: null };
+            AifPageData.remoteCopy = <?php
+                    //N.B> Content will be json so deliberately not using the_content()
+                    global $post;
+                    echo $post->post_content
+                    ?>
+
+                </script>
+        <?php
 
                 do_action('ava_after_content', get_the_ID(), 'page');
                 ?>

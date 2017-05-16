@@ -63,6 +63,14 @@ module aif {
 
     }
 
+    public close(){
+      if(this.editMode){
+        this.vs.showAccount(AccountDisplayRoute.FromEdit)
+      } else {
+        this.vs.resetView();
+      }
+    }
+
 
     public createNewFramework(form:ng.IFormController):void{
       if(!form.$valid) return;
@@ -70,7 +78,7 @@ module aif {
         this.userRepository.createNewFramework(this.newFrameworkName, this.newFrameworkDescription)
           .then((r) => {
             if(r.success){
-                this.vs.resetView();
+                this.close();
                           } else {
               this.saveUnsuccessful = true;
               this.saveFailMessage = r.message;

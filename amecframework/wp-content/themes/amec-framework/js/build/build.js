@@ -24,6 +24,21 @@ var aif;
         return AifData;
     }());
     AifData.baseCopy = {
+        "ST": {
+            description: "Start here text",
+            en: "Start Here",
+            translation: null
+        },
+        "SB": {
+            description: "Submit text",
+            en: "Submit",
+            translation: null
+        },
+        "SB_D": {
+            description: "Submit description",
+            en: "Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.",
+            translation: null
+        },
         "S1_L": {
             description: "Step Label 1",
             en: "Objectives",
@@ -1557,6 +1572,7 @@ var aif;
      */
 })(aif || (aif = {}));
 /// <reference path="../_all.ts" />
+var AifPageData;
 var aif;
 (function (aif) {
     'use strict';
@@ -1579,7 +1595,14 @@ var aif;
         FrameworkRepository.prototype.createEditView = function () {
             var _this = this;
             var structureSteps = aif.AifData.stepStructure;
-            var copy = aif.AifData.baseCopy;
+            var remoteCopy = null;
+            try {
+                remoteCopy = AifPageData && AifPageData.remoteCopy ? AifPageData.remoteCopy : null;
+            }
+            catch (ex) {
+                remoteCopy = null;
+            }
+            var copy = remoteCopy || aif.AifData.baseCopy;
             var steps = structureSteps.map(function (s) {
                 var heading = _this.resolveTranslation(copy[s.stepHeadingKey]);
                 var step = new aif.AifFrameworkStep(s.stepIndex, heading);
@@ -1603,6 +1626,9 @@ var aif;
             });
             this.editView = new aif.AifFrameworkEditView();
             this.editView.steps = steps;
+            this.editView.startHereText = this.resolveTranslation(copy["ST"]);
+            this.editView.submitText = this.resolveTranslation(copy["SB"]);
+            this.editView.submitDescription = this.resolveTranslation(copy["SB_D"]);
         };
         FrameworkRepository.prototype.onFrameworkLoaded = function () {
             this.createEditView();
@@ -1758,7 +1784,7 @@ var aif;
                                     ]
                                 },
                                 {
-                                    heading: "Organisational & Stakeholder Effects",
+                                    heading: "Audience Response & Effects",
                                     color: "dark_blue",
                                     entries: [
                                         {
@@ -1988,6 +2014,79 @@ var aif;
     }());
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
+    var AifLoadingSpinner = (function () {
+        function AifLoadingSpinner() {
+            this.restrict = 'A';
+            this.scope = {
+                loading: '='
+            };
+        }
+        AifLoadingSpinner.prototype.link = function (scope, element, attributes, ctrl) {
+            if (!Spinner)
+                return;
+            var opts = {
+                lines: 8 // The number of lines to draw
+                ,
+                length: 0 // The length of each line
+                ,
+                width: 6 // The line thickness
+                ,
+                radius: 14 // The radius of the inner circle
+                ,
+                scale: 1 // Scales overall size of the spinner
+                ,
+                corners: 1 // Corner roundness (0..1)
+                ,
+                color: '#fff' // #rgb or #rrggbb or array of colors
+                ,
+                opacity: 0.25 // Opacity of the lines
+                ,
+                rotate: 12 // The rotation offset
+                ,
+                direction: 1 // 1: clockwise, -1: counterclockwise
+                ,
+                speed: 1.5 // Rounds per second
+                ,
+                trail: 64 // Afterglow percentage
+                ,
+                fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+                ,
+                zIndex: 2e9 // The z-index (defaults to 2000000000)
+                ,
+                className: 'spinner' // The CSS class to assign to the spinner
+                ,
+                top: '50%' // Top position relative to parent
+                ,
+                left: '50%' // Left position relative to parent
+                ,
+                shadow: false // Whether to render a shadow
+                ,
+                hwaccel: false // Whether to use hardware acceleration
+                ,
+                position: 'absolute' // Element positioning
+            };
+            var spinner = new Spinner(opts).spin(element[0]);
+            var jSpinner = jQuery(spinner.el);
+            if (!scope.loading)
+                jSpinner.hide();
+            scope.$watch('loading', function (newValue, oldValue) {
+                if (newValue) {
+                    jQuery(element).children().hide();
+                    jSpinner.show();
+                }
+                else {
+                    jQuery(element).children().show();
+                    jSpinner.hide();
+                }
+            });
+        };
+        AifLoadingSpinner.factory = function () {
+            var directive = function () { return new AifLoadingSpinner(); };
+            return directive;
+        };
+        return AifLoadingSpinner;
+    }());
+    aif.AifLoadingSpinner = AifLoadingSpinner;
     var AifInputGrid = (function () {
         function AifInputGrid($timeout) {
             this.$timeout = $timeout;
@@ -2092,6 +2191,23 @@ var aif;
                 this.switchToEditMode(matches[0]);
             }
             return;
+        };
+        FrameworkCtrl.prototype.getStepTitle = function (stepIndex, defaultTitle) {
+            var text = null;
+            if (stepIndex == -1) {
+                text = this.editView.startHereText.trim();
+            }
+            if (stepIndex == -2) {
+                text = this.editView.submitText.trim();
+            }
+            if (stepIndex == -3) {
+                text = this.editView.submitDescription.trim();
+            }
+            var matches = this.editView.steps.filter(function (s) { return s.stepIndex === stepIndex; });
+            if (matches.length) {
+                text = matches[0].heading;
+            }
+            return text ? text : defaultTitle;
         };
         FrameworkCtrl.prototype.switchToEditMode = function (step) {
             this.editMode = true;
@@ -2332,6 +2448,14 @@ var aif;
                 }
             }
         };
+        CreateFrameworkCtrl.prototype.close = function () {
+            if (this.editMode) {
+                this.vs.showAccount(aif.AccountDisplayRoute.FromEdit);
+            }
+            else {
+                this.vs.resetView();
+            }
+        };
         CreateFrameworkCtrl.prototype.createNewFramework = function (form) {
             var _this = this;
             if (!form.$valid)
@@ -2340,7 +2464,7 @@ var aif;
                 this.userRepository.createNewFramework(this.newFrameworkName, this.newFrameworkDescription)
                     .then(function (r) {
                     if (r.success) {
-                        _this.vs.resetView();
+                        _this.close();
                     }
                     else {
                         _this.saveUnsuccessful = true;
@@ -2574,6 +2698,7 @@ var aif;
             if (this.user.currentFramework) {
                 this.currentFramework = this.user.currentFramework;
                 this.selectFramework(this.currentFramework);
+                this.user.frameworks.forEach(function (s) { return s.saving = false; });
                 if (this.user.frameworks.length > 1) {
                     this.altMessage = "Alternatively, save as an existing framework or";
                 }
@@ -2586,6 +2711,9 @@ var aif;
                 this.altMessage = "Save as an existing framework or";
             }
             this.setTitle(this.vs.accountDisplayRoute);
+        };
+        SaveAsCtrl.prototype.toggleSave = function () {
+            this.waiting = !this.waiting;
         };
         SaveAsCtrl.prototype.setTitle = function (displayRoute) {
             this.title = "Save framework";
@@ -2619,10 +2747,7 @@ var aif;
             frameWork.saving = true;
             this.userRepository.saveOverFramework(frameWork.id).then(function (s) {
                 if (s) {
-                    _this.userRepository.save().then(function (s) {
-                        //console.log(s.success)
-                        frameWork.saving = false;
-                    });
+                    frameWork.saving = false;
                     _this.vs.resetView();
                 }
             });
@@ -2919,6 +3044,7 @@ var aif;
                 return;
             }
             this.user = this.userRepository.currentUser;
+            this.user.frameworks.forEach(function (f) { return f.selected = false; });
             if (this.user.hasExistingFrameworks()) {
                 this.createMessage = "...or create a new framework.";
             }
@@ -3185,6 +3311,7 @@ var aif;
         .directive('aifListInputTile', aif_1.AifListInputTile.factory())
         .directive('aifUserScreens', aif_1.AifUserScreens.factory())
         .directive('aifInputGrid', aif_1.AifInputGrid.factory())
+        .directive('aifLoadingSpinner', aif_1.AifLoadingSpinner.factory())
         .config(['$httpProvider', function (_$httpProvider) {
             _$httpProvider.interceptors.push(aif_1.AifHttpInterceptor.factory());
         }]);

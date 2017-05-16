@@ -56,6 +56,21 @@ module aif {
     export class AifData {
 
         public static baseCopy: { [id: string]: IAifCopyItem } = {
+            "ST" : {
+                description: "Start here text",
+                en: "Start Here",
+                translation: null
+            },
+            "SB" : {
+                description: "Submit text",
+                en: "Submit",
+                translation: null
+            },
+            "SB_D" : {
+                description: "Submit description",
+                en: "Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.",
+                translation: null
+            },
             "S1_L": {
                 description: "Step Label 1",
                 en: "Objectives",

@@ -33,6 +33,7 @@ module aif {
       }
 
       this.user = this.userRepository.currentUser;
+      this.user.frameworks.forEach(f => f.selected = false);
       if(this.user.hasExistingFrameworks()){
         this.createMessage = "...or create a new framework.";
       }

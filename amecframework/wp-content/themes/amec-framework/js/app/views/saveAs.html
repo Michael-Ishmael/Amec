@@ -16,13 +16,16 @@
 
                         <div class="col-md-6 col-xs-12 low-pad-cell">
 
-                            <div class="choose-fw-tile"
+                            <div class="choose-fw-tile save-as" ng-click="sa.saveFramework(sa.currentFramework)"
                                  ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"  >
-                                <div class="fw-main" ng-click="sa.saveFramework(sa.currentFramework)">
+                                <div class="fw-main" >
 
-                                <h5> {{ sa.currentFramework.name }} </h5>
-                                <p> {{ sa.currentFramework.description | limitTo:100 }} <span
+                                <h5 class="text-elip"> {{ sa.currentFramework.name }} </h5>
+                                <p class="text-elip"> {{ sa.currentFramework.description | limitTo:100 }} <span
                                         ng-if="sa.currentFramework.description.length>100">...</span></p>
+                                </div>
+                                <div class="loading-image" aif-loading-spinner loading="sa.currentFramework.saving">
+
                                 </div>
                             </div>
 
@@ -60,17 +63,19 @@
                             </div>
 
 
+
                         </div>
 
                         <div class="choose-fw-tile shake" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" ng-if="fw.flaggedDelete">
 
                             <div class="fw-main" >
                             <p class="text-elip">Are you sure you want to save over {{ fw.name }}?</p>
-                            <span class="text-link sml">
+                            <div     class="text-link sml" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" aif-loading-spinner loading="fw.saving" size="40">
                                         <a ng-click="sa.saveFramework(fw)">Yes</a>
                                         <a  ng-click="sa.toggleSaveOver(fw)">No</a>
-                                    </span>
+                                    </div>
                             </div>
+
                         </div>
 
 
@@ -82,12 +87,12 @@
             </div>
 
 
-            <div class="form-group">
-                <div class="little-loader" ng-show="sa.waiting"></div>
-                <input ng-hide="sa.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
-                       ng-disabled="!sa.frameworkIsSelected()"
-                       type="button" value="Save" ng-click="sa.saveAsSelectedFramework()">
-            </div>
+            <!--<div class="form-group">-->
+                <!--<div class="little-loader" ng-show="sa.waiting"></div>-->
+                <!--<input ng-hide="sa.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"-->
+                       <!--ng-disabled="!sa.frameworkIsSelected()"-->
+                       <!--type="button" value="Save" ng-click="sa.saveAsSelectedFramework()">-->
+            <!--</div>-->
 
 
         </div>

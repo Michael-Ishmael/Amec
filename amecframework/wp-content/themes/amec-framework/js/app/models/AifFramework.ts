@@ -30,6 +30,9 @@ module aif {
 
   export class AifFrameworkEditView {
 
+    public startHereText:string;
+    public submitText:string;
+    public submitDescription:string;
     public steps:Array<AifFrameworkStep> = [];
 
 
