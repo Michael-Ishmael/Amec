@@ -18,7 +18,7 @@
 
                             <div class="choose-fw-tile"
                                  ng-class="[sa.getColorClass('background', 0), {'selected' : sa.currentFramework.selected}]"  >
-                                <div class="fw-main" ng-click="sa.selectFramework(sa.currentFramework)">
+                                <div class="fw-main" ng-click="sa.saveFramework(sa.currentFramework)">
 
                                 <h5> {{ sa.currentFramework.name }} </h5>
                                 <p> {{ sa.currentFramework.description | limitTo:100 }} <span
@@ -67,7 +67,7 @@
                             <div class="fw-main" >
                             <p class="text-elip">Are you sure you want to save over {{ fw.name }}?</p>
                             <span class="text-link sml">
-                                        <a ng-click="sa.selectFramework(fw)">Yes</a>
+                                        <a ng-click="sa.saveFramework(fw)">Yes</a>
                                         <a  ng-click="sa.toggleSaveOver(fw)">No</a>
                                     </span>
                             </div>

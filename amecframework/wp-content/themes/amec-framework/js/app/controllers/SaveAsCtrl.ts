@@ -89,6 +89,22 @@ module aif {
 
         }
 
+        public saveFramework(frameWork:AifFramework){
+
+            frameWork.saving = true;
+
+            this.userRepository.saveOverFramework(frameWork.id).then(s => {
+                if (s) {
+                    this.userRepository.save().then(s => {
+
+                        //console.log(s.success)
+                        frameWork.saving = false;
+                    });
+                    this.vs.resetView();
+                }
+            });
+        }
+
         public showCreateFramework(){
             this.vs.showCreateFramework(AccountDisplayRoute.FromSave, this.user.frameworks.length > 0);
         }

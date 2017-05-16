@@ -656,6 +656,7 @@ var aif;
             this.description = description;
             this.selected = false;
             this.flaggedDelete = false;
+            this.saving = false;
             this.current = false;
         }
         return AifFramework;
@@ -1331,7 +1332,10 @@ var aif;
                 var matches = this.currentUser.frameworks.filter(function (f) { return f.id === id; });
                 if (matches.length) {
                     var framework_1 = matches[0];
-                    this.currentUser.frameworks.forEach(function (f) { return f.current = false; });
+                    this.currentUser.frameworks.forEach(function (f) {
+                        f.current = false;
+                        f.saving = false;
+                    });
                     framework_1.current = true;
                     this.currentUser.currentFramework = framework_1;
                     this.setCookieValue("currentFrameworkId", framework_1.id);
@@ -2609,6 +2613,19 @@ var aif;
                     }
                 });
             }
+        };
+        SaveAsCtrl.prototype.saveFramework = function (frameWork) {
+            var _this = this;
+            frameWork.saving = true;
+            this.userRepository.saveOverFramework(frameWork.id).then(function (s) {
+                if (s) {
+                    _this.userRepository.save().then(function (s) {
+                        //console.log(s.success)
+                        frameWork.saving = false;
+                    });
+                    _this.vs.resetView();
+                }
+            });
         };
         SaveAsCtrl.prototype.showCreateFramework = function () {
             this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, this.user.frameworks.length > 0);

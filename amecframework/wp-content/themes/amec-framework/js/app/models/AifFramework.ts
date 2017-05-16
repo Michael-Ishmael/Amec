@@ -13,6 +13,7 @@ module aif {
 
     public selected:boolean = false;
     public flaggedDelete:boolean = false;
+    public saving:boolean = false;
     public current:boolean = false;
 
     constructor(
