@@ -1,0 +1,183 @@
+.rotate {
+
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+
+#frameworkSummary {
+
+
+  .summary-row {
+
+
+  }
+
+  .aif-p-page-break {
+    page-break-after: always;
+  }
+
+  .summary-section{
+
+
+    position: relative;
+
+
+    &.prep {
+      height: 510px;
+
+    }
+
+    &.imp {
+      height: 260px;
+
+    }
+
+    &.mes {
+      height: 780px;
+    }
+
+  }
+
+  .low-pad-row {
+    margin-left: -3px;
+    margin-right: -3px;
+  }
+
+  .low-pad-cell{
+    padding: 0 3px 0 3px;
+  }
+
+  .summary-box {
+    color: #404040;
+    font-weight: 400;
+  }
+
+  .prep {
+
+    .section-header{
+      height: 512px;
+      background-image: url('../images/ss-header-1.png');
+      background-repeat: no-repeat;
+      background-position-y: 50%;
+
+    }
+
+  }
+
+  .imp {
+    .section-header{
+      height: 300px;
+      background-image: url('../images/ss-header-2.png');
+      background-repeat: no-repeat;
+      background-position-y: 50%;
+    }
+
+    .summary-box {
+      height: 250px;
+    }
+
+    .aif-p-12{
+      .summary-box {
+        -webkit-columns: 200px 2; /* Chrome, Safari, Opera */
+        -moz-columns: 200px 2; /* Firefox */
+        columns: 200px 2;
+      }
+    }
+
+
+  }
+
+  .mes {
+    .section-header{
+      height: 976px;
+      background-image: url('../images/ss-header-3.png');
+      background-repeat: no-repeat;
+      background-position-y: 50%;
+    }
+
+
+    .aif-p-taller {
+
+      .summary-box {
+        height: 400px;
+      }
+
+
+    }
+    .aif-p-12{
+      .summary-box {
+        -webkit-columns: 200px 2; /* Chrome, Safari, Opera */
+        -moz-columns: 200px 2; /* Firefox */
+        columns: 200px 2;
+      }
+    }
+
+  }
+
+  .section-header {
+
+    background-color: rgb(138, 138, 138);
+    width: 34px;
+    float: left;
+    padding-top: 160px;
+    background-position: 2px 0;
+    background-size: contain;
+
+
+
+  }
+
+  .section-content {
+
+    margin-left:42px;
+
+    h5.summary-heading {
+      font-size: .8em;
+      height: 24px;
+      line-height: 24px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 4px 0;
+      padding: 0;
+
+      &.joined {
+        margin-bottom: 0;
+      }
+    }
+
+    .summary-box {
+
+      padding: 4px 8px;
+      min-height: 200px;
+
+      &.first-row {
+        max-height: 200px;
+      }
+
+      .key {
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
+    }
+
+
+
+  }
+
+}

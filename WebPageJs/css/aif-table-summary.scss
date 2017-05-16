@@ -1,0 +1,156 @@
+$red: rgb(213, 0, 70);
+$yellow: rgb(255, 154, 49);
+$green: rgb(0, 195, 148);
+$light_blue: rgb(0, 144, 255);
+$dark_blue: rgb(0, 114, 175);
+$purple: rgb(138, 0, 182);
+$black: rgb(31, 31, 31);
+$bright_green: rgb(45, 164, 26);
+$pale_grey: rgb(191, 191, 191);
+
+$color-list: (
+        red $red 50%,
+        yellow $yellow 35%,
+        green $green 50%,
+        light_blue $light_blue 40%,
+        dark_blue $dark_blue 50%,
+        purple $purple 50%,
+        black $black 0%,
+        bright_green $bright_green 0%,
+        pale_grey $pale_grey 20%
+);
+
+@each $value in $color-list {
+
+  .background-#{nth($value, 1)} {
+    background-color: nth($value, 2);
+  }
+
+  .background-dark-#{nth($value, 1)} {
+    background-color: darken(nth($value, 2), 14%);
+  }
+
+  .background-light-#{nth($value, 1)} {
+    background-color: lighten(nth($value, 2), 14%);
+  }
+
+  .background-pale-#{nth($value, 1)} {
+    background-color: lighten(nth($value, 2), nth($value, 3));
+  }
+
+  .bottom-dark-border-#{nth($value, 1)} {
+    border-bottom: 4px solid darken(nth($value, 2), 15%);
+  }
+}
+
+@page  {
+  size: A4;
+  margin: 0;
+  padding: 1cm;
+  background: #fff;
+}
+
+#printableFrameworkSummaryTable{
+
+  font-family: lato, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #fff;
+
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-top: 2cm;
+
+  * {
+    box-sizing: border-box;
+  }
+
+}
+
+.aif-p-page-break {
+  page-break-after: always;
+}
+
+table {
+
+  width: 100%;
+
+}
+
+h1{
+  color: #fffbfb;
+  text-align: center;
+  background-color: #b0c5d4;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+h1 .em {
+  font-style: italic;
+}
+
+
+.section-header {
+  width: 49px;
+  background-color: gray;
+
+  .label {
+    width: 49px;
+    background-repeat: no-repeat;
+
+    &.prep {
+      background-image: url('../images/ss-header-1.png');
+      height: 377px;
+    }
+
+    &.imp {
+      background-image: url('../images/ss-header-2.png');
+      height: 377px;
+    }
+
+    &.mes {
+      background-image: url('../images/ss-header-3.png');
+      height: 434px;
+    }
+
+  }
+
+}
+
+th {
+  text-transform: uppercase;
+}
+
+.summary-box {
+  height: 250px;
+  padding: 10px;
+  vertical-align: top;
+  color: #404040;
+  font-weight: 400;
+
+  &.half {
+    width: 50%;
+  }
+
+  &.columns {
+
+    -webkit-columns: 200px 2; /* Chrome, Safari, Opera */
+    -moz-columns: 200px 2; /* Firefox */
+    columns: 200px 2;
+
+  }
+
+  &.imp {
+    height: 370px;
+  }
+
+
+  &.out {
+    height: 4200px;
+  }
+
+}
+
+
+

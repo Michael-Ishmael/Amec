@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html ng-app="aif" data-framework="typescript" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/aif.css">
+    <script src="js/libs/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/tether.min.css">
+    <script src="js/libs/bootstrap/tether.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://use.edgefonts.net/c/37311d/1w;lato,1,c0m:W:i1,c0q:W:i3,c0s:W:i4,c0y:W:i7,c12:W:i9,c0l:W:n1,c0p:W:n3,c0r:W:n4,c0x:W:n7,c11:W:n9/l"
+          media="all">
+    <script src="//use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js" type="text/javascript"></script>
+
+    <style>[ng-cloak] {
+        display: none;
+    }</style>
+
+</head>
+<body>
+
+
+<div ng-cloak class="main container" ng-controller="appCtrl as ac">
+    <div ng-if="ac.initialised" class="control-row row">
+
+        <div class="col-md-6 low-pad-cell" ng-if="ac.vs.displayGrid">
+            <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
+                 ng-click="ac.showLogin()" ng-if="!ac.isLoggedIn()">
+                Login
+            </div>
+            <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
+                 ng-click="ac.showRegister()" ng-if="!ac.isLoggedIn()">
+                Register
+            </div>
+
+            <div ng-if="ac.isLoggedIn()">
+                <h4 ng-click="ac.viewAccount()" >
+                    <a class="account-button"></a> Welcome {{ ac.currentUser.firstName }}</h4>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 low-pad-cell text-right" ng-if="ac.vs.displayGrid">
+
+
+
+            <span class="framework-name" ng-if="ac.currentFramework" ng-click="ac.viewAccount()">
+            <h4> {{ ac.currentFramework.name }}</h4>
+            </span>
+
+
+            <div ng-click="ac.saveProgress()"
+                 class="aif-button background-bright_green bottom-dark-border-bright_green">
+                Save Progress
+            </div>
+
+            <div ng-click="ac.submitFramework()"
+                 class="aif-button background-bright_green bottom-dark-border-bright_green">Submit</div>
+
+
+        </div>
+
+        <div class="col-md-12 low-pad-cell text-right" ng-if="ac.vs.displaySummary">
+
+
+            <div ng-click="ac.vs.showGrid()"
+                 class="aif-button background-bright_green bottom-dark-border-bright_green">Edit</div>
+
+            <div ng-click="ac.downloadAifPdf()"
+                 class="aif-button background-red bottom-dark-border-red">Download Pdf</div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="anim-box" ng-class="{'show-load': ac.displayAside}">
+
+        <div class="aside" >
+            <p>Load</p>
+        </div>
+
+
+        <div class="main" ng-click="ac.toggleAside()">
+            <h5>Some long text in here, Some long text in here</h5>
+
+        </div>
+
+
+    </div>
+
+    <div id="frameworkGridWrapper" ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
+        <div class="base-framework">
+
+            <div class="row" ng-repeat="row in ctrl.rows">
+                <div class="low-pad-cell" ng-repeat="step in row.cells"
+                     ng-class="{'col-md-4': step.colSpan === 1, 'col-md-8': step.colSpan === 2}">
+                    <div class="aif-tile" ng-class="ctrl.getColorClass('background', step)"
+                         ng-click="ctrl.handleStepClick(step)">
+                        <div class="bg-cloak" ng-if="ac.vs.fadeBg"
+                             ng-click="ctrl.clearEditMode()"></div>
+                        <h2 ng-if="!step.isSubmit">{{ step.title }}</h2>
+                        <div ng-if="!step.isSubmit" class="anchor-bottom"
+                             ng-class="ctrl.getColorClass('bottom-dark-border', step)">
+                            <div class="start-message" ng-class="ctrl.getColorClass('background-dark', step)" ng-if="step.index == 1">
+                                Start Here
+                            </div>
+                            <div class="circle-border" ng-class="ctrl.getColorClass('background-dark', step)">
+                                {{step.index}}
+                            </div>
+                        </div>
+
+                        <p class="submit-text" ng-if="step.isSubmit">
+                            Click on submit button to view your content in the Integrated Evaluation Framework by AMEC.
+                        </p>
+
+                        <div ng-if="step.isSubmit" data-bind="if: isSubmit"
+                             class="anchor-bottom background-bright_green bottom-dark-border-bright_green">
+                            <span class="button-label" data-bind="text: title">SUBMIT</span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="loginRow" class="login-row-container">
+
+            <aif-login-screen ng-controller="loginCtrl as lc"
+                              ng-if="ac.vs.displayLogin">
+            </aif-login-screen>
+
+            <aif-account-screen ng-controller="accountViewCtrl as av"
+                              ng-if="ac.vs.displayAccount">
+            </aif-account-screen>
+
+            <aif-create-fw-screen ng-controller="createFrameworkCtrl as cf"
+                              ng-if="ac.vs.displayCreate">
+            </aif-create-fw-screen>
+
+            <aif-save-as-screen ng-controller="saveAsCtrl as sa"
+                                ng-if="ac.vs.displaySaveAs">
+
+            </aif-save-as-screen>
+
+            <aif-register-screen ng-controller="registerCtrl as rc"
+                                 ng-if="ac.vs.displayRegister">
+
+            </aif-register-screen>
+
+            <aif-reset-password ng-controller="resetPasswordCtrl as rp"
+                                ng-if="ac.vs.displayFtnDetails"
+                                 >
+            </aif-reset-password>
+
+        </div>
+
+
+        <div ng-cloak ng-if="ctrl.editMode && ctrl.vs.displayEdit" class="entries">
+            <div ng-repeat="row in ctrl.rows">
+                <div class="row" ng-if="ctrl.editStep.row > $index + 1">
+                    <div class="col-md-12 low-pad-cell">
+                        <div class="aif-tile"></div>
+                    </div>
+                </div>
+
+                <div class="row" ng-repeat="step in row.cells" ng-if="step.showInput">
+                    <div class="low-pad-cell" ng-repeat="cell in step.inputRow"
+                         ng-class="{'col-md-4': cell.colSpan === 1, 'col-md-8': cell.colSpan === 2}">
+                        <div class="aif-tile" ng-if="ctrl.isEmpty(cell)">
+                            <div class="empty"></div>
+                        </div>
+                        <div class="aif-tile" ng-if="ctrl.isInput(cell)">
+                            <div class="aif-input"
+                                 ng-class="ctrl.getColorClass('background', step)">
+                                <div class="header" ng-class="ctrl.getColorClass('background-light', step)">
+                                    <h3>{{ step.title }}</h3>
+                                    <div class="border-caret" ng-click="ctrl.clearEditMode()">
+                                        <div class="caret-left"></div>
+                                        <div class="caret-right"></div>
+                                    </div>
+                                </div>
+                                <div class="section" ng-repeat="item in cell.items">
+                                    <h4>{{ item.heading }} </h4>
+                                    <p class="sub-heading" ng-if="item.subHeading">
+                                        {{ item.subHeading }}
+                                    </p>
+                                    <div class="inputs-container">
+                                        <div class="info-button" ng-click="ctrl.showInfoCell(item, cell.infoCell)">
+                                            <span>i</span>
+                                        </div>
+
+                                        <textarea ng-model="item.frameworkEntry.text"></textarea>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                {{ cell.subHeading }}
+
+                            </div>
+
+                        </div>
+
+                        <aif-list-input-tile ng-if="ctrl.isListInput(cell)" cell="cell" step="step"
+                        ></aif-list-input-tile>
+
+                        <div class="aif-tile" ng-if="ctrl.isInfo(cell) && cell.visible">
+
+                            <div class="info">
+                                <p>
+                              <span class="lead-in">
+                {{ cell.leadText }}
+              </span>
+                                    {{ cell.remainText }}
+                                </p>
+                                <p>
+                                    For further information <a class="further-info-link">click here</a>
+
+                                </p>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <aif-framework-summary ng-if="ac.vs.displaySummary">
+
+    </aif-framework-summary>
+</div>
+
+
+</div>
+<script src="js/generate-pdf.js" type="text/javascript"></script>
+
+<script src="js/libs/bootstrap/tether.min.js" type="text/javascript"></script>
+<script src="js/libs/angular/angular.min.js" type="text/javascript"></script>
+<script src="js/libs/angular/angular-animate.min.js" type="text/javascript"></script>
+<script src="js/libs/angular/angular-cookies.js" type="text/javascript"></script>
+
+<script src="node_modules/angular-click-outside/angular-click-outside.js" type="text/javascript"></script>
+<script src="js/Application.js"></script>
+
+<script id="pageCSS" type="text/css">
+
+    ng\:form { display: block; }
+    html { font-family: sans-serif; line-height: 1.15; text-size-adjust: 100%; }
+    body { margin: 0px; }
+    article, aside, footer, header, nav, section { display: block; }
+    h1 { font-size: 2em; margin: 0.67em 0px; }
+    figcaption, figure, main { display: block; }
+    figure { margin: 1em 40px; }
+    hr { box-sizing: content-box; height: 0px; overflow: visible; }
+    pre { font-family: monospace, monospace; font-size: 1em; }
+    a { background-color: transparent; }
+    a:active, a:hover { outline-width: 0px; }
+    abbr[title] { border-bottom: none; text-decoration: underline dotted; }
+    b, strong { font-weight: inherit; }
+    b, strong { font-weight: bolder; }
+    code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+    dfn { font-style: italic; }
+    mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+    small { font-size: 80%; }
+    sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+    sub { bottom: -0.25em; }
+    sup { top: -0.5em; }
+    audio, video { display: inline-block; }
+    audio:not([controls]) { display: none; height: 0px; }
+    img { border-style: none; }
+    svg:not(:root) { overflow: hidden; }
+    button, input, optgroup, select, textarea { font-family: sans-serif; font-size: 100%; line-height: 1.15; margin: 0px; }
+    button, input { overflow: visible; }
+    button, select { text-transform: none; }
+    button, html [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+    fieldset { border: 1px solid rgb(192, 192, 192); margin: 0px 2px; padding: 0.35em 0.625em 0.75em; }
+    legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0px; white-space: normal; }
+    progress { display: inline-block; vertical-align: baseline; }
+    textarea { overflow: auto; }
+    [type="checkbox"], [type="radio"] { box-sizing: border-box; padding: 0px; }
+    [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+    [type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+    [type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+    ::-webkit-file-upload-button { -webkit-appearance: button; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+    details, menu { display: block; }
+    summary { display: list-item; }
+    canvas { display: inline-block; }
+    template { display: none; }
+    [hidden] { display: none; }
+    html { box-sizing: border-box; }
+    *, ::before, ::after { box-sizing: inherit; }
+    html { -webkit-tap-highlight-color: transparent; }
+    body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 1rem; font-weight: normal; line-height: 1.5; color: rgb(41, 43, 44); background-color: rgb(255, 255, 255); }
+    [tabindex="-1"]:focus { outline: none !important; }
+    h1, h2, h3, h4, h5, h6 { margin-top: 0px; margin-bottom: 0.5rem; }
+    p { margin-top: 0px; margin-bottom: 1rem; }
+    abbr[title], abbr[data-original-title] { cursor: help; }
+    address { margin-bottom: 1rem; font-style: normal; line-height: inherit; }
+    ol, ul, dl { margin-top: 0px; margin-bottom: 1rem; }
+    ol ol, ul ul, ol ul, ul ol { margin-bottom: 0px; }
+    dt { font-weight: bold; }
+    dd { margin-bottom: 0.5rem; margin-left: 0px; }
+    blockquote { margin: 0px 0px 1rem; }
+    a { color: rgb(2, 117, 216); text-decoration: none; }
+    a:focus, a:hover { color: rgb(1, 76, 140); text-decoration: underline; }
+    a:not([href]):not([tabindex]) { color: inherit; text-decoration: none; }
+    a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover { color: inherit; text-decoration: none; }
+    a:not([href]):not([tabindex]):focus { outline: 0px; }
+    pre { margin-top: 0px; margin-bottom: 1rem; overflow: auto; }
+    figure { margin: 0px 0px 1rem; }
+    img { vertical-align: middle; }
+    [role="button"] { cursor: pointer; }
+    a, area, button, [role="button"], input, label, select, summary, textarea { touch-action: manipulation; }
+    table { border-collapse: collapse; background-color: transparent; }
+    caption { padding-top: 0.75rem; padding-bottom: 0.75rem; color: rgb(99, 108, 114); text-align: left; caption-side: bottom; }
+    th { text-align: left; }
+    label { display: inline-block; margin-bottom: 0.5rem; }
+    button:focus { outline: -webkit-focus-ring-color auto 5px; }
+    input, button, select, textarea { line-height: inherit; }
+    input[type="radio"]:disabled, input[type="checkbox"]:disabled { cursor: not-allowed; }
+    input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] { -webkit-appearance: listbox; }
+    textarea { resize: vertical; }
+    fieldset { min-width: 0px; padding: 0px; margin: 0px; border: 0px; }
+    legend { display: block; width: 100%; padding: 0px; margin-bottom: 0.5rem; font-size: 1.5rem; line-height: inherit; }
+    input[type="search"] { -webkit-appearance: none; }
+    output { display: inline-block; }
+    [hidden] { display: none !important; }
+    hr { margin-top: 1rem; margin-bottom: 1rem; border-width: 1px 0px 0px; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image: initial; border-top-style: solid; border-top-color: rgba(0, 0, 0, 0.1); }
+    code, kbd, pre, samp { font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    code { padding: 0.2rem 0.4rem; font-size: 90%; color: rgb(189, 65, 71); background-color: rgb(247, 247, 249); border-radius: 0.25rem; }
+    a > code { padding: 0px; color: inherit; background-color: inherit; }
+    kbd { padding: 0.2rem 0.4rem; font-size: 90%; color: rgb(255, 255, 255); background-color: rgb(41, 43, 44); border-radius: 0.2rem; }
+    kbd kbd { padding: 0px; font-size: 100%; font-weight: bold; }
+    pre { display: block; margin-top: 0px; margin-bottom: 1rem; font-size: 90%; color: rgb(41, 43, 44); }
+    pre code { padding: 0px; font-size: inherit; color: inherit; background-color: transparent; border-radius: 0px; }
+    .container { position: relative; margin-left: auto; margin-right: auto; padding-right: 15px; padding-left: 15px; }
+    .row { display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl { position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px; }
+    .navbar-toggleable-xl > .container { padding-right: 0px; padding-left: 0px; }
+    .navbar-toggleable-xl > .container { display: flex; flex-wrap: nowrap; -webkit-box-align: center; align-items: center; }
+    .text-right { text-align: right !important; }
+    #frameworkSummary { margin: 10px -15px 0px; }
+    #frameworkSummary .summary-row { margin-bottom: 12px; }
+    #frameworkSummary .summary-section { position: relative; }
+    #frameworkSummary .summary-section.imp { width: 250px; display: inline-block; }
+    #frameworkSummary .summary-section.mes { width: 900px; display: inline-block; margin-left: 15px; }
+    #frameworkSummary .low-pad-row { margin-left: -3px; margin-right: -3px; }
+    #frameworkSummary .low-pad-cell { padding: 0px 3px; }
+    #frameworkSummary .prep .section-header { height: 236px; background-image: url("images/ss-header-1.png"); }
+    #frameworkSummary .imp .section-header { height: 582px; background-image: url("images/ss-header-2.png"); }
+    #frameworkSummary .imp .summary-box { height: 582px; }
+    #frameworkSummary .mes .section-header { height: 582px; background-image: url("images/ss-header-3.png"); }
+    #frameworkSummary .mes .summary-box { height: 582px; }
+    #frameworkSummary .section-header { background-color: rgb(138, 138, 138); width: 34px; float: left; padding-top: 160px; background-position: 2px 0px; background-size: contain; }
+    #frameworkSummary .section-content { margin-left: 42px; }
+    #frameworkSummary .section-content h5.summary-heading { font-size: 0.8em; height: 24px; line-height: 24px; color: rgb(255, 255, 255); text-transform: uppercase; text-align: center; margin: 0px 0px 4px; padding: 0px; }
+    #frameworkSummary .section-content h5.summary-heading.joined { margin-bottom: 0px; }
+    #frameworkSummary .section-content .summary-box { padding: 4px 8px; min-height: 184px; }
+    #frameworkSummary .section-content .summary-box.first-row { max-height: 200px; }
+    .background-red { background-color: rgb(213, 0, 70); }
+    .background-dark-red { background-color: rgb(142, 0, 47); }
+    .background-pale-red { background-color: rgb(255, 213, 227); }
+    .bottom-dark-border-red { border-bottom: 4px solid rgb(137, 0, 45); }
+    .background-yellow { background-color: rgb(255, 154, 49); }
+    .background-dark-yellow { background-color: rgb(233, 119, 0); }
+    .background-pale-yellow { background-color: rgb(255, 242, 228); }
+    .background-green { background-color: rgb(0, 195, 148); }
+    .background-dark-green { background-color: rgb(0, 124, 94); }
+    .background-pale-green { background-color: rgb(195, 255, 241); }
+    .background-light_blue { background-color: rgb(0, 144, 255); }
+    .background-dark-light_blue { background-color: rgb(0, 104, 184); }
+    .background-pale-light_blue { background-color: rgb(204, 233, 255); }
+    .background-dark_blue { background-color: rgb(0, 114, 175); }
+    .background-dark-dark_blue { background-color: rgb(0, 67, 104); }
+    .background-pale-dark_blue { background-color: rgb(175, 227, 255); }
+    .background-purple { background-color: rgb(138, 0, 182); }
+    .background-dark-purple { background-color: rgb(84, 0, 111); }
+    .background-pale-purple { background-color: rgb(237, 182, 255); }
+    .background-bright_green { background-color: rgb(45, 164, 26); }
+    .bottom-dark-border-bright_green { border-bottom: 4px solid rgb(27, 98, 16); }
+    body { font-family: lato, sans-serif; background-color: rgb(76, 76, 76); }
+    h4 { color: rgb(255, 255, 255); font-size: 1.2rem; }
+    .aif-button { max-height: 40px; font-size: 15px; width: 100%; color: rgb(255, 255, 255); text-align: center; cursor: pointer; text-transform: uppercase; max-width: 135px; line-height: 22px; border-radius: 0px; }
+    .control-row { line-height: 20px; }
+    .control-row .aif-button { width: auto; display: inline-block; line-height: 24px; height: 30px; font-size: 13px; padding-left: 6px; padding-right: 6px; min-width: 90px; margin-right: 4px; }
+    .control-row .aif-button:last-child { margin-right: 0px; }
+    .control-row .account-button { height: 26px; width: 26px; display: inline-block; background: url("images/avatar.png") no-repeat; cursor: pointer; }
+    .control-row h4 { display: inline-block; margin-bottom: 0px; cursor: pointer; }
+    .control-row h4 a { line-height: 20px; vertical-align: bottom; }
+    .control-row .framework-name { color: rgb(157, 234, 154); font-style: italic; text-align: right; margin-right: 6px; cursor: pointer; display: inline-block; }
+    .control-row .framework-name h4 { color: rgb(0, 195, 148); line-height: 20px; vertical-align: middle; }
+    h2 { font-size: 35px; font-family: lato, sans-serif; font-weight: 300; color: rgb(255, 255, 255); }
+    .choose-fw-layout .low-pad-cell { padding: 5px; }
+    .low-pad-cell { padding-right: 5px; padding-left: 5px; }
+    .main { padding: 50px 0px; }
+    .aif-tile.login-box .login-box-group .aif-button, .aif-tile.save-box .login-box-group .aif-button { margin-right: 6px; }
+    [ng-cloak] { display: none; }
+</script>
+
+</body>
+</html>

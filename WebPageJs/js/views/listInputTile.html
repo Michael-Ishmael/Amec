@@ -1,0 +1,34 @@
+<div class="aif-tile">
+    <h1>{{ li.listTesty }}</h1>
+    <div class="aif-input"
+         ng-class="li.getColorClass('background', li.step)">
+        <div class="header" ng-class="li.getColorClass('background-light', li.step)">
+            <h3>{{ li.step.title }}</h3>
+            <div class="border-caret" ng-click="li.close()">
+                <div class="caret-left"></div>
+                <div class="caret-right"></div>
+            </div>
+        </div>
+        <div class="section" ng-repeat="item in li.cell.items">
+            <h4>{{ item.heading }} </h4>
+            <p class="sub-heading" ng-if="item.subHeading">
+                {{ item.subHeading }}
+            </p>
+            <div class="inputs-container">
+                <div class="info-button" ng-click="li.showInfoCell(item, li.cell.infoCell)">
+                    <span>i</span>
+                </div>
+
+                <textarea ng-model="item.frameworkEntry.text"></textarea>
+
+            </div>
+
+
+        </div>
+
+
+        {{ li.cell.subHeading }}
+
+    </div>
+
+</div>
