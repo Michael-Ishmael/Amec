@@ -693,8 +693,8 @@
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:8888/" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Mamp PHP" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -1195,6 +1195,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1435,7 +1436,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1494538068000" expanded="true" signature="2474:2509" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="2572:2698" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="2752:2950" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="2767:2943" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="2785:2935" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="2994:4796" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="3030:4784" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="3258:4075" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="3361:4024" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="3550:3957" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="3699:3885" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="4255:4774" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="4356:4741" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="4859:7805" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="4875:7797" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="4885:6124" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="4907:6085" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="4921:6073" ph="{&quot;heading&quot;: &quot;Preparation&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="4983:6035" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="5001:5473" ph="{&quot;heading&quot;: &quot;Align Objectives&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="5109:5455" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="5131:5272" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="5294:5435" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="5491:6019" ph="{&quot;heading&quot;: &quot;Plan &amp; Set Targets&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="5604:6001" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="5626:5767" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="5789:5981" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6134:7787" ph="{...}" />
+            <marker date="1494538068000" expanded="true" signature="6156:7748" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="6170:6570" ph="{&quot;heading&quot;: &quot;Implementation&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6236:6530" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="6254:6514" ph="{&quot;heading&quot;: &quot;Implement&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6357:6496" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="6379:6476" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6584:7736" ph="{&quot;heading&quot;: &quot;Measurement &amp; Insights&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6657:7696" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="6675:6947" ph="{&quot;heading&quot;: &quot;Measure Activity&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6790:6929" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="6812:6909" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="6965:7375" ph="{&quot;heading&quot;: &quot;Organisational &amp; Stakeholder Effects&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="7099:7357" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="7121:7218" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="7240:7337" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="7393:7679" ph="{&quot;heading&quot;: &quot;Organisation &amp; Stakeholder Effects&quot;...}" />
+            <marker date="1494538068000" expanded="true" signature="7522:7661" ph="[...]" />
+            <marker date="1494538068000" expanded="true" signature="7544:7641" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
