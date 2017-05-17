@@ -36,7 +36,7 @@ module aif {
       switch (this.inputStyle){
         case InputStyle.TextArea:
         default:
-          this.frameworkEntry = new AifFreeTextFrameworkEntry(this.heading);
+          //this.frameworkEntry = new AifFreeTextFrameworkEntry(this.heading);
       }
     }
 

@@ -55,6 +55,7 @@ module aif {
 
     export class AifData {
 
+        
         public static baseCopy: { [id: string]: IAifCopyItem } = {
             "ST" : {
                 description: "Start here text",

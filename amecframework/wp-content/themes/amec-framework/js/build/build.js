@@ -372,7 +372,6 @@ var aif;
             switch (this.inputStyle) {
                 case InputStyle.TextArea:
                 default:
-                    this.frameworkEntry = new AifFreeTextFrameworkEntry(this.heading);
             }
         };
         WorkflowInputItem.fromData = function (data) {
@@ -1081,6 +1080,14 @@ var aif;
         UserRepository.prototype.getUser = function (broadcastLogin) {
             var _this = this;
             if (broadcastLogin === void 0) { broadcastLogin = false; }
+            try {
+                if (ajax_auth_object == undefined || !ajax_auth_object) {
+                    return this.$q.when(null);
+                }
+            }
+            catch (ex) {
+                return this.$q.when(null);
+            }
             var regUrl = ajax_auth_object.ajaxurl;
             var restUrl = ajax_auth_object.resturl + "aif/v1/userframeworks";
             var data = {
@@ -1572,7 +1579,6 @@ var aif;
      */
 })(aif || (aif = {}));
 /// <reference path="../_all.ts" />
-var AifPageData;
 var aif;
 (function (aif) {
     'use strict';
@@ -1597,7 +1603,7 @@ var aif;
             var structureSteps = aif.AifData.stepStructure;
             var remoteCopy = null;
             try {
-                remoteCopy = AifPageData && AifPageData.remoteCopy ? AifPageData.remoteCopy : null;
+                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
             }
             catch (ex) {
                 remoteCopy = null;

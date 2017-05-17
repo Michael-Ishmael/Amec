@@ -13,45 +13,49 @@ if (have_posts()) :
         ?>
 
 
-                <?php
+        <?php
 //                echo '<header class="entry-content-header">';
 
-                $thumb = get_the_post_thumbnail(get_the_ID(), $avia_config['size']);
+        $thumb = get_the_post_thumbnail(get_the_ID(), $avia_config['size']);
 
 
-                if($thumb) echo "<div class='page-thumb'>{$thumb}</div>";
-                echo '</header>';
+        if ($thumb) echo "<div class='page-thumb'>{$thumb}</div>";
+        echo '</header>';
 
-                //display the actual post content
-/*                echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
-                the_content(__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span>');
-                echo '</div>';*/
-                get_template_part("includes/amec", "aif");
+        //display the actual post content
+        /*                echo '<div class="entry-content" '.avia_markup_helper(array('context' => 'entry_content','echo'=>false)).'>';
+                        the_content(__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span>');
+                        echo '</div>';*/
+        get_template_part("includes/amec", "aif");
 
-                echo '<footer class="entry-footer">';
-                wp_link_pages(array('before' =>'<div class="pagination_split_post">',
-                    'after'  =>'</div>',
-                    'pagelink' => '<span>%</span>'
-                ));
-                echo '</footer>';
+        echo '<footer class="entry-footer">';
+        wp_link_pages(array('before' => '<div class="pagination_split_post">',
+            'after' => '</div>',
+            'pagelink' => '<span>%</span>'
+        ));
+        echo '</footer>';
 
         ?>
-        <script id="aif-copy">
+        <!--
+            Hidden element that should contain string of JSON page copy to be retrieved by JS
+            Faster than an AJAX call at load time.
 
-            var AifPageData =  { remoteCopy: null };
-            AifPageData.remoteCopy = <?php
-                    //N.B> Content will be json so deliberately not using the_content()
-                    global $post;
-                    echo $post->post_content
-                    ?>
+            The js will revert to default English copy if post_content not parsed correctly
+        -->
+        <div id="aif-copy" style="display: none">
 
-                </script>
+            <?php
+            //N.B> Content will be json so deliberately not using the_content()
+            global $post;
+            echo $post->post_content
+            ?> ');
+
+        </div>
+
         <?php
 
-                do_action('ava_after_content', get_the_ID(), 'page');
-                ?>
-
-
+        do_action('ava_after_content', get_the_ID(), 'page');
+        ?>
 
 
         <?php

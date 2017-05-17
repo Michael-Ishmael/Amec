@@ -65,6 +65,59 @@ function setPerfectPerfectScrollbar(elementId, update, destroy) {
 
 }
 
+/*
+
+Page copy should be written to page by the template in a hidden element
+Attempt to get page copy.  If null returned App will revert to a default copy
+
+ */
+function getRemotePageCopy(){
+
+    try{
+
+        var copyEl = jQuery("#aif-copy");
+        if(copyEl && copyEl.length === 1){
+            var copyJson = copyEl.html();
+            var data = JSON.parse(copyJson);
+            if(data && data["ST"]){
+                return data;
+            }
+            return null;
+        }
+
+    } catch (ex){
+        return null;
+    }
+
+
+
+}
+
+function shepherd(){
+
+    var tour;
+
+    tour = new Shepherd.Tour({
+        defaults: {
+            classes: 'shepherd-theme-arrows',
+            scrollTo: true
+        }
+    });
+
+    tour.addStep('example-step', {
+        text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
+        attachTo: '.example-css-selector bottom',
+        classes: 'example-step-extra-class',
+        buttons: [
+            {
+                text: 'Next',
+                action: tour.next
+            }
+        ]
+    });
+
+    tour.start();
+}
 
 function getEntireDom(title)
 {
@@ -81,33 +134,4 @@ function getEntireDom(title)
     pdfDOM.find("head").append(jQuery("<style>" + getStyles() + "</style>"));
     return pdfDOM.html();
 }
-
-function getLoadingSpinner(){
-
-}
-
-var opts = {
-    lines: 11 // The number of lines to draw
-    , length: 0 // The length of each line
-    , width: 20 // The line thickness
-    , radius: 59 // The radius of the inner circle
-    , scale: 1 // Scales overall size of the spinner
-    , corners: 1 // Corner roundness (0..1)
-    , color: '#000' // #rgb or #rrggbb or array of colors
-    , opacity: 0.25 // Opacity of the lines
-    , rotate: 12 // The rotation offset
-    , direction: 1 // 1: clockwise, -1: counterclockwise
-    , speed: 1.2 // Rounds per second
-    , trail: 64 // Afterglow percentage
-    , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
-    , zIndex: 2e9 // The z-index (defaults to 2000000000)
-    , className: 'spinner' // The CSS class to assign to the spinner
-    , top: '54%' // Top position relative to parent
-    , left: '50%' // Left position relative to parent
-    , shadow: false // Whether to render a shadow
-    , hwaccel: false // Whether to use hardware acceleration
-    , position: 'absolute' // Element positioning
-};
-var target = document.getElementById('foo')
-var spinner = new Spinner(opts).spin(target);
 

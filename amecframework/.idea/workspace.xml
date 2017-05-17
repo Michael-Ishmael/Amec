@@ -1,338 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bfbc58a-709e-4cc2-9ed9-31c62285d5af" name="Default" comment="Fixed PDF formatting">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/DataTables/media/images/back_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/help/GoogleOpenScriptEditor.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-cs_CZ.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-de_DE.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-el_GR.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-fa_IR.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/screenshot-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/uk-cookie-consent/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/uk-cookie-consent/assets/images/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/Local_130x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/News_SEO.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/Premium_130x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/Video_130x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/Woo_130x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/amec_orange_medium.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/arrow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/arrow2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/integrated-framework-logo-white-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/preloader4.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-framework/interactive/images/preloader42.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/avia-samples/slide1_iPhone_5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/avia-samples/slide2_iconbox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/avia-samples/slide3_l16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/sampleslider/slide1_iMac.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/sampleslider/slide1_iPhone_5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/sampleslider/slide3_l17.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/avia-samples/slide1_iMac.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/avia-samples/slide1_iPhone_5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/avia-samples/slide2_iconbox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/avia-samples/slide3_l17.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/locales/LayerSlider-tr_TR.mo" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/sampleslider/slide1_iMac.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/sampleslider/slide1_iPhone_5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/sampleslider/slide3_l13.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/framework/images/layout/FIND_API.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentyfifteen/genericons/Genericons.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentyfourteen/genericons/Genericons-Regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/Amec-Home-Header-Image-Muse-1030x688.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/Amec-Home-Header-Image-Muse-120x120.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/Amec-Home-Header-Image-Muse-1210x423.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/prof-kevin-money-36x36.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/prof-kevin-money-79x80.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/2016/08/prof-kevin-money.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/interactive-framework/images/Taxonomy-updated-design-5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/interactive-framework/images/arrow2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/interactive-framework/images/integrated-framework-logo-white-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/interactive-framework/images/preloader4.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/uploads/interactive-framework/images/preloader42.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Lewis Client at heart of IEF.pptx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../LewisLogo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../LewisWheel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../LewisWheel2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Scoping.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/AMEC-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/AMEC.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Artboard1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Artboard2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Artboard3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/Taxonomy-updated-design-6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/amec_orange_medium.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/arrow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/arrow2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/avatar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/integrated-framework-logo-white-small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/preloader4.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/preloader42.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/ss-header-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/ss-header-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/ss-header-3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/tick.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/images/trash-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/angular.min.js.gzip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../data-storage.2.5.5.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../hide-admin-bar-from-non-admins.1.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perfect-scrollbar.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../save-icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/addthis/AddThisCmsConnectorInterface.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/addthis/AddThisConfigs.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/addthis/AddThisWordPressConnector.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/addthis/AddThisWordPressSharingButtonsPlugin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/addthis/COPYING" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/blaze-installer/blz-Class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/CFDBCleanupData.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/CFDBIntegrationFromCraft.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/CFDBShortcodeHtml.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/CFDBShortcodeJson.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/DataTables/media/css/jquery.dataTables_themeroller.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/DataTables/media/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/Spout-2.4.2/Autoloader/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/Spout-2.4.2/Common/Exception/InvalidArgumentException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/Spout-2.4.2/Writer/Common/Sheet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/contact-form-7-db.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/css/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/css/misctable.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/css/paginate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/sv.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/th.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/tr.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/uk.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/ur.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/vi.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/zh.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/dt_i18n/zh_TW.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/export.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/exportCSV.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-cs_CZ.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-de_DE.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/languages/contact-form-7-to-database-extension-el_GR.po" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/phpunit/DereferenceShortcodeVars_ExportTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/phpunit/SummationRowTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/phpunit/phpunit.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/phpunit/scores.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/contact-form-7-to-database-extension/phpunit/votes.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/google-analytics-dashboard-for-wp/tools/src/Google/Http/REST.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/ClassLoader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/ClassLoader52.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/installers/src/Composer/Installers/MauticInstaller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/installers/src/Composer/Installers/MediaWikiInstaller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/installers/src/Composer/Installers/PPIInstaller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/installers/src/Composer/Installers/TuskInstaller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/embedded/composer/installers/src/bootstrap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/AutoEscape.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Block.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/BlockReference.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Body.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/CheckSecurity.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Do.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Embed.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Expression.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/sitepress-multilingual-cms/lib/Twig/Node/Expression/Array.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/uk-cookie-consent/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/images/Yoast_SEO_Icon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/vendor/composer/ClassLoader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/vendor/composer/ClassLoader52.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/vendor/composer/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/vendor/yoast/api-libs/google/auth/Google_LoginTicket.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/plugins/wordpress-seo/vendor/yoast/api-libs/google/io/cacerts.pem" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/static/codemirror/addon/selection/mark-selection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/static/codemirror/lib/codemirror.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider/static/codemirror/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/locales/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/static/codemirror/addon/fold/brace-fold.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/static/codemirror/addon/selection/mark-selection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/static/codemirror/mode/javascript/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/static/codemirror/mode/javascript/javascript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/LayerSlider_old/static/codemirror/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-layerslider/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/amec-parent/config-wpml/config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentyfourteen/genericons/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentyfourteen/genericons/README.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentyfourteen/genericons/genericons.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-content/themes/twentysixteen/genericons/genericons.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/Requests/Session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/SimplePie/Locator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/SimplePie/gzdecode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/Text/Diff.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/class-http.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rest-api.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rest-api/class-wp-rest-request.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rest-api/class-wp-rest-response.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rest-api/class-wp-rest-server.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/revision.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rewrite.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rss-functions.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/rss.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/script-loader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/shortcodes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/taxonomy.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CurrentLive/amecframework-2/wp-includes/template-loader.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Notes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SavePost.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Todo 2.rtf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/WebPageJs.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/fileTemplates/AngularJs TS file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/fileTemplates/AngularJs TS file.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/markdown-navigator.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/markdown-navigator/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/typescript-compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/combined.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-summary.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-summary.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-summary.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-table-summary.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-table-summary.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif-table-summary.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-grid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-grid.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-grid.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-grid.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-reboot.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-reboot.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-reboot.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap-reboot.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/bootstrap.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/components/_summary.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/tether.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/edge_includes/edge.6.0.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/_all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/_all.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/aif.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/aif_data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AccountViewCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AccountViewCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/CreateFrameworkCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/CreateFrameworkCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/FrameworkCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/FrameworkCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/FrameworkSummaryCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/FrameworkSummaryCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/InputTileCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/InputTileCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/LoginCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/LoginCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/RegisterCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/RegisterCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/ResetPasswordCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/ResetPasswordCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/SaveAsCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/SaveAsCtrl.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/directives/AccountDirectives.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/directives/AccountDirectives.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/directives/PasswordMatchDir.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/directives/PasswordMatchDir.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/generate-pdf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IAifScope.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IAifScope.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IAifService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IAifService.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IFrameworkRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IFrameworkRepository.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IUserRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/interfaces/IUserRepository.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/angular/angular-cookies.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/angular/angular-cookies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/angular/angular.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/angular/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/bootstrap/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/bootstrap/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/bootstrap/tether.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/jquery/jquery-3.2.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/jquery/jquery.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/AifFramework.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/AifFramework.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/AifUser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/AifUser.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowInput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowInput.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowRow.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowStep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/models/WorkflowStep.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/AccountService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/AccountService.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/AifService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/AifService.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/FrameworkRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/FrameworkRepository.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/UserRepository.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/UserRepository.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/ViewService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/services/ViewService.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/account.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/create.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/frameworkSummary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/listInputTile.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/old.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/resetPassword.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/views/saveAs.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/angular-animate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/angular-animate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/angular-animate.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-animate/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/angular-click-outside.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/example/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/example/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/example/styles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-click-outside/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/angular-cookies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/angular-cookies.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular-cookies/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/angular-csp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/angular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/angular.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/node_modules/angular/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../hide-admin-bar-from-non-admins/hide-admin-bar-from-non-admins.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../hide-admin-bar-from-non-admins/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perfect-scrollbar/css/perfect-scrollbar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perfect-scrollbar/js/perfect-scrollbar.jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perfect-scrollbar/js/perfect-scrollbar.js" />
+    <list default="true" id="7bfbc58a-709e-4cc2-9ed9-31c62285d5af" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/shepherd.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/debug.log" afterPath="$PROJECT_DIR$/wp-content/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -343,287 +24,115 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.76875">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="amec-aif.php" pinned="true" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
-                  <folding>
-                    <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="loop-page.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="528">
-                  <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="post-template.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-includes/post-template.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-299">
-                  <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="generate-pdf.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="45" column="1339" lean-forward="false" selection-start-line="45" selection-start-column="1332" selection-end-line="45" selection-end-column="1339" />
-                  <folding>
-                    <marker date="1494975370000" expanded="true" signature="598:610" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="frameworkSummary.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="saveAs.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/saveAs.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="339">
-                  <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AccountDirectives.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="359">
-                  <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#AifLoginScreen#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifUserScreens#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifAccountScreen#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifCreateFwScreen#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifSaveAsScreen#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifRegisterScreen#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifResetPassword#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifFrameworkSummary#0;n#aif#0" expanded="false" />
-                    <element signature="n#!!block;n#link#0;n#AifInputGrid#0;n#aif#0" expanded="false" />
-                    <element signature="n#AifListInputTile#0;n#aif#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Application.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="660">
-                  <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="build.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="11" />
-                  <folding>
-                    <marker date="1494969855000" expanded="true" signature="65918:77509" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="65981:77360" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="66068:66382" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="66447:66579" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="66481:66535" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="66648:68619" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="67096:68266" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="67529:68221" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="68691:68737" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="68818:69000" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69075:69323" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69096:69312" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69122:69298" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69388:72543" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69465:72528" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="69733:69836" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="70023:71606" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="70215:71537" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="70514:71449" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="70767:71353" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="70994:71097" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="71135:71323" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="71764:72514" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="71905:72463" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="72030:72292" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="72616:77317" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="72637:77306" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="72655:74597" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="72687:74540" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="72713:74518" ph="{&quot;heading&quot;: &quot;Preparation&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="72803:74454" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="72837:73609" ph="{&quot;heading&quot;: &quot;Align Objectives&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="72999:73575" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="73041:73268" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="73310:73537" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="73643:74424" ph="{&quot;heading&quot;: &quot;Inform &amp; Prepare Communication&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="73822:74390" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="73864:74087" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="74129:74352" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="74615:77292" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="74647:77235" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="74673:75328" ph="{&quot;heading&quot;: &quot;Implementation&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="74766:75262" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="74800:75232" ph="{&quot;heading&quot;: &quot;Implement&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="74957:75198" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="74999:75160" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="75354:77213" ph="{&quot;heading&quot;: &quot;Measurement &amp; Insights&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="75455:77147" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="75489:75933" ph="{&quot;heading&quot;: &quot;Measure Activity&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="75658:75899" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="75700:75861" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="75967:76624" ph="{&quot;heading&quot;: &quot;Organisational &amp; Stakeholder Effects&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="76146:76590" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="76188:76349" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="76391:76552" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="76658:77116" ph="{&quot;heading&quot;: &quot;Organisation &amp; Stakeholder Effects&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="76841:77082" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="76883:77044" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-                    <marker date="1494969855000" expanded="true" signature="77592:79111" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="77646:79015" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="77702:77801" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="77852:78122" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="77917:78016" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78062:78110" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78191:78434" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78305:78422" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78486:78657" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78584:78645" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78711:78981" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="78806:78969" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="79158:79186" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="137426:137736" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="137471:137609" ph="[...]" />
-                    <marker date="1494969855000" expanded="true" signature="137515:137608" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="137616:137734" ph="//..." />
-                    <marker date="1494969855000" expanded="true" signature="137819:138008" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="137877:137961" ph="{...}" />
-                    <marker date="1494969855000" expanded="true" signature="137913:137924" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FrameworkRepository.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
-                  <caret line="255" column="28" lean-forward="true" selection-start-line="255" selection-start-column="28" selection-end-line="255" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#8135#14990#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="frameworkSummary.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="371">
-                  <caret line="286" column="28" lean-forward="false" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="99" />
-                  <folding>
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Aif Typescript Controller" />
-      </list>
-    </option>
-    <option name="SCHEME" value="Project" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>post_type</find>
-      <find>$cookies</find>
-      <find>cookie</find>
-      <find>$cooki</find>
-      <find>displaySaveAs</find>
-      <find>medi</find>
-      <find>$(</find>
-      <find>textarea</find>
-      <find>further</find>
-      <find>height: .+?px</find>
-      <find>$timeout</find>
-      <find>info</find>
-      <find>.info</find>
-      <find>info-but</find>
-      <find>hideInfo</find>
-      <find>key</find>
-      <find>save over</find>
-      <find>close-button</find>
-      <find>pre-line</find>
-      <find>free-text</find>
-      <find>.free-text</find>
-      <find>html</find>
-      <find>amec_adding_scripts</find>
-      <find>get_stylesheet_directory_uri</find>
-      <find>class=&quot;ng-scope&quot;</find>
-      <find>&lt;h2 &gt;(.+?)&lt;/h2&gt;</find>
-      <find>templateD</find>
-      <find>/images</find>
-      <find>text-link</find>
-      <find>printableFrameworkSummaryTable</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>fs.getWidthClass(group.steps.length</replace>
-      <replace>bindToController</replace>
-      <replace>\&quot;</replace>
-      <replace>jQuery</replace>
-      <replace>background-image:url(&quot; + templateDir + &quot;images/ss-header</replace>
-      <replace>ss-header</replace>
-      <replace>background-repeat:no-repeat;background-position-y:50%;background-image:url(&quot; + templateDir</replace>
-      <replace>#printableFrameworkSummary</replace>
-      <replace>bold&quot;&gt;aaa&lt;/span&gt;</replace>
-      <replace>&amp;.further-info-</replace>
-      <replace>jQuery(</replace>
-      <replace>&quot; + templateDir + &quot;/images</replace>
-      <replace>&lt;h2 &gt;{{ ctrl.getStepTitle(1, &quot;$1&quot;) }}&lt;/h2&gt;</replace>
-      <replace>printableFrameworkSummary</replace>
-    </replaceStrings>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AifFramework.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+              <folding>
+                <marker date="1494977993000" expanded="true" signature="156:249" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generate-pdf.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+              <folding>
+                <element signature="n#!!block;n#downloadPDF#0" expanded="false" />
+                <marker date="1495041048000" expanded="true" signature="598:610" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loop-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrameworkCtrl.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRepository.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom-ajax-auth.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="amec-interactive-framework.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkflowInput.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppCtrl.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -631,45 +140,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/_all.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkSummaryCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/register.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/old.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/custom-ajax-auth.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/inputGrid.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputGridCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-parent/css/custom.css" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifUser.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/css/components/_summary.scss" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/RegisterCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/account.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/create.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.ts" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts" />
         <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts" />
         <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-app.scss" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/saveAs.html" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/SaveAsCtrl.ts" />
         <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" />
-        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" />
       </list>
     </option>
   </component>
@@ -679,25 +161,15 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="PhpDebugGeneral" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpServers">
     <servers>
-      <server host="localhost" id="d75a4a54-cfe5-43ef-b088-d76ad6f9bce9" name="Apache" port="9000" use_path_mappings="true">
-        <path_mappings>
-          <mapping local-root="$PROJECT_DIR$" remote-root="/" />
-        </path_mappings>
-      </server>
-      <server host="localhost" id="c5237e88-2aeb-4ebd-94b8-10925894b29f" name="localhost" port="8888" />
+      <server host="localhost" id="1e95c145-57c0-4322-a996-0fb03a0ec88e" name="localhost" port="8888" />
     </servers>
   </component>
-  <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:8888/" />
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Mamp PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1280" />
     <option name="height" value="800" />
-  </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -802,7 +274,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -820,7 +292,19 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -831,26 +315,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/wp-content/themes/amec-framework/images" />
-      <recent name="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/angular" />
-      <recent name="$PROJECT_DIR$/wp-content/themes/amec-framework/css/vendor" />
-    </key>
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -864,86 +332,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHP Remote Debug.Amec">
-    <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP" session_id="">
-      <method />
-    </configuration>
-    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner scenario="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="Apache">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <configuration default="false" name="Amec" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="Apache" session_id="amec">
-      <method />
-    </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="PHP Remote Debug.Amec" />
-    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -958,244 +350,34 @@
       <workItem from="1494534510054" duration="1207000" />
       <workItem from="1494536677949" duration="8000" />
       <workItem from="1494536703244" duration="1092000" />
-      <workItem from="1494573535657" duration="17608000" />
-      <workItem from="1494662585355" duration="15867000" />
-      <workItem from="1494688838762" duration="82611000" />
-      <workItem from="1494927401931" duration="27700000" />
+      <workItem from="1494538124803" duration="4635000" />
     </task>
-    <task id="LOCAL-00001" summary="Attempting file sync">
-      <created>1494768323032</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1494768323032</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Attempting file sync">
-      <created>1494777126899</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1494777126899</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixed already logged in.">
-      <created>1494778190765</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1494778190765</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Get user anyway">
-      <created>1494778505190</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1494778505190</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Attempting file sync">
-      <created>1494778917301</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1494778917301</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Get user anyway">
-      <created>1494779089508</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1494779089508</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Attempting file sync">
-      <created>1494779392120</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1494779392120</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added PDF download">
-      <created>1494803537925</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1494803537925</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added PDF download 2">
-      <created>1494804069021</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1494804069021</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added PDF download 3">
-      <created>1494804388754</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1494804388754</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added PDF download 5">
-      <created>1494838855683</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1494838855683</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Scroll bar issues">
-      <created>1494842895703</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1494842895703</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Line breaks">
-      <created>1494843301236</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1494843301236</updated>
-    </task>
-    <task id="LOCAL-00014" summary="More styling fixes">
-      <created>1494850264442</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1494850264442</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Lots of work">
-      <created>1494886583282</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1494886583282</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Wheel CSS">
-      <created>1494888427390</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1494888427390</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Wheel CSS">
-      <created>1494888614660</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1494888614660</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Wheel CSS">
-      <created>1494888737437</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1494888737437</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Wheel CSS">
-      <created>1494889005285</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1494889005285</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Wheel CSS">
-      <created>1494889883488</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1494889883488</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Wheel CSS">
-      <created>1494890250597</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1494890250597</updated>
-    </task>
-    <task id="LOCAL-00022" summary="JS Update 3">
-      <created>1494890381260</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1494890381260</updated>
-    </task>
-    <task id="LOCAL-00023" summary="JS Update 3">
-      <created>1494890698631</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1494890698631</updated>
-    </task>
-    <task id="LOCAL-00024" summary="JS Update 3">
-      <created>1494891251928</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1494891251928</updated>
-    </task>
-    <task id="LOCAL-00025" summary="JS Update 6">
-      <created>1494891709827</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1494891709827</updated>
-    </task>
-    <task id="LOCAL-00026" summary="JS Update 6">
-      <created>1494892915339</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1494892915339</updated>
-    </task>
-    <task id="LOCAL-00027" summary="JS Update 6">
-      <created>1494930684988</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1494930684988</updated>
-    </task>
-    <task id="LOCAL-00028" summary="JS Update 6">
-      <created>1494930851292</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1494930851292</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Fixed PDF formatting">
-      <created>1494975874651</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1494975874651</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146093000" />
+    <option name="totallyTimeSpent" value="6942000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2575024" sideWeight="0.50555557" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1732817" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39787027" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997344" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23563892" sideWeight="0.49444443" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1270,622 +452,274 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Fixed already logged in." />
-    <MESSAGE value="Get user anyway" />
-    <MESSAGE value="Attempting file sync" />
-    <MESSAGE value="Added PDF download" />
-    <MESSAGE value="Added PDF download 2" />
-    <MESSAGE value="Added PDF download 3" />
-    <MESSAGE value="Added PDF download 5" />
-    <MESSAGE value="Scroll bar issues" />
-    <MESSAGE value="Line breaks" />
-    <MESSAGE value="More styling fixes" />
-    <MESSAGE value="Lots of work" />
-    <MESSAGE value="Wheel CSS" />
-    <MESSAGE value="JS Update 3" />
-    <MESSAGE value="JS Update 6" />
-    <MESSAGE value="Fixed PDF formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed PDF formatting" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="54" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php</url>
+          <line>49</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="index.php">
-        <watch expression="$GLOBALS['wp_query']-&gt;request" language="PHP" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IUserRepository.ts">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="62" column="27" lean-forward="false" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/inputGrid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="855">
+          <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <marker date="1494977993000" expanded="true" signature="156:249" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputGridCtrl.ts">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="75" column="13" lean-forward="true" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-parent/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/RegisterCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/components/_summary.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-parent/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/images/littleLoading.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/images/spin.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="31" column="98" lean-forward="false" selection-start-line="31" selection-start-column="98" selection-end-line="31" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-controls.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1494538068000" expanded="true" signature="2474:2509" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="2572:2698" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="2752:2950" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="2767:2943" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="2785:2935" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="2994:4796" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="3030:4784" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="3258:4075" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="3361:4024" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="3550:3957" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="3699:3885" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="4255:4774" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="4356:4741" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="4859:7805" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="4875:7797" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="4885:6124" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="4907:6085" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="4921:6073" ph="{&quot;heading&quot;: &quot;Preparation&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="4983:6035" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="5001:5473" ph="{&quot;heading&quot;: &quot;Align Objectives&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="5109:5455" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="5131:5272" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="5294:5435" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="5491:6019" ph="{&quot;heading&quot;: &quot;Plan &amp; Set Targets&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="5604:6001" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="5626:5767" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="5789:5981" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6134:7787" ph="{...}" />
-            <marker date="1494538068000" expanded="true" signature="6156:7748" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="6170:6570" ph="{&quot;heading&quot;: &quot;Implementation&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6236:6530" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="6254:6514" ph="{&quot;heading&quot;: &quot;Implement&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6357:6496" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="6379:6476" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6584:7736" ph="{&quot;heading&quot;: &quot;Measurement &amp; Insights&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6657:7696" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="6675:6947" ph="{&quot;heading&quot;: &quot;Measure Activity&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6790:6929" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="6812:6909" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="6965:7375" ph="{&quot;heading&quot;: &quot;Organisational &amp; Stakeholder Effects&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="7099:7357" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="7121:7218" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="7240:7337" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="7393:7679" ph="{&quot;heading&quot;: &quot;Organisation &amp; Stakeholder Effects&quot;...}" />
-            <marker date="1494538068000" expanded="true" signature="7522:7661" ph="[...]" />
-            <marker date="1494538068000" expanded="true" signature="7544:7641" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-registration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/wp-smushit/wp-smush.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/custom-ajax-auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="159" column="33" lean-forward="true" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/wp-db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="668" column="0" lean-forward="false" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
-          <folding>
-            <marker date="1493897639000" expanded="true" signature="24951:24958" ph="..." />
-            <marker date="1493897639000" expanded="true" signature="40070:40077" ph="..." />
-            <marker date="1493897639000" expanded="true" signature="43206:43213" ph="..." />
-            <marker date="1493897639000" expanded="true" signature="56414:56448" ph="UPDATE `${$t... " />
-            <marker date="1493897639000" expanded="true" signature="58403:58430" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/cache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="754" column="0" lean-forward="false" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="676" column="0" lean-forward="false" selection-start-line="676" selection-start-column="0" selection-end-line="676" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/formatting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="2377" column="0" lean-forward="false" selection-start-line="2377" selection-start-column="0" selection-end-line="2377" selection-end-column="0" />
-          <folding>
-            <marker date="1493897639000" expanded="true" signature="111012:111041" ph="..." />
-            <marker date="1493897639000" expanded="true" signature="184222:184251" ph="..." />
-            <marker date="1493897639000" expanded="true" signature="184809:184838" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/plugin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="710" column="24" lean-forward="false" selection-start-line="710" selection-start-column="9" selection-end-line="710" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/template-framework-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#756#977#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifUser.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="168" column="5" lean-forward="false" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+        <state relative-caret-position="735">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="135" column="5" lean-forward="false" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/post-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/bin/phpMyAdmin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding>
-            <marker date="1485180622000" expanded="true" signature="4047:4074" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <marker date="1494969855000" expanded="true" signature="65918:77509" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="65981:77360" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="66068:66382" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="66447:66579" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="66481:66535" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="66648:68619" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="67096:68266" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="67529:68221" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="68691:68737" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="68818:69000" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69075:69323" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69096:69312" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69122:69298" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69388:72543" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69465:72528" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="69733:69836" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="70023:71606" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="70215:71537" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="70514:71449" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="70767:71353" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="70994:71097" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="71135:71323" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="71764:72514" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="71905:72463" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="72030:72292" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="72616:77317" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="72637:77306" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="72655:74597" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="72687:74540" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="72713:74518" ph="{&quot;heading&quot;: &quot;Preparation&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="72803:74454" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="72837:73609" ph="{&quot;heading&quot;: &quot;Align Objectives&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="72999:73575" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="73041:73268" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="73310:73537" ph="{&quot;entryType&quot;: &quot;stepItem&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="73643:74424" ph="{&quot;heading&quot;: &quot;Inform &amp; Prepare Communication&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="73822:74390" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="73864:74087" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="74129:74352" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="74615:77292" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="74647:77235" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="74673:75328" ph="{&quot;heading&quot;: &quot;Implementation&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="74766:75262" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="74800:75232" ph="{&quot;heading&quot;: &quot;Implement&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="74957:75198" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="74999:75160" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="75354:77213" ph="{&quot;heading&quot;: &quot;Measurement &amp; Insights&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="75455:77147" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="75489:75933" ph="{&quot;heading&quot;: &quot;Measure Activity&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="75658:75899" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="75700:75861" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="75967:76624" ph="{&quot;heading&quot;: &quot;Organisational &amp; Stakeholder Effects&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="76146:76590" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="76188:76349" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="76391:76552" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="76658:77116" ph="{&quot;heading&quot;: &quot;Organisation &amp; Stakeholder Effects&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="76841:77082" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="76883:77044" ph="{&quot;entryType&quot;: &quot;step&quot;...}" />
-            <marker date="1494969855000" expanded="true" signature="77592:79111" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="77646:79015" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="77702:77801" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="77852:78122" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="77917:78016" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78062:78110" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78191:78434" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78305:78422" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78486:78657" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78584:78645" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78711:78981" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="78806:78969" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="79158:79186" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="137426:137736" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="137471:137609" ph="[...]" />
-            <marker date="1494969855000" expanded="true" signature="137515:137608" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="137616:137734" ph="//..." />
-            <marker date="1494969855000" expanded="true" signature="137819:138008" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="137877:137961" ph="{...}" />
-            <marker date="1494969855000" expanded="true" signature="137913:137924" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="2145">
+          <caret line="143" column="6" lean-forward="true" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-          <folding>
-            <element signature="n#AifLoginScreen#0;n#aif#0" expanded="false" />
-            <element signature="n#AifUserScreens#0;n#aif#0" expanded="false" />
-            <element signature="n#AifAccountScreen#0;n#aif#0" expanded="false" />
-            <element signature="n#AifCreateFwScreen#0;n#aif#0" expanded="false" />
-            <element signature="n#AifSaveAsScreen#0;n#aif#0" expanded="false" />
-            <element signature="n#AifRegisterScreen#0;n#aif#0" expanded="false" />
-            <element signature="n#AifResetPassword#0;n#aif#0" expanded="false" />
-            <element signature="n#AifFrameworkSummary#0;n#aif#0" expanded="false" />
-            <element signature="n#!!block;n#link#0;n#AifInputGrid#0;n#aif#0" expanded="false" />
-            <element signature="n#AifListInputTile#0;n#aif#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/SaveAsCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="104" column="17" lean-forward="true" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/saveAs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="190" column="29" lean-forward="false" selection-start-line="190" selection-start-column="21" selection-end-line="190" selection-end-column="29" />
-          <folding>
-            <element signature="e#12244#18312#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="255" column="28" lean-forward="true" selection-start-line="255" selection-start-column="28" selection-end-line="255" selection-end-column="55" />
-          <folding>
-            <element signature="e#8135#14990#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-app.scss">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="687" column="19" lean-forward="true" selection-start-line="687" selection-start-column="19" selection-end-line="687" selection-end-column="19" />
-          <folding>
-            <element signature="e#3037#4088#0" expanded="false" />
-            <element signature="e#4108#4161#0" expanded="false" />
-            <element signature="e#4175#6050#0" expanded="false" />
-            <element signature="e#6075#6211#0" expanded="false" />
-            <element signature="e#6231#8901#0" expanded="false" />
-            <element signature="e#10835#10992#0" expanded="false" />
-            <element signature="e#12621#12769#0" expanded="false" />
-            <element signature="e#12784#15831#0" expanded="false" />
-            <element signature="e#15841#17443#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="61" column="6" lean-forward="false" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="2070">
+          <caret line="138" column="39" lean-forward="false" selection-start-line="138" selection-start-column="39" selection-end-line="138" selection-end-column="39" />
           <folding>
-            <element signature="n#!!block;n#addInputOrEmpty#0;n#AifUserFramework#0;n#aif#0" expanded="false" />
-            <element signature="n#!!block;n#asJsonObj#0;n#AifUserFramework#0;n#aif#0" expanded="false" />
+            <marker date="1494977993000" expanded="true" signature="156:249" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="138" column="39" lean-forward="true" selection-start-line="138" selection-start-column="39" selection-end-line="138" selection-end-column="39" />
+          <folding>
+            <marker date="1494977993000" expanded="true" signature="156:249" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="183" column="6" lean-forward="false" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+          <folding>
+            <marker date="1494977993000" expanded="true" signature="156:249" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/jquery.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-237">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="461" column="8" lean-forward="false" selection-start-line="461" selection-start-column="8" selection-end-line="461" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!block;n#getUser#0;n#UserRepository#0;n#aif#0" expanded="false" />
-            <element signature="n#!!block;n#createNewFramework#0;n#UserRepository#0;n#aif#0" expanded="false" />
-            <element signature="n#!!block;n#renameFramework#0;n#UserRepository#0;n#aif#0" expanded="false" />
-            <element signature="n#!!block;n#setCookieObject#0;n#UserRepository#0;n#aif#0" expanded="false" />
-            <element signature="e#24365#24941#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/query.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="587" column="9" lean-forward="false" selection-start-line="587" selection-start-column="9" selection-end-line="587" selection-end-column="9" />
-          <folding>
-            <marker date="1493897639000" expanded="true" signature="21660:21797" ph="SELECT post_... ${$wpdb-&gt;postmeta}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        <state relative-caret-position="408">
+          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="45" column="1339" lean-forward="false" selection-start-line="45" selection-start-column="1332" selection-end-line="45" selection-end-column="1339" />
+        <state relative-caret-position="183">
+          <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
           <folding>
-            <marker date="1494975370000" expanded="true" signature="598:610" ph="..." />
+            <element signature="n#!!block;n#downloadPDF#0" expanded="false" />
+            <marker date="1495041048000" expanded="true" signature="598:610" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

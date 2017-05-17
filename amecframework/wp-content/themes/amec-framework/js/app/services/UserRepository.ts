@@ -129,6 +129,15 @@ module aif {
 
         private getUser(broadcastLogin: boolean = false): ng.IPromise<AifUser> {
 
+            try{
+                if(ajax_auth_object == undefined || !ajax_auth_object){
+                    return this.$q.when(null);
+                }
+            } catch (ex){
+                return this.$q.when(null);
+            }
+
+
             let regUrl: string = ajax_auth_object.ajaxurl;
             let restUrl: string = ajax_auth_object.resturl + "aif/v1/userframeworks";
             let data: IWpAjaxCall = {

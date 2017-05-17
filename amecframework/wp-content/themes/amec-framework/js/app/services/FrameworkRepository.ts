@@ -1,6 +1,6 @@
 /// <reference path="../_all.ts" />
 
-let AifPageData:any ;
+declare let getRemotePageCopy:() => any;
 
 module aif {
   'use strict';
@@ -34,7 +34,7 @@ module aif {
       let structureSteps = AifData.stepStructure;
       let remoteCopy = null;
       try{
-        remoteCopy = AifPageData && AifPageData.remoteCopy ? AifPageData.remoteCopy : null;
+        remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
       } catch(ex){
         remoteCopy = null;
       }

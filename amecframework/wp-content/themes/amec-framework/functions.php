@@ -25,6 +25,7 @@ function aif_add_scripts() {
 
     wp_register_script( 'angular-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular.min.js', array('jquery'), NULL, true );
     wp_register_script( 'angular-cookies-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular-cookies.js', array('angular-js'), NULL, true );
+    wp_register_script( 'angular-cookies-js', get_stylesheet_directory_uri() . '/js/libs/shepherd.min.js', array('tether-js'), NULL, true );
     wp_register_script( 'export-pdf', get_stylesheet_directory_uri() . '/js/generate-pdf.js', array('jquery'), NULL, true );
     wp_register_script( 'aif-app', get_stylesheet_directory_uri() . '/js/build/build.js', array('angular-js', 'angular-cookies-js'), NULL, true );
 
