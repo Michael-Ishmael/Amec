@@ -3,6 +3,7 @@
     "compile": "tsc --sourcemap --out js/Application.js js/_all.ts"
   },
   "dependencies": {
+    "@types/tether": "^1.4.1",
     "angular-animate": "^1.6.4",
     "angular-click-outside": "^1.2.0"
   }

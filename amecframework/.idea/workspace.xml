@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bfbc58a-709e-4cc2-9ed9-31c62285d5af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/shepherd.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/css/tether-theme-arrows.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/bootstrap/tether.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../WebPageJs/js/libs/bootstrap/tether.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../WebPageJs/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/css/aif.css" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/css/aif.css.map" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/css/aif.scss" afterPath="$PROJECT_DIR$/../WebPageJs/css/aif.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/index.html" afterPath="$PROJECT_DIR$/../WebPageJs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/js/Application.js" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/js/Application.js.map" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/js/Application.ts" afterPath="$PROJECT_DIR$/../WebPageJs/js/Application.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.js" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.ts" afterPath="$PROJECT_DIR$/../WebPageJs/js/controllers/AppCtrl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebPageJs/package.json" afterPath="$PROJECT_DIR$/../WebPageJs/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/debug.log" afterPath="$PROJECT_DIR$/wp-content/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
-              <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+              <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
               <folding>
                 <element signature="n#!!block;n#downloadPDF#0" expanded="false" />
                 <marker date="1495041048000" expanded="true" signature="598:610" ph="..." />
@@ -53,8 +56,8 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -64,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -86,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -350,16 +353,15 @@
       <workItem from="1494534510054" duration="1207000" />
       <workItem from="1494536677949" duration="8000" />
       <workItem from="1494536703244" duration="1092000" />
-      <workItem from="1494538124803" duration="4635000" />
+      <workItem from="1494538124803" duration="5026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6942000" />
+    <option name="totallyTimeSpent" value="7333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -657,7 +659,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -673,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -697,7 +699,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -707,7 +709,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
-          <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
           <folding>
             <element signature="n#!!block;n#downloadPDF#0" expanded="false" />
             <marker date="1495041048000" expanded="true" signature="598:610" ph="..." />
@@ -717,8 +719,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="261">
+          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
           <folding />
         </state>
       </provider>

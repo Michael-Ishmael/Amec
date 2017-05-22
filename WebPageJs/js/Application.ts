@@ -8,7 +8,7 @@
 module aif {
   'use strict';
 
-  let aif = angular.module('aif', ['ngCookies', 'ngAnimate'])
+  let aif = angular.module('aif', ['ngCookies'])
     .service('userRepository', UserRepository)
     .service('frameworkRepository', FrameworkRepository)
     .service('aifService', AifService)
