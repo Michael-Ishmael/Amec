@@ -9,7 +9,7 @@ module aif {
   export class AppCtrl {
 
     public app: AifApp;
-    public static $inject = ["$scope" ,"$window", "$sce", "userRepository", "viewService"];
+    public static $inject = ["$scope" ,"$timeout", "$sce", "userRepository", "viewService"];
 
     public loginFailure:boolean = false;
     public message:string = null;
@@ -18,8 +18,11 @@ module aif {
 
     public currentFramework:AifFramework  = null;
     public currentUser:AifUser  = null;
+    public displayLoginReminder:boolean;
+    private reminderTimeoutPromise:ng.IPromise<boolean>;
 
-    constructor(private $scope: ng.IScope, private $window: ng.IWindowService, private $sce: ng.ISCEService,
+
+    constructor(private $scope: ng.IScope, private $timeout: ng.ITimeoutService, private $sce: ng.ISCEService,
                 private userRepository: UserRepository, public vs:ViewService) {
       this.init();
     }
@@ -34,31 +37,45 @@ module aif {
 
       this.vs.showLoading();
       this.userRepository.get().then(
-        user => {
+        status => {
+          if(status.backendError){
+            //Handle no back end here and return
+          }
           this.vs.resetView();
-          if(user){
-            this.currentUser = user;
-            if(user.loggedInFromSave){
+          if(status.user) {
+            this.currentUser = status.user;
+            if(this.currentUser.loggedInFromSave){
               this.initialised = true;
-              this.vs.showCreateFramework(AccountDisplayRoute.FromSave, user.hasFrameworks());
+              this.vs.showCreateFramework(AccountDisplayRoute.FromSave, this.currentUser.hasFrameworks());
               return;
             }
-            if(!user.currentFramework){
+            if(!this.currentUser.currentFramework){
               this.initialised = true;
 
               if(this.userRepository.currentUserFramework && this.userRepository.currentUserFramework.isDraft){
 
-                this.vs.showCreateFramework(AccountDisplayRoute.FromDetectUnsaved, user.hasFrameworks());
-                return
+                this.vs.showCreateFramework(AccountDisplayRoute.FromDetectUnsaved, this.currentUser.hasFrameworks());
+                return;
               }
 
-              if(user.hasExistingFrameworks())
+              if(this.currentUser.hasExistingFrameworks())
                 this.vs.showAccount(AccountDisplayRoute.FromLogin);
               else {
-                this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, user.hasFrameworks());
+                this.vs.showCreateFramework(AccountDisplayRoute.FromLogin, this.currentUser.hasFrameworks());
               }
             }
-            if(user.currentFramework) this.currentFramework = user.currentFramework;
+            if(this.currentUser.currentFramework) this.currentFramework = this.currentUser.currentFramework;
+
+          } else {
+
+            this.reminderTimeoutPromise = this.$timeout(():boolean => {
+              this.vs.showLoginReminder(() => {
+
+                this.userRepository.setRegisterReminderStatus(ReminderStatus.Dismissed);
+                this.vs.hideLoginReminder();
+              });
+              return true;
+            }, 2500);
 
           }
           this.initialised = true;
@@ -69,6 +86,8 @@ module aif {
 
     private userLoggedChanged(user:AifUser):void{
       if(user){
+        this.displayLoginReminder = false;
+        if(this.reminderTimeoutPromise) this.$timeout.cancel(this.reminderTimeoutPromise);
         this.currentUser = user;
         if(this.currentUser.currentFramework){
           this.setCurrentFramework(this.currentUser.currentFramework);

@@ -46,6 +46,15 @@ $color-list: (
   display: none;
 }
 
+.aif-app-shepherd-box {
+  z-index: 200;
+}
+
+#register-p{
+  max-width: 300px;
+  font-size: .8em;
+}
+
 #aif-app {
 
   font-family: lato, Roboto, Arial, sans-serif;

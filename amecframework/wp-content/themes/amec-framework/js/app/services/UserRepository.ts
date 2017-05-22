@@ -81,10 +81,29 @@ module aif {
         userId: number;
         currentFrameworkId: number;
         loggedInFromSave: boolean;
+        registerReminderStatus: ReminderStatus;
     }
 
+    export enum ReminderStatus {
+        NotSeen = 0,
+        SeenOnce = 1,
+        SeenTwiceOrMore = 2,
+        Dismissed = 3,
+        Registered = 4,
+        NeverShow = 5
+    }
 
-    export class UserRepository implements IUserRepository {
+    export class AifStatus {
+
+        constructor(public registerReminderStatus: ReminderStatus = ReminderStatus.NotSeen,
+                    public backendError: boolean = false) {
+
+        }
+
+        user: AifUser;
+    }
+
+    export class UserRepository {
 
         static $inject = ["$timeout", "$rootScope", '$cookies', '$http', '$q'];
 
@@ -115,28 +134,34 @@ module aif {
             this.frameworkService = service;
         }
 
-        get(): ng.IPromise<AifUser> {
+        get(): ng.IPromise<AifStatus> {
 
             let loggedIn = this.getCookieValue("isLoggedIn");
             if (!loggedIn) {
                 this.getUser(true); //Attempt a get user anyway as might have cleared cookie
-                return this.$q.when(null);
+                let status = new AifStatus();
+                status.registerReminderStatus = this.getCookieValue("registerReminderStatus");
+                return this.$q.when(status);
             }
 
             return this.getUser();
 
         }
 
-        private getUser(broadcastLogin: boolean = false): ng.IPromise<AifUser> {
-
-            try{
-                if(ajax_auth_object == undefined || !ajax_auth_object){
-                    return this.$q.when(null);
+        private getUser(broadcastLogin: boolean = false): ng.IPromise<AifStatus> {
+            let status: AifStatus = new AifStatus();
+            status.registerReminderStatus = this.getCookieValue("registerReminderStatus");
+            try {
+                if (ajax_auth_object == undefined || !ajax_auth_object) {
+                    status.backendError = true;
+                    status.registerReminderStatus = ReminderStatus.NeverShow;
+                    return this.$q.when(status);
                 }
-            } catch (ex){
-                return this.$q.when(null);
+            } catch (ex) {
+                status.registerReminderStatus = ReminderStatus.NeverShow;
+                status.backendError = true;
+                return this.$q.when(status);
             }
-
 
             let regUrl: string = ajax_auth_object.ajaxurl;
             let restUrl: string = ajax_auth_object.resturl + "aif/v1/userframeworks";
@@ -147,51 +172,58 @@ module aif {
             let user: AifUser = null;
             let currentFrameworkId: number = -1;
 
-            return this.$http.post(regUrl, data,
-            ).then((response: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse>) => {
+            return this.$http.post(regUrl, data)
+                .then((response: ng.IHttpPromiseCallbackArg<IWpAjaxUserResponse>) => {
 
-                if (response.data && response.data.loggedIn) {
-                    let d = response.data;
-                    user = new AifUser(d.email, d.displayName,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
-                    );
-                    user.id = d.userId;
-                    this.currentUser = user;
-                    this.setLoggedInCookieStatus();
-                    currentFrameworkId = this.getCookieValue("currentFrameworkId") || -1;
-                    return this.$http.get(restUrl);
-                }
-
-                return null;
-            }, e => {
-                return null;
-            }).then((response: ng.IHttpPromiseCallbackArg<Array<IWpRestFrameworkListResponse>>) => {
-
-                let currentIsDraft: boolean = false;
-                if (user && response && response.data) {
-                    user.frameworks = response.data.filter(f => f.status.toLowerCase() != 'draft').map(f => new AifFramework(f.id, f.title, f.excerpt));
-
-                    let draftFrameworks = response.data.filter(f => f.status.toLowerCase() == 'draft');
-                    if (draftFrameworks.length) {
-                        currentIsDraft = draftFrameworks.some(f => f.id == currentFrameworkId);
+                    if (response.data && response.data.loggedIn) {
+                        let d = response.data;
+                        user = new AifUser(d.email, d.displayName,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null
+                        );
+                        user.id = d.userId;
+                        this.currentUser = user;
+                        this.setLoggedInCookieStatus();
+                        currentFrameworkId = this.getCookieValue("currentFrameworkId") || -1;
+                        return this.$http.get(restUrl);
                     }
-                }
-                if (currentFrameworkId > -1) return this.loadFramework(currentFrameworkId, currentIsDraft);
 
-                return null;
+                    return null;
+                }, e => {
+                    return null;
+                }).then((response: ng.IHttpPromiseCallbackArg<Array<IWpRestFrameworkListResponse>>) => {
 
-            }).then((response: any) => {
+                    let currentIsDraft: boolean = false;
+                    if (user && response && response.data) {
+                        user.frameworks = response.data.filter(f => f.status.toLowerCase() != 'draft').map(f => new AifFramework(f.id, f.title, f.excerpt));
 
-                if (broadcastLogin) {
+                        let draftFrameworks = response.data.filter(f => f.status.toLowerCase() == 'draft');
+                        if (draftFrameworks.length) {
+                            currentIsDraft = draftFrameworks.some(f => f.id == currentFrameworkId);
+                        }
+                    }
+                    if (currentFrameworkId > -1) return this.loadFramework(currentFrameworkId, currentIsDraft);
 
-                    this.$rootScope.$broadcast("user:loggedIn", user);
-                }
-                return user;
-            })
+                    return null;
+
+                }).then((response: any) => {
+
+                    if (broadcastLogin) {
+
+                        this.$rootScope.$broadcast("user:loggedIn", user);
+                    }
+                    status.user = user;
+                    return status;
+                })
+        }
+
+        public setRegisterReminderStatus(status:ReminderStatus){
+
+            this.setCookieValue("registerReminderStatus", status)
+
         }
 
         private setLoggedInCookieStatus() {
@@ -399,7 +431,6 @@ module aif {
 
         }
 
-
         createNewFramework(name: string, description: string): ng.IPromise<SaveFrameworkResult> {
             let hasUser = !!this.currentUser;
 
@@ -523,8 +554,9 @@ module aif {
                     userId: cookieHash["userId"],
                     currentFrameworkId: cookieHash["currentFrameworkId"],
                     isLoggedIn: cookieHash["isLoggedIn"],
-                    loggedInFromSave: cookieHash["loggedInFromSave"]
-                }
+                    loggedInFromSave: cookieHash["loggedInFromSave"],
+                    registerReminderStatus: cookieHash["registerReminderStatus"]
+                };
                 this.$cookies.putObject("aifStatus", cookie);
                 return
             }
@@ -542,12 +574,7 @@ module aif {
 
             let cookie: IAifStatusCookie = this.$cookies.getObject("aifStatus");
             if (!cookie) {
-                cookie = {
-                    userId: this.currentUser ? this.currentUser.id : null,
-                    currentFrameworkId: this.currentUser.currentFramework ? this.currentUser.currentFramework.id : null,
-                    isLoggedIn: !!this.currentUser,
-                    loggedInFromSave: false
-                }
+                cookie = this.getDefaultCookie();
             }
 
             if (cookie.hasOwnProperty(key)) {
@@ -562,13 +589,24 @@ module aif {
 
             let cookie: IAifStatusCookie = this.$cookies.getObject("aifStatus");
             if (!cookie) {
-                return null;
+                cookie = this.getDefaultCookie();
+                this.$cookies.putObject("aifStatus", cookie);
             }
 
             if (cookie.hasOwnProperty(key)) {
                 return cookie[key];
             }
 
+        }
+
+        private getDefaultCookie(): IAifStatusCookie {
+            return {
+                userId: this.currentUser ? this.currentUser.id : null,
+                currentFrameworkId: this.currentUser && this.currentUser.currentFramework ? this.currentUser.currentFramework.id : null,
+                isLoggedIn: !!this.currentUser,
+                loggedInFromSave: false,
+                registerReminderStatus: this.currentUser ? ReminderStatus.SeenOnce : ReminderStatus.NotSeen
+            }
         }
 
         loadFramework(id: number, isDraft: boolean = false): ng.IPromise<SaveFrameworkResult> {

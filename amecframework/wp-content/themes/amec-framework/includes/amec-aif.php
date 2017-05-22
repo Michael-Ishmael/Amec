@@ -3,13 +3,16 @@
         <div class="loader" ng-if="ac.vs.displayLoading">
 
         </div>
-        <div   class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
+        <div class="message" ng-if="ac.displayLoginReminder">
+            <h1 style="color: white">You should log in!</h1>
+        </div>
+        <div class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
             <div  class="low-pad-cell"  ng-class="{'col-md-4': ac.vs.displayGrid && !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn() && ac.vs.displayGrid, 'col-md-1' : ac.vs.displaySummary}">
-                <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
+                <div id="login-button" class="aif-button background-dark_blue bottom-dark-border-dark_blue"
                      ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised">
                     Login
                 </div>
-                <div class="aif-button background-dark_blue bottom-dark-border-dark_blue"
+                <div id="register-button" class="aif-button background-dark_blue bottom-dark-border-dark_blue"
                      ng-click="ac.showRegister()"  ng-if="!ac.isLoggedIn() && ac.initialised && ac.vs.displayGrid">
                     Register
                 </div>

@@ -912,6 +912,7 @@ var aif;
     var ViewService = (function () {
         function ViewService($sce) {
             this.$sce = $sce;
+            this.registerButtonId = "#register-button";
             this.fadeBg = false;
             this.displayEdit = false;
             this.displayLogin = false;
@@ -928,6 +929,8 @@ var aif;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
             this.displaySave = false;
+            this.loginReminder = null;
+            this.loginReminderCallback = null;
             this.reset();
         }
         ViewService.prototype.showLoading = function () {
@@ -980,6 +983,44 @@ var aif;
         };
         ViewService.prototype.resetView = function () {
             this.reset();
+        };
+        ViewService.prototype.showLoginReminder = function (callback) {
+            if (this.displaySummary)
+                return;
+            this.loginReminderCallback = callback;
+            if (!this.loginReminder)
+                this.loginReminder = this.createLoginReminder();
+            this.loginReminder.start();
+        };
+        ViewService.prototype.hideLoginReminder = function () {
+            if (!!this.loginReminder) {
+                this.loginReminder.cancel();
+            }
+        };
+        ViewService.prototype.createLoginReminder = function () {
+            var loginReminder = new Shepherd.Tour({
+                defaults: {
+                    classes: 'shepherd-theme-default'
+                }
+            });
+            var stepOptions = {
+                text: '<p id="register-p">"New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account. To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.  Don’t worry, use of the framework remains completely free!</p>',
+                attachTo: this.registerButtonId + " [bottom left]",
+                tetherOptions: {
+                    target: this.registerButtonId,
+                    attachment: 'top left',
+                    targetAttachment: 'bottom left'
+                },
+                //classes: 'aif-app-shepherd-box',
+                buttons: [
+                    {
+                        text: 'OK',
+                        action: this.loginReminderCallback
+                    }
+                ]
+            };
+            loginReminder.addStep('example-step', stepOptions);
+            return loginReminder;
         };
         ViewService.prototype.showRegister = function (route) {
             if (route === void 0) { route = null; }
@@ -1041,6 +1082,9 @@ var aif;
             this.displayGrid = true;
             this.displaySummary = false;
             this.displayLoading = false;
+            if (!!this.loginReminder) {
+                this.loginReminder.cancel();
+            }
         };
         return ViewService;
     }());
@@ -1051,6 +1095,25 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
+    var ReminderStatus;
+    (function (ReminderStatus) {
+        ReminderStatus[ReminderStatus["NotSeen"] = 0] = "NotSeen";
+        ReminderStatus[ReminderStatus["SeenOnce"] = 1] = "SeenOnce";
+        ReminderStatus[ReminderStatus["SeenTwiceOrMore"] = 2] = "SeenTwiceOrMore";
+        ReminderStatus[ReminderStatus["Dismissed"] = 3] = "Dismissed";
+        ReminderStatus[ReminderStatus["Registered"] = 4] = "Registered";
+        ReminderStatus[ReminderStatus["NeverShow"] = 5] = "NeverShow";
+    })(ReminderStatus = aif.ReminderStatus || (aif.ReminderStatus = {}));
+    var AifStatus = (function () {
+        function AifStatus(registerReminderStatus, backendError) {
+            if (registerReminderStatus === void 0) { registerReminderStatus = ReminderStatus.NotSeen; }
+            if (backendError === void 0) { backendError = false; }
+            this.registerReminderStatus = registerReminderStatus;
+            this.backendError = backendError;
+        }
+        return AifStatus;
+    }());
+    aif.AifStatus = AifStatus;
     var UserRepository = (function () {
         function UserRepository($timeout, $rootScope, $cookies, $http, $q) {
             this.$timeout = $timeout;
@@ -1073,20 +1136,28 @@ var aif;
             var loggedIn = this.getCookieValue("isLoggedIn");
             if (!loggedIn) {
                 this.getUser(true); //Attempt a get user anyway as might have cleared cookie
-                return this.$q.when(null);
+                var status_1 = new AifStatus();
+                status_1.registerReminderStatus = this.getCookieValue("registerReminderStatus");
+                return this.$q.when(status_1);
             }
             return this.getUser();
         };
         UserRepository.prototype.getUser = function (broadcastLogin) {
             var _this = this;
             if (broadcastLogin === void 0) { broadcastLogin = false; }
+            var status = new AifStatus();
+            status.registerReminderStatus = this.getCookieValue("registerReminderStatus");
             try {
                 if (ajax_auth_object == undefined || !ajax_auth_object) {
-                    return this.$q.when(null);
+                    status.backendError = true;
+                    status.registerReminderStatus = ReminderStatus.NeverShow;
+                    return this.$q.when(status);
                 }
             }
             catch (ex) {
-                return this.$q.when(null);
+                status.registerReminderStatus = ReminderStatus.NeverShow;
+                status.backendError = true;
+                return this.$q.when(status);
             }
             var regUrl = ajax_auth_object.ajaxurl;
             var restUrl = ajax_auth_object.resturl + "aif/v1/userframeworks";
@@ -1096,7 +1167,8 @@ var aif;
             };
             var user = null;
             var currentFrameworkId = -1;
-            return this.$http.post(regUrl, data).then(function (response) {
+            return this.$http.post(regUrl, data)
+                .then(function (response) {
                 if (response.data && response.data.loggedIn) {
                     var d = response.data;
                     user = new aif.AifUser(d.email, d.displayName, null, null, null, null, null);
@@ -1125,8 +1197,12 @@ var aif;
                 if (broadcastLogin) {
                     _this.$rootScope.$broadcast("user:loggedIn", user);
                 }
-                return user;
+                status.user = user;
+                return status;
             });
+        };
+        UserRepository.prototype.setRegisterReminderStatus = function (status) {
+            this.setCookieValue("registerReminderStatus", status);
         };
         UserRepository.prototype.setLoggedInCookieStatus = function () {
             if (this.currentUser) {
@@ -1388,7 +1464,8 @@ var aif;
                     userId: cookieHash["userId"],
                     currentFrameworkId: cookieHash["currentFrameworkId"],
                     isLoggedIn: cookieHash["isLoggedIn"],
-                    loggedInFromSave: cookieHash["loggedInFromSave"]
+                    loggedInFromSave: cookieHash["loggedInFromSave"],
+                    registerReminderStatus: cookieHash["registerReminderStatus"]
                 };
                 this.$cookies.putObject("aifStatus", cookie);
                 return;
@@ -1403,12 +1480,7 @@ var aif;
         UserRepository.prototype.setCookieValue = function (key, value) {
             var cookie = this.$cookies.getObject("aifStatus");
             if (!cookie) {
-                cookie = {
-                    userId: this.currentUser ? this.currentUser.id : null,
-                    currentFrameworkId: this.currentUser.currentFramework ? this.currentUser.currentFramework.id : null,
-                    isLoggedIn: !!this.currentUser,
-                    loggedInFromSave: false
-                };
+                cookie = this.getDefaultCookie();
             }
             if (cookie.hasOwnProperty(key)) {
                 cookie[key] = value;
@@ -1418,11 +1490,21 @@ var aif;
         UserRepository.prototype.getCookieValue = function (key) {
             var cookie = this.$cookies.getObject("aifStatus");
             if (!cookie) {
-                return null;
+                cookie = this.getDefaultCookie();
+                this.$cookies.putObject("aifStatus", cookie);
             }
             if (cookie.hasOwnProperty(key)) {
                 return cookie[key];
             }
+        };
+        UserRepository.prototype.getDefaultCookie = function () {
+            return {
+                userId: this.currentUser ? this.currentUser.id : null,
+                currentFrameworkId: this.currentUser && this.currentUser.currentFramework ? this.currentUser.currentFramework.id : null,
+                isLoggedIn: !!this.currentUser,
+                loggedInFromSave: false,
+                registerReminderStatus: this.currentUser ? ReminderStatus.SeenOnce : ReminderStatus.NotSeen
+            };
         };
         UserRepository.prototype.loadFramework = function (id, isDraft) {
             var _this = this;
@@ -2790,9 +2872,9 @@ var aif;
 (function (aif) {
     'use strict';
     var AppCtrl = (function () {
-        function AppCtrl($scope, $window, $sce, userRepository, vs) {
+        function AppCtrl($scope, $timeout, $sce, userRepository, vs) {
             this.$scope = $scope;
-            this.$window = $window;
+            this.$timeout = $timeout;
             this.$sce = $sce;
             this.userRepository = userRepository;
             this.vs = vs;
@@ -2811,35 +2893,50 @@ var aif;
             this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
             this.$scope.$on("framework:frameworkSwitched", function (event, data) { _this.setCurrentFramework(data); });
             this.vs.showLoading();
-            this.userRepository.get().then(function (user) {
+            this.userRepository.get().then(function (status) {
+                if (status.backendError) {
+                    //Handle no back end here and return
+                }
                 _this.vs.resetView();
-                if (user) {
-                    _this.currentUser = user;
-                    if (user.loggedInFromSave) {
+                if (status.user) {
+                    _this.currentUser = status.user;
+                    if (_this.currentUser.loggedInFromSave) {
                         _this.initialised = true;
-                        _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, user.hasFrameworks());
+                        _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromSave, _this.currentUser.hasFrameworks());
                         return;
                     }
-                    if (!user.currentFramework) {
+                    if (!_this.currentUser.currentFramework) {
                         _this.initialised = true;
                         if (_this.userRepository.currentUserFramework && _this.userRepository.currentUserFramework.isDraft) {
-                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromDetectUnsaved, user.hasFrameworks());
+                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromDetectUnsaved, _this.currentUser.hasFrameworks());
                             return;
                         }
-                        if (user.hasExistingFrameworks())
+                        if (_this.currentUser.hasExistingFrameworks())
                             _this.vs.showAccount(aif.AccountDisplayRoute.FromLogin);
                         else {
-                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, user.hasFrameworks());
+                            _this.vs.showCreateFramework(aif.AccountDisplayRoute.FromLogin, _this.currentUser.hasFrameworks());
                         }
                     }
-                    if (user.currentFramework)
-                        _this.currentFramework = user.currentFramework;
+                    if (_this.currentUser.currentFramework)
+                        _this.currentFramework = _this.currentUser.currentFramework;
+                }
+                else {
+                    _this.reminderTimeoutPromise = _this.$timeout(function () {
+                        _this.vs.showLoginReminder(function () {
+                            _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
+                            _this.vs.hideLoginReminder();
+                        });
+                        return true;
+                    }, 2500);
                 }
                 _this.initialised = true;
             });
         };
         AppCtrl.prototype.userLoggedChanged = function (user) {
             if (user) {
+                this.displayLoginReminder = false;
+                if (this.reminderTimeoutPromise)
+                    this.$timeout.cancel(this.reminderTimeoutPromise);
                 this.currentUser = user;
                 if (this.currentUser.currentFramework) {
                     this.setCurrentFramework(this.currentUser.currentFramework);
@@ -2933,7 +3030,7 @@ var aif;
         };
         return AppCtrl;
     }());
-    AppCtrl.$inject = ["$scope", "$window", "$sce", "userRepository", "viewService"];
+    AppCtrl.$inject = ["$scope", "$timeout", "$sce", "userRepository", "viewService"];
     aif.AppCtrl = AppCtrl;
     var SavedFrameworkModel = (function () {
         function SavedFrameworkModel() {
@@ -3254,6 +3351,7 @@ var aif;
 /// <reference path='../libs/jquery/jquery.d.ts' />
 /// <reference path='../libs/angular/angular.d.ts' />
 /// <reference path='../libs/angular/angular-cookies.d.ts' />
+/// <reference path='../libs/tether-shepherd/tether-shepherd.d.ts' />
 /// <reference path='models/AifData.ts' />
 /// <reference path='models/WorkflowInput.ts' />
 /// <reference path='models/WorkflowStep.ts' />
