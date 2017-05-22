@@ -249,6 +249,40 @@ body {
   position: relative;
   color: #fff; }
 
+#register-reminder {
+  z-index: 12; }
+  #register-reminder p {
+    font-size: .8em;
+    max-width: 400px;
+    line-height: 1.4em; }
+  #register-reminder .btn-reg {
+    border: 1px solid gray;
+    color: gray;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 1; }
+    #register-reminder .btn-reg:hover {
+      border: 1px solid gray;
+      color: #fff;
+      background-color: gray; }
+  #register-reminder .reg-buttons {
+    height: 30px;
+    margin: 0; }
+  #register-reminder .tether-content {
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.3); }
+  #register-reminder header {
+    height: 10px; }
+  #register-reminder .close-button {
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    padding: 2px 8px;
+    cursor: pointer;
+    margin-right: -15px;
+    margin-top: -15px; }
+    #register-reminder .close-button:hover {
+      text-decoration: underline; }
+
 .base-framework {
   z-index: 0;
   position: absolute;

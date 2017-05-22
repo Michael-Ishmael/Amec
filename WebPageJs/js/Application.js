@@ -1780,13 +1780,14 @@ var aif;
 /// <///<reference path=".../_all.ts" />
 var getEntireDom;
 var downloadPDF;
+var Tether;
 var aif;
 (function (aif) {
     'use strict';
     var AppCtrl = (function () {
-        function AppCtrl($scope, $window, $sce, userRepository, vs) {
+        function AppCtrl($scope, $timeout, $sce, userRepository, vs) {
             this.$scope = $scope;
-            this.$window = $window;
+            this.$timeout = $timeout;
             this.$sce = $sce;
             this.userRepository = userRepository;
             this.vs = vs;
@@ -1801,9 +1802,15 @@ var aif;
         }
         AppCtrl.prototype.init = function () {
             var _this = this;
-            this.$scope.$on("user:loggedIn", function (event, data) { _this.userLoggedChanged(data); });
-            this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
-            this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
+            this.$scope.$on("user:loggedIn", function (event, data) {
+                _this.userLoggedChanged(data);
+            });
+            this.$scope.$on("user:loggedOut", function (event) {
+                _this.userLoggedChanged(null);
+            });
+            this.$scope.$on("framework:frameworkUpdated", function (event, data) {
+                _this.setCurrentFramework(data);
+            });
             var self = this;
             this.userRepository.get().then(function (user) {
                 if (user) {
@@ -1812,7 +1819,17 @@ var aif;
                         _this.currentFramework = user.currentFramework;
                 }
                 _this.initialised = true;
+                _this.$timeout(_this.doTether, 500);
             });
+        };
+        AppCtrl.prototype.doTether = function () {
+            var tetherOptions = {
+                attachment: "top left",
+                element: "#register-reminder",
+                target: "#register-button",
+                targetAttachment: "bottom left"
+            };
+            var regTether = new Tether(tetherOptions);
         };
         AppCtrl.prototype.userLoggedChanged = function (user) {
             if (user) {
@@ -1895,7 +1912,7 @@ var aif;
             }
             this.hideLoginBox();
         };
-        AppCtrl.$inject = ["$scope", "$window", "$sce", "userRepository", "viewService"];
+        AppCtrl.$inject = ["$scope", "$timeout", "$sce", "userRepository", "viewService"];
         return AppCtrl;
     }());
     aif.AppCtrl = AppCtrl;
@@ -2150,7 +2167,7 @@ var aif;
 var aif;
 (function (aif_1) {
     'use strict';
-    var aif = angular.module('aif', ['ngCookies', 'ngAnimate'])
+    var aif = angular.module('aif', ['ngCookies'])
         .service('userRepository', aif_1.UserRepository)
         .service('frameworkRepository', aif_1.FrameworkRepository)
         .service('aifService', aif_1.AifService)
