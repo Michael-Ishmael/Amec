@@ -15,7 +15,7 @@ function aif_add_scripts() {
 
 
     wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap.css', false, NULL, 'all' );
-    wp_register_style( 'tether-css', get_stylesheet_directory_uri() . '/css/vendor/tether.min..css', false, NULL, 'all' );
+    wp_register_style( 'tether-css', get_stylesheet_directory_uri() . '/css/vendor/tether.min.css', false, NULL, 'all' );
     wp_register_style( 'tether-arrows-css', get_stylesheet_directory_uri() . '/css/vendor/tether-theme-arrows.css', false, NULL, 'all' );
 
     wp_register_script( 'tether-js', get_stylesheet_directory_uri() . '/js/libs/bootstrap/tether.min.js', array('jquery'), NULL, true );

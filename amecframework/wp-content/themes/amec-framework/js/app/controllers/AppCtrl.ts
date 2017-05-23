@@ -9,7 +9,7 @@ module aif {
   export class AppCtrl {
 
     public app: AifApp;
-    public static $inject = ["$scope" ,"$timeout", "$sce", "userRepository", "viewService"];
+    public static $inject = ["$scope" ,"$interval", "$sce", "userRepository", "viewService"];
 
     public loginFailure:boolean = false;
     public message:string = null;
@@ -18,10 +18,10 @@ module aif {
     public currentFramework:AifFramework  = null;
     public currentUser:AifUser  = null;
     public displayLoginReminder:boolean;
-    private reminderTimeoutPromise:ng.IPromise<boolean>;
+    private reminderIntervalPromise:ng.IPromise<boolean>;
 
 
-    constructor(private $scope: ng.IScope, private $timeout: ng.ITimeoutService, private $sce: ng.ISCEService,
+    constructor(private $scope: ng.IScope, private $interval: ng.IIntervalService, private $sce: ng.ISCEService,
                 private userRepository: UserRepository, public vs:ViewService) {
       this.init();
     }
@@ -67,10 +67,16 @@ module aif {
 
           } else {
             if(status.registerReminderStatus < ReminderStatus.Dismissed)
-            this.reminderTimeoutPromise = this.$timeout(():boolean => {
-              this.displayLoginReminder = true;
+            this.reminderIntervalPromise = this.$interval(():boolean => {
 
-              return true;
+              if(this.vs.displayLogin || this.vs.displayRegister){
+                return true;
+              }
+                this.$interval.cancel(this.reminderIntervalPromise);
+                this.displayLoginReminder = true;
+
+
+              return false;
             }, 2500);
 
           }
@@ -80,10 +86,11 @@ module aif {
       );
     }
 
+
     private userLoggedChanged(user:AifUser):void{
       if(user){
         this.displayLoginReminder = false;
-        if(this.reminderTimeoutPromise) this.$timeout.cancel(this.reminderTimeoutPromise);
+        if(this.reminderIntervalPromise) this.$interval.cancel(this.reminderIntervalPromise);
         this.currentUser = user;
         if(this.currentUser.currentFramework){
           this.setCurrentFramework(this.currentUser.currentFramework);

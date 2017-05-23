@@ -1094,7 +1094,7 @@ var aif;
             if (!loggedIn) {
                 this.getUser(true); //Attempt a get user anyway as might have cleared cookie
                 var status_1 = new AifStatus();
-                status_1.registerReminderStatus = this.getCookieValue("registerReminderStatus");
+                status_1.registerReminderStatus = this.getCookieValue("registerReminderStatus") || ReminderStatus.NotSeen;
                 return this.$q.when(status_1);
             }
             return this.getUser();
@@ -2882,10 +2882,10 @@ var aif;
 (function (aif) {
     'use strict';
     var AppCtrl = (function () {
-        function AppCtrl($scope, $timeout, $sce, userRepository, vs) {
+        function AppCtrl($scope, $interval, $sce, userRepository, vs) {
             var _this = this;
             this.$scope = $scope;
-            this.$timeout = $timeout;
+            this.$interval = $interval;
             this.$sce = $sce;
             this.userRepository = userRepository;
             this.vs = vs;
@@ -2936,9 +2936,13 @@ var aif;
                 }
                 else {
                     if (status.registerReminderStatus < aif.ReminderStatus.Dismissed)
-                        _this.reminderTimeoutPromise = _this.$timeout(function () {
+                        _this.reminderIntervalPromise = _this.$interval(function () {
+                            if (_this.vs.displayLogin || _this.vs.displayRegister) {
+                                return true;
+                            }
+                            _this.$interval.cancel(_this.reminderIntervalPromise);
                             _this.displayLoginReminder = true;
-                            return true;
+                            return false;
                         }, 2500);
                 }
                 _this.initialised = true;
@@ -2947,8 +2951,8 @@ var aif;
         AppCtrl.prototype.userLoggedChanged = function (user) {
             if (user) {
                 this.displayLoginReminder = false;
-                if (this.reminderTimeoutPromise)
-                    this.$timeout.cancel(this.reminderTimeoutPromise);
+                if (this.reminderIntervalPromise)
+                    this.$interval.cancel(this.reminderIntervalPromise);
                 this.currentUser = user;
                 if (this.currentUser.currentFramework) {
                     this.setCurrentFramework(this.currentUser.currentFramework);
@@ -3023,7 +3027,7 @@ var aif;
         };
         return AppCtrl;
     }());
-    AppCtrl.$inject = ["$scope", "$timeout", "$sce", "userRepository", "viewService"];
+    AppCtrl.$inject = ["$scope", "$interval", "$sce", "userRepository", "viewService"];
     aif.AppCtrl = AppCtrl;
 })(aif || (aif = {}));
 var aif;

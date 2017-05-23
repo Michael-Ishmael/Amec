@@ -140,7 +140,7 @@ module aif {
             if (!loggedIn) {
                 this.getUser(true); //Attempt a get user anyway as might have cleared cookie
                 let status = new AifStatus();
-                status.registerReminderStatus = this.getCookieValue("registerReminderStatus") ;
+                status.registerReminderStatus = this.getCookieValue("registerReminderStatus") || ReminderStatus.NotSeen;
                 return this.$q.when(status);
             }
 
