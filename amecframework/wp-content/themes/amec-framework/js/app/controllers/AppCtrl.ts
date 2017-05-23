@@ -9,7 +9,7 @@ module aif {
   export class AppCtrl {
 
     public app: AifApp;
-    public static $inject = ["$scope" ,"$interval", "$sce", "userRepository", "viewService"];
+    public static $inject = ["$scope" ,"$interval", "$sce", "$location" ,"userRepository", "viewService"];
 
     public loginFailure:boolean = false;
     public message:string = null;
@@ -21,7 +21,7 @@ module aif {
     private reminderIntervalPromise:ng.IPromise<boolean>;
 
 
-    constructor(private $scope: ng.IScope, private $interval: ng.IIntervalService, private $sce: ng.ISCEService,
+    constructor(private $scope: ng.IScope, private $interval: ng.IIntervalService, private $sce: ng.ISCEService, private $location: ng.ILocationService,
                 private userRepository: UserRepository, public vs:ViewService) {
       this.init();
     }
@@ -33,6 +33,14 @@ module aif {
       this.$scope.$on("framework:frameworkUpdated", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
       this.$scope.$on("framework:frameworkSwitched", (event:ng.IAngularEvent, data:any) => { this.setCurrentFramework(data) } );
 
+
+      let params = this.$location.search();
+
+      if(params.rp){
+        this.vs.resetView();
+
+        return;
+      }
 
       this.vs.showLoading();
       this.userRepository.get().then(

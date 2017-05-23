@@ -42,6 +42,11 @@ module aif {
         status: string;
     }
 
+    interface IWpPasswordResetResponse {
+        success: boolean;
+        message: string;
+    }
+
     interface IWpNewUser extends IWpAjaxCall {
 
         username: string;
@@ -101,6 +106,13 @@ module aif {
         }
 
         user: AifUser;
+    }
+
+    export class AifPasswordResetResponse {
+
+        constructor(public success: boolean, public message: string) {
+
+        }
     }
 
     export class UserRepository {
@@ -220,7 +232,7 @@ module aif {
                 })
         }
 
-        public setRegisterReminderStatus(status:ReminderStatus){
+        public setRegisterReminderStatus(status: ReminderStatus) {
 
             this.setCookieValue("registerReminderStatus", status)
 
@@ -366,11 +378,25 @@ module aif {
             });
         }
 
-        sendPasswordLink(email: string): ng.IPromise<boolean> {
-            return this.$timeout(() => {
+        sendPasswordLink(email: string): ng.IPromise<AifPasswordResetResponse> {
+            let regUrl: string = ajax_auth_object.reset_password_url;
+            let regUser = {
+                user_login: email,
+                security: ajax_auth_object.password_reset_nonce
 
-                //TODO: password link
+            };
+
+            return this.$http.post(regUrl, regUser
+            ).then((response: ng.IHttpPromiseCallbackArg<IWpPasswordResetResponse>) => {
+
+                if (response && response.data) {
+                    return response.data;
+                }
+
                 return true;
+
+            }, e => {
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
             });
         }
 

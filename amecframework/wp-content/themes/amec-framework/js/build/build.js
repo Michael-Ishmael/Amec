@@ -1071,6 +1071,14 @@ var aif;
         return AifStatus;
     }());
     aif.AifStatus = AifStatus;
+    var AifPasswordResetResponse = (function () {
+        function AifPasswordResetResponse(success, message) {
+            this.success = success;
+            this.message = message;
+        }
+        return AifPasswordResetResponse;
+    }());
+    aif.AifPasswordResetResponse = AifPasswordResetResponse;
     var UserRepository = (function () {
         function UserRepository($timeout, $rootScope, $cookies, $http, $q) {
             this.$timeout = $timeout;
@@ -1273,9 +1281,18 @@ var aif;
             });
         };
         UserRepository.prototype.sendPasswordLink = function (email) {
-            return this.$timeout(function () {
-                //TODO: password link
+            var regUrl = ajax_auth_object.reset_password_url;
+            var regUser = {
+                user_login: email,
+                security: ajax_auth_object.password_reset_nonce
+            };
+            return this.$http.post(regUrl, regUser).then(function (response) {
+                if (response && response.data) {
+                    return response.data;
+                }
                 return true;
+            }, function (e) {
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
             });
         };
         UserRepository.prototype.login = function (email, password, fromSave) {
@@ -2447,6 +2464,7 @@ var aif;
         function ResetPasswordCtrl(vs, userRepository) {
             this.vs = vs;
             this.userRepository = userRepository;
+            this.resetError = null;
             this.init();
         }
         ResetPasswordCtrl.prototype.init = function () {
@@ -2459,8 +2477,12 @@ var aif;
             if (!form.$valid)
                 return;
             this.userRepository.sendPasswordLink(this.email).then(function (s) {
-                if (s) {
+                if (s.success) {
+                    _this.resetError = null;
                     _this.linkSent = true;
+                }
+                else {
+                    _this.resetError = s.message;
                 }
             });
         };
@@ -2882,11 +2904,12 @@ var aif;
 (function (aif) {
     'use strict';
     var AppCtrl = (function () {
-        function AppCtrl($scope, $interval, $sce, userRepository, vs) {
+        function AppCtrl($scope, $interval, $sce, $location, userRepository, vs) {
             var _this = this;
             this.$scope = $scope;
             this.$interval = $interval;
             this.$sce = $sce;
+            this.$location = $location;
             this.userRepository = userRepository;
             this.vs = vs;
             this.loginFailure = false;
@@ -2906,6 +2929,11 @@ var aif;
             this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
             this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
             this.$scope.$on("framework:frameworkSwitched", function (event, data) { _this.setCurrentFramework(data); });
+            var params = this.$location.search();
+            if (params.rp) {
+                this.vs.resetView();
+                return;
+            }
             this.vs.showLoading();
             this.userRepository.get().then(function (status) {
                 if (status.backendError) {
@@ -3027,7 +3055,7 @@ var aif;
         };
         return AppCtrl;
     }());
-    AppCtrl.$inject = ["$scope", "$interval", "$sce", "userRepository", "viewService"];
+    AppCtrl.$inject = ["$scope", "$interval", "$sce", "$location", "userRepository", "viewService"];
     aif.AppCtrl = AppCtrl;
 })(aif || (aif = {}));
 var aif;
@@ -3235,7 +3263,7 @@ var aif;
         }
         //public static $inject = ["$injector"];
         AifHttpInterceptor.prototype.request = function (config) {
-            if (config.url.indexOf('admin-ajax') > -1) {
+            if (config.url.indexOf('admin-ajax') > -1 || config.url.indexOf('password') > -1) {
                 config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' },
                     config.transformRequest = function (obj) {
                         var str = [];

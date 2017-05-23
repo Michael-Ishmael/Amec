@@ -9,6 +9,7 @@ module aif {
 
     public email:string;
     public linkSent:boolean;
+    public resetError:string = null;
 
     constructor(public vs:ViewService, private userRepository: UserRepository) {
       this.init();
@@ -26,8 +27,11 @@ module aif {
       if(!form.$valid) return;
       this.userRepository.sendPasswordLink(this.email).then(s =>{
 
-        if(s){
+        if(s.success){
+          this.resetError = null;
           this.linkSent = true;
+        } else {
+          this.resetError = s.message;
         }
 
       })

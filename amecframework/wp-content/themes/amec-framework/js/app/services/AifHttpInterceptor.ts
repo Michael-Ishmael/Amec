@@ -8,7 +8,7 @@ module aif {
         //public static $inject = ["$injector"];
 
         public request(config: ng.IRequestConfig) {
-            if(config.url.indexOf('admin-ajax') > -1){
+            if(config.url.indexOf('admin-ajax') > -1 || config.url.indexOf('password') > -1){
                 config.headers = {'Content-Type': 'application/x-www-form-urlencoded'},
                     config.transformRequest = function (obj) {
                         let str = [];
