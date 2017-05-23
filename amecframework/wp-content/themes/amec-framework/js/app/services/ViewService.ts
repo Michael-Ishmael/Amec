@@ -2,8 +2,6 @@
 
 module aif {
   'use strict';
-  import IShepherdTour = TetherShepherd.IShepherdTour;
-  import IShepherdTourStepOptions = TetherShepherd.IShepherdTourStepOptions;
 
   export enum AccountDisplayRoute {
     FromLogin = 0,
@@ -42,7 +40,6 @@ module aif {
     public hasExistingFrameworks:boolean = false;
     public displayRegister:boolean = false;
     public displaySave:boolean = false;
-    public loginReminder:IShepherdTour = null;
 
     public showLoading(){
       this.reset();
@@ -106,55 +103,6 @@ module aif {
       this.reset();
     }
 
-    private loginReminderCallback:Function = null;
-
-    public showLoginReminder(callback:Function){
-      if(this.displaySummary) return;
-      this.loginReminderCallback = callback;
-      if(!this.loginReminder) this.loginReminder = this.createLoginReminder();
-
-      this.loginReminder.start()
-
-    }
-
-    public hideLoginReminder(){
-      if(!!this.loginReminder){
-
-        this.loginReminder.cancel();
-
-      }
-    }
-
-    private createLoginReminder():IShepherdTour{
-      let loginReminder = new Shepherd.Tour({
-        defaults: {
-          classes: 'shepherd-theme-default'
-        }
-      });
-
-      let stepOptions:IShepherdTourStepOptions ={
-        text: '<p id="register-p">"New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account. To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.  Don’t worry, use of the framework remains completely free!</p>',
-        attachTo: this.registerButtonId + " [bottom left]",
-        tetherOptions: {
-          target: this.registerButtonId,
-          attachment: 'top left',
-          targetAttachment: 'bottom left'
-        },
-        //classes: 'aif-app-shepherd-box',
-        buttons: [
-          {
-            text: 'OK',
-            action: this.loginReminderCallback
-          }
-        ]
-      };
-
-      loginReminder.addStep('example-step', stepOptions);
-
-      return loginReminder;
-
-    }
-
     public showRegister(route:AccountDisplayRoute = null){
       this.reset();
       this.fadeBg = true;
@@ -215,12 +163,6 @@ module aif {
       this.displayGrid = true;
       this.displaySummary = false;
       this.displayLoading = false;
-
-      if(!!this.loginReminder){
-
-        this.loginReminder.cancel();
-
-      }
 
   }
 

@@ -15,14 +15,12 @@ function aif_add_scripts() {
 
 
     wp_register_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/css/vendor/bootstrap.css', false, NULL, 'all' );
-    wp_register_style( 'shepherd-arrows-css', get_stylesheet_directory_uri() . '/css/vendor/shepherd-theme-arrows.css', false, NULL, 'all' );
-    wp_register_style( 'shepherd-arrows-css-fix', get_stylesheet_directory_uri() . '/css/vendor/shepherd-theme-arrows-fix.css', false, NULL, 'all' );
-    wp_register_style( 'shepherd-default', get_stylesheet_directory_uri() . '/css/vendor/shepherd-theme-default.css', false, NULL, 'all' );
+    wp_register_style( 'tether-css', get_stylesheet_directory_uri() . '/css/vendor/tether.min..css', false, NULL, 'all' );
+    wp_register_style( 'tether-arrows-css', get_stylesheet_directory_uri() . '/css/vendor/tether-theme-arrows.css', false, NULL, 'all' );
 
-    wp_register_script( 'tether-js', get_stylesheet_directory_uri() . '/js/libs/tether-shepherd/tether.js', array('jquery'), NULL, true );
+    wp_register_script( 'tether-js', get_stylesheet_directory_uri() . '/js/libs/bootstrap/tether.min.js', array('jquery'), NULL, true );
     wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/vendor/bootstrap.min.js', array('jquery'), NULL, true );
     wp_register_script( 'spin-js', get_stylesheet_directory_uri() . '/js/libs/spin.min.js', array('jquery'), NULL, true );
-    wp_register_script( 'shepherd-js', get_stylesheet_directory_uri() . '/js/libs/tether-shepherd/shepherd.js', array('tether-js'), NULL, true );
     wp_register_script( 'angular-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular.min.js', array('jquery'), NULL, true );
     wp_register_script( 'angular-cookies-js', get_stylesheet_directory_uri() . '/js/libs/angular/angular-cookies.js', array('angular-js'), NULL, true );
     wp_register_script( 'export-pdf', get_stylesheet_directory_uri() . '/js/generate-pdf.js', array('jquery'), NULL, true );
@@ -34,20 +32,17 @@ function aif_add_scripts() {
         'redirecturl' => get_permalink()
     ));
 
+    wp_enqueue_style( 'tether-css');
     wp_enqueue_style( 'bootstrap-css' );
     wp_enqueue_style( 'bootstrap-grid-css' );
-    wp_enqueue_style( 'shepherd-default');
-    wp_enqueue_style( 'shepherd-arrows-css');
-    wp_enqueue_style( 'shepherd-arrows-css-fix');
+    wp_enqueue_style( 'tether-arrows-css');
     wp_enqueue_style( 'perfect-scrollbar-css' );
-
     wp_enqueue_style( 'aif-css', get_stylesheet_directory_uri() . '/css/aif-app.css');
 
 
     wp_enqueue_script( 'tether-js' );
     wp_enqueue_script( 'angular-js' );
     wp_enqueue_script( 'angular-cookies-js' );
-    wp_enqueue_script( 'shepherd-js' );
     wp_enqueue_script( 'spin-js' );
     wp_enqueue_script( 'export-pdf' );
     wp_enqueue_script( 'aif-app' );

@@ -1,7 +1,6 @@
 /// <reference path='../libs/jquery/jquery.d.ts' />
 /// <reference path='../libs/angular/angular.d.ts' />
 /// <reference path='../libs/angular/angular-cookies.d.ts' />
-/// <reference path='../libs/tether-shepherd/tether-shepherd.d.ts' />
 /// <reference path='models/AifData.ts' />
 /// <reference path='models/WorkflowInput.ts' />
 /// <reference path='models/WorkflowStep.ts' />

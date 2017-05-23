@@ -1,5 +1,6 @@
 declare var aif_constants: any;
-declare var Spinner: any;
+declare let Spinner: any;
+declare let Tether: any;
 
 module aif {
     'use strict';
@@ -209,6 +210,73 @@ module aif {
 
         static factory(): ng.IDirectiveFactory {
             const directive = () => new AifFrameworkSummary();
+            //directive.$inject = ['$location'];
+            return directive;
+        }
+    }
+
+    export class AifRegisterReminder implements ng.IDirective {
+
+        static $inject: Array<string> = [''];
+        templateUrl: string = TEMPLATE_PATH + '/js/app/views/registerReminder.html';
+        restrict: string = 'A';
+        scope: { [key: string]: string } = {
+            target: '@',
+            dismissFn: '=',
+        };
+
+        private regTether:any;
+
+        link(scope, element, attributes): void {
+
+            if(this.regTether)
+            {
+                this.regTether.show();
+            }  else {
+                this.doTether();
+            }
+
+            scope.$on('$destroy', () => {
+                if(this.regTether){
+                    this.regTether.destroy();
+                    delete this.regTether;
+                }
+            });
+
+            scope.dismiss = () => {
+
+                scope.close();
+                if(scope.dismissFn && typeof scope.dismissFn === "function")
+                    scope.dismissFn();
+            };
+
+            scope.close = () => {
+
+                if(this.regTether){
+                    jQuery(this.regTether.element).remove();
+                    this.regTether.destroy();
+                }
+            }
+
+
+        }
+
+
+        private doTether(): void {
+
+            let tetherOptions = {
+                attachment: "top left",
+                element: "#register-reminder",
+                target: "#register-button",
+                targetAttachment: "bottom left"
+            };
+
+            this.regTether = new Tether(tetherOptions);
+
+        }
+
+        static factory(): ng.IDirectiveFactory {
+            const directive = () => new AifRegisterReminder();
             //directive.$inject = ['$location'];
             return directive;
         }

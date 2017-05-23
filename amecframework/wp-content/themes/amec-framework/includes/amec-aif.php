@@ -3,9 +3,7 @@
         <div class="loader" ng-if="ac.vs.displayLoading">
 
         </div>
-        <div class="message" ng-if="ac.displayLoginReminder">
-            <h1 style="color: white">You should log in!</h1>
-        </div>
+
         <div class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
             <div  class="low-pad-cell"  ng-class="{'col-md-4': ac.vs.displayGrid && !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn() && ac.vs.displayGrid, 'col-md-1' : ac.vs.displaySummary}">
                 <div id="login-button" class="aif-button background-dark_blue bottom-dark-border-dark_blue"
@@ -182,6 +180,8 @@
         <aif-framework-summary ng-cloak ng-if="ac.vs.displaySummary">
 
         </aif-framework-summary>
+
+        <div aif-register-reminder ng-if="ac.displayLoginReminder" dismiss-fn="ac.dismissLoginReminder"></div>
 
     </div>
 </div>

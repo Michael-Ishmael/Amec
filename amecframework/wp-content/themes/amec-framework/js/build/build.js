@@ -929,8 +929,6 @@ var aif;
             this.hasExistingFrameworks = false;
             this.displayRegister = false;
             this.displaySave = false;
-            this.loginReminder = null;
-            this.loginReminderCallback = null;
             this.reset();
         }
         ViewService.prototype.showLoading = function () {
@@ -983,44 +981,6 @@ var aif;
         };
         ViewService.prototype.resetView = function () {
             this.reset();
-        };
-        ViewService.prototype.showLoginReminder = function (callback) {
-            if (this.displaySummary)
-                return;
-            this.loginReminderCallback = callback;
-            if (!this.loginReminder)
-                this.loginReminder = this.createLoginReminder();
-            this.loginReminder.start();
-        };
-        ViewService.prototype.hideLoginReminder = function () {
-            if (!!this.loginReminder) {
-                this.loginReminder.cancel();
-            }
-        };
-        ViewService.prototype.createLoginReminder = function () {
-            var loginReminder = new Shepherd.Tour({
-                defaults: {
-                    classes: 'shepherd-theme-default'
-                }
-            });
-            var stepOptions = {
-                text: '<p id="register-p">"New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account. To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.  Don’t worry, use of the framework remains completely free!</p>',
-                attachTo: this.registerButtonId + " [bottom left]",
-                tetherOptions: {
-                    target: this.registerButtonId,
-                    attachment: 'top left',
-                    targetAttachment: 'bottom left'
-                },
-                //classes: 'aif-app-shepherd-box',
-                buttons: [
-                    {
-                        text: 'OK',
-                        action: this.loginReminderCallback
-                    }
-                ]
-            };
-            loginReminder.addStep('example-step', stepOptions);
-            return loginReminder;
         };
         ViewService.prototype.showRegister = function (route) {
             if (route === void 0) { route = null; }
@@ -1082,9 +1042,6 @@ var aif;
             this.displayGrid = true;
             this.displaySummary = false;
             this.displayLoading = false;
-            if (!!this.loginReminder) {
-                this.loginReminder.cancel();
-            }
         };
         return ViewService;
     }());
@@ -2102,6 +2059,59 @@ var aif;
     }());
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
+    var AifRegisterReminder = (function () {
+        function AifRegisterReminder() {
+            this.templateUrl = TEMPLATE_PATH + '/js/app/views/registerReminder.html';
+            this.restrict = 'A';
+            this.scope = {
+                target: '@',
+                dismissFn: '=',
+            };
+        }
+        AifRegisterReminder.prototype.link = function (scope, element, attributes) {
+            var _this = this;
+            if (this.regTether) {
+                this.regTether.show();
+            }
+            else {
+                this.doTether();
+            }
+            scope.$on('$destroy', function () {
+                if (_this.regTether) {
+                    _this.regTether.destroy();
+                    delete _this.regTether;
+                }
+            });
+            scope.dismiss = function () {
+                scope.close();
+                if (scope.dismissFn && typeof scope.dismissFn === "function")
+                    scope.dismissFn();
+            };
+            scope.close = function () {
+                if (_this.regTether) {
+                    jQuery(_this.regTether.element).remove();
+                    _this.regTether.destroy();
+                }
+            };
+        };
+        AifRegisterReminder.prototype.doTether = function () {
+            var tetherOptions = {
+                attachment: "top left",
+                element: "#register-reminder",
+                target: "#register-button",
+                targetAttachment: "bottom left"
+            };
+            this.regTether = new Tether(tetherOptions);
+        };
+        AifRegisterReminder.factory = function () {
+            var directive = function () { return new AifRegisterReminder(); };
+            //directive.$inject = ['$location'];
+            return directive;
+        };
+        return AifRegisterReminder;
+    }());
+    AifRegisterReminder.$inject = [''];
+    aif.AifRegisterReminder = AifRegisterReminder;
     var AifLoadingSpinner = (function () {
         function AifLoadingSpinner() {
             this.restrict = 'A';
@@ -2873,6 +2883,7 @@ var aif;
     'use strict';
     var AppCtrl = (function () {
         function AppCtrl($scope, $timeout, $sce, userRepository, vs) {
+            var _this = this;
             this.$scope = $scope;
             this.$timeout = $timeout;
             this.$sce = $sce;
@@ -2881,9 +2892,12 @@ var aif;
             this.loginFailure = false;
             this.message = null;
             this.initialised = false;
-            this.savedFrameworkModel = null;
             this.currentFramework = null;
             this.currentUser = null;
+            this.dismissLoginReminder = function () {
+                _this.displayLoginReminder = false;
+                _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
+            };
             this.init();
         }
         AppCtrl.prototype.init = function () {
@@ -2921,13 +2935,11 @@ var aif;
                         _this.currentFramework = _this.currentUser.currentFramework;
                 }
                 else {
-                    _this.reminderTimeoutPromise = _this.$timeout(function () {
-                        _this.vs.showLoginReminder(function () {
-                            _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
-                            _this.vs.hideLoginReminder();
-                        });
-                        return true;
-                    }, 2500);
+                    if (status.registerReminderStatus < aif.ReminderStatus.Dismissed)
+                        _this.reminderTimeoutPromise = _this.$timeout(function () {
+                            _this.displayLoginReminder = true;
+                            return true;
+                        }, 2500);
                 }
                 _this.initialised = true;
             });
@@ -3009,115 +3021,10 @@ var aif;
                 return;
             this.hideLoginBox();
         };
-        AppCtrl.prototype.loadOrCreateFramework = function (form) {
-            if (!form.$valid)
-                return;
-            if (this.savedFrameworkModel.existingFrameworkId > -1) {
-                var self_2 = this;
-                var matches = this.app.user.frameworks.filter(function (f) { return f.id === self_2.savedFrameworkModel.existingFrameworkId; });
-                if (matches.length)
-                    this.currentFramework = matches[0];
-            }
-            else if (this.savedFrameworkModel.newFrameworkName !== null) {
-                if (this.app.user.frameworks === null)
-                    this.app.user.frameworks = [];
-                var newId = this.app.user.frameworks.length + 1;
-                var newFramework = new aif.AifFramework(newId, this.savedFrameworkModel.newFrameworkName, this.savedFrameworkModel.newFrameworkDescription);
-                this.app.user.frameworks.push(newFramework);
-                this.currentFramework = newFramework;
-            }
-            this.hideLoginBox();
-        };
         return AppCtrl;
     }());
     AppCtrl.$inject = ["$scope", "$timeout", "$sce", "userRepository", "viewService"];
     aif.AppCtrl = AppCtrl;
-    var SavedFrameworkModel = (function () {
-        function SavedFrameworkModel() {
-            this.existingFrameworkId = -1;
-            this.createNew = false;
-            this.newFrameworkName = null;
-            this.newFrameworkDescription = null;
-        }
-        return SavedFrameworkModel;
-    }());
-    aif.SavedFrameworkModel = SavedFrameworkModel;
-    var LoginDisplayLogic = (function () {
-        function LoginDisplayLogic($sce) {
-            this.$sce = $sce;
-            this.MESSAGES = {
-                DEFAULT_LOGIN_Q: "New here?",
-                DEFAULT_LOGIN_A: "Create an account",
-                SAVE_ATTEMPT_LOGIN_Q: "You need to be logged in to save progress.<br>Log in below or",
-                SAVE_ATTEMPT_LOGIN_A: "click here to create an account",
-                OR_CREATE_NEW_FRAMEWORK: "...or create a new framework",
-                JUST_CREATE_NEW_FRAMEWORK: "Use the fields below create a new framework"
-            };
-            this.fadeBg = false;
-            this.displayLogin = false;
-            this.displaySelectFramework = false;
-            this.hasExistingFrameworks = false;
-            this.displayFtnDetails = false;
-            this.displayRegister = false;
-            this.displaySave = false;
-            this.loginMessageQ = this.MESSAGES.DEFAULT_LOGIN_Q;
-            this.loginMessageA = this.MESSAGES.DEFAULT_LOGIN_A;
-            this.createMessage = this.MESSAGES.JUST_CREATE_NEW_FRAMEWORK;
-            this.reset();
-        }
-        LoginDisplayLogic.prototype.showLogin = function () {
-            this.reset();
-            this.fadeBg = true;
-            this.displayLogin = true;
-        };
-        LoginDisplayLogic.prototype.showSelectFramework = function (hasExisting) {
-            this.reset();
-            this.fadeBg = true;
-            this.displayLogin = true;
-            this.displaySelectFramework = true;
-            this.hasExistingFrameworks = hasExisting;
-            if (hasExisting)
-                this.createMessage = this.MESSAGES.OR_CREATE_NEW_FRAMEWORK;
-        };
-        LoginDisplayLogic.prototype.showForgottenDetails = function () {
-            this.reset();
-            this.fadeBg = true;
-            this.displayFtnDetails = true;
-        };
-        LoginDisplayLogic.prototype.hideLoginDisplay = function () {
-            this.reset();
-        };
-        LoginDisplayLogic.prototype.showRegister = function () {
-            this.reset();
-            this.fadeBg = true;
-            this.displayRegister = true;
-        };
-        LoginDisplayLogic.prototype.attemptSave = function (loggedIn) {
-            this.reset();
-            this.fadeBg = true;
-            if (!loggedIn) {
-                this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.SAVE_ATTEMPT_LOGIN_Q);
-                this.loginMessageA = this.MESSAGES.SAVE_ATTEMPT_LOGIN_A;
-                this.displayLogin = true;
-                return;
-            }
-            this.displaySave = true;
-        };
-        LoginDisplayLogic.prototype.reset = function () {
-            this.fadeBg = false;
-            this.displayLogin = false;
-            this.displaySelectFramework = false;
-            this.hasExistingFrameworks = false;
-            this.displayFtnDetails = false;
-            this.displayRegister = false;
-            this.displaySave = false;
-            this.loginMessageQ = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_Q);
-            this.loginMessageA = this.$sce.trustAsHtml(this.MESSAGES.DEFAULT_LOGIN_A);
-            this.createMessage = this.$sce.trustAsHtml(this.MESSAGES.JUST_CREATE_NEW_FRAMEWORK);
-        };
-        return LoginDisplayLogic;
-    }());
-    aif.LoginDisplayLogic = LoginDisplayLogic;
 })(aif || (aif = {}));
 var aif;
 (function (aif) {
@@ -3351,7 +3258,6 @@ var aif;
 /// <reference path='../libs/jquery/jquery.d.ts' />
 /// <reference path='../libs/angular/angular.d.ts' />
 /// <reference path='../libs/angular/angular-cookies.d.ts' />
-/// <reference path='../libs/tether-shepherd/tether-shepherd.d.ts' />
 /// <reference path='models/AifData.ts' />
 /// <reference path='models/WorkflowInput.ts' />
 /// <reference path='models/WorkflowStep.ts' />
@@ -3416,6 +3322,7 @@ var aif;
         .directive('aifUserScreens', aif_1.AifUserScreens.factory())
         .directive('aifInputGrid', aif_1.AifInputGrid.factory())
         .directive('aifLoadingSpinner', aif_1.AifLoadingSpinner.factory())
+        .directive('aifRegisterReminder', aif_1.AifRegisterReminder.factory())
         .config(['$httpProvider', function (_$httpProvider) {
             _$httpProvider.interceptors.push(aif_1.AifHttpInterceptor.factory());
         }]);
