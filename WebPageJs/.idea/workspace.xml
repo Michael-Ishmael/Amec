@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82c5ea1c-1f2f-433a-8055-1f67839aec74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/tether-theme-arrows.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/views/registerReminder.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/shepherd-theme-arrows-fix.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/shepherd-theme-arrows.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/vendor/shepherd-theme-default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/libs/tether-shepherd/shepherd.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/libs/tether-shepherd/shepherd.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/libs/tether-shepherd/tether-shepherd.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/libs/tether-shepherd/tether.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/libs/tether-shepherd/tether.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Application.js" afterPath="$PROJECT_DIR$/js/Application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../amecframework/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" afterPath="$PROJECT_DIR$/../amecframework/wp-content/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.css" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.css.map" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.scss" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/css/aif-app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-aif.php" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/includes/amec-aif.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/Application.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/Application.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/_all.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/_all.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/services/ViewService.ts" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js.map" afterPath="$PROJECT_DIR$/../amecframework/wp-content/themes/amec-framework/js/build/build.js.map" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,7 +36,7 @@
           <file leaf-file-name="AppCtrl.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/controllers/AppCtrl.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
+                <state relative-caret-position="990">
                   <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="77" selection-end-column="5" />
                   <folding />
                 </state>
@@ -80,8 +56,8 @@
           <file leaf-file-name="tether.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/libs/bootstrap/tether.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="109" column="14" lean-forward="false" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+                <state relative-caret-position="329">
+                  <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -105,7 +81,7 @@
             <entry file="file://$PROJECT_DIR$/css/aif.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="59">
-                  <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+                  <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
                   <folding>
                     <element signature="e#1757#2541#0" expanded="false" />
                   </folding>
@@ -563,26 +539,28 @@
       <workItem from="1494779478076" duration="13024000" />
       <workItem from="1494923087462" duration="17804000" />
       <workItem from="1495180240131" duration="5265000" />
-      <workItem from="1495524016510" duration="1309000" />
+      <workItem from="1495524016510" duration="1360000" />
+      <workItem from="1495581309117" duration="134000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226739000" />
+    <option name="totallyTimeSpent" value="226924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18191057" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2319301" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2319301" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29937997" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25813007" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22585227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -711,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="30" column="83" lean-forward="false" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,7 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,9 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <marker date="1494977996000" expanded="true" signature="578:590" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,19 +856,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/tether/README.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/tether/README.md" />
     <entry file="file://$PROJECT_DIR$/node_modules/@types/tether/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -908,7 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,28 +894,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/AppCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="77" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/aif.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding>
             <element signature="e#1757#2541#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/AppCtrl.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="77" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/libs/bootstrap/tether.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="109" column="14" lean-forward="false" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
+        <state relative-caret-position="329">
+          <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
       </provider>

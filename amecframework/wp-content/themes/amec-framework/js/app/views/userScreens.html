@@ -22,9 +22,15 @@
 
     </aif-register-screen>
 
-    <aif-reset-password ng-controller="resetPasswordCtrl as rp"
-                        ng-if="us.vs.displayFtnDetails">
+    <aif-forgot-password
+            ng-if="us.vs.displayFtnDetails">
+
+    </aif-forgot-password>
+
+    <aif-reset-password ng-if="us.vs.displayResetPassword">
 
     </aif-reset-password>
+
+
 
 </div>

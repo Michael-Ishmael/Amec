@@ -174,18 +174,44 @@ module aif {
 
     }
 
+    export class AifForgotPassword implements ng.IDirective {
+
+        static $inject: Array<string> = [''];
+
+        templateUrl: string = TEMPLATE_PATH + '/js/app/views/forgotPassword.html';
+        restrict: string = 'E';
+        controller: ForgotPasswordCtrl;
+        controllerAs: string = 'fp';
+        bindToController: boolean = true;
+
+        link(scope, element, attributes, ctrl: ForgotPasswordCtrl): void {
+
+        }
+
+        constructor() {
+
+        }
+
+        static factory(): ng.IDirectiveFactory {
+            const directive = () => new AifForgotPassword();
+            //directive.$inject = ['$location'];
+            return directive;
+        }
+    }
+
+
     export class AifResetPassword implements ng.IDirective {
 
         static $inject: Array<string> = [''];
 
         templateUrl: string = TEMPLATE_PATH + '/js/app/views/resetPassword.html';
         restrict: string = 'E';
-        controller: ResetPasswordCtrl;
-        controllerAs: string = 'rc';
+        controller = ResetPasswordCtrl;
+        controllerAs: string = 'rp';
         bindToController: boolean = true;
 
         link(scope, element, attributes, ctrl: ResetPasswordCtrl): void {
-
+            console.log(element)
         }
 
         constructor() {
@@ -197,8 +223,6 @@ module aif {
             //directive.$inject = ['$location'];
             return directive;
         }
-
-
     }
 
     export class AifFrameworkSummary implements ng.IDirective {

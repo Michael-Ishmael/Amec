@@ -921,6 +921,8 @@ var aif;
             this.displaySaveAs = false;
             this.accountDisplayRoute = AccountDisplayRoute.FromViewAccount;
             this.displayFtnDetails = false;
+            this.displayResetPassword = false;
+            this.passwordResetParams = null;
             this.displayGrid = false;
             this.displayControls = false;
             this.displayLoading = true;
@@ -951,7 +953,7 @@ var aif;
             //TODO: Improve
             return this.displayAccount || this.displayLogin || this.displaySaveAs
                 || this.displayCreate || this.displayFtnDetails || this.displaySelectFramework
-                || this.displayRegister || this.displaySave;
+                || this.displayRegister || this.displaySave || this.displayResetPassword;
         };
         ViewService.prototype.showLogin = function (fromSave) {
             if (fromSave === void 0) { fromSave = false; }
@@ -978,6 +980,12 @@ var aif;
             this.reset();
             this.fadeBg = true;
             this.displayFtnDetails = true;
+        };
+        ViewService.prototype.showResetPassword = function (key, email) {
+            this.reset();
+            this.fadeBg = true;
+            this.passwordResetParams = { key: key, email: email };
+            this.displayResetPassword = true;
         };
         ViewService.prototype.resetView = function () {
             this.reset();
@@ -1036,6 +1044,8 @@ var aif;
             this.displaySelectFramework = false;
             this.hasExistingFrameworks = false;
             this.displayFtnDetails = false;
+            this.displayResetPassword = false;
+            this.passwordResetParams = null;
             this.displayRegister = false;
             this.displaySave = false;
             this.displayControls = true;
@@ -1281,9 +1291,26 @@ var aif;
             });
         };
         UserRepository.prototype.sendPasswordLink = function (email) {
+            var regUrl = ajax_auth_object.lost_password_url;
+            var regUser = {
+                user_login: email,
+                security: ajax_auth_object.password_reset_nonce
+            };
+            return this.$http.post(regUrl, regUser).then(function (response) {
+                if (response && response.data) {
+                    return response.data;
+                }
+                return true;
+            }, function (e) {
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+            });
+        };
+        UserRepository.prototype.resetPassword = function (email, key, newPassword) {
             var regUrl = ajax_auth_object.reset_password_url;
             var regUser = {
                 user_login: email,
+                key: key,
+                new_pass: newPassword,
                 security: ajax_auth_object.password_reset_nonce
             };
             return this.$http.post(regUrl, regUser).then(function (response) {
@@ -2044,14 +2071,34 @@ var aif;
     }());
     AifRegisterScreen.$inject = [''];
     aif.AifRegisterScreen = AifRegisterScreen;
+    var AifForgotPassword = (function () {
+        function AifForgotPassword() {
+            this.templateUrl = TEMPLATE_PATH + '/js/app/views/forgotPassword.html';
+            this.restrict = 'E';
+            this.controllerAs = 'fp';
+            this.bindToController = true;
+        }
+        AifForgotPassword.prototype.link = function (scope, element, attributes, ctrl) {
+        };
+        AifForgotPassword.factory = function () {
+            var directive = function () { return new AifForgotPassword(); };
+            //directive.$inject = ['$location'];
+            return directive;
+        };
+        return AifForgotPassword;
+    }());
+    AifForgotPassword.$inject = [''];
+    aif.AifForgotPassword = AifForgotPassword;
     var AifResetPassword = (function () {
         function AifResetPassword() {
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/resetPassword.html';
             this.restrict = 'E';
-            this.controllerAs = 'rc';
+            this.controller = aif.ResetPasswordCtrl;
+            this.controllerAs = 'rp';
             this.bindToController = true;
         }
         AifResetPassword.prototype.link = function (scope, element, attributes, ctrl) {
+            console.log(element);
         };
         AifResetPassword.factory = function () {
             var directive = function () { return new AifResetPassword(); };
@@ -2460,6 +2507,36 @@ var aif;
 var aif;
 (function (aif) {
     'use strict';
+    var ForgotPasswordCtrl = (function () {
+        function ForgotPasswordCtrl(vs, userRepository) {
+            this.vs = vs;
+            this.userRepository = userRepository;
+            this.resetError = null;
+            this.init();
+        }
+        ForgotPasswordCtrl.prototype.init = function () {
+        };
+        ForgotPasswordCtrl.prototype.resend = function () {
+            this.linkSent = false;
+        };
+        ForgotPasswordCtrl.prototype.sendReset = function (form) {
+            var _this = this;
+            if (!form.$valid)
+                return;
+            this.userRepository.sendPasswordLink(this.email).then(function (s) {
+                if (s.success) {
+                    _this.resetError = null;
+                    _this.linkSent = true;
+                }
+                else {
+                    _this.resetError = s.message;
+                }
+            });
+        };
+        return ForgotPasswordCtrl;
+    }());
+    ForgotPasswordCtrl.$inject = ["viewService", "userRepository"];
+    aif.ForgotPasswordCtrl = ForgotPasswordCtrl;
     var ResetPasswordCtrl = (function () {
         function ResetPasswordCtrl(vs, userRepository) {
             this.vs = vs;
@@ -2468,6 +2545,10 @@ var aif;
             this.init();
         }
         ResetPasswordCtrl.prototype.init = function () {
+            if (this.vs && this.vs.passwordResetParams) {
+                this.email = this.vs.passwordResetParams.email;
+                this.key = this.vs.passwordResetParams.key;
+            }
         };
         ResetPasswordCtrl.prototype.resend = function () {
             this.linkSent = false;
@@ -2925,19 +3006,28 @@ var aif;
         }
         AppCtrl.prototype.init = function () {
             var _this = this;
-            this.$scope.$on("user:loggedIn", function (event, data) { _this.userLoggedChanged(data); });
-            this.$scope.$on("user:loggedOut", function (event) { _this.userLoggedChanged(null); });
-            this.$scope.$on("framework:frameworkUpdated", function (event, data) { _this.setCurrentFramework(data); });
-            this.$scope.$on("framework:frameworkSwitched", function (event, data) { _this.setCurrentFramework(data); });
-            var params = this.$location.search();
-            if (params.rp) {
-                this.vs.resetView();
-                return;
-            }
+            this.$scope.$on("user:loggedIn", function (event, data) {
+                _this.userLoggedChanged(data);
+            });
+            this.$scope.$on("user:loggedOut", function (event) {
+                _this.userLoggedChanged(null);
+            });
+            this.$scope.$on("framework:frameworkUpdated", function (event, data) {
+                _this.setCurrentFramework(data);
+            });
+            this.$scope.$on("framework:frameworkSwitched", function (event, data) {
+                _this.setCurrentFramework(data);
+            });
             this.vs.showLoading();
             this.userRepository.get().then(function (status) {
                 if (status.backendError) {
                     //Handle no back end here and return
+                }
+                var url = _this.$location.absUrl();
+                if (url.toLowerCase().indexOf("rp=true")) {
+                    var params = _this.extractPasswordParams(url);
+                    _this.vs.showResetPassword(params.key, params.email);
+                    return;
                 }
                 _this.vs.resetView();
                 if (status.user) {
@@ -3052,6 +3142,28 @@ var aif;
             if (!form.$valid)
                 return;
             this.hideLoginBox();
+        };
+        AppCtrl.prototype.extractPasswordParams = function (url) {
+            var split = url.indexOf("?");
+            if (split > -1) {
+                var argString = url.substr(split + 1);
+                var args = argString.split("&").map(function (s) {
+                    var kv = s.split("=");
+                    return { key: kv[0].toLowerCase(), value: kv[1].toLowerCase() };
+                });
+                var key = void 0, email = void 0;
+                for (var i = 0; i < args.length; i++) {
+                    var kv = args[i];
+                    if (kv.key === "key")
+                        key = kv.value;
+                    if (kv.key === "login")
+                        email = kv.value;
+                }
+                if (key && email) {
+                    return { key: key, email: email };
+                }
+            }
+            return {};
         };
         return AppCtrl;
     }());
@@ -3338,6 +3450,7 @@ var aif;
         .controller('loginCtrl', aif_1.LoginCtrl)
         .controller('saveAsCtrl', aif_1.SaveAsCtrl)
         .controller('registerCtrl', aif_1.RegisterCtrl)
+        .controller('forgotPasswordCtrl', aif_1.ForgotPasswordCtrl)
         .controller('resetPasswordCtrl', aif_1.ResetPasswordCtrl)
         .controller('frameworkSummaryCtrl', aif_1.FrameworkSummaryCtrl)
         .controller('userScreensCtrl', aif_1.UserScreensCtrl)
@@ -3348,6 +3461,7 @@ var aif;
         .directive('aifCreateFwScreen', aif_1.AifCreateFwScreen.factory())
         .directive('aifSaveAsScreen', aif_1.AifSaveAsScreen.factory())
         .directive('aifRegisterScreen', aif_1.AifRegisterScreen.factory())
+        .directive('aifForgotPassword', aif_1.AifForgotPassword.factory())
         .directive('aifResetPassword', aif_1.AifResetPassword.factory())
         .directive('aifFrameworkSummary', aif_1.AifFrameworkSummary.factory())
         .directive('aifListInputTile', aif_1.AifListInputTile.factory())

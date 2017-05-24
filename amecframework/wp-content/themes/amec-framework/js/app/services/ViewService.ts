@@ -11,6 +11,12 @@ module aif {
     FromDetectUnsaved = 4
   }
 
+  export interface IPasswordResetParams{
+    key:string,
+    email:string
+  }
+
+
   export class ViewService {
 
     public static $inject = ["$sce"];
@@ -29,6 +35,9 @@ module aif {
     public displaySaveAs:boolean = false;
     public accountDisplayRoute:AccountDisplayRoute = AccountDisplayRoute.FromViewAccount;
     public displayFtnDetails:boolean = false;
+    public displayResetPassword:boolean = false;
+    public passwordResetParams:IPasswordResetParams = null;
+
 
     public displayGrid = false;
     public displayControls = false;
@@ -68,7 +77,7 @@ module aif {
       //TODO: Improve
       return this.displayAccount || this.displayLogin || this.displaySaveAs
           || this.displayCreate || this.displayFtnDetails || this.displaySelectFramework
-          || this.displayRegister || this.displaySave ;
+          || this.displayRegister || this.displaySave || this.displayResetPassword ;
     }
 
     public showLogin(fromSave:boolean = false):void{
@@ -97,6 +106,13 @@ module aif {
       this.reset();
       this.fadeBg = true;
       this.displayFtnDetails = true;
+    }
+
+    public showResetPassword(key:string, email:string){
+      this.reset();
+      this.fadeBg = true;
+      this.passwordResetParams = {key: key, email: email};
+      this.displayResetPassword = true;
     }
 
     public resetView() {
@@ -156,6 +172,8 @@ module aif {
       this.displaySelectFramework = false;
       this.hasExistingFrameworks = false;
       this.displayFtnDetails = false;
+      this.displayResetPassword = false;
+      this.passwordResetParams = null;
       this.displayRegister = false;
       this.displaySave = false;
 

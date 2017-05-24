@@ -379,11 +379,34 @@ module aif {
         }
 
         sendPasswordLink(email: string): ng.IPromise<AifPasswordResetResponse> {
-            let regUrl: string = ajax_auth_object.reset_password_url;
+            let regUrl: string = ajax_auth_object.lost_password_url;
             let regUser = {
                 user_login: email,
                 security: ajax_auth_object.password_reset_nonce
 
+            };
+
+            return this.$http.post(regUrl, regUser
+            ).then((response: ng.IHttpPromiseCallbackArg<IWpPasswordResetResponse>) => {
+
+                if (response && response.data) {
+                    return response.data;
+                }
+
+                return true;
+
+            }, e => {
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+            });
+        }
+
+        resetPassword(email: string, key:string, newPassword:string): ng.IPromise<AifPasswordResetResponse> {
+            let regUrl: string = ajax_auth_object.reset_password_url;
+            let regUser = {
+                user_login: email,
+                key: key,
+                new_pass: newPassword,
+                security: ajax_auth_object.password_reset_nonce
             };
 
             return this.$http.post(regUrl, regUser
