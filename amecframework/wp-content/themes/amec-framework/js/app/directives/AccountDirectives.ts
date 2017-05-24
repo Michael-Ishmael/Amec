@@ -180,7 +180,7 @@ module aif {
 
         templateUrl: string = TEMPLATE_PATH + '/js/app/views/forgotPassword.html';
         restrict: string = 'E';
-        controller: ForgotPasswordCtrl;
+        controller = ForgotPasswordCtrl;
         controllerAs: string = 'fp';
         bindToController: boolean = true;
 

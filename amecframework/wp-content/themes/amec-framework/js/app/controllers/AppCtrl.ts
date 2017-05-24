@@ -52,9 +52,10 @@ module aif {
 
                     let url = this.$location.absUrl();
 
-                    if (url.toLowerCase().indexOf("rp=true")) {
+                    if (url.toLowerCase().indexOf("rp=true") > -1) {
                         let params = this.extractPasswordParams(url);
                         this.vs.showResetPassword(params.key, params.email);
+                        this.initialised = true;
                         return;
                     }
 
@@ -208,7 +209,7 @@ module aif {
                 let argString = url.substr(split + 1);
                 let args = argString.split("&").map(s => {
                     let kv = s.split("=");
-                    return {key: kv[0].toLowerCase(), value: kv[1].toLowerCase()};
+                    return {key: decodeURIComponent(kv[0]).toLowerCase(), value: decodeURIComponent(kv[1])};
                 });
                 let key:string, email:string;
                 for (let i = 0; i < args.length; i++) {

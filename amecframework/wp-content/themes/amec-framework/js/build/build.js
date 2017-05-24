@@ -1082,9 +1082,10 @@ var aif;
     }());
     aif.AifStatus = AifStatus;
     var AifPasswordResetResponse = (function () {
-        function AifPasswordResetResponse(success, message) {
+        function AifPasswordResetResponse(success, message, redirectUrl) {
             this.success = success;
             this.message = message;
+            this.redirectUrl = redirectUrl;
         }
         return AifPasswordResetResponse;
     }());
@@ -1298,11 +1299,11 @@ var aif;
             };
             return this.$http.post(regUrl, regUser).then(function (response) {
                 if (response && response.data) {
-                    return response.data;
+                    return new AifPasswordResetResponse(response.data.success, response.data.message, response.data.redirectUrl);
                 }
-                return true;
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
             }, function (e) {
-                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
             });
         };
         UserRepository.prototype.resetPassword = function (email, key, newPassword) {
@@ -1315,11 +1316,11 @@ var aif;
             };
             return this.$http.post(regUrl, regUser).then(function (response) {
                 if (response && response.data) {
-                    return response.data;
+                    return new AifPasswordResetResponse(response.data.success || response.data.loggedIn, response.data.message, response.data.redirectUrl);
                 }
-                return true;
+                return new AifPasswordResetResponse(false, "Something wen wrong please try again", null);
             }, function (e) {
-                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
             });
         };
         UserRepository.prototype.login = function (email, password, fromSave) {
@@ -2075,6 +2076,7 @@ var aif;
         function AifForgotPassword() {
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/forgotPassword.html';
             this.restrict = 'E';
+            this.controller = aif.ForgotPasswordCtrl;
             this.controllerAs = 'fp';
             this.bindToController = true;
         }
@@ -2518,6 +2520,7 @@ var aif;
         };
         ForgotPasswordCtrl.prototype.resend = function () {
             this.linkSent = false;
+            this.resetError = null;
         };
         ForgotPasswordCtrl.prototype.sendReset = function (form) {
             var _this = this;
@@ -2538,9 +2541,11 @@ var aif;
     ForgotPasswordCtrl.$inject = ["viewService", "userRepository"];
     aif.ForgotPasswordCtrl = ForgotPasswordCtrl;
     var ResetPasswordCtrl = (function () {
-        function ResetPasswordCtrl(vs, userRepository) {
+        function ResetPasswordCtrl(vs, userRepository, $timeout, $location) {
             this.vs = vs;
             this.userRepository = userRepository;
+            this.$timeout = $timeout;
+            this.$location = $location;
             this.resetError = null;
             this.init();
         }
@@ -2551,16 +2556,23 @@ var aif;
             }
         };
         ResetPasswordCtrl.prototype.resend = function () {
-            this.linkSent = false;
+            this.vs.showForgottenDetails();
         };
-        ResetPasswordCtrl.prototype.sendReset = function (form) {
+        ResetPasswordCtrl.prototype.close = function () {
+            this.vs.resetView();
+        };
+        ResetPasswordCtrl.prototype.changePassword = function (form) {
             var _this = this;
             if (!form.$valid)
                 return;
-            this.userRepository.sendPasswordLink(this.email).then(function (s) {
+            this.userRepository.resetPassword(this.email, this.key, this.password)
+                .then(function (s) {
                 if (s.success) {
                     _this.resetError = null;
-                    _this.linkSent = true;
+                    _this.loggedIn = true;
+                    _this.$timeout(function () {
+                        window.location.href = s.redirectUrl;
+                    }, 700);
                 }
                 else {
                     _this.resetError = s.message;
@@ -2569,7 +2581,7 @@ var aif;
         };
         return ResetPasswordCtrl;
     }());
-    ResetPasswordCtrl.$inject = ["viewService", "userRepository"];
+    ResetPasswordCtrl.$inject = ["viewService", "userRepository", "$timeout", "$location"];
     aif.ResetPasswordCtrl = ResetPasswordCtrl;
 })(aif || (aif = {}));
 var aif;
@@ -3024,9 +3036,10 @@ var aif;
                     //Handle no back end here and return
                 }
                 var url = _this.$location.absUrl();
-                if (url.toLowerCase().indexOf("rp=true")) {
+                if (url.toLowerCase().indexOf("rp=true") > -1) {
                     var params = _this.extractPasswordParams(url);
                     _this.vs.showResetPassword(params.key, params.email);
+                    _this.initialised = true;
                     return;
                 }
                 _this.vs.resetView();
@@ -3149,7 +3162,7 @@ var aif;
                 var argString = url.substr(split + 1);
                 var args = argString.split("&").map(function (s) {
                     var kv = s.split("=");
-                    return { key: kv[0].toLowerCase(), value: kv[1].toLowerCase() };
+                    return { key: decodeURIComponent(kv[0]).toLowerCase(), value: decodeURIComponent(kv[1]) };
                 });
                 var key = void 0, email = void 0;
                 for (var i = 0; i < args.length; i++) {
@@ -3375,7 +3388,7 @@ var aif;
         }
         //public static $inject = ["$injector"];
         AifHttpInterceptor.prototype.request = function (config) {
-            if (config.url.indexOf('admin-ajax') > -1 || config.url.indexOf('password') > -1) {
+            if (config.url.indexOf('admin-ajax') > -1 || config.url.indexOf('wp-login') > -1) {
                 config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' },
                     config.transformRequest = function (obj) {
                         var str = [];

@@ -45,6 +45,12 @@ module aif {
     interface IWpPasswordResetResponse {
         success: boolean;
         message: string;
+        loggedIn?: boolean,
+        userId?: number,
+        displayName?: string,
+        email?: string,
+        draftFrameworkId?: number,
+        redirectUrl?: string
     }
 
     interface IWpNewUser extends IWpAjaxCall {
@@ -110,7 +116,7 @@ module aif {
 
     export class AifPasswordResetResponse {
 
-        constructor(public success: boolean, public message: string) {
+        constructor(public success: boolean, public message: string, public redirectUrl:string) {
 
         }
     }
@@ -390,13 +396,13 @@ module aif {
             ).then((response: ng.IHttpPromiseCallbackArg<IWpPasswordResetResponse>) => {
 
                 if (response && response.data) {
-                    return response.data;
+                   return new AifPasswordResetResponse(response.data.success, response.data.message, response.data.redirectUrl)
                 }
 
-                return true;
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
 
             }, e => {
-                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
             });
         }
 
@@ -413,13 +419,13 @@ module aif {
             ).then((response: ng.IHttpPromiseCallbackArg<IWpPasswordResetResponse>) => {
 
                 if (response && response.data) {
-                    return response.data;
+                    return new AifPasswordResetResponse(response.data.success || response.data.loggedIn, response.data.message, response.data.redirectUrl);
                 }
 
-                return true;
+                return new AifPasswordResetResponse(false, "Something wen wrong please try again", null);
 
             }, e => {
-                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.");
+                return new AifPasswordResetResponse(false, "Something went wrong. Please try again.", null);
             });
         }
 

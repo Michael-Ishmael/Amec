@@ -22,7 +22,7 @@ function ajax_auth_init()
         'rest_nonce' => wp_create_nonce('wp_rest'),
         'resturl' => esc_url_raw( rest_url() ),
         'lost_password_url' => wp_lostpassword_url(),
-        'reset_password_url' => site_url( "wp-login.php")
+        'reset_password_url' => site_url( "wp-login.php?action=resetpass")
 
     ));
 
@@ -42,57 +42,14 @@ function ajax_auth_init()
     add_action( 'login_form_rp',  'redirect_to_custom_password_reset' ); //GET
     add_action( 'login_form_resetpass', 'redirect_to_custom_password_reset' ); //GET
 
-    add_action( 'login_form_rp', array( $this, 'do_password_reset' ) ); //POST
-    add_action( 'login_form_resetpass', array( $this, 'do_password_reset' ) ); //POST
+    add_action( 'login_form_rp',  'do_password_reset'  ); //POST
+    add_action( 'login_form_resetpass', 'do_password_reset'  ); //POST
 
 }
 
 add_action('init', 'ajax_auth_init');
 
 
-function do_password_lost() {
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
-
-        //ajax-password_reset-nonce
-        if(!wp_verify_nonce($_POST['security'], 'password-reset-nonce')){
-            die("Security failed!");
-        }
-        $retrieve_result = retrieve_password();
-        if ( is_wp_error( $retrieve_result ) ) {
-
-            $errors = $retrieve_result->get_error_codes();
-
-            if (in_array('empty_username', $errors))
-                echo json_encode(array('success' => false, 'message' => __( "You must supply an email or username" )));
-            if (in_array('invalid_email', $errors))
-                echo json_encode(array('success' => false, 'message' => __( "We don't recognise that email address.  Please try again" )));
-            else
-                echo json_encode(array('success' => false, 'message' => __( join( ',', $errors ))));
-            //$redirect_url = home_url( 'member-password-lost' );
-            //$redirect_url = add_query_arg( 'errors', join( ',', $errors->get_error_codes() ), $redirect_url );
-        } else {
-            // Email sent
-            echo json_encode(array('success' => true, 'message' => "Email Sent"));
-            //$redirect_url = home_url( 'member-login' );
-            //$redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
-        }
-
-        //wp_redirect( $redirect_url );
-        die();
-    }
-}
-
-function replace_retrieve_password_message( $message, $key, $user_login, $user_data ) {
-    // Create new message
-    $msg  = __( 'Hello!' ) . "\r\n\r\n";
-    $msg .= sprintf( __( 'You asked us to reset your password for your AMEC Framework account using the email address %s.' ), $user_login ) . "\r\n\r\n";
-    $msg .= __( "If this was a mistake, or you didn't ask for a password reset, just ignore this email and nothing will happen." ) . "\r\n\r\n";
-    $msg .= __( 'To reset your password, visit the following address:' ) . "\r\n\r\n";
-    $msg .= site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login )) . "\r\n\r\n";
-    $msg .= __( 'Thanks!' ) . "\r\n";
-
-    return $msg;
-}
 
 function ajax_is_logged_in()
 {
@@ -100,65 +57,6 @@ function ajax_is_logged_in()
     auth_user_logged_in();
 
     die();
-}
-
-function redirect_to_custom_password_reset() {
-    if ( 'GET' == $_SERVER['REQUEST_METHOD'] ) {
-        // Verify key / login combo
-        $user = check_password_reset_key( $_REQUEST['key'], $_REQUEST['login'] );
-        if ( ! $user || is_wp_error( $user ) ) {
-            if ( $user && $user->get_error_code() === 'expired_key' ) {
-                wp_redirect( home_url( 'home/framework/interactive-framework-3?rp=true&login=expiredkey' ) );
-            } else {
-                wp_redirect( home_url( 'home/framework/interactive-framework-3?rp=true&login=invalidkey' ) );
-            }
-            die();
-        }
-
-        $redirect_url = home_url( 'home/framework/interactive-framework-3/' );
-        $redirect_url = add_query_arg( 'rp', esc_attr( "true" ), $redirect_url );
-        $redirect_url = add_query_arg( 'login', esc_attr( $_REQUEST['login'] ), $redirect_url );
-        $redirect_url = add_query_arg( 'key', esc_attr( $_REQUEST['key'] ), $redirect_url );
-
-        wp_redirect( $redirect_url );
-        die();
-    }
-}
-
-function do_password_reset() {
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
-        $rp_key = $_REQUEST['key'];
-        $rp_login = $_REQUEST['user_login'];
-
-        $user = check_password_reset_key( $rp_key, $rp_login );
-
-        if ( ! $user || is_wp_error( $user ) ) {
-            if ( $user && $user->get_error_code() === 'expired_key' ) {
-                echo json_encode(array('success' => false, 'message' => __( "Your reset link has expired.  Please try again" ), 'tryAgain' => true));
-            } else {
-                echo json_encode(array('success' => false, 'message' => __( "There has been an problem: " . $user->get_error_code() ), 'tryAgain' => true));
-            }
-            die();
-        }
-
-        if ( isset( $_POST['new_pass'] ) ) {
-
-            if ( empty( $_POST['new_pass'] ) ) {
-                // Password is empty
-
-                echo json_encode(array('success' => false, 'message' => __( "No Password supplied" )));
-                die();
-            }
-
-            // Parameter checks OK, reset password
-            reset_password( $user, $_POST['new_pass'] );
-            echo json_encode(array('success' => true, 'message' => __( "Your password has been reset" )));
-        } else {
-            echo "Invalid request.";
-        }
-
-        die();
-    }
 }
 
 function ajax_login()
@@ -174,7 +72,6 @@ function ajax_login()
     die();
 }
 
-
 function ajax_logout()
 {
 
@@ -187,7 +84,6 @@ function ajax_logout()
     wp_die();
 
 }
-
 
 function ajax_register()
 {
@@ -294,13 +190,13 @@ function auth_user_login($user_login, $password, $login)
             'message' => __($login . ' successful'),
             'userId' => $user_signon->ID,
             'displayName' => $user_signon->display_name,
-            'draftFrameworkId' => $draft_framework_id
+            'draftFrameworkId' => $draft_framework_id,
+            'redirectUrl' => home_url( 'home/framework/interactive-framework-3/' )
         ));
     }
 
     die();
 }
-
 
 function auth_user_logged_in()
 {
@@ -323,5 +219,114 @@ function auth_user_logged_in()
     }
 
     die();
+}
+
+function do_password_lost() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+
+        //ajax-password_reset-nonce
+        if(!wp_verify_nonce($_POST['security'], 'password-reset-nonce')){
+            die("Security failed!");
+        }
+        $retrieve_result = retrieve_password();
+        if ( is_wp_error( $retrieve_result ) ) {
+
+            $errors = $retrieve_result->get_error_codes();
+
+            if (in_array('empty_username', $errors))
+                echo json_encode(array('success' => false, 'message' => __( "You must supply an email or username" )));
+            if (in_array('invalid_email', $errors))
+                echo json_encode(array('success' => false, 'message' => __( "We don't recognise that email address.  Please try again" )));
+            else
+                echo json_encode(array('success' => false, 'message' => __( join( ',', $errors ))));
+            //$redirect_url = home_url( 'member-password-lost' );
+            //$redirect_url = add_query_arg( 'errors', join( ',', $errors->get_error_codes() ), $redirect_url );
+        } else {
+            // Email sent
+            echo json_encode(array('success' => true, 'message' => "Email Sent"));
+            //$redirect_url = home_url( 'member-login' );
+            //$redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
+        }
+
+        //wp_redirect( $redirect_url );
+        die();
+    }
+}
+
+function replace_retrieve_password_message( $message, $key, $user_login, $user_data ) {
+    // Create new message
+    $msg  = __( 'Hello!' ) . "\r\n\r\n";
+    $msg .= sprintf( __( 'You asked us to reset your password for your AMEC Framework account using the email address %s.' ), $user_login ) . "\r\n\r\n";
+    $msg .= __( "If this was a mistake, or you didn't ask for a password reset, just ignore this email and nothing will happen." ) . "\r\n\r\n";
+    $msg .= __( 'To reset your password, visit the following address:' ) . "\r\n\r\n";
+    $msg .= site_url( "wp-login.php?action=rp&key=$key&login=" . rawurlencode( $user_login )) . "\r\n\r\n";
+    $msg .= __( 'Thanks!' ) . "\r\n";
+
+    return $msg;
+}
+
+function redirect_to_custom_password_reset() {
+    if ( 'GET' == $_SERVER['REQUEST_METHOD'] ) {
+        // Verify key / login combo
+        $user = check_password_reset_key( $_REQUEST['key'], $_REQUEST['login'] );
+        if ( ! $user || is_wp_error( $user ) ) {
+            if ( $user && $user->get_error_code() === 'expired_key' ) {
+                wp_redirect( home_url( 'home/framework/interactive-framework-3?rp=true&login=expiredkey' ) );
+            } else {
+                wp_redirect( home_url( 'home/framework/interactive-framework-3?rp=true&login=invalidkey' ) );
+            }
+            die();
+        }
+
+        $redirect_url = home_url( 'home/framework/interactive-framework-3/' );
+        $redirect_url = add_query_arg( 'rp', esc_attr( "true" ), $redirect_url );
+        $redirect_url = add_query_arg( 'login', esc_attr( $_REQUEST['login'] ), $redirect_url );
+        $redirect_url = add_query_arg( 'key', esc_attr( $_REQUEST['key'] ), $redirect_url );
+
+        wp_redirect( $redirect_url );
+        die();
+    }
+}
+
+function do_password_reset() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+        $rp_key = $_REQUEST['key'];
+        $rp_login = $_REQUEST['user_login'];
+
+        $user = check_password_reset_key( $rp_key, $rp_login );
+
+        if ( ! $user || is_wp_error( $user ) ) {
+            if ( $user && $user->get_error_code() === 'expired_key' ) {
+                echo json_encode(array('success' => false, 'message' => __( "Your reset link has expired.  Please try again" ), 'tryAgain' => true));
+            } else {
+                echo json_encode(array('success' => false, 'message' => __( "There has been an problem with this link. Please try again"), 'tryAgain' => true));
+            }
+            die();
+        }
+
+        if ( isset( $_POST['new_pass'] ) ) {
+
+            if ( empty( $_POST['new_pass'] ) ) {
+                // Password is empty
+
+                echo json_encode(array('success' => false, 'message' => __( "No Password supplied" )));
+                die();
+            }
+
+            // Parameter checks OK, reset password
+            $new_pass = $_POST['new_pass'];
+
+            reset_password( $user,  $new_pass);
+
+            auth_user_login($user->user_email, $new_pass, 'login');
+
+            die();
+            //echo json_encode(array('success' => true, 'message' => __( "Your password has been reset" )));
+        } else {
+            echo "Invalid request.";
+        }
+
+        die();
+    }
 }
 
