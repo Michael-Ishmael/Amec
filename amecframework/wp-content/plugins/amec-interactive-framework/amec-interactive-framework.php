@@ -36,7 +36,7 @@ function aif_custom_post_type()
                 'name'          => __('AIF Workflows'),
                 'singular_name' => __('AIF Workflow'),
             ],
-            'show_ui' => true,
+            'show_ui' => false,
             'show_in_menu'      => true,
             'supports' => ['title', 'editor', 'author', 'excerpt'],
             'taxonomies' => ['aif_workflow_entry_type'],
@@ -46,9 +46,105 @@ function aif_custom_post_type()
             'rest_controller_class' => 'WP_REST_Posts_Controller',
         ]
     );
+
+    register_post_type('aif_page_copy',
+        [
+            'labels'      => [
+                'name'          => __('AIF Framework Pages'),
+                'singular_name' => __('AIF Framework Page'),
+            ],
+            'show_ui' => true,
+            'show_in_menu'      => true,
+            'public' => true,
+            'supports' => ['title', 'page-attributes'], //, 'editor', 'author', 'excerpt'],
+            'capability_type'    => 'page',
+            'hierarchical' => true,
+            'rewrite' => array('slug' => 'framework'),
+//            'show_in_rest'       => true,
+//            'rest_base'          => 'aifworkflows-api',
+//            'rest_controller_class' => 'WP_REST_Posts_Controller',
+        ]
+    );
 }
 
 add_action('init', 'aif_init');
+
+
+function aif_meta_box_init() {
+
+
+    add_meta_box('aif_page_meta', "AIF Framework Copy", 'aif_translate_metabox', 'aif_page_copy', 'normal', 'high');
+
+}
+
+add_action('add_meta_boxes', 'aif_meta_box_init');
+
+
+function aif_translate_metabox( $post, $box) {
+
+    $aif_template_path = plugin_dir_path(__FILE__). 'includes/aif-admin-edit.php';
+
+    include( $aif_template_path );
+
+
+}
+
+function aif_save_translate_metabox( $data, $postarr) {
+
+
+    if($postarr['post_type'] !== 'aif_page_copy') return $data;
+
+    wp_verify_nonce(plugin_basename(__FILE__), 'aif_translation_widget');
+
+    //$post = get_post($post_id);
+
+    $copy = json_decode(wp_unslash($data['post_content']), true);
+
+    if(! isset($copy)) return $data;
+
+    $updated = false;
+
+    foreach ($_POST as $key => $value){
+
+            if ( strpos($key, 'aif-trans-') !== false ){
+
+                $parsed_val = isset($value) && trim($value)!== '' ? trim($value) : null;
+                if(isset($parsed_val)){
+
+                $j_key = substr($key, 10);
+                if(isset($copy[$j_key])){
+                    $copy[$j_key]['translation'] = $value;
+                    $updated = true;
+                }
+
+            }
+        }
+
+    }
+
+    if(!$updated) return $data;
+
+    $json_content = json_encode($copy);
+    $data['post_content'] = wp_slash($json_content);
+
+    return $data;
+
+}
+
+add_action('wp_insert_post_data', 'aif_save_translate_metabox', 10, 3);
+
+function aif_enqueue_translate_styles(){
+
+   wp_enqueue_style( 'aif_admin_css', get_stylesheet_directory_uri() . '/css/aif-admin.css', false, '1.0.0' );
+   wp_enqueue_style( 'tiny_mce_skin', includes_url('/js/tinymce/skins/lightgray/skin.min.css'));
+   wp_enqueue_script( 'tiny_mce', includes_url('/js/tinymce/tinymce.min.js'));
+//   wp_enqueue_script( 'tiny_mce_wp', includes_url('/js/tinymce/plugins/wpview/plugin.js'));
+//   wp_enqueue_script( 'tiny_mce_code', get_stylesheet_directory_uri() . '/js/libs/tinymce/plugins/code/plugin.min.js');
+   wp_enqueue_script( 'aif_admin_js', get_stylesheet_directory_uri() . '/js/aif-admin-edit.js', false, '1.0.0' );
+
+}
+
+add_action( 'admin_enqueue_scripts', 'aif_enqueue_translate_styles' );
 
 
 function aif_register_api_hooks( ) {
