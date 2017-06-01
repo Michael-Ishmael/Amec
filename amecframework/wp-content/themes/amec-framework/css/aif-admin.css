@@ -1,0 +1,86 @@
+#aif_translation_widget {
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  #aif_translation_widget .item {
+    margin: 0 0 10px;
+    padding: 4px 8px 10px 4px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    color: #404040; }
+    #aif_translation_widget .item h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0073aa; }
+      #aif_translation_widget .item h4 .key {
+        display: inline-block;
+        float: right;
+        color: #000;
+        font-weight: normal;
+        font-style: italic; }
+    #aif_translation_widget .item h6 {
+      margin: 0 4px 0 0; }
+    #aif_translation_widget .item .text-box {
+      display: inline-block;
+      width: 45%; }
+      #aif_translation_widget .item .text-box .right {
+        float: right; }
+    #aif_translation_widget .item table {
+      width: 100%; }
+      #aif_translation_widget .item table td.controls {
+        vertical-align: top; }
+    #aif_translation_widget .item .item-text {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      padding: 4px;
+      width: 48%; }
+      #aif_translation_widget .item .item-text.translation .edit {
+        display: none; }
+      #aif_translation_widget .item .item-text .lead-in {
+        text-transform: capitalize;
+        font-weight: bold; }
+      #aif_translation_widget .item .item-text .bold {
+        font-weight: bold; }
+      #aif_translation_widget .item .item-text p {
+        padding: 0; }
+      #aif_translation_widget .item .item-text a.further-info-link {
+        text-decoration: underline; }
+      #aif_translation_widget .item .item-text ul {
+        list-style: disc;
+        margin-top: 10px;
+        padding-left: 20px; }
+      #aif_translation_widget .item .item-text li {
+        margin: 0; }
+      #aif_translation_widget .item .item-text textarea {
+        width: 100%;
+        font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 13px; }
+    #aif_translation_widget .item .btn {
+      margin-left: 4px;
+      padding: 4px 8px;
+      text-decoration: none;
+      border: none;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: #f7f7f7;
+      text-shadow: none;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: normal;
+      color: #0073aa;
+      cursor: pointer;
+      outline: 0;
+      min-width: 60px; }
+      #aif_translation_widget .item .btn.aif-admin-view, #aif_translation_widget .item .btn.aif-admin-raw, #aif_translation_widget .item .btn.aif-admin-visual {
+        display: none; }
+  #aif_translation_widget th {
+    background-color: #00a1f6;
+    color: #fff; }
+    #aif_translation_widget th.trans-th {
+      min-width: 300px; }
+
+/*# sourceMappingURL=aif-admin.css.map */
