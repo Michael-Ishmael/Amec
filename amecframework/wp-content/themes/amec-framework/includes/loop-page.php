@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: scorpio
- * Date: 04/05/2017
- * Time: 20:08
- */
 
 // check if we got posts to display:
 if (have_posts()) :
@@ -42,15 +36,15 @@ if (have_posts()) :
 
             The js will revert to default English copy if post_content not parsed correctly
         -->
-        <div id="aif-copy" style="display: none">
+        <script id="aif-copy" type="application/json" style="display: none">
 
             <?php
             //N.B> Content will be json so deliberately not using the_content()
             global $post;
             echo $post->post_content
-            ?> ');
+            ?>
 
-        </div>
+        </script>
 
         <?php
 

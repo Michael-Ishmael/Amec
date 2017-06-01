@@ -2,6 +2,7 @@
 
 	/*
 	Template Name: Framework Page - Wider and dark background
+	Template Post Type: post, page, aif_page_copy
 	*/
 	
 	

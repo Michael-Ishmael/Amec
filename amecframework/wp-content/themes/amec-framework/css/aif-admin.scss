@@ -1,0 +1,150 @@
+
+#aif_translation_widget {
+
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  .item {
+
+    margin: 0 0 10px;
+    padding: 4px 8px 10px 4px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    color: #404040;
+
+    h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0073aa;
+
+      .key{
+        display: inline-block;
+        float: right;
+        color: #000;
+        font-weight: normal;
+        font-style: italic;
+      }
+    }
+
+    h6 {
+      margin: 0 4px 0 0;
+
+    }
+
+    .text-box{
+      display: inline-block;
+      width: 45%;
+
+      .right {
+        float: right;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      td.controls{
+        vertical-align: top;
+      }
+    }
+
+    .item-text {
+
+      background-color: #fff;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      padding: 4px;
+      width: 48%;
+
+      .english {
+
+      }
+
+      &.translation {
+
+
+        .edit {
+          display: none;
+        }
+
+      }
+
+
+
+      .lead-in {
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      p {
+        padding: 0;
+      }
+
+      a.further-info-link {
+        text-decoration: underline;
+      }
+
+      ul {
+        list-style: disc;
+        margin-top: 10px;
+        padding-left: 20px;
+      }
+
+      li {
+        margin: 0;
+      }
+
+
+      textarea{
+        width: 100%;
+        font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 13px;
+      }
+
+    }
+
+    .btn {
+      margin-left: 4px;
+      padding: 4px 8px;
+      text-decoration: none;
+      border: none;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: #f7f7f7;
+      text-shadow: none;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: normal;
+      color: #0073aa;
+      cursor: pointer;
+      outline: 0;
+      min-width: 60px;
+
+      &.aif-admin-view, &.aif-admin-raw, &.aif-admin-visual{
+        display: none;
+      }
+
+    }
+
+  }
+
+
+
+  th {
+    background-color: #00a1f6;
+    color: #fff;
+
+    &.trans-th {
+      min-width: 300px;
+    }
+  }
+
+}
