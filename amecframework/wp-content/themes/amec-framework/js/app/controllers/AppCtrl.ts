@@ -18,7 +18,7 @@ module aif {
         public currentUser: AifUser = null;
         public displayLoginReminder: boolean;
         private reminderIntervalPromise: ng.IPromise<boolean>;
-
+        private copy: { [id: string]: IAifCopyItem } = null;
 
         constructor(private $scope: ng.IScope, private $interval: ng.IIntervalService, private $sce: ng.ISCEService, private $location: ng.ILocationService,
                     private userRepository: UserRepository, public vs: ViewService) {
@@ -39,8 +39,6 @@ module aif {
             this.$scope.$on("framework:frameworkSwitched", (event: ng.IAngularEvent, data: any) => {
                 this.setCurrentFramework(data)
             });
-
-
 
             this.vs.showLoading();
             this.userRepository.get().then(
@@ -102,6 +100,19 @@ module aif {
                     this.initialised = true;
                 }
             );
+            this.copy = this.getCopy();
+        }
+
+        private getCopy():{ [id: string]: IAifCopyItem }{
+            if(this.copy) return this.copy;
+            let remoteCopy = null;
+            try{
+                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
+            } catch(ex){
+                remoteCopy = null;
+            }
+            this.copy = remoteCopy || AifData.baseCopy;
+            return this.copy;
         }
 
 
@@ -140,6 +151,14 @@ module aif {
             this.userRepository.setRegisterReminderStatus(ReminderStatus.Dismissed)
 
         };
+
+        public getCopyForKey = (key:string, defaultCopy:string = null): string => {
+            this.getCopy();
+            if(this.copy && this.copy[key]){
+                return this.$sce.trustAsHtml(this.copy[key])
+            }
+            return defaultCopy;
+        }
 
         public isLoggedIn(): boolean {
 

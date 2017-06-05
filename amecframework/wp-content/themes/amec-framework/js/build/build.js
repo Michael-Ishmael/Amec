@@ -183,6 +183,11 @@ var aif;
             description: "Step 2 Input 1 Info",
             en: "<span class=\"lead-in\" >Impact</span> is the ultimate  flow-on results related to your objectives which your communication achieved or contributed to. Impact can include: <ul><li><span class=\"bold\">Reputation</span> improvement (recognised as an intangible asset)</li><li><span class=\"bold\">Relationships</span> established or improved (also recognised as an intangible asset by the International Integrated Reporting Council)</li><li><span class=\"bold\">Reaching targets</span> – e.g., sales revenue, fundraising or membership targets, health campaign targets such as smoking reduction, etc.</li><li><span class=\"bold\">Increased staff loyalty and retention</span> - i.e., reduced staff turnover and recruitment costs</li><li><span class=\"bold\">Organizational change</span> – e.g., insights to inform future strategy, realignment of policies to stakeholders</li><li><span class=\"bold\">Social change</span> – e.g., improved health and well-being, increased access to information, etc.</li></ul>",
             translation: null
+        },
+        "USR_RR": {
+            description: "Register Reminder",
+            en: "<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>",
+            translation: null
         }
     };
     AifData.stepStructure = [
@@ -912,6 +917,7 @@ var aif;
     var ViewService = (function () {
         function ViewService($sce) {
             this.$sce = $sce;
+            this.copy = null;
             this.registerButtonId = "#register-button";
             this.fadeBg = false;
             this.displayEdit = false;
@@ -933,6 +939,27 @@ var aif;
             this.displaySave = false;
             this.reset();
         }
+        ViewService.prototype.getCopy = function () {
+            if (this.copy)
+                return this.copy;
+            var remoteCopy = null;
+            try {
+                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
+            }
+            catch (ex) {
+                remoteCopy = null;
+            }
+            this.copy = remoteCopy || aif.AifData.baseCopy;
+            return this.copy;
+        };
+        ViewService.prototype.getCopyForKey = function (key, defaultCopy) {
+            if (defaultCopy === void 0) { defaultCopy = null; }
+            this.getCopy();
+            if (this.copy && this.copy[key]) {
+                return this.$sce.trustAsHtml(this.copy[key]);
+            }
+            return defaultCopy;
+        };
         ViewService.prototype.showLoading = function () {
             this.reset();
             this.displayGrid = false;
@@ -2126,12 +2153,15 @@ var aif;
     AifFrameworkSummary.$inject = [''];
     aif.AifFrameworkSummary = AifFrameworkSummary;
     var AifRegisterReminder = (function () {
-        function AifRegisterReminder() {
+        function AifRegisterReminder($sce) {
+            this.$sce = $sce;
             this.templateUrl = TEMPLATE_PATH + '/js/app/views/registerReminder.html';
             this.restrict = 'A';
             this.scope = {
                 target: '@',
+                copyKey: '@',
                 dismissFn: '=',
+                copyFn: '=',
             };
         }
         AifRegisterReminder.prototype.link = function (scope, element, attributes) {
@@ -2141,6 +2171,15 @@ var aif;
             }
             else {
                 this.doTether();
+            }
+            if (scope.copyFn && scope.copyKey) {
+                var copy = scope.copyFn(scope.copyKey);
+                if (copy) {
+                    scope.copy = copy;
+                }
+                else {
+                    scope.copy = this.$sce.trustAsHtml("<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>");
+                }
             }
             scope.$on('$destroy', function () {
                 if (_this.regTether) {
@@ -2170,8 +2209,8 @@ var aif;
             this.regTether = new Tether(tetherOptions);
         };
         AifRegisterReminder.factory = function () {
-            var directive = function () { return new AifRegisterReminder(); };
-            //directive.$inject = ['$location'];
+            var directive = function ($sce) { return new AifRegisterReminder($sce); };
+            directive.$inject = ['$sce'];
             return directive;
         };
         return AifRegisterReminder;
@@ -3010,9 +3049,18 @@ var aif;
             this.initialised = false;
             this.currentFramework = null;
             this.currentUser = null;
+            this.copy = null;
             this.dismissLoginReminder = function () {
                 _this.displayLoginReminder = false;
                 _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
+            };
+            this.getCopyForKey = function (key, defaultCopy) {
+                if (defaultCopy === void 0) { defaultCopy = null; }
+                _this.getCopy();
+                if (_this.copy && _this.copy[key]) {
+                    return _this.$sce.trustAsHtml(_this.copy[key]);
+                }
+                return defaultCopy;
             };
             this.init();
         }
@@ -3078,6 +3126,20 @@ var aif;
                 }
                 _this.initialised = true;
             });
+            this.copy = this.getCopy();
+        };
+        AppCtrl.prototype.getCopy = function () {
+            if (this.copy)
+                return this.copy;
+            var remoteCopy = null;
+            try {
+                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
+            }
+            catch (ex) {
+                remoteCopy = null;
+            }
+            this.copy = remoteCopy || aif.AifData.baseCopy;
+            return this.copy;
         };
         AppCtrl.prototype.userLoggedChanged = function (user) {
             if (user) {

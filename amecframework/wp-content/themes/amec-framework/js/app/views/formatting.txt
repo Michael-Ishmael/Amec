@@ -1,1 +1,135 @@
-<ul><li><span class=\"bold\">Reputation</span> improvement (recognised as an intangible asset)</li><li><span class=\"bold\">Relationships</span> established or improved (also recognised as an intangible asset by the International Integrated Reporting Council)</li><li><span class=\"bold\">Reaching targets</span> – e.g., sales revenue, fundraising or membership targets, health campaign targets such as smoking reduction, etc.</li><li><span class=\"bold\">Increased staff loyalty and retention</span> - i.e., reduced staff turnover and recruitment costs</li><li><span class=\"bold\">Organizational change</span> – e.g., insights to inform future strategy, realignment of policies to stakeholders</li><li><span class=\"bold\">Social change</span> – e.g., improved health and well-being, increased access to information, etc.</li></ul>
+<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>
+
+
+
+Register Reminder  - USR_RR
+
+Save Progress Button
+
+Login Button
+
+Register Button
+
+Edit Button
+
+Download PDF button
+
+
+
+Login screen
+
+Title
+Don't have an account message
+Create an Account link
+
+Email label
+Password label
+
+Login Button
+
+Forgot password link
+
+
+Register Screen
+
+Title
+Already have an account message
+Login link
+
+First Name
+Last Name
+etc
+
+Add country
+
+
+Account screen
+
+Title
+Alt title / Login successful message
+Logout button label
+
+Select existing framework message
+Create new framework link
+
+Rename button caption
+Delete button caption
+
+First time user text
+
+Create button label
+
+
+
+New Measurement Framework
+
+From save
+
+Title
+
+
+From detect unsaved
+Title
+Message
+Framework name label
+Framework description label
+Create button label
+Cancel button label
+
+Or save over message
+Save over link
+
+
+Save existing
+
+Title
+
+Save to message
+
+Save over message
+Create new link
+
+
+Password reminder
+
+Title
+
+Back link
+Email address label
+Send reset button caption
+
+We have emailed link text
+
+Resend link text
+
+Close button caption
+
+Email text
+
+
+Reset Password screen
+
+Enter a new password message
+
+password label
+
+Confirm label
+
+Change Password button label
+
+
+
+
+
+
+
+
+
+
+
+
+Images - Download summary labels
+
+
+
+

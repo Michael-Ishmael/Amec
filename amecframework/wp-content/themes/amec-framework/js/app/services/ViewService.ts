@@ -21,8 +21,30 @@ module aif {
 
     public static $inject = ["$sce"];
 
+    private copy: { [id: string]: IAifCopyItem } = null;
+
     constructor(private $sce:ng.ISCEService){
       this.reset();
+    }
+
+    private getCopy():{ [id: string]: IAifCopyItem }{
+      if(this.copy) return this.copy;
+      let remoteCopy = null;
+      try{
+        remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
+      } catch(ex){
+        remoteCopy = null;
+      }
+      this.copy = remoteCopy || AifData.baseCopy;
+      return this.copy;
+    }
+
+    public getCopyForKey (key:string, defaultCopy:string = null): string  {
+      this.getCopy();
+      if(this.copy && this.copy[key]){
+        return this.$sce.trustAsHtml(this.copy[key])
+      }
+      return defaultCopy;
     }
 
     public registerButtonId:string = "#register-button";
