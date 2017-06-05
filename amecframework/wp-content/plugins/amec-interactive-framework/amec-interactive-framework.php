@@ -60,9 +60,9 @@ function aif_custom_post_type()
             'capability_type'    => 'page',
             'hierarchical' => true,
             'rewrite' => array('slug' => 'framework'),
-//            'show_in_rest'       => true,
-//            'rest_base'          => 'aifworkflows-api',
-//            'rest_controller_class' => 'WP_REST_Posts_Controller',
+            'show_in_rest'       => true,
+            'rest_base'          => 'aif-pages-api',
+            'rest_controller_class' => 'WP_REST_Posts_Controller',
         ]
     );
 }

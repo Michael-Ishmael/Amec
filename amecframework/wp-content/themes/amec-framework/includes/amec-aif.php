@@ -181,7 +181,7 @@
 
         </aif-framework-summary>
 
-        <div aif-register-reminder ng-if="ac.displayLoginReminder" dismiss-fn="ac.dismissLoginReminder"></div>
+        <div aif-register-reminder ng-if="ac.displayLoginReminder" dismiss-fn="ac.dismissLoginReminder" copy-key="USR_RR" copy-fn="ac.getCopyForKey"></div>
 
     </div>
 </div>
