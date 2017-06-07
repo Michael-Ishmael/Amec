@@ -152,6 +152,7 @@ module aif {
 
         };
 
+<<<<<<< HEAD
         public getCopyForKey = (key:string, defaultCopy:string = null): string => {
             this.getCopy();
             if(this.copy && this.copy[key]){
@@ -159,6 +160,18 @@ module aif {
             }
             return defaultCopy;
         }
+=======
+        public getCopyForKey = (key:string, defaultCopy:string = null, asHtml:boolean = false): string => {
+            this.getCopy();
+            if(this.copy && this.copy[key]){
+                if(asHtml) {
+                    return this.$sce.trustAsHtml(this.copy[key])
+                }
+                return this.copy[key].translation;
+            }
+            return defaultCopy;
+        };
+>>>>>>> master
 
         public isLoggedIn(): boolean {
 

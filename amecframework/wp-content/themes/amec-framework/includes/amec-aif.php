@@ -7,16 +7,18 @@
         <div class="control-row ng-cloak row" ng-if="ac.vs.displayControls">
             <div  class="low-pad-cell"  ng-class="{'col-md-4': ac.vs.displayGrid && !ac.isLoggedIn(), 'col-md-3' : ac.isLoggedIn() && ac.vs.displayGrid, 'col-md-1' : ac.vs.displaySummary}">
                 <div id="login-button" class="aif-button background-dark_blue bottom-dark-border-dark_blue"
-                     ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised">
-                    Login
+                     ng-click="ac.showLogin()"  ng-if="!ac.isLoggedIn() && ac.initialised" >
+                        {{ ac.vs.getCopyForKey('BTN_LGN', 'Login')  }}
                 </div>
                 <div id="register-button" class="aif-button background-dark_blue bottom-dark-border-dark_blue"
-                     ng-click="ac.showRegister()"  ng-if="!ac.isLoggedIn() && ac.initialised && ac.vs.displayGrid">
-                    Register
+                     ng-click="ac.showRegister()"  ng-if="!ac.isLoggedIn() && ac.initialised && ac.vs.displayGrid"
+                     >
+{{ ac.vs.getCopyForKey('BTN_RGR', 'Register')  }}
                 </div>
                 <div ng-if="ac.isLoggedIn() && ac.initialised" >
                     <h4 ng-click="ac.viewAccount()" class="welcome text-elip">
-                        <a class="account-button"></a><span ng-if="ac.vs.displayGrid">Welcome {{ ac.currentUser.firstName }}</span> </h4>
+                        <a class="account-button"></a><span ng-if="ac.vs.displayGrid">
+                            <span ng-bind-html="ac.vs.getCopyForKey('BTN_WLM', 'Welcome', true)"></span> {{ac.currentUser.firstName }}</span> </h4>
                 </div>
             </div>
             <div class="low-pad-cell text-center" ng-class="{'col-md-6': (ac.vs.displayGrid && ac.isLoggedIn()) || ac.vs.displaySummary, 'col-md-5' : ac.vs.displayGrid && !ac.isLoggedIn()}">
@@ -28,25 +30,34 @@
 
                 <div class="d-inline-block">
                     <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
-                         class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
-                        Save Progress
+                         class="aif-button background-bright_green bottom-dark-border-bright_green save-button"
+                         >
+{{ ac.vs.getCopyForKey('BTN_SVE', 'Save Progress')  }}
+
                     </div>
                     <div ng-click="ac.submitFramework()"
-                         class="aif-button background-bright_green bottom-dark-border-bright_green">Submit
+                         class="aif-button background-bright_green bottom-dark-border-bright_green"
+                         >
+{{ ac.vs.getCopyForKey('BTN_SMT', 'Submit')  }}
                     </div>
                 </div>
 
             </div>
             <div class="col-md-5 low-pad-cell text-right" ng-if="ac.vs.displaySummary" >
                 <div ng-click="ac.saveProgress()" ng-if="ac.initialised" ng-cloak
-                     class="aif-button background-bright_green bottom-dark-border-bright_green save-button">
-                    Save Progress
+                     class="aif-button background-bright_green bottom-dark-border-bright_green save-button"
+                     >
+{{ ac.vs.getCopyForKey('BTN_SVE', 'Save Progress')  }}
                 </div>
                 <div ng-click="ac.vs.showGrid()"
-                     class="aif-button background-yellow bottom-dark-border-yellow">Edit
+                     class="aif-button background-yellow bottom-dark-border-yellow"
+                     >
+{{ ac.vs.getCopyForKey('BTN_EDT', 'Edit')  }}
                 </div>
                 <div ng-click="ac.downloadAifPdf()"
-                     class="aif-button background-red bottom-dark-border-red">Download Pdf
+                     class="aif-button background-red bottom-dark-border-red"
+                     >
+{{ ac.vs.getCopyForKey('BTN_DLD', 'Download Pdf')  }}
                 </div>
             </div>
         </div>
@@ -54,7 +65,7 @@
         <div class="base-framework" ng-cloak ng-controller="frameworkCtrl as ctrl" ng-if="ac.vs.displayGrid">
             <div class="row ng-scope">
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-red" 
+                    <div class="aif-tile background-red"
                          ng-click="ctrl.handleStepClick(1)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -70,7 +81,7 @@
                     </div>
                 </div>
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-yellow" 
+                    <div class="aif-tile background-yellow"
                          ng-click="ctrl.handleStepClick(2)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -83,7 +94,7 @@
                     </div>
                 </div>
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-green" 
+                    <div class="aif-tile background-green"
                          ng-click="ctrl.handleStepClick(3)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -98,7 +109,7 @@
             </div>
             <div class="row ng-scope">
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-light_blue" 
+                    <div class="aif-tile background-light_blue"
                          ng-click="ctrl.handleStepClick(4)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -111,7 +122,7 @@
                     </div>
                 </div>
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-dark_blue" 
+                    <div class="aif-tile background-dark_blue"
                          ng-click="ctrl.handleStepClick(5)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -124,7 +135,7 @@
                     </div>
                 </div>
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-dark_blue" 
+                    <div class="aif-tile background-dark_blue"
                          ng-click="ctrl.handleStepClick(6)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -139,7 +150,7 @@
             </div>
             <div class="row ng-scope">
                 <div class="low-pad-cell col-md-8">
-                    <div class="aif-tile background-purple" 
+                    <div class="aif-tile background-purple"
                          ng-click="ctrl.handleStepClick(7)">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>
@@ -152,7 +163,7 @@
                     </div>
                 </div>
                 <div class="low-pad-cell col-md-4">
-                    <div class="aif-tile background-black" 
+                    <div class="aif-tile background-black"
                          ng-click="ac.submitFramework()">
                         <div class="bg-cloak" ng-if="ctrl.vs.fadeBg"
                              ng-click="ctrl.clearEditMode()"></div>

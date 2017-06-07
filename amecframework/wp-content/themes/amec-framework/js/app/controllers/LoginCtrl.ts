@@ -13,6 +13,7 @@ module aif {
     public showNeedMessage:boolean = false;
     public waiting:boolean = false;
 
+
     constructor(public vs:ViewService, private userRepository: UserRepository) {
       this.init();
     }
