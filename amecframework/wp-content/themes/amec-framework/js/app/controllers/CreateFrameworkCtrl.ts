@@ -28,6 +28,8 @@ module aif {
     }
 
     private init(): void {
+      this.title = this.vs.getCopyForKey('NF_TTL', 'New Measurement Framework');
+      this.cancelButtonText = this.vs.getCopyForKey('NF_CLB', 'Cancel');
       if(!this.userRepository.currentUser){
         this.vs.showLogin();
         return;
@@ -36,7 +38,7 @@ module aif {
       this.hasFrameworks = this.user.hasFrameworks();
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromEdit && this.userRepository.tempFramework){
         this.editMode = true;
-        this.title = "Edit " + this.userRepository.tempFramework.name;
+        this.title = this.vs.getCopyForKey('NF_ATL_E', 'Edit ') + this.userRepository.tempFramework.name;
         this.submitAction = this.renameFramework;
         this.newFrameworkName = this.userRepository.tempFramework.name;
         this.newFrameworkDescription = this.userRepository.tempFramework.description;
@@ -44,18 +46,17 @@ module aif {
 
       }
 
+      this.createMessage = this.vs.getCopyForKey('NF_CTM', 'Create a new framework to save your progress.')
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromSave){
-        this.createMessage = "Create a new framework to save your progress.";
+
       }
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromDetectUnsaved){
-        this.title = "Save your work";
-        this.createMessage = "Create a new framework to save your progress.";
+        this.title = this.vs.getCopyForKey('NF_ATL_S', 'Save your work');
       }
       if(this.vs.accountDisplayRoute == AccountDisplayRoute.FromLogin){
         if(!this.hasFrameworks){
-          this.title = "Create your first framework";
-          this.createMessage = "Create a new framework to store your progress.";
-          this.cancelButtonText = "Skip for now";
+          this.title = this.vs.getCopyForKey('NF_ATL_L', 'Create your first framework');
+          this.cancelButtonText = this.vs.getCopyForKey('NF_ACL', 'Skip for now') ;
         }
 
       }

@@ -267,12 +267,14 @@ module aif {
             }
 
             if(scope.copyFn && scope.copyKey){
-                let copy = scope.copyFn(scope.copyKey);
+                let copy = scope.copyFn(scope.copyKey, null, true);
                 if(copy) {
                     scope.copy = copy;
                 } else {
                     scope.copy = this.$sce.trustAsHtml("<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>")
                 }
+            } else {
+                scope.copy = this.$sce.trustAsHtml("<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>")
             }
 
 

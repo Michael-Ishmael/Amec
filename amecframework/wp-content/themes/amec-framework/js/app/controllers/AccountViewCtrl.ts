@@ -7,7 +7,7 @@ module aif {
 
     public static $inject = ["$scope", "userRepository", "viewService"];
 
-    public title:string = "Your account";
+    public title:string = "Your Account";
     public user:AifUser = null;
 
     public createMessage:string = "Use the fields below create a new framework.";
@@ -27,6 +27,7 @@ module aif {
     }
 
     private init():void{
+      this.title = this.vs.getCopyForKey('AC_TTL', 'Your Account');
       if(!this.userRepository.currentUser){
         this.vs.showLogin();
         return;
@@ -59,10 +60,10 @@ module aif {
     private setTitle(displayRoute:AccountDisplayRoute):void{
       switch (displayRoute){
         case AccountDisplayRoute.FromLogin:
-          this.title = "Log in successful!";
+          this.title = this.vs.getCopyForKey('AC_ATL_L', 'Log in successful');
           break;
         case AccountDisplayRoute.FromSave:
-          this.title = "Save framework";
+          this.title = this.vs.getCopyForKey('AC_ATL_S', 'Save framework')  ;
           break;
         case AccountDisplayRoute.FromViewAccount:
         default:

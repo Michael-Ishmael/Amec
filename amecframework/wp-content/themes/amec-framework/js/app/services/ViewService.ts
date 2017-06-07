@@ -36,17 +36,11 @@ module aif {
         remoteCopy = null;
       }
       this.copy = remoteCopy || AifData.baseCopy;
+
       return this.copy;
     }
 
-<<<<<<< HEAD
-    public getCopyForKey (key:string, defaultCopy:string = null): string  {
-      this.getCopy();
-      if(this.copy && this.copy[key]){
-        return this.$sce.trustAsHtml(this.copy[key])
-      }
-      return defaultCopy;
-=======
+
     public getCopyForKey (key:string, defaultCopy:string = null, asHtml:boolean = false): string  {
       let copy = this.getCopy();
       if(copy && copy[key]){
@@ -62,7 +56,6 @@ module aif {
         return defaultCopy;
       }
       return null;
->>>>>>> master
     }
 
     public registerButtonId:string = "#register-button";

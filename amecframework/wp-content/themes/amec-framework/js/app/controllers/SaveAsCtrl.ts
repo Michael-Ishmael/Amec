@@ -30,6 +30,7 @@ module aif {
 
 
         private init(): void {
+            this.title = this.vs.getCopyForKey('SA_TTL', 'Save framework');
             if (!this.userRepository.currentUser) {
                 this.vs.showLogin(true);
                 return;
@@ -41,9 +42,9 @@ module aif {
                 this.selectFramework(this.currentFramework);
                 this.user.frameworks.forEach(s => s.saving = false);
                 if(this.user.frameworks.length > 1){
-                    this.altMessage = "Alternatively, save as an existing framework or";
+                    this.altMessage = this.vs.getCopyForKey('SA_SOM', 'Alternatively, save as an existing framework or');
                 } else {
-                    this.altMessage = "or";
+                    this.altMessage = this.vs.getCopyForKey('SA_OR', 'or');
                 }
 
                 this.exInc = 1;

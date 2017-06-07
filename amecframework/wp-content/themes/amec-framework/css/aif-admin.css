@@ -77,6 +77,21 @@
       min-width: 60px; }
       #aif_translation_widget .item .btn.aif-admin-view, #aif_translation_widget .item .btn.aif-admin-raw, #aif_translation_widget .item .btn.aif-admin-visual {
         display: none; }
+  #aif_translation_widget .raw-json-edit .btn {
+    display: inline-block;
+    margin-right: 5px; }
+    #aif_translation_widget .raw-json-edit .btn.aif-admin-hide-json, #aif_translation_widget .raw-json-edit .btn.aif-admin-save-json {
+      display: none; }
+  #aif_translation_widget .raw-json-edit .aif-raw-json-text {
+    display: none;
+    width: 100%;
+    min-height: 500px; }
+  #aif_translation_widget .raw-json-edit .aif-raw-json-save-rem {
+    display: none;
+    font-style: italic;
+    font-size: 0.8rem; }
+    #aif_translation_widget .raw-json-edit .aif-raw-json-save-rem a {
+      cursor: pointer; }
   #aif_translation_widget th {
     background-color: #00a1f6;
     color: #fff; }

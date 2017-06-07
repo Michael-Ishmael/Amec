@@ -18,7 +18,6 @@ module aif {
         public currentUser: AifUser = null;
         public displayLoginReminder: boolean;
         private reminderIntervalPromise: ng.IPromise<boolean>;
-        private copy: { [id: string]: IAifCopyItem } = null;
 
         constructor(private $scope: ng.IScope, private $interval: ng.IIntervalService, private $sce: ng.ISCEService, private $location: ng.ILocationService,
                     private userRepository: UserRepository, public vs: ViewService) {
@@ -100,20 +99,11 @@ module aif {
                     this.initialised = true;
                 }
             );
-            this.copy = this.getCopy();
         }
 
-        private getCopy():{ [id: string]: IAifCopyItem }{
-            if(this.copy) return this.copy;
-            let remoteCopy = null;
-            try{
-                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
-            } catch(ex){
-                remoteCopy = null;
-            }
-            this.copy = remoteCopy || AifData.baseCopy;
-            return this.copy;
-        }
+        private getCopyFunction = (key:string, defaultCopy:string = null, asHtml:boolean = false):string =>  {
+            return this.vs.getCopyForKey(key, defaultCopy, asHtml);
+        };
 
 
         private userLoggedChanged(user: AifUser): void {
@@ -151,27 +141,6 @@ module aif {
             this.userRepository.setRegisterReminderStatus(ReminderStatus.Dismissed)
 
         };
-
-<<<<<<< HEAD
-        public getCopyForKey = (key:string, defaultCopy:string = null): string => {
-            this.getCopy();
-            if(this.copy && this.copy[key]){
-                return this.$sce.trustAsHtml(this.copy[key])
-            }
-            return defaultCopy;
-        }
-=======
-        public getCopyForKey = (key:string, defaultCopy:string = null, asHtml:boolean = false): string => {
-            this.getCopy();
-            if(this.copy && this.copy[key]){
-                if(asHtml) {
-                    return this.$sce.trustAsHtml(this.copy[key])
-                }
-                return this.copy[key].translation;
-            }
-            return defaultCopy;
-        };
->>>>>>> master
 
         public isLoggedIn(): boolean {
 

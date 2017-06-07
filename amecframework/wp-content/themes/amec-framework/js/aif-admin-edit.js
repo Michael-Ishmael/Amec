@@ -144,6 +144,57 @@ jQuery(document).ready(
 
         });
 
+        $('#aif_translation_widget').find('.aif-admin-edit-json').click(function(e){
+
+            var cont = $(e.target).closest('div');
+            cont.find('.aif-admin-edit-json').hide();
+            cont.find('.aif-admin-hide-json').show();
+            cont.find('.aif-admin-save-json').show();
+            cont.find('.aif-raw-json-save-rem').hide();
+            cont.find('.aif-raw-json-text').show();
+
+
+        });
+
+        $('#aif_translation_widget').find('.aif-admin-hide-json').click(function(e){
+
+            var cont = $(e.target).closest('div');
+            cont.find('.aif-admin-edit-json').show();
+            cont.find('.aif-admin-hide-json').hide();
+            cont.find('.aif-admin-save-json').hide();
+            cont.find('.aif-raw-json-text').hide();
+            cont.find('.aif-raw-json-save-rem').hide();
+
+        });
+
+        $('#aif_translation_widget').find('.aif-admin-save-json').click(function(e){
+
+            var cont = $(e.target).closest('div');
+            cont.find('.aif-admin-edit-json').show();
+            cont.find('.aif-admin-hide-json').hide();
+            cont.find('.aif-admin-save-json').hide();
+            cont.find('.aif-raw-json-save-rem').show();
+            cont.find('#aif-save-raw-json').val('true');
+
+            cont.find('.aif-raw-json-text').hide();
+
+
+        });
+
+        $('#aif_translation_widget').find('#aif-raw-json-cancel').click(function(e){
+
+            var cont = $(e.target).closest('div');
+            cont.find('.aif-admin-edit-json').show();
+            cont.find('.aif-admin-hide-json').hide();
+            cont.find('.aif-admin-save-json').hide();
+            cont.find('.aif-raw-json-text').hide();
+            cont.find('.aif-raw-json-save-rem').hide();
+            cont.find('#aif-save-raw-json').val('false');
+
+
+
+        });
+
     }
 
 );

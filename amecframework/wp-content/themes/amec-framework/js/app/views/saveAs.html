@@ -9,7 +9,7 @@
             <div ng-if="sa.currentFramework">
 
                 <p>
-                    Save your progress to:
+                    {{ sa.vs.getCopyForKey('SA_SPM', 'Save your progress to:')  }}
                 </p>
                 <div class="choose-fw-layout">
                     <div class="row">
@@ -36,8 +36,12 @@
             </div>
 
             <p class="account-layout">{{ sa.altMessage }}
-                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length > 3">create a new one</a>
-                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length < 4">create a new framework</a></p>
+                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length > 3">
+                    {{ sa.vs.getCopyForKey('SA_CNM', 'create a new one')  }}
+                </a>
+                <a ng-click="sa.showCreateFramework()" ng-if="sa.altMessage.length < 4">
+                    {{ sa.vs.getCopyForKey('SA_CNN', 'create a new framework')  }}
+                </a></p>
 
             <div class="choose-fw-layout">
 
@@ -49,11 +53,6 @@
                         <div class="choose-fw-tile save-as" ng-if="!fw.flaggedDelete"
                              ng-class="[sa.getColorClass('background', $index + sa.exInc), {'selected' : fw.selected}]" >
 
-                            <!--<div class="fw-controls">-->
-
-                                <!--<a ng-click="av.editFramework(fw)" title="Edit framework" class="edit-icon"></a>-->
-                                <!--<a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>-->
-                            <!--</div>-->
 
                             <div class="fw-main" ng-click="sa.toggleSaveOver(fw)">
 
@@ -62,17 +61,15 @@
                                 </p>
                             </div>
 
-
-
                         </div>
 
                         <div class="choose-fw-tile shake" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" ng-if="fw.flaggedDelete">
 
                             <div class="fw-main" >
-                            <p class="text-elip">Are you sure you want to save over {{ fw.name }}?</p>
+                            <p class="text-elip">{{ sa.vs.getCopyForKey('SA_ASM', 'Are you sure you want to save over ') + fw.name }}?</p>
                             <div     class="text-link sml" ng-class="sa.getColorClass('background-dark', $index + sa.exInc)" aif-loading-spinner loading="fw.saving" size="40">
-                                        <a ng-click="sa.saveFramework(fw)">Yes</a>
-                                        <a  ng-click="sa.toggleSaveOver(fw)">No</a>
+                                        <a ng-click="sa.saveFramework(fw)">{{ sa.vs.getCopyForKey('SA_YES', 'Yes')  }}</a>
+                                        <a  ng-click="sa.toggleSaveOver(fw)">{{ sa.vs.getCopyForKey('SA_NO', 'No')  }}</a>
                                     </div>
                             </div>
 
@@ -86,13 +83,6 @@
 
             </div>
 
-
-            <!--<div class="form-group">-->
-                <!--<div class="little-loader" ng-show="sa.waiting"></div>-->
-                <!--<input ng-hide="sa.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"-->
-                       <!--ng-disabled="!sa.frameworkIsSelected()"-->
-                       <!--type="button" value="Save" ng-click="sa.saveAsSelectedFramework()">-->
-            <!--</div>-->
 
 
         </div>

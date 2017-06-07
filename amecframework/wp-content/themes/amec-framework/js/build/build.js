@@ -188,8 +188,6 @@ var aif;
             description: "Register Reminder",
             en: "<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>",
             translation: null
-<<<<<<< HEAD
-=======
         },
         "BTN_LGN": {
             description: "Login Button",
@@ -275,8 +273,117 @@ var aif;
             description: "Login Screen attempted save register link",
             en: "click here to create an account",
             translation: null
->>>>>>> master
-        }
+        },
+        "LGN_EMR": {
+            description: "Login Screen validation email missing",
+            en: "Tell us your email",
+            translation: null
+        },
+        "LGN_EMV": {
+            description: "Login Screen validation email invalid.",
+            en: "This is not a valid email address.",
+            translation: null
+        },
+        "LGN_PWM": {
+            description: "Login Screen validation password missing",
+            en: "Tell us your password",
+            translation: null
+        },
+        "LGN_SCS": {
+            description: "Login Screen log in successful message",
+            en: "Login successful, loading...",
+            translation: null
+        },
+        "LGN_FL": {
+            description: "Login Screen log in fail message",
+            en: "Error contacting server",
+            translation: null
+        },
+        "RG_TTL": { description: "Register Screen - Title", en: "Register", translation: null },
+        "RG_AAM": { description: "Register Screen - Already have an account message", en: "Already have an account?", translation: null },
+        "RG_AAL": { description: "Register Screen - Already have an account link", en: "Login here", translation: null },
+        "RG_FN": { description: "Register Screen - First Name", en: "First Nam0", translation: null },
+        "RG_FNV": { description: "Register Screen - First Name validation - missing", en: "You must supply a first name.", translation: null },
+        "RG_LN": { description: "Register Screen - Last Name", en: "Last Name", translation: null },
+        "RG_LNV": { description: "Register Screen - Last Name validation - missing", en: "You must supply a last name", translation: null },
+        "RG_ON": { description: "Register Screen - Organisation", en: "Organisation", translation: null },
+        "RG_ONV": { description: "Register Screen - Organisation validation - missing", en: "You must tell us your company or organisation name.", translation: null },
+        "RG_JT": { description: "Register Screen - Job Title", en: "Job Title", translation: null },
+        "RG_JTV": { description: "Register Screen - Job Title validation - missing", en: "You must provide a job title.", translation: null },
+        "RG_CN": { description: "Register Screen - Contact Number", en: "Contact Number", translation: null },
+        "RG_CNV": { description: "Register Screen - Contact Number validation - missing", en: "You must provide a contact number.", translation: null },
+        "RG_CY": { description: "Register Screen - Country", en: "Country", translation: null },
+        "RG_CYV": { description: "Register Screen - Country validation - missing", en: "You must select a country", translation: null },
+        "RG_EML": { description: "Register Screen - Email", en: "Email", translation: null },
+        "RG_EML_PH": { description: "Register Screen - Email Placeholder", en: "A Work Email Address", translation: null },
+        "RG_EML_VM": { description: "Register Screen - Email validation - missing", en: "You must supply an email address", translation: null },
+        "RG_EML_VW": { description: "Register Screen - Email validation - must be work", en: "You must use a work address", translation: null },
+        "RG_EML_VI": { description: "Register Screen - Email validation - invalid email", en: "This is not a valid email address", translation: null },
+        "RG_PWD": { description: "Register Screen - Password", en: "Password", translation: null },
+        "RG_PWD_VM": { description: "Register Screen - Password validation - missing", en: "You must supply a password", translation: null },
+        "RG_PWD_VL": { description: "Register Screen - Password validation - length", en: "Your password should be at least eight characters long.", translation: null },
+        "RG_CPW": { description: "Register Screen - Password Confirmation", en: "Confirm Password", translation: null },
+        "RG_CPW_VM": { description: "Register Screen - Password Confirmation validation - don't match", en: "The passwords don't match", translation: null },
+        "AC_TTL": { description: "Account Screen - Title", en: "Your Account", translation: null },
+        "AC_ATL_L": { description: "Account Screen - Alt title / Login successful", en: "Log in successful", translation: null },
+        "AC_ATL_S": { description: "Account Screen - Alt title / Save framework", en: "Save framework", translation: null },
+        "AC_LOB": { description: "Account Screen - Logout button label", en: "logout", translation: null },
+        "AC_SEF": { description: "Account Screen - Select existing framework message", en: "Select an existing framework to load or", translation: null },
+        "AC_CNF": { description: "Account Screen - Create new framework link", en: "create a new one", translation: null },
+        "AC_LDT": { description: "Account Screen - Load text", en: "Load", translation: null },
+        "AC_LDG": { description: "Account Screen - Loading text", en: "Loading...", translation: null },
+        "AC_RFW": { description: "Account Screen - Rename button hover caption", en: "Rename Framework", translation: null },
+        "AC_DFW": { description: "Account Screen - Delete button hover caption", en: "Delete Framework", translation: null },
+        "AC_CDT": { description: "Account Screen - Confirm delete text", en: "Are you sure you want to delete ", translation: null },
+        "AC_YES": { description: "Account Screen - Yes", en: "Yes", translation: null },
+        "AC_NO": { description: "Account Screen - No", en: "No", translation: null },
+        "AC_FTU": { description: "Account Screen - First time user text", en: "<p>This screen can be used to view and load measurement frameworks you have saved under you login.</p><p>You haven't saved any frameworks yet.  Click create below to set up a new framework for your campaign.</p><p>Alternatively close this screen and start working with the tool.  You can come back at any time to save your progress.</p>", translation: null },
+        "AC_FTC": { description: "Account Screen - Create button label", en: "Create", translation: null },
+        "NF_TTL": { description: "New Framework Screen - Title", en: "New Measurement Framework", translation: null },
+        "NF_ATL_E": { description: "New Framework Screen - Alt title / arrived from edit button", en: "Edit ", translation: null },
+        "NF_ATL_S": { description: "New Framework Screen - Alt title / arrived from detected unsaved work", en: "Save your work", translation: null },
+        "NF_ATL_L": { description: "New Framework Screen - Alt title / arrived from first login", en: "Create your first framework", translation: null },
+        "NF_CTM": { description: "New Framework Screen - Create message", en: "Create a new framework to save your progress.", translation: null },
+        "NF_FWN": { description: "New Framework Screen - Framework name label", en: "Framework name", translation: null },
+        "NF_FWN_VM": { description: "New Framework Screen - Framework name validation - missing", en: "You must provide a name for your framework.", translation: null },
+        "NF_FWD": { description: "New Framework Screen - Framework description label", en: "Description", translation: null },
+        "NF_FWD_PH": { description: "New Framework Screen - Framework description placeholder", en: "Optionally add any notes here", translation: null },
+        "NF_CTB": { description: "New Framework Screen - Create button label", en: "Create", translation: null },
+        "NF_SVB": { description: "New Framework Screen - Save button label", en: "Save", translation: null },
+        "NF_CLB": { description: "New Framework Screen - Cancel link text", en: "Cancel", translation: null },
+        "NF_ACL": { description: "New Framework Screen - Alt cancel link / from first login", en: "Skip for now", translation: null },
+        "NF_OSV": { description: "New Framework Screen - Or save over message", en: "Or save over ", translation: null },
+        "NF_OSL": { description: "New Framework Screen - Save over link", en: "an existing framework", translation: null },
+        "SA_TTL": { description: "Save As Screen - Title", en: "Save framework", translation: null },
+        "SA_SPM": { description: "Save As Screen - Save progress to message", en: "Save your progress to:", translation: null },
+        "SA_SOM": { description: "Save As Screen - Save over message (when has existing)", en: "Alternatively, save as an existing framework or", translation: null },
+        "SA_CNM": { description: "Save As Screen - Create new link (when has existing)", en: "create a new one", translation: null },
+        "SA_OR": { description: "Save As Screen - Or", en: "or", translation: null },
+        "SA_CNN": { description: "Save As Screen - Create new link when no existing frameworks", en: "create a new framework", translation: null },
+        "SA_ASM": { description: "Save As Screen - Are you sure you want to save over message", en: "Are you sure you want to save over ", translation: null },
+        "SA_YES": { description: "Save As Screen - Yes", en: "Yes", translation: null },
+        "SA_NO": { description: "Save As Screen - No", en: "No", translation: null },
+        "FP_TTL": { description: "Forgot Password Screen - Title", en: "Reset Password", translation: null },
+        "FP_BKL": { description: "Forgot Password Screen - Back to login link", en: "Go back", translation: null },
+        "FP_EML": { description: "Forgot Password Screen - Email address label", en: "Email address", translation: null },
+        "FP_EML_VM": { description: "Forgot Password Screen - Email validation - missing", en: "Tell us your email.", translation: null },
+        "FP_EMP_VI": { description: "Forgot Password Screen - Email validation - invalid", en: "This is not a valid email.", translation: null },
+        "FP_RSB": { description: "Forgot Password Screen - Send reset button label", en: "Send reset link", translation: null },
+        "FP_EMT": { description: "Forgot Password Screen - We've emailed you link text", en: "<p>We have emailed you a link to reset your password.</p><p>You should receive it in the next few minutes.</p>", translation: null },
+        "FP_NRT": { description: "Forgot Password Screen - Haven't received it text", en: "Haven't received it? ", translation: null },
+        "FP_RST": { description: "Forgot Password Screen - Resend link text", en: "Click here to resend", translation: null },
+        "FP_CLS": { description: "Forgot Password Screen - Close button text", en: "Close", translation: null },
+        "RP_TTL": { description: "Reset Password Screen - Title", en: "Reset Password", translation: null },
+        "RP_NPM": { description: "Reset Password Screen - Enter a new password message", en: "Enter a new password for the login ", translation: null },
+        "RP_PWD": { description: "Reset Password Screen - Password label", en: "Password", translation: null },
+        "RP_PWD_VM": { description: "Reset Password Screen - Password validation - missing", en: "You must supply a password.", translation: null },
+        "RP_PWD_VL": { description: "Reset Password Screen - Password validation - length", en: "Your password should be at least eight characters long.", translation: null },
+        "RP_CPW": { description: "Reset Password Screen - Confirm label", en: "Confirm Password", translation: null },
+        "RP_CPW_VM": { description: "Reset Password Screen - Confirm validation - not matching", en: "The passwords don't match.", translation: null },
+        "RP_RFM": { description: "Reset Password Screen - Reset failed message", en: "There has been a problem resetting your password. Either this link has expired or your email address is not valid.<br>", translation: null },
+        "RP_RFL": { description: "Reset Password Screen - Reset failed try again link", en: "Click here to try again", translation: null },
+        "RP_CPB": { description: "Reset Password Screen - Change password button text", en: "Change Password", translation: null },
+        "RP_RSM": { description: "Reset Password Screen - Password reset successful message", en: "Your password has been reset.  Logging in...", translation: null },
     };
     AifData.stepStructure = [
         {
@@ -1040,15 +1147,6 @@ var aif;
             this.copy = remoteCopy || aif.AifData.baseCopy;
             return this.copy;
         };
-<<<<<<< HEAD
-        ViewService.prototype.getCopyForKey = function (key, defaultCopy) {
-            if (defaultCopy === void 0) { defaultCopy = null; }
-            this.getCopy();
-            if (this.copy && this.copy[key]) {
-                return this.$sce.trustAsHtml(this.copy[key]);
-            }
-            return defaultCopy;
-=======
         ViewService.prototype.getCopyForKey = function (key, defaultCopy, asHtml) {
             if (defaultCopy === void 0) { defaultCopy = null; }
             if (asHtml === void 0) { asHtml = false; }
@@ -1068,7 +1166,6 @@ var aif;
                 return defaultCopy;
             }
             return null;
->>>>>>> master
         };
         ViewService.prototype.showLoading = function () {
             this.reset();
@@ -2283,13 +2380,16 @@ var aif;
                 this.doTether();
             }
             if (scope.copyFn && scope.copyKey) {
-                var copy = scope.copyFn(scope.copyKey);
+                var copy = scope.copyFn(scope.copyKey, null, true);
                 if (copy) {
                     scope.copy = copy;
                 }
                 else {
                     scope.copy = this.$sce.trustAsHtml("<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>");
                 }
+            }
+            else {
+                scope.copy = this.$sce.trustAsHtml("<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>");
             }
             scope.$on('$destroy', function () {
                 if (_this.regTether) {
@@ -2781,6 +2881,8 @@ var aif;
             this.init();
         }
         CreateFrameworkCtrl.prototype.init = function () {
+            this.title = this.vs.getCopyForKey('NF_TTL', 'New Measurement Framework');
+            this.cancelButtonText = this.vs.getCopyForKey('NF_CLB', 'Cancel');
             if (!this.userRepository.currentUser) {
                 this.vs.showLogin();
                 return;
@@ -2789,24 +2891,22 @@ var aif;
             this.hasFrameworks = this.user.hasFrameworks();
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromEdit && this.userRepository.tempFramework) {
                 this.editMode = true;
-                this.title = "Edit " + this.userRepository.tempFramework.name;
+                this.title = this.vs.getCopyForKey('NF_ATL_E', 'Edit ') + this.userRepository.tempFramework.name;
                 this.submitAction = this.renameFramework;
                 this.newFrameworkName = this.userRepository.tempFramework.name;
                 this.newFrameworkDescription = this.userRepository.tempFramework.description;
                 return;
             }
+            this.createMessage = this.vs.getCopyForKey('NF_CTM', 'Create a new framework to save your progress.');
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromSave) {
-                this.createMessage = "Create a new framework to save your progress.";
             }
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromDetectUnsaved) {
-                this.title = "Save your work";
-                this.createMessage = "Create a new framework to save your progress.";
+                this.title = this.vs.getCopyForKey('NF_ATL_S', 'Save your work');
             }
             if (this.vs.accountDisplayRoute == aif.AccountDisplayRoute.FromLogin) {
                 if (!this.hasFrameworks) {
-                    this.title = "Create your first framework";
-                    this.createMessage = "Create a new framework to store your progress.";
-                    this.cancelButtonText = "Skip for now";
+                    this.title = this.vs.getCopyForKey('NF_ATL_L', 'Create your first framework');
+                    this.cancelButtonText = this.vs.getCopyForKey('NF_ACL', 'Skip for now');
                 }
             }
         };
@@ -3052,6 +3152,7 @@ var aif;
             return prefix + "-" + this.colors[index] + " ";
         };
         SaveAsCtrl.prototype.init = function () {
+            this.title = this.vs.getCopyForKey('SA_TTL', 'Save framework');
             if (!this.userRepository.currentUser) {
                 this.vs.showLogin(true);
                 return;
@@ -3062,10 +3163,10 @@ var aif;
                 this.selectFramework(this.currentFramework);
                 this.user.frameworks.forEach(function (s) { return s.saving = false; });
                 if (this.user.frameworks.length > 1) {
-                    this.altMessage = "Alternatively, save as an existing framework or";
+                    this.altMessage = this.vs.getCopyForKey('SA_SOM', 'Alternatively, save as an existing framework or');
                 }
                 else {
-                    this.altMessage = "or";
+                    this.altMessage = this.vs.getCopyForKey('SA_OR', 'or');
                 }
                 this.exInc = 1;
             }
@@ -3159,30 +3260,14 @@ var aif;
             this.initialised = false;
             this.currentFramework = null;
             this.currentUser = null;
-            this.copy = null;
+            this.getCopyFunction = function (key, defaultCopy, asHtml) {
+                if (defaultCopy === void 0) { defaultCopy = null; }
+                if (asHtml === void 0) { asHtml = false; }
+                return _this.vs.getCopyForKey(key, defaultCopy, asHtml);
+            };
             this.dismissLoginReminder = function () {
                 _this.displayLoginReminder = false;
                 _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
-            };
-<<<<<<< HEAD
-            this.getCopyForKey = function (key, defaultCopy) {
-                if (defaultCopy === void 0) { defaultCopy = null; }
-                _this.getCopy();
-                if (_this.copy && _this.copy[key]) {
-                    return _this.$sce.trustAsHtml(_this.copy[key]);
-=======
-            this.getCopyForKey = function (key, defaultCopy, asHtml) {
-                if (defaultCopy === void 0) { defaultCopy = null; }
-                if (asHtml === void 0) { asHtml = false; }
-                _this.getCopy();
-                if (_this.copy && _this.copy[key]) {
-                    if (asHtml) {
-                        return _this.$sce.trustAsHtml(_this.copy[key]);
-                    }
-                    return _this.copy[key].translation;
->>>>>>> master
-                }
-                return defaultCopy;
             };
             this.init();
         }
@@ -3248,20 +3333,6 @@ var aif;
                 }
                 _this.initialised = true;
             });
-            this.copy = this.getCopy();
-        };
-        AppCtrl.prototype.getCopy = function () {
-            if (this.copy)
-                return this.copy;
-            var remoteCopy = null;
-            try {
-                remoteCopy = getRemotePageCopy ? getRemotePageCopy() : null;
-            }
-            catch (ex) {
-                remoteCopy = null;
-            }
-            this.copy = remoteCopy || aif.AifData.baseCopy;
-            return this.copy;
         };
         AppCtrl.prototype.userLoggedChanged = function (user) {
             if (user) {
@@ -3375,7 +3446,7 @@ var aif;
             this.$scope = $scope;
             this.userRepository = userRepository;
             this.vs = vs;
-            this.title = "Your account";
+            this.title = "Your Account";
             this.user = null;
             this.createMessage = "Use the fields below create a new framework.";
             this.colors = ["red", "yellow", "green", "light_blue", "dark_blue", "purple"];
@@ -3390,6 +3461,7 @@ var aif;
             return prefix + "-" + this.colors[index] + " ";
         };
         AccountViewCtrl.prototype.init = function () {
+            this.title = this.vs.getCopyForKey('AC_TTL', 'Your Account');
             if (!this.userRepository.currentUser) {
                 this.vs.showLogin();
                 return;
@@ -3414,10 +3486,10 @@ var aif;
         AccountViewCtrl.prototype.setTitle = function (displayRoute) {
             switch (displayRoute) {
                 case aif.AccountDisplayRoute.FromLogin:
-                    this.title = "Log in successful!";
+                    this.title = this.vs.getCopyForKey('AC_ATL_L', 'Log in successful');
                     break;
                 case aif.AccountDisplayRoute.FromSave:
-                    this.title = "Save framework";
+                    this.title = this.vs.getCopyForKey('AC_ATL_S', 'Save framework');
                     break;
                 case aif.AccountDisplayRoute.FromViewAccount:
                 default:
@@ -3519,12 +3591,12 @@ var aif;
                         _this.loginMessage = r.message;
                     }
                     else {
-                        _this.loginMessage = "Error contacting server";
+                        _this.loginMessage = _this.vs.getCopyForKey("LGN_SCS", "Error contacting server");
                     }
                 }
                 else {
                     _this.loginFailure = false;
-                    _this.loginMessage = "Login successful loading...";
+                    _this.loginMessage = _this.vs.getCopyForKey("LGN_SCS", "Login successful loading...");
                     _this.vs.showLoading();
                     window.location.href = window.location.href;
                 }

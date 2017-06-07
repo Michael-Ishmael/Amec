@@ -13,21 +13,27 @@
                 <form name="formCreate" novalidate class="css-form" ng-submit="cf.submitAction(formCreate)">
 
                     <div class="form-group">
-                        <label for="nFrameworkName">Name</label>
+                        <label for="nFrameworkName">
+                            {{ cf.vs.getCopyForKey('NF_FWN', 'Framework name')  }}
+                        </label>
                         <input type="text" ng-model="cf.newFrameworkName" required
                                class="form-control" id="nFrameworkName"
-                               name="nFrameworkName" placeholder="Framework name">
+                               name="nFrameworkName" placeholder="{{ cf.vs.getCopyForKey('NF_FWN', 'Framework name')  }}">
                         <div class="form-validation-error"
                              ng-show="formLoad.$submitted || formLoad.nFrameworkName.$touched">
-                            <span ng-show="formLoad.nFrameworkName.$error.required">You must provide a name for your framework.</span>
+                            <span ng-show="formLoad.nFrameworkName.$error.required">
+                                {{ cf.vs.getCopyForKey('NF_FWN_VM', 'You must provide a name for your framework.')  }}
+                            </span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="nframeworkDesc">Description</label>
+                        <label for="nframeworkDesc">
+                            {{ cf.vs.getCopyForKey('NF_FWD', 'Description')  }}
+                        </label>
                         <textarea id="nframeworkDesc" type="text" rows="5" class="form-control"
                                   name="nframeworkDesc" ng-model="cf.newFrameworkDescription"
-                                  placeholder="Optionally add any notes here "></textarea>
+                                  placeholder="{{ cf.vs.getCopyForKey('NF_FWD_PH', 'Optionally add any notes here')  }}"></textarea>
 
                     </div>
 
@@ -35,10 +41,10 @@
                     <div class="form-group">
                         <input ng-if="!cf.editMode"
                                class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
-                               type="submit" value="Create">
+                               type="submit" value="{{ cf.vs.getCopyForKey('NF_CTB', 'Create')  }}">
                         <input ng-if="cf.editMode"
                                class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
-                               type="submit" value="Save">
+                               type="submit" value="{{ cf.vs.getCopyForKey('NF_SVB', 'Save')  }}">
                         <a class="text-link lge" ng-click="cf.vs.resetView()"
                            title="You can click save progress to come back at any time"
                         >{{ cf.cancelButtonText }}</a>
@@ -51,8 +57,11 @@
 
 <div class="clearfix"></div>
 
-            <p class="account-layout" ng-if="cf.hasFrameworks">Or save over
-                <a ng-click="cf.showSaveAs()" >an existing framework</a>
+            <p class="account-layout" ng-if="cf.hasFrameworks">
+                {{ cf.vs.getCopyForKey('NF_OSV', 'Or save over ')  }}
+                <a ng-click="cf.showSaveAs()" >
+                    {{ cf.vs.getCopyForKey('NF_OSL', 'an existing framework')  }}
+                </a>
             </p>
 
         </div>

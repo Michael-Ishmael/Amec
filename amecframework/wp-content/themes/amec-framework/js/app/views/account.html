@@ -5,12 +5,17 @@
         <div class="account-screen long">
             <a class="btn btn-link close-button pull-right" ng-click="av.closeView()">X</a>
             <h2 class="d-inline-block">{{ av.title }}</h2>
-            <div class="logout" ng-click="av.logout()">logout</div>
+            <div class="logout" ng-click="av.logout()">
+                {{ av.vs.getCopyForKey('AC_LOB', 'logout')  }}
+            </div>
 
             <div  ng-if="av.user.hasExistingFrameworks()">
 
-                <p class="account-layout">Select an existing framework to load or
-                    <a ng-click="av.showCreateFramework()">create a new one</a> </p>
+                <p class="account-layout">
+                    {{ av.vs.getCopyForKey('AC_SEF', 'Select an existing framework to load or')  }}
+                    <a ng-click="av.showCreateFramework()">
+                        {{ av.vs.getCopyForKey('AC_CNF', 'create a new one')  }}
+                    </a> </p>
 
                     <div class="choose-fw-layout" >
 
@@ -23,14 +28,14 @@
                                      ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"  >
 
                                     <div class="fw-load" ng-class="[av.getColorClass('background-dark', $index), {'loading': av.loadingFramework}]" ng-click="av.loadSelectedFramework()">
-                                        <div class="load-text">Load</div>
-                                        <div class="loading-text">Loading...</div>
+                                        <div class="load-text" ng-bind-html="av.vs.getCopyForKey('AC_LDT', 'Load')"></div>
+                                        <div class="loading-text" ng-bind-html="av.vs.getCopyForKey('AC_LDG', 'Loading...')"></div>
                                     </div>
 
                                     <div class="fw-controls">
 
-                                        <a ng-click="av.editFramework(fw)" title="Rename Framework" class="edit-icon"></a>
-                                        <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="Delete framework" class="trash-icon"></a>
+                                        <a ng-click="av.editFramework(fw)" title="{{ av.vs.getCopyForKey('AC_RFW', 'Rename Framework')  }}" class="edit-icon"></a>
+                                        <a ng-click="av.toggleFlagDeleteFramework($event, fw)" title="{{ av.vs.getCopyForKey('AC_DFW', 'Delete Framework')  }}" class="trash-icon"></a>
                                     </div>
 
                                     <div class="fw-main" ng-click="av.toggleSelectFramework(fw)">
@@ -44,10 +49,10 @@
                                 <div class="choose-fw-tile shake" ng-class="av.getColorClass('background-dark', $index)" ng-if="fw.flaggedDelete">
 
                                     <div class="fw-main" >
-                                        <p>Are you sure you want to delete {{ fw.name }}?</p>
+                                        <p>{{ av.vs.getCopyForKey('AC_CDT', 'Are you sure you want to delete ')  + ' ' + fw.name }}?</p>
                                         <span class="text-link sml">
-                                        <a ng-click="av.deleteFramework($event, fw)">Yes</a>
-                                        <a  ng-click="av.toggleFlagDeleteFramework($event, fw)">No</a>
+                                        <a ng-click="av.deleteFramework($event, fw)">{{ av.vs.getCopyForKey('AC_YES', 'Yes')  }}</a>
+                                        <a  ng-click="av.toggleFlagDeleteFramework($event, fw)">{{ av.vs.getCopyForKey('AC_NO', 'No')  }}</a>
                                     </span>
                                     </div>
 
@@ -65,36 +70,23 @@
                     </div>
 
 
-                    <!--<div class="form-group">-->
-                        <!--<input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"-->
-                               <!--ng-disabled="!av.frameworkIsSelected()"-->
-                               <!--type="button" value="Load" ng-click="av.loadSelectedFramework()">-->
-                    <!--</div>-->
-
-
             </div>
 
             <div class="account-layout" ng-if="!av.user.hasExistingFrameworks()">
                 <h5 >
                     Hi <span class="em">{{ av.user.firstName }}</span>
                 </h5>
-                <p>
-                    This screen can be used to view and load measurement frameworks you have
-                    saved under you login.
-                </p>
-                <p>
-                    You haven't saved any frameworks yet.  Click <a class="em" ng-click="av.vs.showCreate()">create</a> below to set up
-                    a new framework for your campaign.
-                </p>
-                <p>
-                    Alternatively <a class="em" ng-click="av.closeView()">close</a> this screen and start
-                    working with the tool.  You can come back at any time to save your progress.
-                </p>
+
+                <div ng-bind-html="av.vs.getCopyForKey('AC_FTU', 'w and load measurement frameworks you havesaved under you login.</p><p>You haven\'t saved any frameworks yet.  Click create below to set up a new framework for your campaign.</p><p>Alternatively close this screen and start working with the tool.  You can come back at any time to save your progress.</p>', true)">
+
+                </div>
+
+
 
                 <div class="form-group">
                     <input class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
 
-                           type="button" ng-click="av.vs.showCreate()" value="Create">
+                           type="button" ng-click="av.vs.showCreate()" value="{{ av.vs.getCopyForKey('AC_FTC', 'Create')  }}">
                 </div>
 
             </div>

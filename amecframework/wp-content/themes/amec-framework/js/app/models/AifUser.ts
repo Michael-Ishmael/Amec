@@ -116,11 +116,13 @@ module aif {
       public organisation:string,
       public jobTitle:string,
       public language:string,
-      public contactNumber:string
+      public contactNumber:string,
+
     ){}
 
     public password: string = null;
     public passwordConfirmation: string = null;
+    public country:string
   }
 
   export class AifUser implements IAifUser {

@@ -88,6 +88,12 @@ $color-list: (
     margin: 0;
   }
 
+  select {
+    color: #777;
+    font-weight: 400;
+  }
+
+
   @each $value in $color-list {
 
     .background-#{nth($value, 1)} {
@@ -237,7 +243,7 @@ $color-list: (
 
   .base-framework {
     position: relative;
-    min-height: 1000px;
+    min-height: 1500px;
   }
 
   .aif-tile {
@@ -490,6 +496,7 @@ $color-list: (
       font-family: lato, sans-serif;
       line-height: 23px;
     }
+
 
     .css-form {
       input, select, textarea {

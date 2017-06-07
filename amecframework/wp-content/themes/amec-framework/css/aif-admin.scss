@@ -134,6 +134,38 @@
 
     }
 
+
+
+  }
+
+  .raw-json-edit{
+
+    .btn {
+      display: inline-block;
+      margin-right: 5px;
+
+      &.aif-admin-hide-json, &.aif-admin-save-json{
+        display: none;
+      }
+    }
+
+    .aif-raw-json-text{
+      display: none;
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .aif-raw-json-save-rem{
+      display: none;
+      font-style: italic;
+      font-size: 0.8rem;
+
+      a {
+        cursor: pointer;
+      }
+
+    }
+
   }
 
 

@@ -23,7 +23,7 @@
                             <div class="close-button" ng-click="ig.hideInfo()">X</div>
                             <p ng-bind-html="ig.infoText">
 
-                            <p>
+                            <p ng-if="ig.step.stepIndex < 7">
                                 For further information <a ng-click="ig.toggleFurtherInfo()" class="further-info-link">click here</a>
                             </p>
                         </div>

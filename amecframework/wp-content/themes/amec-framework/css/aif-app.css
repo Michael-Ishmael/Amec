@@ -2559,6 +2559,9 @@
     font-family: system-ui; }
   #aif-app input[type="text"], #aif-app input[type="password"], #aif-app input[type="email"], #aif-app input[type="tel"], #aif-app input[type="url"], #aif-app select {
     margin: 0; }
+  #aif-app select {
+    color: #777;
+    font-weight: 400; }
   #aif-app .background-red {
     background-color: #d50046; }
   #aif-app .background-dark-red {
@@ -2735,7 +2738,7 @@
         border: solid 1px lightgray; }
   #aif-app .base-framework {
     position: relative;
-    min-height: 1000px; }
+    min-height: 1500px; }
   #aif-app .aif-tile {
     margin-top: 10px;
     height: 200px;

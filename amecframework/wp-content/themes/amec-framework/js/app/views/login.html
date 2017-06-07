@@ -54,12 +54,12 @@
 
 
                     <div class="form-group" ng-if="!lc.vs.displaySelectFramework">
-                        <label for="uPassword">Password</label>
+                        <label for="uPassword">{{ lc.vs.getCopyForKey('LGN_PWD', 'Password')  }}</label>
                         <input type="password" ng-model="lc.password" required
-                               class="form-control" id="uPassword" name="uPassword" placeholder="Password">
+                               class="form-control" id="uPassword" name="uPassword" placeholder="{{ lc.vs.getCopyForKey('LGN_PWD', 'Password')  }}">
                         <div class="form-validation-error"
                              ng-show="form.$submitted || form.uPassword.$touched">
-                            <span ng-show="form.uPassword.$error.required">Tell us your password.</span>
+                            <span ng-show="form.uPassword.$error.required">{{ lc.vs.getCopyForKey('LGN_PWM', 'Tell us your password.')  }}</span>
                         </div>
 
                         <div class="form-validation-error"  ng-show="lc.loginFailure">
@@ -79,7 +79,7 @@
                         <div class="little-loader" ng-show="lc.waiting"></div>
                         <input ng-hide="lc.waiting" class="btn aif-button background-dark_blue bottom-dark-border-dark_blue"
                                type="submit" value="Login">
-                        <a class="text-link" ng-click="lc.vs.showForgottenDetails()">Lost password?</a>
+                        <a class="text-link" ng-click="lc.vs.showForgottenDetails()">{{ lc.vs.getCopyForKey('LGN_LPD', 'Lost password?')  }}</a>
                     </div>
 
                 </form>

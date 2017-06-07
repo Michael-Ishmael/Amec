@@ -43,11 +43,11 @@ module aif {
             if(r.message){
               this.loginMessage = r.message;
             } else {
-              this.loginMessage = "Error contacting server"
+              this.loginMessage = this.vs.getCopyForKey("LGN_SCS",  "Error contacting server");
             }
           } else {
             this.loginFailure = false;
-            this.loginMessage = "Login successful loading...";
+            this.loginMessage =  this.vs.getCopyForKey("LGN_SCS", "Login successful loading...");
             this.vs.showLoading();
             window.location.href = window.location.href;
 
