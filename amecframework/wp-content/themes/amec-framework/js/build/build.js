@@ -188,6 +188,91 @@ var aif;
             description: "Register Reminder",
             en: "<p>New functionality has been added to the AMEC Integrated Evaluation Framework to improve the user experience. </p><p>Now you can save the progress of your work and can save and edit up to 10 different frameworks per user account.</p><p> To do so you must register, create an account and log in. While it is not compulsory to do so, this important new functionality is only available once logged into your account. Please either sign in or register if it’s your first time here to begin.Don’t worry, use of the framework remains completely free!</p>",
             translation: null
+        },
+        "BTN_LGN": {
+            description: "Login Button",
+            en: "Login",
+            translation: null
+        },
+        "BTN_RGR": {
+            description: "Register Button",
+            en: "Register",
+            translation: null
+        },
+        "BTN_SVE": {
+            description: "Save Button",
+            en: "Save Progress",
+            translation: null
+        },
+        "BTN_EDT": {
+            description: "Edit Button",
+            en: "Edit",
+            translation: null
+        },
+        "BTN_DLD": {
+            description: "Download PDF Button",
+            en: "Download PDF",
+            translation: null
+        },
+        "BTN_SMT": {
+            description: "Submit Button",
+            en: "Submit",
+            translation: null
+        },
+        "BTN_WLM": {
+            description: "Welcome Text",
+            en: "Welcome ",
+            translation: null
+        },
+        "LGN_TTL": {
+            description: "Login Screen Title",
+            en: "Login",
+            translation: null
+        },
+        "LGN_NAT": {
+            description: "Login Screen no account text",
+            en: "New here?",
+            translation: null
+        },
+        "LGN_NAL": {
+            description: "Login Screen no account link",
+            en: "Create an account",
+            translation: null
+        },
+        "LGN_EML": {
+            description: "Login Screen Email Label",
+            en: "Email",
+            translation: null
+        },
+        "LGN_PWD": {
+            description: "Login Screen Password Label",
+            en: "Password",
+            translation: null
+        },
+        "LGN_BTN": {
+            description: "Login Screen Login Button",
+            en: "Login",
+            translation: null
+        },
+        "LGN_LPD": {
+            description: "Login Screen Lost Password Text",
+            en: "Lost password?",
+            translation: null
+        },
+        "LGN_FSM": {
+            description: "Login Screen attempted save message",
+            en: "You need to be logged in to save progress.",
+            translation: null
+        },
+        "LGN_FSI": {
+            description: "Login Screen attempted save instruction",
+            en: "Log in below or ",
+            translation: null
+        },
+        "LGN_FSL": {
+            description: "Login Screen attempted save register link",
+            en: "click here to create an account",
+            translation: null
         }
     };
     AifData.stepStructure = [
@@ -952,13 +1037,25 @@ var aif;
             this.copy = remoteCopy || aif.AifData.baseCopy;
             return this.copy;
         };
-        ViewService.prototype.getCopyForKey = function (key, defaultCopy) {
+        ViewService.prototype.getCopyForKey = function (key, defaultCopy, asHtml) {
             if (defaultCopy === void 0) { defaultCopy = null; }
-            this.getCopy();
-            if (this.copy && this.copy[key]) {
-                return this.$sce.trustAsHtml(this.copy[key]);
+            if (asHtml === void 0) { asHtml = false; }
+            var copy = this.getCopy();
+            if (copy && copy[key]) {
+                var text = copy[key].translation ? copy[key].translation : copy[key].en;
+                if (text) {
+                    if (asHtml)
+                        return this.$sce.trustAsHtml(text);
+                    return text;
+                }
+                return null;
             }
-            return defaultCopy;
+            if (defaultCopy) {
+                if (asHtml)
+                    return this.$sce.trustAsHtml(defaultCopy);
+                return defaultCopy;
+            }
+            return null;
         };
         ViewService.prototype.showLoading = function () {
             this.reset();
@@ -3054,11 +3151,15 @@ var aif;
                 _this.displayLoginReminder = false;
                 _this.userRepository.setRegisterReminderStatus(aif.ReminderStatus.Dismissed);
             };
-            this.getCopyForKey = function (key, defaultCopy) {
+            this.getCopyForKey = function (key, defaultCopy, asHtml) {
                 if (defaultCopy === void 0) { defaultCopy = null; }
+                if (asHtml === void 0) { asHtml = false; }
                 _this.getCopy();
                 if (_this.copy && _this.copy[key]) {
-                    return _this.$sce.trustAsHtml(_this.copy[key]);
+                    if (asHtml) {
+                        return _this.$sce.trustAsHtml(_this.copy[key]);
+                    }
+                    return _this.copy[key].translation;
                 }
                 return defaultCopy;
             };

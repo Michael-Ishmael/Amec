@@ -39,12 +39,21 @@ module aif {
       return this.copy;
     }
 
-    public getCopyForKey (key:string, defaultCopy:string = null): string  {
-      this.getCopy();
-      if(this.copy && this.copy[key]){
-        return this.$sce.trustAsHtml(this.copy[key])
+    public getCopyForKey (key:string, defaultCopy:string = null, asHtml:boolean = false): string  {
+      let copy = this.getCopy();
+      if(copy && copy[key]){
+        let text = copy[key].translation ? copy[key].translation : copy[key].en;
+        if(text){
+          if(asHtml) return this.$sce.trustAsHtml(text);
+          return text;
+        }
+        return null;
       }
-      return defaultCopy;
+      if(defaultCopy){
+        if(asHtml) return this.$sce.trustAsHtml(defaultCopy);
+        return defaultCopy;
+      }
+      return null;
     }
 
     public registerButtonId:string = "#register-button";

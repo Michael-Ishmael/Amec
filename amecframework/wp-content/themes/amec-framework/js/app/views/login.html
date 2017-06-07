@@ -4,27 +4,45 @@
 
         <div class="aif-tile account-screen full-size-child">
             <a class="btn btn-link close-button pull-right" ng-click="lc.vs.resetView()">X</a>
-            <h2>Login</h2>
+            <h2 >
+{{ lc.vs.getCopyForKey('LGN_TTL', 'Login')  }}
+                </h2>
 
-            <h4 class="login-message" ng-if="lc.showNeedMessage">
-                You need to be logged in to save progress.
+            <h4 class="login-message" ng-if="lc.showNeedMessage"
+                >
+{{ lc.vs.getCopyForKey('LGN_FSM', 'You need to be logged in to save progress.')  }}
+
             </h4>
             <p class="account-layout" ng-if="lc.showNeedMessage">
-                Log in below or <a ng-click="lc.switchToRegister()">click here to create an account</a>
+                <span >
+{{ lc.vs.getCopyForKey('LGN_FSI', 'Log in below or ')  }}
+                    </span>
+                 <a ng-click="lc.switchToRegister()"
+                    >
+{{ lc.vs.getCopyForKey('LGN_FSL', 'click here to create an account')  }}
+                     </a>
             </p>
 
-            <h3 ng-if="!lc.showNeedMessage" class="login-message">New here? <a class="heading-link" id="pop_register"
-                                                                  ng-click="lc.vs.showRegister()">Create an account</a>
+            <h3 ng-if="!lc.showNeedMessage" class="login-message">
+                <span >
+{{ lc.vs.getCopyForKey('LGN_NAT', 'New here? ')  }}
+
+                </span>
+                <a class="heading-link" id="pop_register" ng-click="lc.vs.showRegister()">
+                    {{ lc.vs.getCopyForKey('LGN_NAL', 'Create an account') }}
+
+                </a>
             </h3>
 
             <br>
             <div class="login-box-group">
                 <form name="form" novalidate class="css-form" ng-submit="lc.login(form)">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" >
+                            {{ lc.vs.getCopyForKey('LGN_EML', 'Email')  }}</label>
                         <input id="email" ng-model="lc.email" required type="email"
                                class="form-control" name="uEmail"
-                               placeholder="Email Address"
+                               placeholder="{{ lc.vs.getCopyForKey('LGN_EML', 'Email')  }}"
                                ng-disabled="lc.vs.displaySelectFramework">
                         <div class="form-validation-error"
                              ng-show="form.$submitted || form.uEmail.$touched">
