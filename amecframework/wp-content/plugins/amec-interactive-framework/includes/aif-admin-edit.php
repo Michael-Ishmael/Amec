@@ -1,8 +1,8 @@
 <?php
 
 
-$copy = json_decode( $post->post_content, true );
-if($copy == null){
+$copy = json_decode($post->post_content, true);
+if ($copy == null) {
 
     ?>
     <div id="aif_translation_widget">
@@ -14,6 +14,10 @@ if($copy == null){
             <input type="button" class="btn aif-admin-save-json" value="save">
             <span class="aif-raw-json-save-rem">You will also need to press update to save your changes.
             This will ignore any edits above - <a id="aif-raw-json-cancel">Cancel</a>
+        </span>
+            <span class="aif-raw-json-fail-parse">
+            <br><br>JSON doesn't parse:<br><br>
+            <span id="aif-raw-json-fail-msg"></span>
         </span>
             <br>
             <br>
@@ -37,7 +41,7 @@ $editor_settings = array('textarea_name' => 'description',
     'media_buttons' => false,
     'teeny' => true,
     'tinymce' => array(
-            'toolbar1' => 'undo redo | bold italic | bullist numlist outdent indent',
+        'toolbar1' => 'undo redo | bold italic | bullist numlist outdent indent',
         'remove_linebreaks' => true,
         'content_css' => get_stylesheet_directory_uri() . '/css/aif-admin.css',
 
@@ -99,6 +103,10 @@ $editor_settings = array('textarea_name' => 'description',
         <input type="button" class="btn aif-admin-save-json" value="save">
         <span class="aif-raw-json-save-rem">You will also need to press update to save your changes.
             This will ignore any edits above - <a id="aif-raw-json-cancel">Cancel</a>
+        </span>
+        <span class="aif-raw-json-fail-parse">
+            <br><br>JSON doesn't parse:<br><br>
+            <span id="aif-raw-json-fail-msg"></span>
         </span>
         <br>
         <br>
