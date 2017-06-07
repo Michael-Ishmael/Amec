@@ -82,9 +82,16 @@ add_action('add_meta_boxes', 'aif_meta_box_init');
 
 function aif_translate_metabox( $post, $box) {
 
-    $aif_template_path = plugin_dir_path(__FILE__). 'includes/aif-admin-edit.php';
+    try{
+        $aif_template_path = plugin_dir_path(__FILE__). 'includes/aif-admin-edit.php';
 
-    include( $aif_template_path );
+        include( $aif_template_path );
+    } catch (\Exception $e){
+
+        echo '<div id="aif_translation_widget"><p>There has been an error generating editor</p><p>'. $e->getMessage() .'</p></div>';
+
+    }
+
 
 
 }
@@ -104,23 +111,34 @@ function aif_save_translate_metabox( $data, $postarr) {
 
     $updated = false;
 
-    foreach ($_POST as $key => $value){
+    if(isset($_POST['aif-save-raw-json']) && $_POST['aif-save-raw-json'] == 'true' && isset($_POST['aif-raw-json'])){
+        $valid = json_decode(wp_unslash($_POST['aif-raw-json']));
+        if($valid){
+            $data['post_content'] = $_POST['aif-raw-json'];
+            return $data;
+        }
+
+    } else {
+        foreach ($_POST as $key => $value){
 
             if ( strpos($key, 'aif-trans-') !== false ){
 
                 $parsed_val = isset($value) && trim($value)!== '' ? trim($value) : null;
                 if(isset($parsed_val)){
 
-                $j_key = substr($key, 10);
-                if(isset($copy[$j_key])){
-                    $copy[$j_key]['translation'] = $value;
-                    $updated = true;
+                    $j_key = substr($key, 10);
+                    if(isset($copy[$j_key])){
+                        $copy[$j_key]['translation'] = $value;
+                        $updated = true;
+                    }
+
                 }
-
             }
-        }
 
+        }
     }
+
+
 
     if(!$updated) return $data;
 

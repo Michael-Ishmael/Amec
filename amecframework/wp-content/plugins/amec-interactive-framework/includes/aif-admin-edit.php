@@ -1,7 +1,37 @@
 <?php
 
 
-$copy = json_decode($post->post_content, true);
+$copy = json_decode( $post->post_content, true );
+if($copy == null){
+
+    ?>
+    <div id="aif_translation_widget">
+        <p>Unable to pass page json. JSON Dump:</p>
+        <div class="raw-json-edit item">
+
+            <input type="button" class="btn aif-admin-edit-json" value="edit raw json">
+            <input type="button" class="btn aif-admin-hide-json" value="hide">
+            <input type="button" class="btn aif-admin-save-json" value="save">
+            <span class="aif-raw-json-save-rem">You will also need to press update to save your changes.
+            This will ignore any edits above - <a id="aif-raw-json-cancel">Cancel</a>
+        </span>
+            <br>
+            <br>
+            <textarea class="aif-raw-json-text" name="aif-raw-json">
+
+             <?= $post->post_content ?>
+
+        </textarea>
+
+            <input id="aif-save-raw-json" name="aif-save-raw-json" type="hidden" value="false">
+
+
+        </div>
+    </div>
+    <?php
+
+    exit();
+}
 $editor_settings = array('textarea_name' => 'description',
     'quicktags' => false,
     'media_buttons' => false,
@@ -31,7 +61,7 @@ $editor_settings = array('textarea_name' => 'description',
                         <h6>English</h6>
                     </td>
                     <td>
-                        <h6><label for="aif-trans-<?= $key ?>"></label></h6>
+                        <h6><label for="aif-trans-<?= $key ?>">Translation</label></h6>
                     </td>
                     <td></td>
                 </tr>
@@ -61,4 +91,26 @@ $editor_settings = array('textarea_name' => 'description',
 
         </div>
     <?php endforeach; ?>
+
+    <div class="raw-json-edit item">
+
+        <input type="button" class="btn aif-admin-edit-json" value="edit raw json">
+        <input type="button" class="btn aif-admin-hide-json" value="hide">
+        <input type="button" class="btn aif-admin-save-json" value="save">
+        <span class="aif-raw-json-save-rem">You will also need to press update to save your changes.
+            This will ignore any edits above - <a id="aif-raw-json-cancel">Cancel</a>
+        </span>
+        <br>
+        <br>
+        <textarea class="aif-raw-json-text" name="aif-raw-json">
+
+             <?= $post->post_content ?>
+
+        </textarea>
+
+        <input id="aif-save-raw-json" name="aif-save-raw-json" type="hidden" value="false">
+
+
+    </div>
+
 </div>
