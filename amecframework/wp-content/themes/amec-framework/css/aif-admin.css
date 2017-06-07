@@ -92,6 +92,9 @@
     font-size: 0.8rem; }
     #aif_translation_widget .raw-json-edit .aif-raw-json-save-rem a {
       cursor: pointer; }
+  #aif_translation_widget .raw-json-edit .aif-raw-json-fail-parse {
+    display: none;
+    color: darkred; }
   #aif_translation_widget th {
     background-color: #00a1f6;
     color: #fff; }

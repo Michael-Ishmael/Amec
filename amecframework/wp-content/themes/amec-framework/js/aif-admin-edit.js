@@ -152,6 +152,7 @@ jQuery(document).ready(
             cont.find('.aif-admin-save-json').show();
             cont.find('.aif-raw-json-save-rem').hide();
             cont.find('.aif-raw-json-text').show();
+            cont.find('.aif-raw-json-fail-parse').hide();
 
 
         });
@@ -164,19 +165,35 @@ jQuery(document).ready(
             cont.find('.aif-admin-save-json').hide();
             cont.find('.aif-raw-json-text').hide();
             cont.find('.aif-raw-json-save-rem').hide();
+            cont.find('.aif-raw-json-fail-parse').hide();
 
         });
 
         $('#aif_translation_widget').find('.aif-admin-save-json').click(function(e){
 
             var cont = $(e.target).closest('div');
-            cont.find('.aif-admin-edit-json').show();
-            cont.find('.aif-admin-hide-json').hide();
-            cont.find('.aif-admin-save-json').hide();
-            cont.find('.aif-raw-json-save-rem').show();
-            cont.find('#aif-save-raw-json').val('true');
 
-            cont.find('.aif-raw-json-text').hide();
+
+
+            var parsed = true;
+            var newJson = cont.find('.aif-raw-json-text').val();
+            try{
+                JSON.parse(newJson);
+            } catch(ex){
+                cont.find('#aif-raw-json-fail-msg').html(ex.message);
+                cont.find('.aif-raw-json-fail-parse').show();
+                parsed = false;
+            }
+            if(parsed){
+                cont.find('.aif-raw-json-fail-parse').hide();
+                cont.find('.aif-admin-edit-json').show();
+                cont.find('.aif-admin-hide-json').hide();
+                cont.find('.aif-admin-save-json').hide();
+                cont.find('.aif-raw-json-save-rem').show();
+                cont.find('#aif-save-raw-json').val('true');
+                cont.find('.aif-raw-json-text').hide();
+            }
+
 
 
         });
@@ -189,6 +206,7 @@ jQuery(document).ready(
             cont.find('.aif-admin-save-json').hide();
             cont.find('.aif-raw-json-text').hide();
             cont.find('.aif-raw-json-save-rem').hide();
+            cont.find('.aif-raw-json-fail-parse').hide();
             cont.find('#aif-save-raw-json').val('false');
 
 
