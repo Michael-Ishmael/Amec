@@ -28,8 +28,8 @@
                                      ng-class="[av.getColorClass('background', $index), {'selected' : fw.selected}]"  >
 
                                     <div class="fw-load" ng-class="[av.getColorClass('background-dark', $index), {'loading': av.loadingFramework}]" ng-click="av.loadSelectedFramework()">
-                                        <div class="load-text" ng-bind-html="av.vs.getCopyForKey('AC_LDT', 'Load')"></div>
-                                        <div class="loading-text" ng-bind-html="av.vs.getCopyForKey('AC_LDG', 'Loading...')"></div>
+                                        <div class="load-text" ng-bind-html="av.vs.getCopyForKey('AC_LDT', 'Load', true)"></div>
+                                        <div class="loading-text" ng-bind-html="av.vs.getCopyForKey('AC_LDG', 'Loading...', true)"></div>
                                     </div>
 
                                     <div class="fw-controls">
