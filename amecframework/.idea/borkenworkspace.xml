@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7bfbc58a-709e-4cc2-9ed9-31c62285d5af" name="Default" comment="Fixed PDF formatting">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Notes" afterPath="$PROJECT_DIR$/../Notes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/debug.log" afterPath="$PROJECT_DIR$/wp-content/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" afterPath="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/debug.log" afterPath="$PROJECT_DIR$/wp-content/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html" />
+>>>>>>> master
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" afterPath="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js.map" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+<<<<<<< HEAD
+    <splitter split-orientation="horizontal" split-proportion="0.5851805">
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.61100745">
+>>>>>>> master
+      <split-first>
+        <leaf>
+          <file leaf-file-name="AccountViewCtrl.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.ts">
+              <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+                <state relative-caret-position="493">
+                  <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+>>>>>>> master
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ViewService.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts">
+              <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+                <state relative-caret-position="382">
+                  <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+=======
+                <state relative-caret-position="272">
+                  <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+>>>>>>> master
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+<<<<<<< HEAD
+          <file leaf-file-name="AppCtrl.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="500">
+                  <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="160" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#1086#1146#0" expanded="false" />
+                    <element signature="e#1720#4318#0" expanded="false" />
+                  </folding>
+=======
+          <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="107">
+                  <caret line="42" column="83" lean-forward="true" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+                  <folding />
+>>>>>>> master
+                </state>
+              </provider>
+            </entry>
+          </file>
+<<<<<<< HEAD
+          <file leaf-file-name="AifData.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="244">
+                  <caret line="215" column="51" lean-forward="true" selection-start-line="215" selection-start-column="51" selection-end-line="215" selection-end-column="51" />
+=======
+          <file leaf-file-name="AppCtrl.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="154" column="71" lean-forward="false" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="93" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoginCtrl.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="147">
+                  <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+>>>>>>> master
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+<<<<<<< HEAD
+        <leaf>
+          <file leaf-file-name="formatting.txt" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="435">
+                  <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+=======
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="formatting.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-42">
+                  <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+>>>>>>> master
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+<<<<<<< HEAD
+=======
+          <file leaf-file-name="AifData.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2207">
+                  <caret line="284" column="16" lean-forward="true" selection-start-line="284" selection-start-column="16" selection-end-line="284" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+>>>>>>> master
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>columns</find>
+      <find>getdefault</find>
+      <find>before</find>
+      <find>_show</find>
+      <find>setupTether</find>
+      <find>destroy</find>
+      <find>reset</find>
+      <find>rp.</find>
+      <find>formrp.</find>
+      <find>formReg</find>
+      <find>reset_po</find>
+      <find>account-l</find>
+      <find>rc.</find>
+      <find>displayControls</find>
+      <find>lead</find>
+      <find>resetViews</find>
+      <find>postprocess</find>
+      <find>text</find>
+      <find>quicktag</find>
+      <find>save</find>
+      <find>tinymce</find>
+      <find>Got it</find>
+      <find>reminder</find>
+      <find>localhost</find>
+      <find />
+      <find>$sce</find>
+      <find>createMessage</find>
+<<<<<<< HEAD
+=======
+      <find>ng-bind-html=&quot;ac.vs.getCopyForKey(.+?)&quot;&gt;</find>
+>>>>>>> master
+    </findStrings>
+    <replaceStrings>
+      <replace>printableFrameworkSummary</replace>
+      <replace>fp.</replace>
+      <replace>formFp.</replace>
+      <replace>formRp</replace>
+      <replace>rp.</replace>
+      <replace>&gt;\n{{ ac.vs.getCopyForKey$1  }}</replace>
+      <replace>&gt;\n{{ lc.vs.getCopyForKey$1  }}</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/generate-pdf.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/tether-shepherd/shepherd.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/inputGrid.html" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/_all.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/userScreens.html" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AifHttpInterceptor.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/forgotPassword.html" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/ResetPasswordCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/resetPassword.html" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/template-framework-page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/aif-admin-edit.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/aif-admin-edit.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/aif-admin-edit.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-app.scss" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-admin.scss" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
+=======
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html" />
+>>>>>>> master
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="1e95c145-57c0-4322-a996-0fb03a0ec88e" name="localhost" port="8888" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+<<<<<<< HEAD
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+=======
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+>>>>>>> master
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> master
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="models" />
+=======
+              <option name="myItemId" value="views" />
+>>>>>>> master
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="includes" />
+=======
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+>>>>>>> master
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="plugins" />
+=======
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amecframework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amec-framework" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+>>>>>>> master
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+<<<<<<< HEAD
+      <pane id="Scope" />
+=======
+>>>>>>> master
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+<<<<<<< HEAD
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+=======
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+>>>>>>> master
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes" />
+      <recent name="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/tether-shepherd" />
+      <recent name="$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7bfbc58a-709e-4cc2-9ed9-31c62285d5af" name="Default" comment="" />
+      <created>1494534508198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1494534508198</updated>
+      <workItem from="1494534510054" duration="1207000" />
+      <workItem from="1494536677949" duration="8000" />
+      <workItem from="1494536703244" duration="1092000" />
+      <workItem from="1494538124803" duration="5026000" />
+      <workItem from="1495521846413" duration="5067000" />
+      <workItem from="1495581324574" duration="6462000" />
+      <workItem from="1496226658484" duration="36380000" />
+      <workItem from="1496652049892" duration="7733000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1496734561086" duration="5651000" />
+>>>>>>> master
+    </task>
+    <task id="LOCAL-00001" summary="Completed Forgotten Password flow">
+      <created>1495661880984</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1495661880984</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added translation editor">
+      <created>1496336663435</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496336663435</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added translation editor">
+      <created>1496336691089</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496336691089</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="91522000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23680556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="97173000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> master
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33591482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1732817" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1732817" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33591482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/Application.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/_all.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/_all.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowStep.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowStep.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifUser.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifUser.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifFramework.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowInput.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowRow.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/WorkflowRow.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AccountService.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AccountService.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AifService.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AifService.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/UserRepository.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/AifHttpInterceptor.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IAifScope.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IAifScope.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IFrameworkRepository.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IUserRepository.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IUserRepository.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IAifService.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/interfaces/IAifService.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/RegisterCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/RegisterCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/SaveAsCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/SaveAsCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkSummaryCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkSummaryCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputTileCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputTileCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/ResetPasswordCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/ResetPasswordCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.js" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.js.map" />
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/UserScreensCtrl.js" />
+      </list>
+    </option>
+    <option name="configsExcludedFiles">
+      <set>
+        <option value="$PROJECT_DIR$/wp-content/themes/amec-framework/js/build" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Completed Forgotten Password flow" />
+    <MESSAGE value="Added translation editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added translation editor" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="41" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="wp-login.php">
+        <watch expression="$_REQUEST['key']" />
+      </configuration>
+      <configuration name="post.php">
+        <watch expression="wp_unslash($data['post_content'])" language="PHP" />
+        <watch expression="json_decode($data['post_content'])" language="PHP" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/uninstall.php">
+=======
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/compat3x/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-embed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wordpress/plugin.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wordpress/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729">
+          <caret line="314" column="55" lean-forward="true" selection-start-line="314" selection-start-column="55" selection-end-line="314" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wpview/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2007">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/tiny_mce_popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/wp-tinymce.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wptextpattern/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-128">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/template-framework-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/general-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="3056" column="0" lean-forward="false" selection-start-line="3056" selection-start-column="0" selection-end-line="3056" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="58" column="11" lean-forward="false" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-hook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2479">
+          <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/plugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/formatting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="3967" column="0" lean-forward="false" selection-start-line="3967" selection-start-column="0" selection-end-line="3967" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-admin/js/editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5861">
+          <caret line="361" column="0" lean-forward="true" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-admin/includes/noop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="91" column="9" lean-forward="false" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/compat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="278" column="13" lean-forward="false" selection-start-line="278" selection-start-column="13" selection-end-line="278" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-admin.scss" />
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/FrameworkRepository.ts">
+>>>>>>> master
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="40" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="386">
+          <caret line="965" column="0" lean-forward="false" selection-start-line="965" selection-start-column="0" selection-end-line="965" selection-end-column="0" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="537">
+          <caret line="275" column="13" lean-forward="true" selection-start-line="275" selection-start-column="13" selection-end-line="275" selection-end-column="13" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/compat3x/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-embed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="58" column="60" lean-forward="false" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="68" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/aif-admin-edit.js" />
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/aif-admin-edit.php" />
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wordpress/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729">
+          <caret line="314" column="55" lean-forward="true" selection-start-line="314" selection-start-column="55" selection-end-line="314" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/js/tinymce/plugins/wpview/plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2007">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+=======
+        <state relative-caret-position="585">
+          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/inputGrid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/listInputTile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/userScreens.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/saveAs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/resetPassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="40" lean-forward="false" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2479">
+          <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+=======
+        <state relative-caret-position="924">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkSummaryCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputGridCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1170">
+          <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="56" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-5861">
+          <caret line="361" column="0" lean-forward="true" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
+=======
+        <state relative-caret-position="-42">
+          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="366">
+          <caret line="91" column="9" lean-forward="false" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+=======
+        <state relative-caret-position="175">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="220">
+          <caret line="278" column="13" lean-forward="false" selection-start-line="278" selection-start-column="13" selection-end-line="278" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/loop-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#script#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/custom-ajax-auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="n#ajax_is_logged_in#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_logout#0;n#!!top" expanded="false" />
+            <element signature="n#auth_user_logged_in#0;n#!!top" expanded="false" />
+            <element signature="n#do_password_lost#0;n#!!top" expanded="false" />
+            <element signature="n#replace_retrieve_password_message#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="2363" column="8" lean-forward="false" selection-start-line="2363" selection-start-column="8" selection-end-line="2363" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-admin.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+=======
+        <state relative-caret-position="2207">
+          <caret line="284" column="16" lean-forward="true" selection-start-line="284" selection-start-column="16" selection-end-line="284" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="22599" column="0" lean-forward="false" selection-start-line="22599" selection-start-column="0" selection-end-line="22599" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/build/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="1039" column="8" lean-forward="false" selection-start-line="1039" selection-start-column="8" selection-end-line="1039" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/libs/angular/angular.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="1490" column="8" lean-forward="false" selection-start-line="1490" selection-start-column="8" selection-end-line="1490" selection-end-column="8" />
+>>>>>>> master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="202">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="40" selection-end-column="48" />
+=======
+        <state relative-caret-position="192">
+          <caret line="154" column="71" lean-forward="false" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="93" />
+>>>>>>> master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/css/aif-app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="965" column="0" lean-forward="false" selection-start-line="965" selection-start-column="0" selection-end-line="965" selection-end-column="0" />
+          <folding>
+            <element signature="e#2862#3118#0" expanded="false" />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/directives/AccountDirectives.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="275" column="13" lean-forward="true" selection-start-line="275" selection-start-column="13" selection-end-line="275" selection-end-column="13" />
+          <folding>
+            <marker date="1496665954000" expanded="true" signature="5570:5576" ph="{...}" />
+            <marker date="1496665954000" expanded="true" signature="8627:8716" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/registerReminder.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+=======
+        <state relative-caret-position="493">
+          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+>>>>>>> master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/amec-interactive-framework.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="58" column="60" lean-forward="false" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="68" />
+          <folding>
+            <element signature="n#aif_register_api_hooks#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/aif-admin-edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding>
+            <element signature="e#899#2401#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/amec-interactive-framework/includes/aif-admin-edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/includes/amec-aif.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-471">
+          <caret line="95" column="26" lean-forward="true" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/frameworkSummary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/inputGrid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/listInputTile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/userScreens.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/saveAs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/resetPassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="40" lean-forward="false" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/CreateFrameworkCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/FrameworkSummaryCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/InputGridCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AccountViewCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/AppCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="160" selection-end-column="9" />
+          <folding>
+            <element signature="e#1086#1146#0" expanded="false" />
+            <element signature="e#1720#4318#0" expanded="false" />
+          </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/controllers/LoginCtrl.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="42" column="83" lean-forward="true" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+          <folding />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/services/ViewService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/models/AifData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="215" column="51" lean-forward="true" selection-start-line="215" selection-start-column="51" selection-end-line="215" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/amec-framework/js/app/views/formatting.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
