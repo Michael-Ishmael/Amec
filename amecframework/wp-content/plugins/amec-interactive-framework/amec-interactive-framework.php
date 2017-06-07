@@ -103,12 +103,6 @@ function aif_save_translate_metabox( $data, $postarr) {
 
     wp_verify_nonce(plugin_basename(__FILE__), 'aif_translation_widget');
 
-    //$post = get_post($post_id);
-
-    $copy = json_decode(wp_unslash($data['post_content']), true);
-
-    if(! isset($copy)) return $data;
-
     $updated = false;
 
     if(isset($_POST['aif-save-raw-json']) && $_POST['aif-save-raw-json'] == 'true' && isset($_POST['aif-raw-json'])){
@@ -119,6 +113,11 @@ function aif_save_translate_metabox( $data, $postarr) {
         }
 
     } else {
+
+        $copy = json_decode(wp_unslash($data['post_content']), true);
+
+        if(! isset($copy)) return $data;
+
         foreach ($_POST as $key => $value){
 
             if ( strpos($key, 'aif-trans-') !== false ){
